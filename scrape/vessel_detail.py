@@ -3,9 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-url = 'https://www.vesselfinder.com/vessels/PRELUDE-IMO-9648714-MMSI-503000101'
-
-
 def get_soup_using_selenium(url: str, timeout: int = 10) -> BeautifulSoup:
     driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
     driver.get(url)
@@ -36,4 +33,35 @@ def get_imo_number(soup: BeautifulSoup) -> str:
 
 def get_vessel_particulars(soup: BeautifulSoup):
     minsoup = soup.find(string='Vessel Particulars').parent.next_sibling
-    imo_number = get_imo_number(minsoup)
+    dct = dict()
+
+    for attr in (
+        'IMO number',
+        'Vessel Name',
+        'Ship type',
+        'Flag',
+        'Gross Tonnage',
+        'Summer Deadweight (t)',
+        'Length Overall (m)',
+        'Beam (m)',
+        'Draught (m)',
+        'Year of Built',
+        'TEU',
+        'Crude',
+        'Grain',
+        'Bale',
+    ):
+        value = str(minsoup.find(string=attr).parent.next_sibling.string)
+        if value in ('-', ):
+            dct[attr] = None
+        else:
+            dct[attr] = value
+    if not is_imo_number(dct['IMO number']):
+        print('warning! not imo number: ', dct['IMO number'])
+    return dct
+
+
+if __name__ == '__main__':
+    url = 'https://www.vesselfinder.com/vessels/PRELUDE-IMO-9648714-MMSI-503000101'
+    soup = get_soup_using_selenium(url)
+    print(get_vessel_particulars(soup))
