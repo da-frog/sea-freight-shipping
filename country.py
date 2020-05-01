@@ -5,6 +5,7 @@ _countries = []
 _country_names = []
 _country_names_lower = []
 
+
 def ensure_loaded():
     if not _countries:
         load_countries()
