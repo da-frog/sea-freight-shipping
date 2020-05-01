@@ -11,5 +11,5 @@ def check_last_git(number: int):
     number = number//10
     z1 = number
     sum = z1+(2*z2)+(3*z3)+(4*z4)+(5*z5)+(6*z6)
-    checkdigit = sum%11
+    checkdigit = (sum%11)%10
     return checkdigit
