@@ -1,4 +1,5 @@
 from typing import Callable
+import time
 
 import requests
 from bs4 import BeautifulSoup
@@ -40,7 +41,23 @@ def get_port_detail(soup: BeautifulSoup) -> dict:
 
 
 if __name__ == '__main__':
-    res = requests.get('https://www.searates.com/port/durres_al.htm')
-    soup = BeautifulSoup(res.text, 'html.parser')
-    detail = get_port_detail(soup)
-    print(detail)
+    import csv
+
+    dicts = []
+    with open('../data/port-link.text', 'r') as f:
+        links = f.read().splitlines()
+
+    for i, link in enumerate(links):
+        if i > 50:
+            break
+        res = requests.get(link)
+        soup = BeautifulSoup(res.text, 'html.parser')
+        detail = get_port_detail(soup)
+        dicts.append(detail)
+        print(detail)
+        time.sleep(3)
+
+    with open('test_ports.txt', 'w') as f:
+        writer = csv.DictWriter(f, dicts[0].keys())
+        writer.writeheader()
+        writer.writerows(dicts)
