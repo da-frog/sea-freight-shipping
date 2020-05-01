@@ -1,4 +1,4 @@
-def check_last_git(number: int):
+def get_check_digit(number: int):
     z6 = number % 10
     number = number//10
     z5 = number % 10

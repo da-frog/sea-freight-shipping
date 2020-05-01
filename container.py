@@ -1,22 +1,59 @@
 import csv
+import random
 
-if __name__ == '__main__':
 
-    with open('numbers.txt', 'r') as f:
-        numbers = map(int, f.read().splitlines())
+data = []
 
+MIN_NUM = 106300
+MAX_NUM = 965999
+
+from check_n_rand.check_digits import get_check_digit
+
+
+def ensure_loaded():
+    global data
+    if not data:
+        load_data()
+
+
+def load_data():
+    global data
+    data = []
     with open('data/da-base-OLTP - ContainerModel.csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)
-        lst = []
         for row in reader:
-            lst.append(row)
-        for number in numbers:
-            found = False
-            print(number, end=' ')
-            for row in lst:
-                if int(row['Serial Number Range Start']) <= number <= int(row['Serial Number Range End']):
-                    print(row['ISO Type Code'], end=' ')
-                    found = True
-            print()
-            if not found:
-                print('not found for number: ' + str(number))
+            data.append(row)
+
+
+def generate_container_instance(n: int):
+    ensure_loaded()
+    instances = []
+    while len(instances) < n:
+        number = random.randrange(MIN_NUM, MAX_NUM + 1)
+        choices = []
+        for row in data:
+            if int(row['Serial Number Range Start']) <= number <= int(row['Serial Number Range End']):
+                # print(number, end=' ')
+                instance = [row['Owner Code'], number, get_check_digit(number), row['ISO Size Code'], row['ISO Type Code']]
+                choices.append(instance)
+                # print(instance, end=' ')
+        if not choices:
+            continue
+        instances.append(random.choice(choices))
+        # print()
+    return instances
+
+
+def save_to_file(filename: str, lst):
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(','.join(['Owner Code', 'Serial Number', 'Check Digit', 'ISO Size Code', 'ISO Type Code']))
+        f.write('\n')
+        for row in lst:
+            f.write(','.join(map(str, row)))
+            f.write('\n')
+
+
+if __name__ == '__main__':
+    i = generate_container_instance(5000)
+    save_to_file('container.csv', i)
+    # print(i)
