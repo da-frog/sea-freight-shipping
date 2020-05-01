@@ -14,7 +14,7 @@ def ensure_loaded():
 
 
 def load_countries():
-    global _countries
+    global _countries, _country_names, _country_names_lower
     _countries = []
     with open('data/ISO 3166 (countries).csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)

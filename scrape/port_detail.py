@@ -1,13 +1,19 @@
 from typing import Callable
 import time
+import csv
+from itertools import islice
 
 import requests
 from bs4 import BeautifulSoup
+
+from city import is_country, is_city
 
 
 def find_address(soup: BeautifulSoup):
     a = soup.find(**{'class': 'table table-bordered'}).find(string='Address:').parent
     address = str(a.next_sibling.next_sibling)[4:-5].split('<br/>')
+    if address == ['']:
+        address = None
     return address
 
 
@@ -40,24 +46,67 @@ def get_port_detail(soup: BeautifulSoup) -> dict:
     return dct
 
 
-if __name__ == '__main__':
-    import csv
+def parse_address(address: list) -> dict:
+    dct = {}
+    if address is None:
+        return dct
 
+    for item in reversed(address):
+        if dct.get('Country') is None and is_country(item):
+            dct['Country'] = item
+        elif dct.get('City') is None and is_city(item):
+            dct['City'] = item
+        elif dct.get('Address Line 2') is None:
+            if item != address[-1]:
+                dct['Address Line 2'] = item
+        elif dct.get('Address Line 1') is None:
+            dct['Address Line 1'] = item
+        else:
+            print("ERRRRRRRRRR")
+
+    return dct
+
+
+def scrape_port_(link: str) -> dict:
+    res = requests.get(link)
+    soup = BeautifulSoup(res.text, 'html.parser')
+
+    dct = get_port_detail(soup)
+
+    address_dct = parse_address(dct['Address'])
+    dct.update(address_dct)
+
+    port_name = soup.find('div', class_='page-heading').string.split(' (')[0]
+
+    city_name, tmp = soup.find('div', class_='page-heading').string[8:].split(' (')
+    country_name = tmp[:-1]
+    if dct.get('City') is None and is_city(port_name):
+        dct['City'] = port_name
+    if dct.get('Country') is None and is_country(country_name):
+        dct['Country'] = country_name
+    return dct
+
+
+def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3):
     dicts = []
-    with open('../data/port-link.text', 'r') as f:
+    with open(input_file, 'r') as f:
         links = f.read().splitlines()
 
-    for i, link in enumerate(links):
-        if i > 50:
-            break
-        res = requests.get(link)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        detail = get_port_detail(soup)
+    with open(output_file, 'w', newline='') as csvfile:
+
+        detail = scrape_port_(links[0])
         dicts.append(detail)
         print(detail)
-        time.sleep(3)
-
-    with open('test_ports.txt', 'w') as f:
-        writer = csv.DictWriter(f, dicts[0].keys())
+        writer = csv.DictWriter(csvfile, detail.keys())
         writer.writeheader()
-        writer.writerows(dicts)
+
+        for link in islice(links, start+1, stop):
+            detail = scrape_port_(link)
+            dicts.append(detail)
+            print(detail)
+            writer.writerow(detail)
+            time.sleep(sleeptime)
+
+
+if __name__ == '__main__':
+    scrape_ports('../data/port-link.text', 'test_ports.txt', 1, 20, 1)

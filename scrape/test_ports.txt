@@ -1,0 +1,19 @@
+Port Authority:,Phone:,Fax:,800 Number:,Email:,Web Site:,Latitude:,Longitude:,UN/LOCODE:,Port Type:,Port Size:,Max Draft:,Address,Country,City,Address Line 2,Address Line 1
+Shengjin Port Authority,,,,,,41º 49' 0'' N,19º 36' 0'' E,,Harbor,Small, m,"['Shengjin', 'Albania']",Albania,,Shengjin,
+,,,,,,40º 26' 59'' N,19º 29' 54'' E,,,, m,,Albania,,,
+Vlore Drejtoria e Portit Detar,,,,porti-vlore@aul.com.al,,40º 29' 48'' N,19º 27' 31'' E,,Seaport,Small, m,['Albania'],Albania,,,
+Entreprise Portuaire d'Alger,213 21 423614,213 21 423603,,epal@portalger.com.dz,www.portalger.com.dz,36º 47' 9'' N,3º 3' 54'' E,,Deepwater Seaport,Large, m,"[""02 Rue d'Angkor"", 'BP 259', 'Algiers, Gare 259', 'Algeria']",Algeria,,"Algiers, Gare 259",BP 259
+,,,,,,36º 46' 52'' N,3º 3' 49'' E,,,, m,,Algeria,,,
+Entreprise Portuaire de Annaba,213 38 86 3143,213 38 86 54 15,,epan@annaba-port.com,www.annaba-port.com,36º 54' 29'' N,7º 46' 15'' E,,Seaport,Medium, m,"['Mole Cigogne', 'Quai Nord', 'Annaba 1232 - 23000', 'Algeria']",Algeria,,Annaba 1232 - 23000,Quai Nord
+Entreprise Portuaire d'Arzew,213 41 477127,213 41 477985,,,,35º 49' 23'' N,0º -17' -53'' W,,Seaport,Small, m,"['BP 46', '7 Larbi Tebessi', 'Arzew 31200', 'Algeria']",Algeria,,Arzew 31200,7 Larbi Tebessi
+,,,,,,35º 47' 43'' N,0º -11' -59'' W,,,, m,,Algeria,,,
+Enreprise Portuaire de Bejaia,213 34 21 18 07,213 34 20 14 88,,portbj@portdebejaia.dz,www.portdebejaia.com.dz,36º 45' 0'' N,5º 4' 34'' E,,Deepwater Seaport,Large, m,"['13, avenue des freres Amrani', 'Bejaia 06000', 'Algeria']",Algeria,,Bejaia 06000,"13, avenue des freres Amrani"
+,,,,,,35º 10' 12'' N,-1º -13' -47'' W,,,, m,,Algeria,,,
+Entreprise Portuaire de Beni Saf,213 43 225468,,,,,35º 17' 60'' N,-1º -22' -59'' W,,Harbor,Small, m,"['Route du Port', 'Beni Saf', 'Algeria']",Algeria,,Beni Saf,Route du Port
+,,,,,,36º 36' 0'' N,2º 10' 59'' E,,Harbor,Small, m,"['Cherchell', 'Algeria']",Algeria,,Cherchell,
+,,,,,,37º 2' 52'' N,6º 32' 16'' E,,Harbor,Small, m,"['Collo', 'Algeria']",Algeria,,Collo,
+Entreprise Portuaire de Dellys,213 21 429377,,,,,36º 55' 0'' N,3º 55' 0'' E,,Harbor,Small, m,"['Dellys', 'Algeria']",Algeria,,Dellys,
+Entreprise Portuaire de Djen Djen,213 034 44 65 64,213 034 44 52 60,,epjdjendjen@wissal.dz,www.djendjen-port.com.dz,36º 49' 0'' N,5º 52' 59'' E,,Seaport,Small, m,"['BP 87', 'Jijel 18000', 'Algeria']",Algeria,,Jijel 18000,BP 87
+Enterprise Portuaire de Ghazaouet,213 43 323345,213 43 326255,,,,35º 6' 0'' N,-1º -52' 0'' W,,Seaport,Small, m,"['BP 217', 'Ghazaouet 13400', 'Algeria']",Algeria,,Ghazaouet 13400,BP 217
+Entreprise Portuaire de Jijel,213 34 965334,,,,,36º 49' 28'' N,5º 45' 58'' E,,Harbor,Small, m,"['BP 87', 'Jijel', 'Algeria']",Algeria,Jijel,BP 87,
+,,,,,,35º 55' 59'' N,0º 4' 59'' E,,,, m,,Algeria,,,
