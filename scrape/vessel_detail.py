@@ -32,7 +32,7 @@ def get_imo_number(soup: BeautifulSoup) -> str:
 
 
 def get_vessel_particulars(soup: BeautifulSoup):
-    minsoup = soup.find(string='Vessel Particulars').parent.next_sibling
+    minsoup = soup.find(string='Vessel Particulars').parent.parent.find(class_='tparams')
     dct = dict()
 
     for attr in (
@@ -56,12 +56,61 @@ def get_vessel_particulars(soup: BeautifulSoup):
             dct[attr] = None
         else:
             dct[attr] = value
+
     if not is_imo_number(dct['IMO number']):
         print('warning! not imo number: ', dct['IMO number'])
+    return dct
+
+
+def get_position_and_voyage_data(soup: BeautifulSoup):
+    minsoup = soup.find(string='Position & Voyage Data').parent.parent.find(class_='tparams')
+    dct = dict()
+
+    for attr in (
+        'AIS Type',
+        'Flag',
+        'Destination',
+        'ETA',
+        'IMO / MMSI',
+        'Callsign',
+        'Length / Beam',
+        'Current draught',
+        'Course / Speed',
+        'Coordinates',
+        # 'Status',
+        # 'Position received',
+    ):
+        value = str(minsoup.find(string=attr).parent.next_sibling.string)
+        if value in ('-', ):
+            dct[attr] = None
+        else:
+            dct[attr] = value
+
+    dct['MMSI'] = dct['IMO / MMSI'].split(' / ')[-1].strip()
+    dct['Length'], dct['Beam'] = dct['Length / Beam'].split(' / ')
+    dct['Course'], dct['Speed'] = dct['Course / Speed'].split(' / ')
+    lat, long = dct['Coordinates'].split('/')
+    num, direction = lat.split(' ')
+    if direction == 'S':
+        dct['latitude'] = '-' + num.strip()
+    elif direction == 'N':
+        dct['latitude'] = num.strip()
+    else:
+        print('FAILLLLLLL')
+    num, direction = long.split(' ')
+    if direction == 'W':
+        dct['longitude'] = '-' + num.strip()
+    elif direction == 'E':
+        dct['longitude'] = num.strip()
+    else:
+        print('FAILLLLLLL')
     return dct
 
 
 if __name__ == '__main__':
     url = 'https://www.vesselfinder.com/vessels/PRELUDE-IMO-9648714-MMSI-503000101'
     soup = get_soup_using_selenium(url)
-    print(get_vessel_particulars(soup))
+    dct = get_vessel_particulars(soup)
+    dct.update(**get_position_and_voyage_data(soup))
+    print(dct)
+
