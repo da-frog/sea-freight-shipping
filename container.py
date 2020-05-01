@@ -25,11 +25,21 @@ def load_data():
             data.append(row)
 
 
+def get_valid_serials(n: int):
+    ensure_loaded()
+    numbers = set()
+    while len(numbers) < n:
+        number = random.randrange(MIN_NUM, MAX_NUM + 1)
+        for row in data:
+            if int(row['Serial Number Range Start']) <= number <= int(row['Serial Number Range End']):
+                numbers.add(number)
+    return numbers
+
+
 def generate_container_instance(n: int):
     ensure_loaded()
     instances = []
-    while len(instances) < n:
-        number = random.randrange(MIN_NUM, MAX_NUM + 1)
+    for number in get_valid_serials(n):
         choices = []
         for row in data:
             if int(row['Serial Number Range Start']) <= number <= int(row['Serial Number Range End']):
