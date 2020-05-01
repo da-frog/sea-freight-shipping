@@ -13,7 +13,7 @@ letter_covert_table = {
 multiplication_factor = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]  # 2^Index
 
 
-def get_check_digit(owner_code: str,number: int):
+def get_check_digit(owner_code: str, number: int):
     number_list = str(number)
 
     # Step 1 covert text to value
@@ -32,7 +32,4 @@ def get_check_digit(owner_code: str,number: int):
     check_val = sum_val // 11
     check_val *= 11
     return sum_val - check_val
-
-
-print(get_check_digit("BICU", 123456))
 
