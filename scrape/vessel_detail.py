@@ -1,3 +1,6 @@
+import csv
+
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -113,4 +116,8 @@ if __name__ == '__main__':
     dct = get_vessel_particulars(soup)
     dct.update(**get_position_and_voyage_data(soup))
     print(dct)
+    with open('test.csv', 'w') as f:
+        writer = csv.DictWriter(f, dct.keys())
+        writer.writeheader()
+        writer.writerow(dct)
 
