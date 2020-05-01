@@ -22,7 +22,7 @@ def is_imo_number(imo_number: str) -> bool:
         sum_ = 0
         for i, c in enumerate(imo_number[:6]):
             sum_ += int(c) * (7 - i)
-        assert int(imo_number[6]) == sum_
+        assert imo_number[6] == str(sum_)[-1]
     except AssertionError:
         return False
     return True
