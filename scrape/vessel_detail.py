@@ -167,7 +167,7 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
                 time.sleep(3)
                 try:
                     print(f'scraping link {link}')
-                    detail = scrape_vessel_(link)
+                    detail = scrape_vessel_(link, driver)
                     print('All OK')
                 except Exception:
                     print('still failed')
