@@ -1,7 +1,7 @@
-from typing import Callable
-import time
 import csv
+import time
 from itertools import islice
+from typing import Callable
 
 import requests
 from bs4 import BeautifulSoup
@@ -94,15 +94,14 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
         links = f.read().splitlines()
 
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-
         detail = scrape_port_(links[start - 1])
         print(f'scraping link {links[start - 1]}')
         dicts.append(detail)
         print(detail)
-        writer = csv.DictWriter(csvfile, [
-            'Port Authority:', 'Phone:', 'Fax:', '800 Number:', 'Email:', 'Web Site:', 'Latitude:',
-            'Longitude:', 'UN/LOCODE:', 'Port Type:', 'Port Size:', 'Max Draft:', 'Address',
-            'Address Line 1', 'Address Line 2', 'Country', 'City'])
+        writer = csv.DictWriter(csvfile,
+                                ['Port Authority:', 'Phone:', 'Fax:', '800 Number:', 'Email:', 'Web Site:', 'Latitude:',
+                                 'Longitude:', 'UN/LOCODE:', 'Port Type:', 'Port Size:', 'Max Draft:', 'Address',
+                                 'Address Line 1', 'Address Line 2'])
         writer.writeheader()
 
         for i, link in enumerate(islice(links, start, stop)):
