@@ -181,3 +181,4 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
 if __name__ == '__main__':
     driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
     scrape_vessels('../data/Ship_link.txt', 'test_vessels.txt', 10, 20, 1, driver=driver)
+    driver.quit()
