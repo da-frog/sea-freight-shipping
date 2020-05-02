@@ -93,7 +93,7 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
     with open(input_file, 'r') as f:
         links = f.read().splitlines()
 
-    with open(output_file, 'w', newline='') as csvfile:
+    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
 
         detail = scrape_port_(links[start-1])
         print(f'scraping link {links[start-1]}')
