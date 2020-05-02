@@ -77,13 +77,15 @@ def scrape_port_(link: str) -> dict:
     dct.update(address_dct)
 
     port_name = soup.find('div', class_='page-heading').string.split(' (')[0]
-
-    city_name, tmp = soup.find('div', class_='page-heading').string[8:].split(' (')
-    country_name = tmp[:-1]
-    if dct.get('City') is None and is_city(port_name):
-        dct['City'] = port_name
-    if dct.get('Country') is None and is_country(country_name):
-        dct['Country'] = country_name
+    try:
+        city_name, tmp = soup.find('div', class_='page-heading').string[8:].split(' (')
+        country_name = tmp[:-1]
+        if dct.get('City') is None and is_city(port_name):
+            dct['City'] = port_name
+        if dct.get('Country') is None and is_country(country_name):
+            dct['Country'] = country_name
+    except ValueError:
+        pass
     return dct
 
 
