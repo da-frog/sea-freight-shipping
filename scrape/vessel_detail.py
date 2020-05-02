@@ -152,20 +152,14 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, *, 
         links = f.read().splitlines()
 
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-        detail = scrape_vessel_(links[start - 1])
-        print(f'scraping link {links[start - 1]}')
-        dicts.append(detail)
-        print(detail)
         writer = csv.DictWriter(csvfile, ['IMO number', 'Vessel Name', 'Ship type', 'Flag', 'Gross Tonnage',
                                           'Summer Deadweight (t)', 'Length Overall (m)', 'Beam (m)', 'Draught (m)',
                                           'Year of Built', 'TEU', 'Crude', 'Grain', 'Bale', 'AIS Type', 'Destination',
                                           'ETA', 'IMO / MMSI', 'Callsign', 'Length / Beam', 'Current draught',
                                           'Course / Speed', 'Coordinates', 'MMSI', 'Course', 'Speed', 'latitude',
                                           'longitude', 'Length', 'Beam'])
-        writer.writeheader()
-        writer.writerow(detail)
 
-        for i, link in enumerate(islice(links, start, stop)):
+        for i, link in enumerate(islice(links, start-1, stop)):
             print(f'scraping link {link}')
             j = 0
             s = 2
@@ -176,19 +170,21 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, *, 
                     detail = scrape_vessel_(link, driver)
                 except Exception:
                     if j < limit:
+                        print(f'fail#{j}, trying no position')
+                        try:
+                            detail = scrape_vessel_no_position(link, driver)
+                        except Exception:
+                            pass
+                        else:
+                            break
                         print(f'fail#{j}, trying again in {s} seconds')
                         time.sleep(s)
                         s += 1
                         continue
                     else:
-                        print(f'fail#{j}, trying no position')
-                        try:
-                            scrape_vessel_no_position(link, driver)
-                        except Exception:
-                            print(f'skipping, failed at around {start+i+1}')
-                            try_again = False
-                        else:
-                            break
+                        print(f'fail#{j}, aborting')
+                        print(f'skipping, failed at around {start+i+1}')
+                        try_again = False
                 else:
                     break
             else:
