@@ -87,13 +87,14 @@ def scrape_port_(link: str) -> dict:
     return dct
 
 
-def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3):
+def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3, limit: int = 3):
     """ Scrape from links in input_file from [start, stop] """
     dicts = []
     with open(input_file, 'r') as f:
         links = f.read().splitlines()
 
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+
         detail = scrape_port_(links[start - 1])
         print(f'scraping link {links[start - 1]}')
         dicts.append(detail)
@@ -101,12 +102,26 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
         writer = csv.DictWriter(csvfile,
                                 ['Port Authority:', 'Phone:', 'Fax:', '800 Number:', 'Email:', 'Web Site:', 'Latitude:',
                                  'Longitude:', 'UN/LOCODE:', 'Port Type:', 'Port Size:', 'Max Draft:', 'Address',
-                                 'Address Line 1', 'Address Line 2'])
+                                 'Address Line 1', 'Address Line 2', 'Country', 'City'])
         writer.writeheader()
 
-        for link in islice(links, start, stop):
+        for i, link in enumerate(islice(links, start, stop)):
             print(f'scraping link {link}')
-            detail = scrape_port_(link)
+            j = 0
+            s = 2
+            while True:
+                j += 1
+                try:
+                    detail = scrape_port_(link)
+                except Exception:
+                    if j < limit:
+                        print(f'fail#{j}, trying again in {s} seconds')
+                        time.sleep(s)
+                        s += 1
+                        continue
+                    else:
+                        print('fail#{j}, aborting')
+                        print(f'skipping, failed at around {start+i}')
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)
