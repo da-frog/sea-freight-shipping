@@ -44,7 +44,7 @@ def generate_container_instance(n: int):
         for row in data:
             if int(row['Serial Number Range Start']) <= number <= int(row['Serial Number Range End']):
                 # print(number, end=' ')
-                instance = [row['Owner Code'], number, get_check_digit(number), row['ISO Size Code'], row['ISO Type Code']]
+                instance = [row['Owner Code'], number, get_check_digit(row['Owner Code'], number), row['ISO Size Code'], row['ISO Type Code']]
                 choices.append(instance)
                 # print(instance, end=' ')
         if not choices:
