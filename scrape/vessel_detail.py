@@ -139,7 +139,13 @@ def scrape_vessel_(url: str, driver=None) -> dict:
     return dct
 
 
-def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3, driver=None, limit: int = 3):
+def scrape_vessel_no_position(url: str, driver=None) -> dict:
+    soup = get_soup_using_selenium(url, driver=driver)
+    dct = get_vessel_particulars(soup)
+    return dct
+
+
+def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, *, sleeptime: int = 3, driver=None, limit: int = 3):
     """ Scrape from links in input_file from [start, stop] """
     dicts = []
     with open(input_file, 'r') as f:
@@ -167,7 +173,7 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
             while try_again:
                 j += 1
                 try:
-                    detail = scrape_vessel_(link)
+                    detail = scrape_vessel_(link, driver)
                 except Exception:
                     if j < limit:
                         print(f'fail#{j}, trying again in {s} seconds')
@@ -175,9 +181,14 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
                         s += 1
                         continue
                     else:
-                        print(f'fail#{j}, aborting')
-                        print(f'skipping, failed at around {start+i+1}')
-                        try_again = False
+                        print(f'fail#{j}, trying no position')
+                        try:
+                            scrape_vessel_no_position(link, driver)
+                        except Exception:
+                            print(f'skipping, failed at around {start+i+1}')
+                            try_again = False
+                        else:
+                            break
                 else:
                     break
             else:
@@ -191,5 +202,19 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
 
 if __name__ == '__main__':
     driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
-    scrape_vessels('../data/Ship_link.txt', 'test_vessels.txt', 10, 20, 1, driver=driver)
+
+    scrape_vessels('../data/Ship_link.txt', 'test.csv', 555, 556, driver=driver)
+
+    # soup = get_soup_using_selenium('https://www.vesselfinder.com/vessels/RUHR-N-IMO-8410108-MMSI-0', driver=driver)
+    # dct = get_vessel_particulars(soup)
+    #
+    # with open('vessel-detail-200.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    #     writer = csv.DictWriter(csvfile, ['IMO number', 'Vessel Name', 'Ship type', 'Flag', 'Gross Tonnage',
+    #                                       'Summer Deadweight (t)', 'Length Overall (m)', 'Beam (m)', 'Draught (m)',
+    #                                       'Year of Built', 'TEU', 'Crude', 'Grain', 'Bale', 'AIS Type', 'Destination',
+    #                                       'ETA', 'IMO / MMSI', 'Callsign', 'Length / Beam', 'Current draught',
+    #                                       'Course / Speed', 'Coordinates', 'MMSI', 'Course', 'Speed', 'latitude',
+    #                                       'longitude', 'Length', 'Beam'])
+    #     writer.writeheader()
+    #     writer.writerow(dct)
     driver.quit()
