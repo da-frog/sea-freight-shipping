@@ -139,7 +139,7 @@ def scrape_vessel_(url: str, driver=None) -> dict:
     return dct
 
 
-def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3, driver=None):
+def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3, driver=None, limit: int = 3):
     """ Scrape from links in input_file from [start, stop] """
     dicts = []
     with open(input_file, 'r') as f:
@@ -160,19 +160,29 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
         writer.writerow(detail)
 
         for i, link in enumerate(islice(links, start, stop)):
-            try:
-                print(f'scraping link {link}')
-                detail = scrape_vessel_(link, driver)
-            except Exception:
-                print('failed, trying again in 3 seconds')
-                time.sleep(3)
+            print(f'scraping link {link}')
+            j = 0
+            s = 2
+            try_again = True
+            while try_again:
+                j += 1
                 try:
-                    print(f'scraping link {link}')
-                    detail = scrape_vessel_(link, driver)
-                    print('All OK')
+                    detail = scrape_vessel_(link)
                 except Exception:
-                    print('still failed')
-                    print(f'skipping, failed at around {start+i+1}')
+                    if j < limit:
+                        print(f'fail#{j}, trying again in {s} seconds')
+                        time.sleep(s)
+                        s += 1
+                        continue
+                    else:
+                        print(f'fail#{j}, aborting')
+                        print(f'skipping, failed at around {start+i+1}')
+                        try_again = False
+                else:
+                    break
+            else:
+                csvfile.write(f'DUMMY ROW for {link}\n')
+                continue
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)
