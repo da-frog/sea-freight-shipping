@@ -108,7 +108,8 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
             print(f'scraping link {link}')
             j = 0
             s = 2
-            while True:
+            try_again = True
+            while try_again:
                 j += 1
                 try:
                     detail = scrape_port_(link)
@@ -119,10 +120,14 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
                         s += 1
                         continue
                     else:
-                        print('fail#{j}, aborting')
-                        print(f'skipping, failed at around {start+i}')
+                        print(f'fail#{j}, aborting')
+                        print(f'skipping, failed at around {start+i+1}')
+                        try_again = False
                 else:
                     break
+            else:
+                csvfile.write(f'DUMMY ROW for {link}\n')
+                continue
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)
