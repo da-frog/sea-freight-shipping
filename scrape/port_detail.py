@@ -88,19 +88,22 @@ def scrape_port_(link: str) -> dict:
 
 
 def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3):
+    """ Scrape from links in input_file from [start, stop] """
     dicts = []
     with open(input_file, 'r') as f:
         links = f.read().splitlines()
 
     with open(output_file, 'w', newline='') as csvfile:
 
-        detail = scrape_port_(links[0])
+        detail = scrape_port_(links[start-1])
+        print(f'scraping link {links[start-1]}')
         dicts.append(detail)
         print(detail)
         writer = csv.DictWriter(csvfile, detail.keys())
         writer.writeheader()
 
-        for link in islice(links, start+1, stop):
+        for link in islice(links, start, stop):
+            print(f'scraping link {link}')
             detail = scrape_port_(link)
             dicts.append(detail)
             print(detail)
