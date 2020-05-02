@@ -122,6 +122,8 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
                     else:
                         print('fail#{j}, aborting')
                         print(f'skipping, failed at around {start+i}')
+                else:
+                    break
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)
