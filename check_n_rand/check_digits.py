@@ -13,7 +13,10 @@ letter_covert_table = {
 multiplication_factor = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]  # 2^Index
 
 
-def get_check_digit(owner_code: str, number: int):
+def get_check_digit(owner_code: str, number: int) -> int:
+    """
+    Calculate check digit for ISO
+    """
     number_list = str(number)
 
     # Step 1 covert text to value
@@ -29,7 +32,4 @@ def get_check_digit(owner_code: str, number: int):
               (int(number_list[2]) * multiplication_factor[6]) + (int(number_list[3]) * multiplication_factor[7]) +\
               (int(number_list[4]) * multiplication_factor[8]) + (int(number_list[5]) * multiplication_factor[9])
 
-    check_val = sum_val // 11
-    check_val *= 11
-    return sum_val - check_val
-
+    return sum_val % 11
