@@ -157,6 +157,7 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
                                           'Course / Speed', 'Coordinates', 'MMSI', 'Course', 'Speed', 'latitude',
                                           'longitude', 'Length', 'Beam'])
         writer.writeheader()
+        writer.writerow(detail)
 
         for i, link in enumerate(islice(links, start, stop)):
             try:
@@ -171,7 +172,7 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sle
                     print('All OK')
                 except Exception:
                     print('still failed')
-                    print(f'skipping, failed at around {start+i}')
+                    print(f'skipping, failed at around {start+i+1}')
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)

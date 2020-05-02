@@ -105,6 +105,7 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
                                  'Longitude:', 'UN/LOCODE:', 'Port Type:', 'Port Size:', 'Max Draft:', 'Address',
                                  'Address Line 1', 'Address Line 2', 'Country', 'City'])
         writer.writeheader()
+        writer.writerow(detail)
 
         for i, link in enumerate(islice(links, start, stop)):
             print(f'scraping link {link}')
