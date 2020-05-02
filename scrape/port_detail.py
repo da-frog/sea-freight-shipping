@@ -95,16 +95,30 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
 
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
 
-        detail = scrape_port_(links[start-1])
-        print(f'scraping link {links[start-1]}')
+        detail = scrape_port_(links[start - 1])
+        print(f'scraping link {links[start - 1]}')
         dicts.append(detail)
         print(detail)
-        writer = csv.DictWriter(csvfile, detail.keys())
+        writer = csv.DictWriter(csvfile, [
+            'Port Authority:', 'Phone:', 'Fax:', '800 Number:', 'Email:', 'Web Site:', 'Latitude:',
+            'Longitude:', 'UN/LOCODE:', 'Port Type:', 'Port Size:', 'Max Draft:', 'Address',
+            'Address Line 1', 'Address Line 2', 'Country', 'City'])
         writer.writeheader()
 
-        for link in islice(links, start, stop):
-            print(f'scraping link {link}')
-            detail = scrape_port_(link)
+        for i, link in enumerate(islice(links, start, stop)):
+            try:
+                print(f'scraping link {link}')
+                detail = scrape_port_(link)
+            except Exception:
+                print('failed, trying again in 3 seconds')
+                time.sleep(3)
+                try:
+                    print(f'scraping link {link}')
+                    detail = scrape_port_(link)
+                    print('All OK')
+                except Exception:
+                    print('still failed')
+                    print(f'skipping, failed at around {start+i}')
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)
@@ -112,4 +126,4 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
 
 
 if __name__ == '__main__':
-    scrape_ports('../data/port-link.text', 'test_ports.txt', 1, 20, 1)
+    scrape_ports('../data/port-link.text', '../data/port-details-1480-2219.csv', 1480, 2219, 5)
