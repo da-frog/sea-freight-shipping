@@ -1,17 +1,23 @@
 import csv
-
+import time
+from itertools import islice
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-def get_soup_using_selenium(url: str, timeout: int = 10) -> BeautifulSoup:
-    driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
-    driver.get(url)
-    WebDriverWait(driver, timeout)
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
-    driver.quit()
+def get_soup_using_selenium(url: str, timeout: int = 10, driver=None) -> BeautifulSoup:
+    if driver is None:
+        driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
+        driver.get(url)
+        WebDriverWait(driver, timeout)
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        driver.quit()
+    else:
+        driver.get(url)
+        WebDriverWait(driver, timeout)
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
     return soup
 
 
@@ -39,23 +45,23 @@ def get_vessel_particulars(soup: BeautifulSoup):
     dct = dict()
 
     for attr in (
-        'IMO number',
-        'Vessel Name',
-        'Ship type',
-        'Flag',
-        'Gross Tonnage',
-        'Summer Deadweight (t)',
-        'Length Overall (m)',
-        'Beam (m)',
-        'Draught (m)',
-        'Year of Built',
-        'TEU',
-        'Crude',
-        'Grain',
-        'Bale',
+            'IMO number',
+            'Vessel Name',
+            'Ship type',
+            'Flag',
+            'Gross Tonnage',
+            'Summer Deadweight (t)',
+            'Length Overall (m)',
+            'Beam (m)',
+            'Draught (m)',
+            'Year of Built',
+            'TEU',
+            'Crude',
+            'Grain',
+            'Bale',
     ):
         value = str(minsoup.find(string=attr).parent.next_sibling.string)
-        if value in ('-', ):
+        if value in ('-',):
             dct[attr] = None
         else:
             dct[attr] = value
@@ -70,54 +76,108 @@ def get_position_and_voyage_data(soup: BeautifulSoup):
     dct = dict()
 
     for attr in (
-        'AIS Type',
-        'Flag',
-        'Destination',
-        'ETA',
-        'IMO / MMSI',
-        'Callsign',
-        'Length / Beam',
-        'Current draught',
-        'Course / Speed',
-        'Coordinates',
-        # 'Status',
-        # 'Position received',
+            'AIS Type',
+            'Flag',
+            'Destination',
+            'ETA',
+            'IMO / MMSI',
+            'Callsign',
+            'Length / Beam',
+            'Current draught',
+            'Course / Speed',
+            'Coordinates',
+            # 'Status',
+            # 'Position received',
     ):
         value = str(minsoup.find(string=attr).parent.next_sibling.string)
-        if value in ('-', ):
+        if value in ('-',):
             dct[attr] = None
         else:
             dct[attr] = value
 
-    dct['MMSI'] = dct['IMO / MMSI'].split(' / ')[-1].strip()
-    dct['Length'], dct['Beam'] = dct['Length / Beam'].split(' / ')
-    dct['Course'], dct['Speed'] = dct['Course / Speed'].split(' / ')
-    lat, long = dct['Coordinates'].split('/')
-    num, direction = lat.split(' ')
-    if direction == 'S':
-        dct['latitude'] = '-' + num.strip()
-    elif direction == 'N':
-        dct['latitude'] = num.strip()
-    else:
-        print('FAILLLLLLL')
-    num, direction = long.split(' ')
-    if direction == 'W':
-        dct['longitude'] = '-' + num.strip()
-    elif direction == 'E':
-        dct['longitude'] = num.strip()
-    else:
-        print('FAILLLLLLL')
+    try:
+        dct['MMSI'] = dct['IMO / MMSI'].split(' / ')[-1].strip()
+    except Exception:
+        pass
+    try:
+        dct['Length'], dct['Beam'] = dct['Length / Beam'].split(' / ')
+    except Exception:
+        pass
+    try:
+        dct['Course'], dct['Speed'] = dct['Course / Speed'].split(' / ')
+    except Exception:
+        pass
+    try:
+        lat, long = dct['Coordinates'].split('/')
+        num, direction = lat.split(' ')
+
+        if direction == 'S':
+            dct['latitude'] = '-' + num.strip()
+        elif direction == 'N':
+            dct['latitude'] = num.strip()
+        else:
+            print('FAILLLLLLL lat')
+
+        num, direction = long.split(' ')
+        if direction == 'W':
+            dct['longitude'] = '-' + num.strip()
+        elif direction == 'E':
+            dct['longitude'] = num.strip()
+        else:
+            print('FAILLLLLLL long')
+    except Exception:
+        pass
     return dct
 
 
-if __name__ == '__main__':
-    url = 'https://www.vesselfinder.com/vessels/PRELUDE-IMO-9648714-MMSI-503000101'
-    soup = get_soup_using_selenium(url)
+def scrape_vessel_(url: str, driver=None) -> dict:
+    # url = 'https://www.vesselfinder.com/vessels/PRELUDE-IMO-9648714-MMSI-503000101'
+    soup = get_soup_using_selenium(url, driver=driver)
     dct = get_vessel_particulars(soup)
     dct.update(**get_position_and_voyage_data(soup))
     print(dct)
-    with open('test.csv', 'w') as f:
-        writer = csv.DictWriter(f, dct.keys())
-        writer.writeheader()
-        writer.writerow(dct)
+    return dct
 
+
+def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3, driver=None):
+    """ Scrape from links in input_file from [start, stop] """
+    dicts = []
+    with open(input_file, 'r') as f:
+        links = f.read().splitlines()
+
+    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+        detail = scrape_vessel_(links[start - 1])
+        print(f'scraping link {links[start - 1]}')
+        dicts.append(detail)
+        print(detail)
+        writer = csv.DictWriter(csvfile, ['IMO number', 'Vessel Name', 'Ship type', 'Flag', 'Gross Tonnage',
+                                          'Summer Deadweight (t)', 'Length Overall (m)', 'Beam (m)', 'Draught (m)',
+                                          'Year of Built', 'TEU', 'Crude', 'Grain', 'Bale', 'AIS Type', 'Destination',
+                                          'ETA', 'IMO / MMSI', 'Callsign', 'Length / Beam', 'Current draught',
+                                          'Course / Speed', 'Coordinates', 'MMSI', 'Course', 'Speed', 'latitude',
+                                          'longitude', 'Length', 'Beam'])
+        writer.writeheader()
+
+        for i, link in enumerate(islice(links, start, stop)):
+            try:
+                print(f'scraping link {link}')
+                detail = scrape_vessel_(link, driver)
+            except Exception:
+                print('failed, trying again in 3 seconds')
+                time.sleep(3)
+                try:
+                    print(f'scraping link {link}')
+                    detail = scrape_vessel_(link)
+                    print('All OK')
+                except Exception:
+                    print('still failed')
+                    print(f'skipping, failed at around {start+i}')
+            dicts.append(detail)
+            print(detail)
+            writer.writerow(detail)
+            time.sleep(sleeptime)
+
+
+if __name__ == '__main__':
+    driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
+    scrape_vessels('../data/Ship_link.txt', 'test_vessels.txt', 10, 20, 1, driver=driver)
