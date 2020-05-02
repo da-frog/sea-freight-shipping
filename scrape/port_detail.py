@@ -87,7 +87,7 @@ def scrape_port_(link: str) -> dict:
     return dct
 
 
-def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3):
+def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleeptime: int = 3, limit: int = 3):
     """ Scrape from links in input_file from [start, stop] """
     dicts = []
     with open(input_file, 'r') as f:
@@ -101,23 +101,28 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
         writer = csv.DictWriter(csvfile,
                                 ['Port Authority:', 'Phone:', 'Fax:', '800 Number:', 'Email:', 'Web Site:', 'Latitude:',
                                  'Longitude:', 'UN/LOCODE:', 'Port Type:', 'Port Size:', 'Max Draft:', 'Address',
-                                 'Address Line 1', 'Address Line 2'])
+                                 'Address Line 1', 'Address Line 2', 'Country', 'City'])
         writer.writeheader()
 
         for i, link in enumerate(islice(links, start, stop)):
-            try:
-                print(f'scraping link {link}')
-                detail = scrape_port_(link)
-            except Exception:
-                print('failed, trying again in 3 seconds')
-                time.sleep(3)
+            print(f'scraping link {link}')
+            j = 0
+            s = 2
+            while True:
+                j += 1
                 try:
-                    print(f'scraping link {link}')
                     detail = scrape_port_(link)
-                    print('All OK')
                 except Exception:
-                    print('still failed')
-                    print(f'skipping, failed at around {start+i}')
+                    if j < limit:
+                        print(f'fail#{j}, trying again in {s} seconds')
+                        time.sleep(s)
+                        s += 1
+                        continue
+                    else:
+                        print('fail#{j}, aborting')
+                        print(f'skipping, failed at around {start+i}')
+                else:
+                    break
             dicts.append(detail)
             print(detail)
             writer.writerow(detail)
@@ -125,4 +130,4 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
 
 
 if __name__ == '__main__':
-    scrape_ports('../data/port-link.text', '../data/port-details-1480-2219.csv', 1480, 2219, 5)
+    scrape_ports('../data/port-link.text', 'test_ports.txt', 1, 20, 1)
