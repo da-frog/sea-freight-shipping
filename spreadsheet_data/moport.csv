@@ -1,0 +1,1633 @@
+Port Key,Address Key,Port Name,Port Type,,unlocs,name,city,country,province
+1,,Ajman,sea,,AEAJM,Ajman,Ajman,United Arab Emirates,Ajman
+2,,Abu Dhabi,sea,,AEAUH,Abu Dhabi,Abu Dhabi,United Arab Emirates,Abu Z¸aby [Abu Dhabi]
+3,,Dubai,sea,,AEDXB,Dubai,Dubai,United Arab Emirates,Dubayy [Dubai]
+4,,Al Fujayrah,sea,,AEFJR,Al Fujayrah,Al Fujayrah,United Arab Emirates,Al Fujayrah
+5,,Jebel Ali,sea,,AEJEA,Jebel Ali,Jebel Ali,United Arab Emirates,Dubai
+6,,Jebel Dhanna,sea,,AEJED,Jebel Dhanna,Jebel Dhanna,United Arab Emirates,Abu Dhabi
+7,,Khor al Fakkan,sea,,AEKLF,Khor al Fakkan,Khor al Fakkan,United Arab Emirates,-
+8,,Port Rashid,sea,,AEPRA,Port Rashid,Port Rashid,United Arab Emirates,Dubai
+9,,Umm al Qaiwain,sea,,AEQIW,Umm al Qaiwain,Umm al Qaiwain,United Arab Emirates,Umm Al Quwain
+10,,Ras al Khaimah,sea,,AERKT,Ras al Khaimah,Ras al Khaimah,United Arab Emirates,Ras al Khaimah
+11,,Ar Ruways,sea,,AERUW,Ar Ruways,Ar Ruways,United Arab Emirates,Abu Dhabi
+12,,Sharjah,sea,,AESHJ,Sharjah,Sharjah,United Arab Emirates,Ash Shariqah [Sharjah]
+13,,Antigua,sea,,AGANU,Antigua,Antigua,Antigua and Barbuda,-
+14,,Saint John's,sea,,AGSJO,Saint John's,Saint John's,Antigua and Barbuda,Saint John
+15,,Blowing Point,sea,,AIBLP,Blowing Point,Blowing Point,Anguilla,-
+16,,Road Bay,sea,,AIRBY,Road Bay,Road Bay,Anguilla,-
+17,,Durres,sea,,ALDRZ,Durres,Durrës,Albania,-
+18,,Bonaire,sea,,ANBON,Bonaire,Bonaire,Netherlands Antilles,-
+19,,Curacao,sea,,ANCUR,Curacao,Curacao,Netherlands Antilles,Curaçao
+20,,Sint Eustatius (Antilles),sea,,ANEUX,Sint Eustatius (Antilles),Sint Eustatius (Antilles),Netherlands,Sint Maarten
+21,,Galisby,sea,,ANGSB,Galisby,Galisby,Netherlands Antilles,-
+22,,Philipsburg,sea,,ANPHI,Philipsburg,Philipsburg,Netherlands Antilles,Sint Maarten
+23,,St Maarten,sea,,ANSXM,St Maarten,St Maarten,Netherlands Antilles,-
+24,,Willemstad,sea,,ANWIL,Willemstad,Willemstad,Netherlands Antilles,Curaçao
+25,,Cabinda,sea,,AOCAB,Cabinda,Cabinda,Angola,Cabinda
+26,,Luanda,sea,,AOLAD,Luanda,Luanda,Angola,Luanda
+27,,Lobito,sea,,AOLOB,Lobito,Lobito,Angola,Benguela
+28,,Namibe,sea,,AOMSZ,Namibe,Namibe,Angola,Namibe
+29,,Soyo,sea,,AOSZA,Soyo,Soyo,Angola,Zaire
+30,,Bahia Blanca,sea,,ARBHI,Bahia Blanca,Bahía Blanca,Argentina,Buenos Aires
+31,,Buenos Aires,sea,,ARBUE,Buenos Aires,Buenos Aires,Argentina,Ciudad Autónoma de Buenos Aires
+32,,Campana,sea,,ARCMP,Campana,Campana,Argentina,Buenos Aires
+33,,Corrientes,sea,,ARCNQ,Corrientes,Corrientes,Argentina,Corrientes
+34,,Comodoro Rivadavia,sea,,ARCRD,Comodoro Rivadavia,Comodoro Rivadavia,Argentina,Chubut
+35,,Caleta Olivia,sea,,ARCVI,Caleta Olivia,Caleta Olivia,Argentina,Santa Cruz
+36,,Delta Dock,sea,,ARDDC,Delta Dock,Delta Dock,Argentina,Rio Parana
+37,,La Plata,sea,,ARLPG,La Plata,La Plata,Argentina,Buenos Aires
+38,,Mar del Plata,sea,,ARMDQ,Mar del Plata,Mar del Plata,Argentina,Buenos Aires
+39,,Necochea,sea,,ARNEC,Necochea,Necochea,Argentina,Buenos Aires
+40,,Goya,sea,,AROYA,Goya,Goya,Argentina,Corrientes
+41,,Puerto Madryn,sea,,ARPMY,Puerto Madryn,Puerto Madryn,Argentina,Chubut
+42,,Puerto Deseado,sea,,ARPUD,Puerto Deseado,Puerto Deseado,Argentina,Santa Cruz
+43,,Rio Grande,sea,,ARRGA,Rio Grande,Río Grande,Argentina,Tierra del Fuego
+44,,Rio Gallegos,sea,,ARRGL,Rio Gallegos,Río Gallegos,Argentina,Santa Cruz
+45,,Rio Cullen,sea,,ARRIC,Rio Cullen,Rio Cullen,Argentina,Zaire
+46,,Rosario,sea,,ARROS,Rosario,Rosario,Argentina,Santa Fe
+47,,San Antonio Este,sea,,ARSAE,San Antonio Este,San Antonio Este,Argentina,Río Negro
+48,,Santa Fe,sea,,ARSFN,Santa Fe,Santa Fe,Argentina,Santa Fe
+49,,San Lorenzo,sea,,ARSLO,San Lorenzo,San Lorenzo,Argentina,La Pampa
+50,,San Nicolas de los Arroyos,sea,,ARSNS,San Nicolas de los Arroyos,San Nicolás de los Arroyos,Argentina,Buenos Aires
+51,,San Pedro,sea,,ARSPD,San Pedro,San Pedro,Argentina,Entre Ríos
+52,,Ushuaia,sea,,ARUSH,Ushuaia,Ushuaia,Argentina,Tierra del Fuego
+53,,Zarate,sea,,ARZAE,Zarate,Zárate,Argentina,Buenos Aires
+54,,Pago Pago,sea,,ASPPG,Pago Pago,Pago Pago,American Samoa,Eastern
+55,,Hainfeld,sea,,ATLTX,Hainfeld,Hainfeld,Austria,Niederösterreich
+56,,Abbot Point,sea,,AUABP,Abbot Point,Abbot Point,Australia,Queensland
+57,,Adelaide,sea,,AUADL,Adelaide,Adelaide,Australia,South Australia
+58,,Ardrossan,sea,,AUARD,Ardrossan,Ardrossan,Australia,South Australia
+59,,Bremer Bay,sea,,AUBBY,Bremer Bay,Bremer Bay,Australia,Western Australia
+60,,Bell Bay,sea,,AUBEL,Bell Bay,Bell Bay,Australia,Tasmania
+61,,Brisbane,sea,,AUBNE,Brisbane,Brisbane,Australia,Queensland
+62,,Booby Island,sea,,AUBOO,Booby Island,Booby Island,Australia,Queensland
+63,,Burnie,sea,,AUBWT,Burnie,Burnie,Australia,Tasmania
+64,,Chittering,sea,,AUCHT,Chittering,Chittering,Australia,Western Australia
+65,,Cairns,sea,,AUCNS,Cairns,Cairns,Australia,Queensland
+66,,Devonport,sea,,AUDPO,Devonport,Devonport,Australia,Tasmania
+67,,Darwin,sea,,AUDRW,Darwin,Darwin,Australia,Northern Territory
+68,,Fremantle,sea,,AUFRE,Fremantle,Fremantle,Australia,Western Australia
+69,,Gladstone,sea,,AUGLT,Gladstone,Gladstone,Australia,Queensland
+70,,Gove,sea,,AUGOV,Gove,Gove,Australia,Northern Territory
+71,,Hobart,sea,,AUHBA,Hobart,Hobart,Australia,Tasmania
+72,,Hay Point,sea,,AUHPT,Hay Point,Hay Point,Australia,Queensland
+73,,Launceston,sea,,AULST,Launceston,Launceston,Australia,Tasmania
+74,,Melbourne,sea,,AUMEL,Melbourne,Melbourne,Australia,Victoria
+75,,New Norfolk,sea,,AUNLK,New Norfolk,New Norfolk,Australia,Tasmania
+76,,Newcastle,sea,,AUNTL,Newcastle,Newcastle,Australia,New South Wales
+77,,Port Adelaide,sea,,AUPAE,Port Adelaide,Port Adelaide,Australia,South Australia
+78,,Port Hedland,sea,,AUPHE,Port Hedland,Port Hedland,Australia,Western Australia
+79,,Port Kembla,sea,,AUPKL,Port Kembla,Port Kembla,Australia,New South Wales
+80,,Sydney,sea,,AUSYD,Sydney,Sydney,Australia,New South Wales
+81,,Townsville,sea,,AUTSV,Townsville,Townsville,Australia,Queensland
+82,,Weipa,sea,,AUWEI,Weipa,Weipa,Australia,Queensland
+83,,Aruba,sea,,AWAUA,Aruba,Aruba,Aruba,-
+84,,Oranjestad,sea,,AWORJ,Oranjestad,Oranjestad,Aruba,-
+85,,Baku,sea,,AZBAK,Baku,Baku,Azerbaijan,-
+86,,Bridgetown,sea,,BBBGI,Bridgetown,Bridgetown,Barbados,Saint Michael
+87,,Chittagong,sea,,BDCGP,Chittagong,Chittagong,Bangladesh,Chittagong Division
+88,,Chalna,sea,,BDCHL,Chalna,Chalna,Bangladesh,Khulna Division
+89,,Dhaka,sea,,BDDAC,Dhaka,Dhaka,Bangladesh,Dhaka Division
+90,,Mongla,sea,,BDMGL,Mongla,Mongla,Bangladesh,Khulna Division
+91,,Antwerpen,sea,,BEANR,Antwerpen,Antwerpen,Belgium,Antwerpen
+92,,Bossuit,sea,,BEBSU,Bossuit,Bossuit,Belgium,West-Vlaanderen
+93,,Doel,sea,,BEDEL,Doel,Doel,Belgium,Oost-Vlaanderen
+94,,Gent (Ghent),sea,,BEGNE,Gent (Ghent),Gent (Ghent),Belgium,Oost-Vlaanderen
+95,,Oostende (Ostend),sea,,BEOST,Oostende (Ostend),Oostende (Ostend),Belgium,West-Vlaanderen
+96,,Zeebrugge,sea,,BEZEE,Zeebrugge,Zeebrugge,Belgium,West-Vlaanderen
+97,,Ouagadougou,sea,,BFOUA,Ouagadougou,Ouagadougou,Burkina Faso,Centre
+98,,Burgas,sea,,BGBOJ,Burgas,Burgas,Bulgaria,Burgas
+99,,Varna,sea,,BGVAR,Varna,Varna,Bulgaria,Varna
+100,,Al Hidd,sea,,BHAHD,Al Hidd,Al HIdd,Bahrain,Bahrain
+101,,Bahrain,sea,,BHBAH,Bahrain,Bahrain,Bahrain,Al Muharraq
+102,,Khalifa Bin Salman Port,sea,,BHKBS,Khalifa Bin Salman Port,Khalifa Bin Salman,Bahrain,Al Muharraq
+103,,Manama,sea,,BHMAN,Manama,Manama,Bahrain,-
+104,,Sitrah,sea,,BHSIT,Sitrah,Sitrah,Bahrain,Al Wustá
+105,,Cotonou,sea,,BJCOO,Cotonou,Cotonou,Benin,Littoral
+106,,Hamilton,sea,,BMBDA,Hamilton,Hamilton,Bermuda,Hamilton
+107,,Southampton,sea,,BMSOU,Southampton,Southampton,Bermuda,Zou
+108,,Bandar Seri Begawan,sea,,BNBWN,Bandar Seri Begawan,Bandar Seri Begawan,Brunei Darussalam,Brunei-Muara
+109,,Kuala Belait,sea,,BNKUB,Kuala Belait,Kuala Belait,Brunei Darussalam,Belait
+110,,Muara,sea,,BNMUA,Muara,Muara,Brunei Darussalam,Brunei-Muara
+111,,Puerto Busch,sea,,BOPBU,Puerto Busch,Puerto Busch,"Bolivia, Plurinational State of",Santa Cruz
+112,,Santa Cruz,sea,,BOSRZ,Santa Cruz,Santa Cruz,"Bolivia, Plurinational State of",La Paz
+113,,Aratu,sea,,BRARB,Aratu,Aratu,Brazil,Bahia
+114,,Areia Branca,sea,,BRARE,Areia Branca,Areia Branca,Brazil,Rio Grande do Norte
+115,,Belem,sea,,BRBEL,Belem,Belem,Brazil,Pará
+116,,Cabedelo,sea,,BRCDO,Cabedelo,Cabedelo,Brazil,Paraíba
+117,,Forno,sea,,BRFNO,Forno,Forno,Brazil,Rio de Janeiro
+118,,Fortaleza,sea,,BRFOR,Fortaleza,Fortaleza,Brazil,Ceará
+119,,Imbituba,sea,,BRIBB,Imbituba,Imbituba,Brazil,Santa Catarina
+120,,Itaguai,sea,,BRIGI,Itaguai,Itaguaí,Brazil,Rio de Janeiro
+121,,Itapoa,sea,,BRIOA,Itapoa,Itapoá,Brazil,Santa Catarina
+122,,Ilheus,sea,,BRIOS,Ilheus,Ilheus,Brazil,Bahia
+123,,Itabirito,sea,,BRIRO,Itabirito,Itabirito,Brazil,Minas Gerais
+124,,Itajai,sea,,BRITJ,Itajai,Itajai,Brazil,Santa Catarina
+125,,Itaqui,sea,,BRITQ,Itaqui,Itaqui,Brazil,Rio Grande do Sul
+126,,Itapemirim,sea,,BRITZ,Itapemirim,Itapemirim,Brazil,Espírito Santo
+127,,Manaus,sea,,BRMAO,Manaus,Manaus,Brazil,Amazonas
+128,,Maceio,sea,,BRMCZ,Maceio,Maceió,Brazil,Alagoas
+129,,Natal,sea,,BRNAT,Natal,Natal,Brazil,Rio Grande do Norte
+130,,Navegantes,sea,,BRNVT,Navegantes,Navegantes,Brazil,Santa Catarina
+131,,Portocel,sea,,BRPCL,Portocel,Portocel,Brazil,Espírito Santo
+132,,Pecem,sea,,BRPEC,Pecem,Pecém,Brazil,Ceará
+133,,Paranagua,sea,,BRPNG,Paranagua,Paranaguá,Brazil,Paraná
+134,,Paranã,sea,,BRPNN,Paranã,Paranã,Brazil,Tocantins
+135,,Porto Alegre,sea,,BRPOA,Porto Alegre,Pôrto Alegre,Brazil,Rio Grande do Sul
+136,,Recife,sea,,BRREC,Recife,Recife,Brazil,Pernambuco
+137,,Rio Grande,sea,,BRRIG,Rio Grande,Rio Grande,Brazil,Rio Grande do Sul
+138,,Rio de Janeiro,sea,,BRRIO,Rio de Janeiro,Rio de Janeiro,Brazil,Rio de Janeiro
+139,,Salto Grande,sea,,BRSAL,Salto Grande,Salto Grande,Brazil,São Paulo
+140,,Sao Francisco do Sul,sea,,BRSFS,Sao Francisco do Sul,São Francisco do Sul,Brazil,Santa Catarina
+141,,Porto de Itaguai,sea,,BRSPB,Porto de Itaguai,Porto de Itaguaí,Brazil,Rio de Janeiro
+142,,Salvador,sea,,BRSSA,Salvador,Salvador,Brazil,Bahia
+143,,Sao Sebastiao,sea,,BRSSO,Sao Sebastiao,São Sebastião,Brazil,São Paulo
+144,,Santos,sea,,BRSSZ,Santos,Santos,Brazil,São Paulo
+145,,Santarem,sea,,BRSTM,Santarem,Santarem,Brazil,Pará
+146,,Suape,sea,,BRSUA,Suape,Suape,Brazil,Pernambuco
+147,,Vitoria da Conquista,sea,,BRVDC,Vitoria da Conquista,Vitória da Conquista,Brazil,Bahia
+148,,Vila do Conde,sea,,BRVIC,Vila do Conde,Vila do Conde,Brazil,Paraíba
+149,,Vitoria,sea,,BRVIX,Vitoria,Vitoria,Brazil,Espírito Santo
+150,,Vila do Conde,sea,,BRVLC,Vila do Conde,Vila do Conde,Brazil,Pará
+151,,"Freeport, Grand Bahama",sea,,BSFPO,"Freeport, Grand Bahama","Freeport, Grand Bahama",Bahamas,Freeport
+152,,Nassau,sea,,BSNAS,Nassau,Nassau,Bahamas,New Providence
+153,,Minsk,sea,,BYMSQ,Minsk,Minsk,Belarus,-
+154,,Belize City,sea,,BZBZE,Belize City,Belize City,Belize,Belize
+155,,Bathurst,sea,,CABAT,Bathurst,Bathurst,Canada,New Brunswick
+156,,Brockville,sea,,CABCK,Brockville,Brockville,Canada,Ontario
+157,,Baie d'Urfe,sea,,CABDU,Baie d'Urfe,Baie d'Urfé,Canada,Quebec
+158,,Becancour,sea,,CABEC,Becancour,Bécancour,Canada,Quebec
+159,,Baie-Johan-Beetz,sea,,CABJO,Baie-Johan-Beetz,Baie-Johan-Beetz,Canada,Quebec
+160,,Burlington,sea,,CABRL,Burlington,Burlington,Canada,Ontario
+161,,Calgary,sea,,CACAL,Calgary,Calgary,Canada,Alberta
+162,,Corner Brook,sea,,CACBK,Corner Brook,Corner Brook,Canada,Newfoundland and Labrador
+163,,Cowichan Bay,sea,,CACCB,Cowichan Bay,Cowichan Bay,Canada,British Columbia
+164,,Collingwood,sea,,CACOL,Collingwood,Collingwood,Canada,Ontario
+165,,Crofton,sea,,CACRO,Crofton,Crofton,Canada,British Columbia
+166,,Cornwall,sea,,CACWL,Cornwall,Cornwall,Canada,Ontario
+167,,Dorval,sea,,CADOR,Dorval,Dorval,Canada,Quebec
+168,,Drummondville,sea,,CADRU,Drummondville,Drummondville,Canada,Quebec
+169,,Edmonton,sea,,CAEDM,Edmonton,Edmonton,Canada,Alberta
+170,,Halifax,sea,,CAHAL,Halifax,Halifax,Canada,Nova Scotia
+171,,Hamilton,sea,,CAHAM,Hamilton,Hamilton,Canada,Ontario
+172,,Harmac,sea,,CAHMC,Harmac,Harmac,Canada,British Columbia
+173,,Kingsville,sea,,CAKVL,Kingsville,Kingsville,Canada,Ontario
+174,,Magog,sea,,CAMAG,Magog,Magog,Canada,Quebec
+175,,Moncton,sea,,CAMNT,Moncton,Moncton,Canada,New Brunswick
+176,,Montreal,sea,,CAMTR,Montreal,Montreal,Canada,Quebec
+177,,Niagara Falls,sea,,CANIA,Niagara Falls,Niagara Falls,Canada,Ontario
+178,,Nanaimo,sea,,CANNO,Nanaimo,Nanaimo,Canada,British Columbia
+179,,North Bay,sea,,CANOR,North Bay,North Bay,Canada,Ontario
+180,,New Westminster,sea,,CANWE,New Westminster,New Westminster,Canada,British Columbia
+181,,Oakville,sea,,CAOAK,Oakville,Oakville,Canada,Ontario
+182,,Odessa,sea,,CAODE,Odessa,Odessa,Canada,Ontario
+183,,Oshawa,sea,,CAOSH,Oshawa,Oshawa,Canada,Ontario
+184,,Port Credit,sea,,CAPCR,Port Credit,Port Credit,Canada,Ontario
+185,,Port Dover,sea,,CAPDV,Port Dover,Port Dover,Canada,Ontario
+186,,Port Mellon,sea,,CAPML,Port Mellon,Port Mellon,Canada,British Columbia
+187,,Pointe-Claire,sea,,CAPOI,Pointe-Claire,Pointe-Claire,Canada,Quebec
+188,,Prince Rupert,sea,,CAPRR,Prince Rupert,Prince Rupert,Canada,British Columbia
+189,,Quebec,sea,,CAQUE,Quebec,Quebec,Canada,Quebec
+190,,Saskatoon,sea,,CASAK,Saskatoon,Saskatoon,Canada,Saskatchewan
+191,,Saint-Catharines,sea,,CASCA,Saint-Catharines,Saint-Catharines,Canada,Ontario
+192,,Saint-John,sea,,CASJB,Saint-John,Saint-John,Canada,New Brunswick
+193,,Saint-John's,sea,,CASJF,Saint-John's,Saint-John's,Canada,Newfoundland and Labrador
+194,,Sarnia,sea,,CASNI,Sarnia,Sarnia,Canada,Ontario
+195,,Sorel,sea,,CASOR,Sorel,Sorel,Canada,Quebec
+196,,Sault-Sainte-Marie,sea,,CASSM,Sault-Sainte-Marie,Sault-Sainte-Marie,Canada,Ontario
+197,,Stoney Creek,sea,,CASTC,Stoney Creek,Stoney Creek,Canada,Ontario
+198,,Summerside,sea,,CASUM,Summerside,Summerside,Canada,Prince Edward Island
+199,,Texada Island,sea,,CATEX,Texada Island,Texada Island,Canada,British Columbia
+200,,Thunder Bay,sea,,CATHU,Thunder Bay,Thunder Bay,Canada,Ontario
+201,,Toronto,sea,,CATOR,Toronto,Toronto,Canada,Ontario
+202,,Trois-Rivieres (Three Rivers),sea,,CATRR,Trois-Rivieres (Three Rivers),Trois-Rivieres (Three Rivers),Canada,Quebec
+203,,Trenton,sea,,CATTC,Trenton,Trenton,Canada,Ontario
+204,,Vancouver,sea,,CAVAN,Vancouver,Vancouver,Canada,British Columbia
+205,,Valleyfield,sea,,CAVLF,Valleyfield,Valleyfield,Canada,Quebec
+206,,Winona,sea,,CAWIN,Winona,Winona,Canada,Ontario
+207,,Winnipeg,sea,,CAWNP,Winnipeg,Winnipeg,Canada,Manitoba
+208,,Boma,sea,,CDBOA,Boma,Boma,"Congo, The Democratic Republic of the",-
+209,,Matadi,sea,,CDMAT,Matadi,Matadi,"Congo, The Democratic Republic of the",-
+210,,Pointe Noire,sea,,CGPNR,Pointe Noire,Pointe Noire,Congo,Kouilou
+211,,Abidjan,sea,,CIABJ,Abidjan,Abidjan,Côte d'Ivoire,Lagunes
+212,,San-Pedro,sea,,CISPY,San-Pedro,San-Pédro,Côte d'Ivoire,Bas-Sassandra (Région du)
+213,,Antofagasta,sea,,CLANF,Antofagasta,Antofagasta,Chile,Antofagasta
+214,,Arica,sea,,CLARI,Arica,Arica,Chile,Arica y Parinacota
+215,,Bahia San Gregorio,sea,,CLBAG,Bahia San Gregorio,Bahía San Gregorio,Chile,Magallanes
+216,,Barquito,sea,,CLBAR,Barquito,Barquito,Chile,Atacama
+217,,San Vicente,sea,,CLCAP,San Vicente,San Vicente,Chile,CAP
+218,,Calbuco,sea,,CLCBC,Calbuco,Calbuco,Chile,Los Lagos
+219,,Caleta Coloso,sea,,CLCCL,Caleta Coloso,Caleta Coloso,Chile,Región de Arica y Parinacota
+220,,Chacabuco,sea,,CLCHB,Chacabuco,Chacabuco,Chile,Aysén
+221,,Caldera,sea,,CLCLD,Caldera,Caldera,Chile,Atacama
+222,,Coronel,sea,,CLCNL,Coronel,Coronel,Chile,Biobío
+223,,Chanaral,sea,,CLCNR,Chanaral,Chañaral,Chile,Atacama
+224,,Cabo Negro,sea,,CLCNX,Cabo Negro,Cabo Negro,Chile,Magallanes
+225,,Coquimbo,sea,,CLCQQ,Coquimbo,Coquimbo,Chile,Coquimbo
+226,,Corral,sea,,CLCRR,Corral,Corral,Chile,Los Lagos
+227,,Dalcahue,sea,,CLDCH,Dalcahue,Dalcahue,Chile,Los Lagos
+228,,Guayacan,sea,,CLGYC,Guayacan,Guayacán,Chile,Coquimbo
+229,,Huasco,sea,,CLHSO,Huasco,Huasco,Chile,Atacama
+230,,Isla de Pascua,sea,,CLIPC,Isla de Pascua,Isla de Pascua,Chile,Valparaíso
+231,,Iquique,sea,,CLIQQ,Iquique,Iquique,Chile,Tarapacá
+232,,Jureles,sea,,CLJRL,Jureles,Jureles,Chile,Coronel Bay
+233,,Los Vilos,sea,,CLLOS,Los Vilos,Los Vilos,Chile,Coquimbo
+234,,Lirquen,sea,,CLLQN,Lirquen,Lirquén,Chile,Biobío
+235,,Las Ventanas,sea,,CLLVS,Las Ventanas,Las Ventanas,Chile,Valparaíso
+236,,Michilla,sea,,CLMCH,Michilla,Michilla,Chile,Región de Antofagasta
+237,,Mejillones,sea,,CLMJS,Mejillones,Mejillones,Chile,Antofagasta
+238,,Puerto Angamos,sea,,CLPAG,Puerto Angamos,Puerto Angamos,Chile,Antofagasta
+239,,Puerto Chacabuco,sea,,CLPCH,Puerto Chacabuco,Puerto Chacabuco,Chile,Aysén
+240,,Penco,sea,,CLPEO,Penco,Penco,Chile,Biobío
+241,,Punta Chungo,sea,,CLPGO,Punta Chungo,Punta Chungo,Chile,-
+242,,Puerto Montt,sea,,CLPMC,Puerto Montt,Puerto Montt,Chile,Los Lagos
+243,,Puerto Natales,sea,,CLPNT,Puerto Natales,Puerto Natales,Chile,Magallanes
+244,,Punta Patache,sea,,CLPPC,Punta Patache,Punta Patache,Chile,-
+245,,Punta Padrones,sea,,CLPPD,Punta Padrones,Punta Padrones,Chile,-
+246,,Quellon (Puerto Quellon),sea,,CLPTE,Quellon (Puerto Quellon),Quellón (Puerto Quellón),Chile,Los Lagos
+247,,Patillos,sea,,CLPTI,Patillos,Patillos,Chile,Tarapacá
+248,,Punta Arenas,sea,,CLPUQ,Punta Arenas,Punta Arenas,Chile,Magallanes
+249,,Quemchi,sea,,CLQMC,Quemchi,Quemchi,Chile,Los Lagos
+250,,Quintero,sea,,CLQTV,Quintero,Quintero,Chile,Valparaíso
+251,,San Antonio,sea,,CLSAI,San Antonio,San Antonio,Chile,Valparaíso
+252,,San Vicente,sea,,CLSVE,San Vicente,San Vicente,Chile,Biobío
+253,,Talcahuano,sea,,CLTAL,Talcahuano,Talcahuano,Chile,Biobío
+254,,Talcahuano,sea,,CLTHO,Talcahuano,Talcahuano,Chile,Bío Bío Region
+255,,Tome,sea,,CLTOM,Tome,Tomé,Chile,Biobío
+256,,Tocopilla,sea,,CLTOQ,Tocopilla,Tocopilla,Chile,Antofagasta
+257,,Taltal,sea,,CLTTC,Taltal,Taltal,Chile,Antofagasta
+258,,Valparaiso,sea,,CLVAP,Valparaiso,Valparaiso,Chile,Valparaíso
+259,,Castro,sea,,CLWCA,Castro,Castro,Chile,Los Lagos
+260,,Chaiten,sea,,CLWCH,Chaiten,Chaitén,Chile,Los Lagos
+261,,Puerto Aisen,sea,,CLWPA,Puerto Aisen,Puerto Aisén,Chile,Aysén
+262,,Puerto Williams,sea,,CLWPU,Puerto Williams,Puerto Williams,Chile,Magallanes
+263,,Ancud,sea,,CLZUD,Ancud,Ancud,Chile,Los Lagos
+264,,Douala,sea,,CMDLA,Douala,Douala,Cameroon,Littoral
+265,,Bayuquan,sea,,CNBAY,Bayuquan,Bayuquan,China,Liaoning
+266,,Beihai Fucheng Apt,sea,,CNBHY,Beihai Fucheng Apt,Beihai Fucheng Apt,China,Guangxi
+267,,Beijiao,sea,,CNBJO,Beijiao,Beijiao,China,Fujian
+268,,Guangzhou,sea,,CNCAN,Guangzhou,Guangzhou,China,Guangdong
+269,,Changshu,sea,,CNCGU,Changshu,Changshu,China,Jiangsu
+270,,Chongqing,sea,,CNCKG,Chongqing,Chongqing,China,Chongqing
+271,,Chaozhou Port,sea,,CNCOZ,Chaozhou Port,Chaozhou,China,Guangdong
+272,,Changsha,sea,,CNCSX,Changsha,Changsha,China,Hunan
+273,,Chengdu,sea,,CNCTU,Chengdu,Chengdu,China,Sichuan
+274,,Chiwan Port,sea,,CNCWN,Chiwan Port,Chiwan,China,Guangdong
+275,,Dagang,sea,,CNDAA,Dagang,Dagang,China,Jiangsu
+276,,Dalian,sea,,CNDAL,Dalian,Dalian,China,Liaoning
+277,,Da Chan Bay,sea,,CNDCB,Da Chan Bay,Da Chan Bay,China,Shenzhen
+278,,Dongguan Port,sea,,CNDGG,Dongguan Port,Dongguan,China,Guangdong
+279,,Dalian,sea,,CNDLC,Dalian,Dalian,China,Liaoning
+280,,Doumen Port,sea,,CNDOU,Doumen Port,Doumen,China,Guangdong
+281,,Fangcheng Port,sea,,CNFAN,Fangcheng Port,Fangcheng,China,Guangxi
+282,,Fuyong,sea,,CNFNG,Fuyong,Fuyong,China,Guangdong
+283,,Fuzhou,sea,,CNFOC,Fuzhou,Fuzhou,China,Fujian
+284,,Foshan,sea,,CNFOS,Foshan,Foshanzhan,China,Guangdong
+285,,Fuqing,sea,,CNFUG,Fuqing,Fuqing,China,Fujian
+286,,Gongyi,sea,,CNGGY,Gongyi,Gongyi,China,Guangdong
+287,,Gongming,sea,,CNGOG,Gongming,Gongming,China,Guangdong
+288,,Gaoming Port,sea,,CNGOM,Gaoming Port,Gaoming,China,Guangdong
+289,,Guigang,sea,,CNGUG,Guigang,Guigang,China,Guangxi
+290,,Haikou,sea,,CNHAK,Haikou,Haikou,China,Hainan
+291,,Huadu,sea,,CNHDU,Huadu,Huadu,China,Guangdong
+292,,Hebei,sea,,CNHEB,Hebei,Hebei,China,Hebei
+293,,Hangzhou,sea,,CNHGH,Hangzhou,Hangzhou,China,Zhejiang
+294,,Haimen,sea,,CNHME,Haimen,Haimen,China,Zhejiang
+295,,Humen Port,sea,,CNHMN,Humen Port,Humen,China,Guangdong
+296,,Heshan Port,sea,,CNHSN,Heshan Port,Heshan,China,Guangdong
+297,,Huangpu Port,sea,,CNHUA,Huangpu Port,Huangpu,China,Guangdong
+298,,Huludao Port,sea,,CNHUD,Huludao Port,Huludao,China,Liaoning
+299,,Huizhou Port,sea,,CNHUI,Huizhou Port,Huizhou,China,Guangdong
+300,,Jingzhou,sea,,CNJGZ,Jingzhou,Jingzhou,China,Hubei
+301,,Jiangyin Port,sea,,CNJIA,Jiangyin Port,Jiangyin,China,Jiangsu
+302,,Jian,sea,,CNJIN,Jian,Jian,China,Jiangxi
+303,,Jiujiang Port,sea,,CNJIU,Jiujiang Port,Jiujiang,China,Jiangxi
+304,,Jiangmen Port,sea,,CNJMN,Jiangmen Port,Jiangmen,China,Guangdong
+305,,Jinzhou Port,sea,,CNJNZ,Jinzhou Port,Jinzhou,China,Liaoning
+306,,Jiao Xin,sea,,CNJXN,Jiao Xin,Jiao Xin,China,Guangdong
+307,,Jiuzhou Port,sea,,CNJZU,Jiuzhou Port,Jiuzhou,China,Guangdong
+308,,Nanchang,sea,,CNKHN,Nanchang,Nanchang,China,Jiangxi
+309,,Kunming,sea,,CNKMG,Kunming,Kunming,China,Yunnan
+310,,Kaiping,sea,,CNKPN,Kaiping,Kaiping,China,Hebei
+311,,Lanshi Port,sea,,CNLAN,Lanshi Port,Lanshi,China,Guangdong Sheng
+312,,Longhua,sea,,CNLGH,Longhua,Longhua,China,Guangdong
+313,,Lianhuashan Port,sea,,CNLIH,Lianhuashan Port,Lianhuashan,China,Guangdong
+314,,Longkou Port,sea,,CNLKU,Longkou Port,Longkou,China,Shandong
+315,,Lanshi,sea,,CNLSI,Lanshi,Lanshi,China,Hunan
+316,,Lianyungang,sea,,CNLYG,Lianyungang,Lianyungang,China,Jiangsu
+317,,Liuzhou Port,sea,,CNLZH,Liuzhou Port,Liuzhou,China,Guangxi
+318,,Mawei Port,sea,,CNMAW,Mawei Port,Mawei,China,Fujian
+319,,Maoming,sea,,CNMMI,Maoming,Maoming,China,Guangdong
+320,,Mawan Port,sea,,CNMWN,Mawan Port,Mawan,China,Guangdong
+321,,Mianyang,sea,,CNMYG,Mianyang,Mianyang,China,Sichuan
+322,,Nanhai Port,sea,,CNNAH,Nanhai Port,Nanhai,China,Guangdong
+323,,Ningbo,sea,,CNNBO,Ningbo,Ningbo,China,Zhejiang
+324,,Ningbo,sea,,CNNGB,Ningbo,Ningbo,China,Zhejiang
+325,,Nangang,sea,,CNNGG,Nangang,Nangang,China,Guangdong
+326,,Nanjing,sea,,CNNKG,Nanjing,Nanjing,China,Jiangsu
+327,,Nanning,sea,,CNNNG,Nanning,Nanning,China,Guangxi
+328,,Nansha Port,sea,,CNNSA,Nansha Port,Nansha,China,Guangdong
+329,,Nantong Port,sea,,CNNTG,Nantong Port,Nantong,China,Jiangsu
+330,,Shiqiao,sea,,CNPNY,Shiqiao,Shiqiao,China,Guangdong
+331,,Putian,sea,,CNPUT,Putian,Putian,China,Fujian
+332,,Qianwan,sea,,CNQAW,Qianwan,Qianwan,China,Shandong
+333,,Qingdao,sea,,CNQIN,Qingdao,Qingdao,China,Shandong
+334,,Qingyuan,sea,,CNQYN,Qingyuan,Qingyuan,China,Guangdong
+335,,Quanzhou Port,sea,,CNQZJ,Quanzhou Port,Quanzhou,China,Fujian
+336,,Rongqi Port,sea,,CNROQ,Rongqi Port,Rongqi,China,Guangdong
+337,,Rizhao Port,sea,,CNRZH,Rizhao Port,Rizhao,China,Shandong
+338,,Sanbu Port,sea,,CNSBU,Sanbu Port,Sanbu,China,Guangdong
+339,,Shuidong Port,sea,,CNSDG,Shuidong Port,Shuidong,China,Guangdong
+340,,Shanghai,sea,,CNSGH,Shanghai,Shanghai,China,Shanghai
+341,,Shanghai,sea,,CNSHA,Shanghai,Shanghai,China,Shanghai
+342,,Shekou Port,sea,,CNSHK,Shekou Port,Shekou,China,Guangdong
+343,,Qinhuangdao Port,sea,,CNSHP,Qinhuangdao Port,Qinhuangdao,China,Hebei
+344,,Shatian,sea,,CNSIN,Shatian,Shatian,China,Guangdong
+345,,Sanshui,sea,,CNSJQ,Sanshui,Sanshui,China,Guangdong
+346,,Shenwan,sea,,CNSNW,Shenwan,Shenwan,China,Guangdong
+347,,Sanshan (Nanhai),sea,,CNSSH,Sanshan (Nanhai),Sanshan (Nanhai),China,Guangdong Sheng
+348,,Port of Shantou,sea,,CNSTG,Port of Shantou,Shantou,China,Guangdong
+349,,Shunde Port,sea,,CNSUD,Shunde Port,Shunde,China,Guangdong
+350,,Jieyang Chaoshan Apt,sea,,CNSWA,Jieyang Chaoshan Apt,Jieyang Chaoshan Apt,China,Guangdong
+351,,Shanwei Port,sea,,CNSWE,Shanwei Port,Shanwei,China,Guangdong
+352,,Shenzhen Baoan,sea,,CNSZX,Shenzhen Baoan,Shenzhen Baoan,China,Guangdong
+353,,Taicang,sea,,CNTAG,Taicang,Taicang,China,Jiangsu
+354,,Qingdao,sea,,CNTAO,Qingdao,Qingdao,China,Shandong
+355,,Taiping,sea,,CNTAP,Taiping,Taiping,China,Guangdong
+356,,Taicheng (Taishan),sea,,CNTHG,Taicheng (Taishan),Taicheng (Taishan),China,Guangdong
+357,,Tianjin,sea,,CNTSN,Tianjin,Tianjin,China,Tianjin
+358,,Tianjin New Port,sea,,CNTXG,Tianjin New Port,Tianjin New,China,Tianjin
+359,,Taizhou,sea,,CNTZO,Taizhou,Taizhou,China,Jiangsu
+360,,Wanzai,sea,,CNWAZ,Wanzai,Wanzai,China,Guangdong
+361,,Weihai,sea,,CNWEI,Weihai,Weihai,China,Shandong
+362,,Wuhu Port,sea,,CNWHI,Wuhu Port,Wuhu,China,Anhui
+363,,Wenzhou,sea,,CNWNZ,Wenzhou,Wenzhou,China,Zhejiang
+364,,Wuhan,sea,,CNWUH,Wuhan,Wuhan,China,Hubei
+365,,Xinfeng,sea,,CNXAB,Xinfeng,Xinfeng,China,Guangdong
+366,,Xiamen,sea,,CNXAM,Xiamen,Xiamen,China,Fujian
+367,,Xingang,sea,,CNXGA,Xingang,Xingang,China,Tianjin
+368,,Xingang,sea,,CNXGG,Xingang,Xingang,China,Tianjin
+369,,Xiaolan,sea,,CNXIL,Xiaolan,Xiaolan,China,Guangdong
+370,,Xinhui Port,sea,,CNXIN,Xinhui Port,Xinhui,China,Guangdong
+371,,Xintang Port,sea,,CNXIT,Xintang Port,Xintang,China,Guangdong
+372,,Xiamen,sea,,CNXMN,Xiamen,Xiamen,China,Fujian
+373,,Yangshan,sea,,CNYAN,Yangshan,Yangshan,China,Zhejiang
+374,,Yichang,sea,,CNYIC,Yichang,Yichang,China,Hubei
+375,,Yingkou Port,sea,,CNYIK,Yingkou Port,Yingkou,China,Liaoning
+376,,Yangjiang Port,sea,,CNYJI,Yangjiang Port,Yangjiang,China,Guangdong
+377,,Yunfu,sea,,CNYNF,Yunfu,Yunfu,China,Guangdong
+378,,Yantai,sea,,CNYNT,Yantai,Yantai,China,Shandong
+379,,Yangpu Port,sea,,CNYPG,Yangpu Port,Yangpu,China,Hainan
+380,,Beijiao,sea,,CNYQS,Beijiao,Beijiao,China,Guangdong
+381,,Yantai,sea,,CNYTG,Yantai,Yantai,China,Shandong
+382,,Yantian Port,sea,,CNYTN,Yantian Port,Yantian,China,Guangdong
+383,,Yangzhou Port,sea,,CNYZH,Yangzhou Port,Yangzhou,China,Jiangsu
+384,,Zhapu (Zhejiang),sea,,CNZAP,Zhapu (Zhejiang),Zhapu (Zhejiang),China,Zhejiang
+385,,Zhanjiang Potou Apt,sea,,CNZHA,Zhanjiang Potou Apt,Zhanjiang Potou Apt,China,Guangdong
+386,,Zhenjiang Port,sea,,CNZHE,Zhenjiang Port,Zhenjiang,China,Jiangsu
+387,,Zhangjiagang,sea,,CNZJG,Zhangjiagang,Zhangjiagang,China,Jiangsu
+388,,Zhoushan Port,sea,,CNZOS,Zhoushan Port,Zhoushan,China,Zhejiang
+389,,Zhaoqing Port,sea,,CNZQG,Zhaoqing Port,Zhaoqing,China,Guangdong
+390,,Zhongshan Port,sea,,CNZSN,Zhongshan Port,Zhongshan,China,Guangdong
+391,,Zhuhai Port,sea,,CNZUH,Zhuhai Port,Zhuhai,China,Guangdong
+392,,Barranquilla,sea,,COBAQ,Barranquilla,Barranquilla,Colombia,Atlantico
+393,,Buenaventura,sea,,COBUN,Buenaventura,Buenaventura,Colombia,Valle del Cauca
+394,,Cartagena,sea,,COCTG,Cartagena,Cartagena,Colombia,Bolívar
+395,,Puerto Bolivar,sea,,COPBO,Puerto Bolivar,Puerto Bolívar,Colombia,La Guajira
+396,,Santa Marta,sea,,COSMR,Santa Marta,Santa Marta,Colombia,Magdalena
+397,,Tumaco,sea,,COTCO,Tumaco,Tumaco,Colombia,Narino
+398,,Caldera,sea,,CRCAL,Caldera,Caldera,Costa Rica,Puntarenas
+399,,Golfito,sea,,CRGLF,Golfito,Golfito,Costa Rica,Puntarenas
+400,,Puerto Limon,sea,,CRLIO,Puerto Limon,Puerto Limón,Costa Rica,Limón
+401,,Moin,sea,,CRMOB,Moin,Moín,Costa Rica,Limón
+402,,Puntarenas,sea,,CRPAS,Puntarenas,Puntarenas,Costa Rica,Puntarenas
+403,,Puerto Caldera,sea,,CRPCA,Puerto Caldera,Puerto Caldera,Costa Rica,San Jose
+404,,San Jose,sea,,CRSJO,San Jose,San José,Costa Rica,San José
+405,,La Habana,sea,,CUHAV,La Habana,La Habana,Cuba,Ciudad de La Habana
+406,,Mariel,sea,,CUMAR,Mariel,Mariel,Cuba,Artemisa Province
+407,,Matanzas,sea,,CUQMA,Matanzas,Matanzas,Cuba,Matanzas
+408,,Santiago de Cuba,sea,,CUSCU,Santiago de Cuba,Santiago de Cuba,Cuba,Santiago de Cuba
+409,,Mindelo,sea,,CVMIN,Mindelo,Mindelo,Cape Verde,São Vicente
+410,,Palmeira,sea,,CVPAL,Palmeira,Palmeira,Cape Verde,Sal
+411,,Praia,sea,,CVRAI,Praia,Praia,Cape Verde,Praia
+412,,Limassol,sea,,CYLMS,Limassol,Limassol,Cyprus,Lemesos
+413,,Nicosia,sea,,CYNIC,Nicosia,Nicosia,Cyprus,Lefkosia
+414,,Paphos,sea,,CYPFO,Paphos,Paphos,Cyprus,Pafos
+415,,Bahlingen,sea,,DEBEZ,Bahlingen,Bahlingen,Germany,Baden-Württemberg
+416,,Bingen am Rhein,sea,,DEBIN,Bingen am Rhein,Bingen am Rhein,Germany,Rheinland-Pfalz
+417,,Brake,sea,,DEBKE,Brake,Brake,Germany,Niedersachsen
+418,,Bad Oeynhausen,sea,,DEBOY,Bad Oeynhausen,Bad Oeynhausen,Germany,Nordrhein-Westfalen
+419,,Bramel,sea,,DEBRA,Bramel,Bramel,Germany,Niedersachsen
+420,,Brunsbuttel,sea,,DEBRB,Brunsbuttel,Brunsbüttel,Germany,Schleswig-Holstein
+421,,Bremen,sea,,DEBRE,Bremen,Bremen,Germany,Bremen
+422,,Bremerhaven,sea,,DEBRV,Bremerhaven,Bremerhaven,Germany,Bremen
+423,,Burgstaaken/Fehmarn,sea,,DEBSK,Burgstaaken/Fehmarn,Burgstaaken/Fehmarn,Germany,Schleswig-Holstein
+424,,Koln,sea,,DECGN,Koln,Köln,Germany,Nordrhein-Westfalen
+425,,Cuxhaven,sea,,DECUX,Cuxhaven,Cuxhaven,Germany,Niedersachsen
+426,,Dusseldorf,sea,,DEDUS,Dusseldorf,Düsseldorf,Germany,Nordrhein-Westfalen
+427,,Elsfleth,sea,,DEELS,Elsfleth,Elsfleth,Germany,Niedersachsen
+428,,Emden,sea,,DEEME,Emden,Emden,Germany,Niedersachsen
+429,,Flensburg,sea,,DEFLF,Flensburg,Flensburg,Germany,Schleswig-Holstein
+430,,Hamburg,sea,,DEHAM,Hamburg,Hamburg,Germany,Hamburg
+431,,Harburg,sea,,DEHBU,Harburg,Harburg,Germany,Hamburg
+432,,Hamm,sea,,DEHMM,Hamm,Hamm,Germany,Nordrhein-Westfalen
+433,,Kiel,sea,,DEKEL,Kiel,Kiel,Germany,Schleswig-Holstein
+434,,Kriegenbrunn,sea,,DEKGU,Kriegenbrunn,Kriegenbrunn,Germany,Bayern
+435,,Kochendorf,sea,,DEKHO,Kochendorf,Kochendorf,Germany,Baden-Württemberg
+436,,Lubeck,sea,,DELBC,Lubeck,Lübeck,Germany,Schleswig-Holstein
+437,,Leer,sea,,DELEE,Leer,Leer,Germany,Niedersachsen
+438,,Mannheim,sea,,DEMHG,Mannheim,Mannheim,Germany,Baden-Württemberg
+439,,Nordenham,sea,,DENHA,Nordenham,Nordenham,Germany,Niedersachsen
+440,,Nordstrand,sea,,DENOR,Nordstrand,Nordstrand,Germany,Schleswig-Holstein
+441,,Pfronten,sea,,DEPFR,Pfronten,Pfronten,Germany,Bayern
+442,,Rostock,sea,,DERSK,Rostock,Rostock,Germany,Mecklenburg-Vorpommern
+443,,Wedel,sea,,DEWED,Wedel,Wedel,Germany,Schleswig-Holstein
+444,,Worms,sea,,DEWOR,Worms,Worms,Germany,Rheinland-Pfalz
+445,,Wilhelmshaven,sea,,DEWVN,Wilhelmshaven,Wilhelmshaven,Germany,Niedersachsen
+446,,Djibouti,sea,,DJJIB,Djibouti,Djibouti,Djibouti,Djibouti
+447,,Djibouti,sea,,DJPOD,Djibouti,Djibouti,Djibouti,Djibouti
+448,,Aalborg,sea,,DKAAL,Aalborg,Aalborg,Denmark,North Denmark Region
+449,,Aarhus,sea,,DKAAR,Aarhus,Aarhus,Denmark,Midtjylland
+450,,Assens,sea,,DKASN,Assens,Assens,Denmark,Region Syddanmark
+451,,Kobenhavn,sea,,DKCPH,Kobenhavn,København,Denmark,Hovedstaden
+452,,Esbjerg,sea,,DKEBJ,Esbjerg,Esbjerg,Denmark,Region Syddanmark
+453,,Fredericia,sea,,DKFRC,Fredericia,Fredericia,Denmark,Region Syddanmark
+454,,Hirtshals,sea,,DKHIR,Hirtshals,Hirtshals,Denmark,North Denmark Region
+455,,Helsingor,sea,,DKHLS,Helsingor,Helsingør,Denmark,Capital Region of Denmark
+456,,Holstebro,sea,,DKHSB,Holstebro,Holstebro,Denmark,Central Denmark Region
+457,,Kalundborg,sea,,DKKAL,Kalundborg,Kalundborg,Denmark,Region Zealand
+458,,Kerteminde,sea,,DKKTD,Kerteminde,Kerteminde,Denmark,Region Syddanmark
+459,,Nyborg,sea,,DKNBG,Nyborg,Nyborg,Denmark,Region Syddanmark
+460,,Odense,sea,,DKODE,Odense,Odense,Denmark,Region Syddanmark
+461,,Rungsted,sea,,DKRUG,Rungsted,Rungsted,Denmark,Hovedstaden
+462,,Skagen,sea,,DKSKA,Skagen,Skagen,Denmark,North Denmark Region
+463,,Svendborg,sea,,DKSVE,Svendborg,Svendborg,Denmark,Region Syddanmark
+464,,Roseau,sea,,DMRSU,Roseau,Roseau,Dominica,Saint George Parish
+465,,Caucedo,sea,,DOCAU,Caucedo,Caucedo,Dominican Republic,Distrito Nacional (Santo Domingo)
+466,,Rio Haina,sea,,DOHAI,Rio Haina,Rio Haina,Dominican Republic,Santo Domingo
+467,,Manzanillo,sea,,DOMAN,Manzanillo,Manzanillo,Dominican Republic,Monte Cristi
+468,,Puerto Plata,sea,,DOPOP,Puerto Plata,Puerto Plata,Dominican Republic,Puerto Plata
+469,,Santo Domingo,sea,,DOSDQ,Santo Domingo,Santo Domingo,Dominican Republic,Distrito Nacional (Santo Domingo)
+470,,San Pedro de Macoris,sea,,DOSPM,San Pedro de Macoris,San Pedro de Macorís,Dominican Republic,San Pedro de Macoris
+471,,Annaba (ex Bone),sea,,DZAAE,Annaba (ex Bone),Annaba (ex Bone),Algeria,-
+472,,Alger (Algiers),sea,,DZALG,Alger (Algiers),Alger (Algiers),Algeria,Alger
+473,,Bejaia (ex Bougie),sea,,DZBJA,Bejaia (ex Bougie),Bejaia (ex Bougie),Algeria,Béjaïa
+474,,Ghardaia,sea,,DZGHA,Ghardaia,Ghardaïa,Algeria,Ghardaïa Province
+475,,Mostaganem,sea,,DZMOS,Mostaganem,Mostaganem,Algeria,Mostaganem
+476,,Oran,sea,,DZORN,Oran,Oran,Algeria,Oran
+477,,Skikda (ex Philippeville),sea,,DZSKI,Skikda (ex Philippeville),Skikda (ex Philippeville),Algeria,-
+478,,Bahia de Caraquez,sea,,ECBHA,Bahia de Caraquez,Bahía de Caráquez,Ecuador,Manabí
+479,,Chanduy,sea,,ECCHA,Chanduy,Chanduy,Ecuador,Guayas
+480,,Esmeraldas,sea,,ECESM,Esmeraldas,Esmeraldas,Ecuador,Esmeraldas
+481,,Guayaquil,sea,,ECGYE,Guayaquil,Guayaquil,Ecuador,Guayas
+482,,La Libertad,sea,,ECLLD,La Libertad,La Libertad,Ecuador,Guayas
+483,,Manta,sea,,ECMEC,Manta,Manta,Ecuador,Manabí
+484,,Monteverde,sea,,ECMTV,Monteverde,Monteverde,Ecuador,Santa Elena
+485,,Puerto Bolivar,sea,,ECPBO,Puerto Bolivar,Puerto Bolívar,Ecuador,El Oro
+486,,Haldi,sea,,EEHLD,Haldi,Haldi,Estonia,Hiiumaa
+487,,Muuga,sea,,EEMUG,Muuga,Muuga,Estonia,Harjumaa
+488,,Tallinn,sea,,EETLL,Tallinn,Tallinn,Estonia,Harjumaa
+489,,Ain Sukhna,sea,,EGAIS,Ain Sukhna,Ain Sukhna,Egypt,Suez Governorate
+490,,El Iskandariya (Alexandria),sea,,EGALY,El Iskandariya (Alexandria),El Iskandariya (Alexandria),Egypt,Alexandria Governorate
+491,,Dumyat (Damietta),sea,,EGDAM,Dumyat (Damietta),Dumyat (Damietta),Egypt,Damietta Governorate
+492,,El Dekheila,sea,,EGEDK,El Dekheila,El Dekheila,Egypt,El Beheira Governorate
+493,,Port Said,sea,,EGPSD,Port Said,Port Said,Egypt,Port Said Governorate
+494,,Sokhna Port,sea,,EGSOK,Sokhna Port,Sokhna,Egypt,-
+495,,As Suways (Suez),sea,,EGSUZ,As Suways (Suez),As Suways (Suez),Egypt,As Suways
+496,,Assab,sea,,ERASA,Assab,Assab,Eritrea,Debubawi K’eyyih Bahri
+497,,Massawa (Mitsiwa),sea,,ERMSW,Massawa (Mitsiwa),Massawa (Mitsiwa),Eritrea,Semienawi K’eyyih Bahri
+498,,Lanzarote,sea,,ESACE,Lanzarote,Lanzarote,Spain,Las Palmas
+499,,Malaga,sea,,ESAGP,Malaga,Málaga,Spain,Andalusia
+500,,Alicante,sea,,ESALC,Alicante,Alicante,Spain,Valencian Community
+501,,Algeciras,sea,,ESALG,Algeciras,Algeciras,Spain,Andalusia
+502,,Aviles,sea,,ESAVS,Aviles,Aviles,Spain,Asturias
+503,,Barcelona,sea,,ESBCN,Barcelona,Barcelona,Spain,Catalonia
+504,,Bilbao,sea,,ESBIO,Bilbao,Bilbao,Spain,Biskaia
+505,,Bermeo,sea,,ESBRM,Bermeo,Bermeo,Spain,Biskaia
+506,,Cadiz,sea,,ESCAD,Cadiz,Cadiz,Spain,Andalusia
+507,,Cartagena,sea,,ESCAR,Cartagena,Cartagena,Spain,Región de Murcia
+508,,Castellon de la Plana,sea,,ESCAS,Castellon de la Plana,Castellón de la Plana,Spain,Valencia / València
+509,,Ceuta,sea,,ESCEU,Ceuta,Ceuta,Spain,Ceuta
+510,,Cebolla,sea,,ESEBO,Cebolla,Cebolla,Spain,Semienawi K’eyyĭḥ Baḥri
+511,,Ferez,sea,,ESFER,Ferez,Ferez,Spain,Albacete
+512,,Puerto del Rosario-Fuerteventura,sea,,ESFUE,Puerto del Rosario-Fuerteventura,Puerto del Rosario-Fuerteventura,Spain,Canarias
+513,,Gijon,sea,,ESGIJ,Gijon,Gijón,Spain,Asturias
+514,,Huelva,sea,,ESHUV,Huelva,Huelva,Spain,Andalucía
+515,,Ibiza,sea,,ESIBZ,Ibiza,Ibiza,Spain,Balears [Baleares]
+516,,La Coruna (A Coruna),sea,,ESLCG,La Coruna (A Coruna),La Coruña (A Coruña),Spain,A Coruña [La Coruña]
+517,,Almeria,sea,,ESLEI,Almeria,Almería,Spain,Almería
+518,,Las Palmas de Gran Canaria,sea,,ESLPA,Las Palmas de Gran Canaria,Las Palmas de Gran Canaria,Spain,Las Palmas
+519,,Madrid,sea,,ESMAD,Madrid,Madrid,Spain,Community of Madrid
+520,,"Mahon, Menorca",sea,,ESMAH,"Mahon, Menorca","Mahón, Menorca",Spain,Balears [Baleares]
+521,,Melilla,sea,,ESMLN,Melilla,Melilla,Spain,Melilla
+522,,Motril,sea,,ESMOT,Motril,Motril,Spain,Andalucía
+523,,"Marin, Pontevedra",sea,,ESMPG,"Marin, Pontevedra","Marin, Pontevedra",Spain,Galicia
+524,,Palamos,sea,,ESPAL,Palamos,Palamós,Spain,Catalunya
+525,,Pasajes,sea,,ESPAS,Pasajes,Pasajes,Spain,Euskadi
+526,,Palma de Mallorca,sea,,ESPMI,Palma de Mallorca,Palma de Mallorca,Spain,Balearic Islands
+527,,Santa Cruz de Tenerife,sea,,ESSCT,Santa Cruz de Tenerife,Santa Cruz de Tenerife,Spain,Canarias
+528,,Santander,sea,,ESSDR,Santander,Santander,Spain,Cantabria
+529,,Santurce,sea,,ESSNR,Santurce,Santurce,Spain,Biskaia
+530,,Santa Cruz de La Palma,sea,,ESSPC,Santa Cruz de La Palma,Santa Cruz de La Palma,Spain,Las Palmas
+531,,Sevilla,sea,,ESSVQ,Sevilla,Sevilla,Spain,Andalusia
+532,,Tarragona,sea,,ESTAR,Tarragona,Tarragona,Spain,Catalonia
+533,,Tabuenca,sea,,ESTBZ,Tabuenca,Tabuenca,Spain,Zaragoza
+534,,Tenerife,sea,,ESTCI,Tenerife,Tenerife,Spain,Las Palmas
+535,,Tortosa,sea,,ESTOT,Tortosa,Tortosa,Spain,Catalonia
+536,,Vigo,sea,,ESVGO,Vigo,Vigo,Spain,Galicia
+537,,Valencia,sea,,ESVLC,Valencia,Valencia,Spain,Valencian Community
+538,,Zaragoza,sea,,ESZAZ,Zaragoza,Zaragoza,Spain,Aragon
+539,,Helsingfors (Helsinki),sea,,FIHEL,Helsingfors (Helsinki),Helsingfors (Helsinki),Finland,Uusimaa
+540,,Hango (Hanko),sea,,FIHKO,Hango (Hanko),Hangö (Hanko),Finland,Uusimaa
+541,,Fredrikshamn (Hamina),sea,,FIHMN,Fredrikshamn (Hamina),Fredrikshamn (Hamina),Finland,Kymenlaakso
+542,,Kemi/Tornea (Kemi/Tornio),sea,,FIKEM,Kemi/Tornea (Kemi/Tornio),Kemi/Torneå (Kemi/Tornio),Finland,Lappi
+543,,Karleby (Kokkola),sea,,FIKOK,Karleby (Kokkola),Karleby (Kokkola),Finland,Keski-Pohjanmaa
+544,,Kotka,sea,,FIKTK,Kotka,Kotka,Finland,Kymenlaakso
+545,,Mantyluoto,sea,,FIMTL,Mantyluoto,Mantyluoto,Finland,-
+546,,Oulu,sea,,FIOLU,Oulu,Oulu,Finland,Northern Ostrobothnia
+547,,Oulu (Uleaborg),sea,,FIOUL,Oulu (Uleaborg),Oulu (Uleåborg),Finland,Pohjois-Pohjanmaa
+548,,Bjorneborg (Pori),sea,,FIPOR,Bjorneborg (Pori),Björneborg (Pori),Finland,Satakunta
+549,,Rauma (Raumo),sea,,FIRAU,Rauma (Raumo),Rauma (Raumo),Finland,Satakunta
+550,,Abo (Turku),sea,,FITKU,Abo (Turku),Åbo (Turku),Finland,Varsinais-Suomi
+551,,Tornea (Tornio),sea,,FITOR,Tornea (Tornio),Torneå (Tornio),Finland,Lappi
+552,,Lautoka,sea,,FJLTK,Lautoka,Lautoka,Fiji,Western Division
+553,,Suva,sea,,FJSUV,Suva,Suva,Fiji,Central Division
+554,,Port Stanley,sea,,FKPSY,Port Stanley,Port Stanley,Falkland Islands (Malvinas),East Falkland
+555,,Pohnpei (ex Ponape),sea,,FMPNI,Pohnpei (ex Ponape),Pohnpei (ex Ponape),"Micronesia, Federated States of",Pohnpei
+556,,Thorshavn,sea,,FOTHO,Thorshavn,Thorshavn,Faroe Islands,-
+557,,Bassens,sea,,FRBAS,Bassens,Bassens,France,Gironde
+558,,Bayonne,sea,,FRBAY,Bayonne,Bayonne,France,Pyrénées-Atlantiques
+559,,Brest,sea,,FRBES,Brest,Brest,France,Finistère
+560,,Bordeaux,sea,,FRBOD,Bordeaux,Bordeaux,France,Gironde
+561,,Boulogne-sur-Mer,sea,,FRBOL,Boulogne-sur-Mer,Boulogne-sur-Mer,France,Pas-de-Calais
+562,,Calais,sea,,FRCQF,Calais,Calais,France,Pas-de-Calais
+563,,Dunkerque,sea,,FRDKK,Dunkerque,Dunkerque,France,Nord
+564,,Dieppe,sea,,FRDPE,Dieppe,Dieppe,France,Seine-Maritime
+565,,Fos-sur-Mer,sea,,FRFOS,Fos-sur-Mer,Fos-sur-Mer,France,Bouches-du-Rhône
+566,,Chitry,sea,,FRHGT,Chitry,Chitry,France,Yonne
+567,,Honfleur,sea,,FRHON,Honfleur,Honfleur,France,Ain
+568,,Javrezac,sea,,FRJAV,Javrezac,Javrezac,France,Ain
+569,,La Ciotat,sea,,FRLCT,La Ciotat,La Ciotat,France,Bouches-du-Rhône
+570,,Le Havre,sea,,FRLEH,Le Havre,Le Havre,France,Seine-Maritime
+571,,La Planche,sea,,FRLPC,La Planche,La Planche,France,Loire-Atlantique
+572,,La Pallice,sea,,FRLPE,La Pallice,La Pallice,France,Charente-Maritime
+573,,La Rochelle,sea,,FRLRH,La Rochelle,La Rochelle,France,Charente-Maritime
+574,,Lorient,sea,,FRLRT,Lorient,Lorient,France,Morbihan
+575,,Le Treport,sea,,FRLTR,Le Treport,Le Tréport,France,Seine-Maritime
+576,,Le Verdon-sur-Mer,sea,,FRLVE,Le Verdon-sur-Mer,Le Verdon-sur-Mer,France,Gironde
+577,,Mundolsheim,sea,,FRMDH,Mundolsheim,Mundolsheim,France,Bas-Rhin
+578,,Marseille,sea,,FRMRS,Marseille,Marseille,France,Bouches-du-Rhône
+579,,Monteton,sea,,FRMT7,Monteton,Monteton,France,Lot-et-Garonne
+580,,Montoir-de-Bretagne,sea,,FRMTX,Montoir-de-Bretagne,Montoir-de-Bretagne,France,Loire-Atlantique
+581,,Nantes,sea,,FRNTE,Nantes,Nantes,France,Loire-Atlantique
+582,,La Groise,sea,,FROR6,La Groise,La Groise,France,Nord
+583,,Paris,sea,,FRPAR,Paris,Paris,France,Paris
+584,,Piriac-sur-Mer,sea,,FRPIR,Piriac-sur-Mer,Piriac-sur-Mer,France,Loire-Atlantique
+585,,Port-Vendres,sea,,FRPOV,Port-Vendres,Port-Vendres,France,Pyrénées-Orientales
+586,,Sete,sea,,FRSET,Sete,Sète,France,Hérault
+587,,Saint-Nazaire,sea,,FRSNR,Saint-Nazaire,Saint-Nazaire,France,Loire-Atlantique
+588,,Toulon,sea,,FRTLN,Toulon,Toulon,France,Var
+589,,Rouen,sea,,FRURO,Rouen,Rouen,France,Seine-Maritime
+590,,Mus,sea,,FRUSJ,Mus,Mus,France,Vaucluse
+591,,Cap Lopez,sea,,GACLZ,Cap Lopez,Cap Lopez,Gabon,-
+592,,Libreville,sea,,GALBV,Libreville,Libreville,Gabon,Estuaire
+593,,Owendo,sea,,GAOWE,Owendo,Owendo,Gabon,Estuaire
+594,,Port Gentil,sea,,GAPOG,Port Gentil,Port Gentil,Gabon,Ogooue-Maritime
+595,,Aberdeen,sea,,GBABD,Aberdeen,Aberdeen,United Kingdom,Aberdeen City
+596,,Avonmouth,sea,,GBAVO,Avonmouth,Avonmouth,United Kingdom,"Bristol, City of"
+597,,Barry Dock,sea,,GBBAD,Barry Dock,Barry Dock,United Kingdom,"Vale of Glamorgan, The [Bro Morgannwg GB-BMG]"
+598,,Broadstairs,sea,,GBBDT,Broadstairs,Broadstairs,United Kingdom,Kent
+599,,Belfast,sea,,GBBEL,Belfast,Belfast,United Kingdom,Belfast
+600,,Burnham on Crouch,sea,,GBBOC,Burnham on Crouch,Burnham on Crouch,United Kingdom,Essex
+601,,Bootle,sea,,GBBOE,Bootle,Bootle,United Kingdom,Sefton
+602,,Boston,sea,,GBBOS,Boston,Boston,United Kingdom,Lincolnshire
+603,,Birkenhead,sea,,GBBRK,Birkenhead,Birkenhead,United Kingdom,Wirral
+604,,Bristol,sea,,GBBRS,Bristol,Bristol,United Kingdom,"Bristol, City of"
+605,,Bridlington,sea,,GBBRT,Bridlington,Bridlington,United Kingdom,East Riding of Yorkshire
+606,,Bridgwater,sea,,GBBRW,Bridgwater,Bridgwater,United Kingdom,Somerset
+607,,Cardiff,sea,,GBCDF,Cardiff,Cardiff,United Kingdom,Cardiff [Caerdydd GB-CRD]
+608,,Carrickfergus,sea,,GBCFG,Carrickfergus,Carrickfergus,United Kingdom,Carrickfergus
+609,,Charleston,sea,,GBCHD,Charleston,Charleston,United Kingdom,Angus
+610,,Cairnryan,sea,,GBCYN,Cairnryan,Cairnryan,United Kingdom,Dumfries and Galloway
+611,,Dundee,sea,,GBDUN,Dundee,Dundee,United Kingdom,Dundee City
+612,,Dover,sea,,GBDVR,Dover,Dover,United Kingdom,Kent
+613,,Edinburgh,sea,,GBEDI,Edinburgh,Edinburgh,United Kingdom,"Edinburgh, City of"
+614,,Sheildaig,sea,,GBEIL,Sheildaig,Sheildaig,United Kingdom,Woleu-Ntem
+615,,Ellesmere Port,sea,,GBELL,Ellesmere Port,Ellesmere,United Kingdom,Cheshire West and Chester
+616,,Seaton,sea,,GBEON,Seaton,Seaton,United Kingdom,Devon
+617,,Falmouth,sea,,GBFAL,Falmouth,Falmouth,United Kingdom,Cornwall
+618,,Fawley,sea,,GBFAW,Fawley,Fawley,United Kingdom,Hampshire
+619,,Fraserburgh,sea,,GBFRB,Fraserburgh,Fraserburgh,United Kingdom,Aberdeenshire
+620,,Felixstowe,sea,,GBFXT,Felixstowe,Felixstowe,United Kingdom,Suffolk
+621,,Guernsey,sea,,GBGCI,Guernsey,Guernsey,United Kingdom,-
+622,,Glasgow,sea,,GBGLW,Glasgow,Glasgow,United Kingdom,Glasgow City
+623,,Goole,sea,,GBGOO,Goole,Goole,United Kingdom,East Riding of Yorkshire
+624,,Grangemouth,sea,,GBGRG,Grangemouth,Grangemouth,United Kingdom,Falkirk
+625,,Greenock,sea,,GBGRK,Greenock,Greenock,United Kingdom,Inverclyde
+626,,Grimsby,sea,,GBGSY,Grimsby,Grimsby,United Kingdom,North East Lincolnshire
+627,,Great Yarmouth,sea,,GBGTY,Great Yarmouth,Great Yarmouth,United Kingdom,Norfolk
+628,,Gravesend,sea,,GBGVS,Gravesend,Gravesend,United Kingdom,Kent
+629,,Harwich,sea,,GBHRW,Harwich,Harwich,United Kingdom,Essex
+630,,Hull,sea,,GBHUL,Hull,Hull,United Kingdom,East Riding of Yorkshire
+631,,Immingham,sea,,GBIMM,Immingham,Immingham,United Kingdom,North East Lincolnshire
+632,,Inverkeithing,sea,,GBINK,Inverkeithing,Inverkeithing,United Kingdom,Fife
+633,,Inverness,sea,,GBINV,Inverness,Inverness,United Kingdom,Highland
+634,,Ipswich,sea,,GBIPS,Ipswich,Ipswich,United Kingdom,Suffolk
+635,,Irlam,sea,,GBIRL,Irlam,Irlam,United Kingdom,Trafford
+636,,King's Lynn,sea,,GBKLN,King's Lynn,King's Lynn,United Kingdom,Norfolk
+637,,Lancaster,sea,,GBLAN,Lancaster,Lancaster,United Kingdom,Lancashire
+638,,London Gateway Port,sea,,GBLGP,London Gateway Port,London Gateway,United Kingdom,Essex
+639,,Liverpool,sea,,GBLIV,Liverpool,Liverpool,United Kingdom,Liverpool
+640,,London,sea,,GBLON,London,London,United Kingdom,"London, City of"
+641,,Maldon,sea,,GBMAL,Maldon,Maldon,United Kingdom,Essex
+642,,Macduff,sea,,GBMCD,Macduff,Macduff,United Kingdom,Aberdeenshire
+643,,Middlesbrough,sea,,GBMID,Middlesbrough,Middlesbrough,United Kingdom,Redcar and Cleveland
+644,,"Moaness, Hoy",sea,,GBMNS,"Moaness, Hoy","Moaness, Hoy",United Kingdom,Orkney Islands
+645,,Montrose,sea,,GBMON,Montrose,Montrose,United Kingdom,Angus
+646,,Maryport,sea,,GBMRY,Maryport,Maryport,United Kingdom,Cumbria
+647,,Newcastle upon Tyne,sea,,GBNCL,Newcastle upon Tyne,Newcastle upon Tyne,United Kingdom,Newcastle upon Tyne
+648,,Northfleet,sea,,GBNFT,Northfleet,Northfleet,United Kingdom,Kent
+649,,Newhaven,sea,,GBNHV,Newhaven,Newhaven,United Kingdom,East Sussex
+650,,Nelson,sea,,GBNLN,Nelson,Nelson,United Kingdom,Lancashire
+651,,Newport,sea,,GBNPT,Newport,Newport,United Kingdom,Blaenau Gwent
+652,,Pen-Clawdd,sea,,GBPDD,Pen-Clawdd,Pen-Clawdd,United Kingdom,Swansea [Abertawe GB-ATA]
+653,,Purfleet,sea,,GBPFT,Purfleet,Purfleet,United Kingdom,Essex
+654,,Plymouth,sea,,GBPLY,Plymouth,Plymouth,United Kingdom,England
+655,,Portsmouth,sea,,GBPME,Portsmouth,Portsmouth,United Kingdom,Hampshire
+656,,Poole,sea,,GBPOO,Poole,Poole,United Kingdom,Dorset
+657,,Preston,sea,,GBPRE,Preston,Preston,United Kingdom,Lancashire
+658,,Portbury,sea,,GBPRU,Portbury,Portbury,United Kingdom,North Somerset
+659,,Parkeston Quay,sea,,GBPST,Parkeston Quay,Parkeston Quay,United Kingdom,Essex
+660,,Queenborough,sea,,GBQUB,Queenborough,Queenborough,United Kingdom,Kent
+661,,Rye,sea,,GBRYE,Rye,Rye,United Kingdom,East Sussex
+662,,Scarborough,sea,,GBSCA,Scarborough,Scarborough,United Kingdom,North Yorkshire
+663,,Sheerness,sea,,GBSHS,Sheerness,Sheerness,United Kingdom,Kent
+664,,Southampton,sea,,GBSOU,Southampton,Southampton,United Kingdom,Hampshire
+665,,Stanlow,sea,,GBSOW,Stanlow,Stanlow,United Kingdom,Shropshire
+666,,South Shields,sea,,GBSSH,South Shields,South Shields,United Kingdom,South Tyneside
+667,,Sunderland,sea,,GBSUN,Sunderland,Sunderland,United Kingdom,Sunderland
+668,,Silvertown,sea,,GBSVT,Silvertown,Silvertown,United Kingdom,England
+669,,Swansea,sea,,GBSWA,Swansea,Swansea,United Kingdom,Swansea [Abertawe GB-ATA]
+670,,Teesport,sea,,GBTEE,Teesport,Teesport,United Kingdom,Redcar and Cleveland
+671,,Thamesport,sea,,GBTHP,Thamesport,Thamesport,United Kingdom,Kent
+672,,Tilbury,sea,,GBTIL,Tilbury,Tilbury,United Kingdom,Essex
+673,,Tyne,sea,,GBTYN,Tyne,Tyne,United Kingdom,Newcastle upon Tyne
+674,,Widnes,sea,,GBWDN,Widnes,Widnes,United Kingdom,Halton
+675,,Workington,sea,,GBWOR,Workington,Workington,United Kingdom,Cumbria
+676,,Stonehouse,sea,,GBYVZ,Stonehouse,Stonehouse,United Kingdom,Gloucestershire
+677,,Saint George's,sea,,GDSTG,Saint George's,Saint George's,Grenada,Saint George
+678,,Batumi,sea,,GEBUS,Batumi,Batumi,Georgia,Adjara
+679,,Poti,sea,,GEPTI,Poti,Poti,Georgia,Samegrelo-Upper Svaneti
+680,,Tbilisi,sea,,GETBS,Tbilisi,Tbilisi,Georgia,Tbilisi
+681,,Cayenne,sea,,GFCAY,Cayenne,Cayenne,French Guiana,Cayenne
+682,,Degrad des Cannes,sea,,GFDDC,Degrad des Cannes,Dégrad des Cannes,French Guiana,Cayenne
+683,,Tema,sea,,GHTEM,Tema,Tema,Ghana,Greater Accra
+684,,Takoradi,sea,,GHTKD,Takoradi,Takoradi,Ghana,Western
+685,,Gibraltar,sea,,GIGIB,Gibraltar,Gibraltar,Gibraltar,-
+686,,Banjul,sea,,GMBJL,Banjul,Banjul,Gambia,Banjul
+687,,Conakry,sea,,GNCKY,Conakry,Conakry,Guinea,Conakry
+688,,Basse-Terre,sea,,GPBBR,Basse-Terre,Basse-Terre,Guadeloupe,Basse-Terre
+689,,Gustavia,sea,,GPGUS,Gustavia,Gustavia,Guadeloupe,-
+690,,Pointe-a-Pitre,sea,,GPPTP,Pointe-a-Pitre,Pointe-à-Pitre,Guadeloupe,Grande-Terre
+691,,Saint Barthelemy,sea,,GPSBH,Saint Barthelemy,Saint Barthelemy,Guadeloupe,Pointe-à-Pitre
+692,,Bata,sea,,GQBSG,Bata,Bata,Equatorial Guinea,Litoral
+693,,Malabo,sea,,GQSSG,Malabo,Malabo,Equatorial Guinea,Bioko Norte
+694,,Astakos,sea,,GRAST,Astakos,Astakós,Greece,Peloponnisos Dytiki Ellada ke Ionio
+695,,Eleusina,sea,,GREEU,Eleusina,Eleusina,Greece,Attiki
+696,,Heraklion (Iraklion),sea,,GRHER,Heraklion (Iraklion),Heraklion (Iraklion),Greece,Irakleio
+697,,Kapsalion (Kythira),sea,,GRKAP,Kapsalion (Kythira),Kapsalion (Kythira),Greece,Wele‐Nzas
+698,,Piraeus,sea,,GRPIR,Piraeus,Piraeus,Greece,Attica
+699,,Rhodes,sea,,GRRHO,Rhodes,Rhodes,Greece,Egeo
+700,,Thessaloniki,sea,,GRSKG,Thessaloniki,Thessaloníki,Greece,Makedonia Thraki
+701,,Volos,sea,,GRVOL,Volos,Vólos,Greece,Thessalia Sterea Ellada
+702,,Champerico,sea,,GTCHR,Champerico,Champerico,Guatemala,Retalhuleu
+703,,Guatemala City,sea,,GTGUA,Guatemala City,Guatemala City,Guatemala,Guatemala
+704,,Puerto Barrios,sea,,GTPBR,Puerto Barrios,Puerto Barrios,Guatemala,Izabal
+705,,Puerto Quetzal,sea,,GTPRQ,Puerto Quetzal,Puerto Quetzal,Guatemala,Escuintla
+706,,Puerto Santo Tomas de Castilla,sea,,GTSTC,Puerto Santo Tomas de Castilla,Puerto Santo Tomás de Castilla,Guatemala,Izabal
+707,,Guam,sea,,GUGUM,Guam,Guam,Guam,-
+708,,Bissau,sea,,GWOXB,Bissau,Bissau,Guinea-Bissau,Bissau
+709,,Georgetown,sea,,GYGEO,Georgetown,Georgetown,Guyana,Demerara-Mahaica
+710,,Hong Kong,sea,,HKHKG,Hong Kong,Hong Kong,Hong Kong,-
+711,,Amapala,sea,,HNAMP,Amapala,Amapala,Honduras,-
+712,,La Ceiba,sea,,HNLCE,La Ceiba,La Ceiba,Honduras,Atlantida
+713,,Puerto Castilla,sea,,HNPCA,Puerto Castilla,Puerto Castilla,Honduras,Colon
+714,,Puerto Cortes,sea,,HNPCR,Puerto Cortes,Puerto Cortés,Honduras,Cortés
+715,,Roatan,sea,,HNRTB,Roatan,Roatán,Honduras,Bay Islands
+716,,San Lorenzo,sea,,HNSLO,San Lorenzo,San Lorenzo,Honduras,Valle
+717,,Tela,sea,,HNTEA,Tela,Tela,Honduras,Atlantida
+718,,Tegucigalpa,sea,,HNTGU,Tegucigalpa,Tegucigalpa,Honduras,Tegucigalpa
+719,,Dubrovnik,sea,,HRDBV,Dubrovnik,Dubrovnik,Croatia,Dubrovacko-neretvanska županija
+720,,Lastovo,sea,,HRLST,Lastovo,Lastovo,Croatia,Yoro
+721,,Ploce,sea,,HRPLE,Ploce,Ploce,Croatia,Dubrovnik-Neretva County
+722,,Rijeka,sea,,HRRJK,Rijeka,Rijeka,Croatia,Primorsko-goranska županija
+723,,Split,sea,,HRSPU,Split,Split,Croatia,Splitsko-dalmatinska županija
+724,,Cap-Haitien,sea,,HTCAP,Cap-Haitien,Cap-Haïtien,Haiti,Nord
+725,,Port-au-Prince,sea,,HTPAP,Port-au-Prince,Port-au-Prince,Haiti,Ouest
+726,,Budapest,sea,,HUBUD,Budapest,Budapest,Hungary,Budapest
+727,,"Amamapare, Ij",sea,,IDAMA,"Amamapare, Ij","Amamapare, Ij",Indonesia,Papua
+728,,Banjarmasin,sea,,IDBDJ,Banjarmasin,Banjarmasin,Indonesia,South Kalimantan
+729,,"Bitung, Sulawesi",sea,,IDBIT,"Bitung, Sulawesi","Bitung, Sulawesi",Indonesia,North Sulawesi
+730,,"Belawan, Sumatra",sea,,IDBLW,"Belawan, Sumatra","Belawan, Sumatra",Indonesia,Sumatera Utara
+731,,Belanak Terminal,sea,,IDBNT,Belanak Terminal,Belanak Terminal,Indonesia,Riau
+732,,Balikpapan,sea,,IDBPN,Balikpapan,Balikpapan,Indonesia,Kalimantan Timur
+733,,Batam Island,sea,,IDBTM,Batam Island,Batam Island,Indonesia,-
+734,,Buatan,sea,,IDBUN,Buatan,Buatan,Indonesia,Riau
+735,,Batu Ampal,sea,,IDBUR,Batu Ampal,Batu Ampal,Indonesia,Kalimantan Timur
+736,,Cigading,sea,,IDCIG,Cigading,Cigading,Indonesia,Banten
+737,,"Jambi, Sumatra",sea,,IDDJB,"Jambi, Sumatra","Jambi, Sumatra",Indonesia,Jambi
+738,,"Jayapura, Irian Jaya",sea,,IDDJJ,"Jayapura, Irian Jaya","Jayapura, Irian Jaya",Indonesia,Papua
+739,,"Jakarta, Java",sea,,IDJKT,"Jakarta, Java","Jakarta, Java",Indonesia,Jakarta Raya
+740,,Kabil,sea,,IDKAB,Kabil,Kabil,Indonesia,Riau Islands
+741,,Lobam,sea,,IDLBM,Lobam,Lobam,Indonesia,-
+742,,Makassar,sea,,IDMAK,Makassar,Makassar,Indonesia,Sulawesi Selatan
+743,,"Medan, Sumatra",sea,,IDMES,"Medan, Sumatra","Medan, Sumatra",Indonesia,North Sumatra
+744,,"Merak, Java",sea,,IDMRK,"Merak, Java","Merak, Java",Indonesia,Banten
+745,,Padang,sea,,IDPDG,Padang,Padang,Indonesia,Sumatera Barat
+746,,"Panjang (Lampung, Sumatra)",sea,,IDPJG,"Panjang (Lampung, Sumatra)","Panjang (Lampung, Sumatra)",Indonesia,Lampung
+747,,"Pekanbaru, Sumatra",sea,,IDPKU,"Pekanbaru, Sumatra","Pekanbaru, Sumatra",Indonesia,Riau
+748,,"Palembang, Sumatra",sea,,IDPLM,"Palembang, Sumatra","Palembang, Sumatra",Indonesia,South Sumatra
+749,,Panjang,sea,,IDPNJ,Panjang,Panjang,Indonesia,Lampung
+750,,"Pontianak, Kalimantan",sea,,IDPNK,"Pontianak, Kalimantan","Pontianak, Kalimantan",Indonesia,West Kalimantan
+751,,Perawang,sea,,IDPWG,Perawang,Perawang,Indonesia,Riau
+752,,"Sungai Pakning, Sumatra",sea,,IDSEQ,"Sungai Pakning, Sumatra","Sungai Pakning, Sumatra",Indonesia,Riau
+753,,Semarang,sea,,IDSRG,Semarang,Semarang,Indonesia,Jawa Tengah
+754,,"Samarinda, Kalimantan",sea,,IDSRI,"Samarinda, Kalimantan","Samarinda, Kalimantan",Indonesia,East Kalimantan
+755,,Surabaya,sea,,IDSUB,Surabaya,Surabaya,Indonesia,Jawa Timur
+756,,Taboneo,sea,,IDTAB,Taboneo,Taboneo,Indonesia,Kalimantan Selatan
+757,,"Teluk Betung, Sumatra",sea,,IDTBG,"Teluk Betung, Sumatra","Teluk Betung, Sumatra",Indonesia,Lampung
+758,,Tanjung Priok,sea,,IDTPP,Tanjung Priok,Tanjung Priok,Indonesia,Special Capital Region of Jakarta
+759,,Tebingtinggi,sea,,IDTTI,Tebingtinggi,Tebingtinggi,Indonesia,North Sumatra
+760,,"Ujung Pandang, Sulawesi",sea,,IDUPG,"Ujung Pandang, Sulawesi","Ujung Pandang, Sulawesi",Indonesia,-
+761,,Drogheda,sea,,IEDRO,Drogheda,Drogheda,Ireland,Louth
+762,,Dublin,sea,,IEDUB,Dublin,Dublin,Ireland,Dublin
+763,,Foynes,sea,,IEFOV,Foynes,Foynes,Ireland,Limerick
+764,,Galway,sea,,IEGWY,Galway,Galway,Ireland,Galway
+765,,Kinsale,sea,,IEKLN,Kinsale,Kinsale,Ireland,Cork
+766,,Cork,sea,,IEORK,Cork,Cork,Ireland,Cork
+767,,Waterford,sea,,IEWAT,Waterford,Waterford,Ireland,Waterford
+768,,Ashdod,sea,,ILASH,Ashdod,Ashdod,Israel,-
+769,,Hadera,sea,,ILHAD,Hadera,Hadera,Israel,Haifa District
+770,,Haifa,sea,,ILHFA,Haifa,Haifa,Israel,-
+771,,Netanya,sea,,ILNAT,Netanya,Netanya,Israel,Center District
+772,,Ramat Gan,sea,,ILRMG,Ramat Gan,Ramat Gan,Israel,Tel Aviv District
+773,,Tel Aviv-Yafo,sea,,ILTLV,Tel Aviv-Yafo,Tel Aviv-Yafo,Israel,Tel-Aviv
+774,,Agra,sea,,INAGR,Agra,Agra,India,Uttar Pradesh
+775,,Ahmedabad,sea,,INAMD,Ahmedabad,Ahmedabad,India,Gujarat
+776,,Bangalore,sea,,INBLR,Bangalore,Bangalore,India,Karnataka
+777,,Mumbai (ex Bombay),sea,,INBOM,Mumbai (ex Bombay),Mumbai (ex Bombay),India,Maharashtra
+778,,Kolkata (ex Calcutta),sea,,INCCU,Kolkata (ex Calcutta),Kolkata (ex Calcutta),India,West Bengal
+779,,Cuddalore,sea,,INCDL,Cuddalore,Cuddalore,India,Tamil Nadu
+780,,Coimbatore,sea,,INCJB,Coimbatore,Coimbatore,India,Tamil Nadu
+781,,Cochin,sea,,INCOK,Cochin,Cochin,India,Kerala
+782,,Daman,sea,,INDAM,Daman,Daman,India,Daman and Diu
+783,,Dadri,sea,,INDRI,Dadri,Dadri,India,Uttar Pradesh
+784,,Goa,sea,,INGOI,Goa,Goa,India,Goa
+785,,Haldia,sea,,INHAL,Haldia,Haldia,India,West Bengal
+786,,Hyderabad,sea,,INHYD,Hyderabad,Hyderabad,India,Andhra Pradesh
+787,,New Delhi,sea,,INICD,New Delhi,New Delhi,India,Delhi
+788,,Mangalore,sea,,INIXE,Mangalore,Mangalore,India,Karnataka
+789,,Kandla,sea,,INIXY,Kandla,Kandla,India,Gujarat
+790,,Jaipur,sea,,INJAI,Jaipur,Jaipur,India,Rajasthan
+791,,Jodhpur,sea,,INJDH,Jodhpur,Jodhpur,India,Rajasthan
+792,,Kanpur,sea,,INKNU,Kanpur,Kanpur,India,Uttar Pradesh
+793,,Krishnapatnam,sea,,INKRI,Krishnapatnam,Krishnapatnam,India,Andhra Pradesh
+794,,Ludhiana,sea,,INLUH,Ludhiana,Ludhiana,India,Punjab
+795,,Chennai (ex Madras),sea,,INMAA,Chennai (ex Madras),Chennai (ex Madras),India,Tamil Nadu
+796,,Moradabad,sea,,INMOR,Moradabad,Moradabad,India,Uttar Pradesh
+797,,Marmagao (Marmugao),sea,,INMRM,Marmagao (Marmugao),Marmagao (Marmugao),India,Goa
+798,,Mundra,sea,,INMUN,Mundra,Mundra,India,Gujarat
+799,,Nagpur,sea,,INNAG,Nagpur,Nagpur,India,Maharashtra
+800,,Jawaharlal Nehru (Nhava Sheva),sea,,INNSA,Jawaharlal Nehru (Nhava Sheva),Jawaharlal Nehru (Nhava Sheva),India,Maharashtra
+801,,Panipat,sea,,INPAP,Panipat,Panipat,India,Haryana
+802,,Pipavav (Victor) Port,sea,,INPAV,Pipavav (Victor) Port,Pipavav (Victor),India,Gujarat
+803,,Pithampur,sea,,INPIR,Pithampur,Pithampur,India,Madhya Pradesh
+804,,Pune,sea,,INPNQ,Pune,Pune,India,Maharashtra
+805,,Surat,sea,,INSTV,Surat,Surat,India,Gujarat
+806,,Tuticorin,sea,,INTUT,Tuticorin,Tuticorin,India,Tamil Nadu
+807,,Visakhapatnam,sea,,INVTZ,Visakhapatnam,Visakhapatnam,India,Andhra Pradesh
+808,,Veraval,sea,,INVVA,Veraval,Veraval,India,Gujarat
+809,,Umm Qasr Port,sea,,IQUQR,Umm Qasr Port,Umm Qasr,Iraq,Al Basrah
+810,,Bandar Khomeini,sea,,IRBKM,Bandar Khomeini,Bandar Khomeini,"Iran, Islamic Republic of",Khuzestan
+811,,Bandar Abbas,sea,,IRBND,Bandar Abbas,Bandar Abbas,"Iran, Islamic Republic of",Hormozgan
+812,,Bushehr,sea,,IRBUZ,Bushehr,Bushehr,"Iran, Islamic Republic of",Bushehr
+813,,Khorramshahr,sea,,IRKHO,Khorramshahr,Khorramshahr,"Iran, Islamic Republic of",Khuzestan
+814,,Chah Bahar,sea,,IRZBR,Chah Bahar,Chah Bahar,"Iran, Islamic Republic of",Sistan Va Baluchestan
+815,,Eskifjordur - hofn,sea,,ISESK,Eskifjordur - hofn,Eskifjørdur - høfn,Iceland,-
+816,,Grundartangi,sea,,ISGRT,Grundartangi,Grundartangi,Iceland,West
+817,,Reykjavik,sea,,ISREY,Reykjavik,Reykjavík,Iceland,Capital Region
+818,,Ancona,sea,,ITAOI,Ancona,Ancona,Italy,Ancona
+819,,Augusta,sea,,ITAUG,Augusta,Augusta,Italy,Sicilia
+820,,Bari,sea,,ITBRI,Bari,Bari,Italy,Bari
+821,,Cagliari,sea,,ITCAG,Cagliari,Cagliari,Italy,Cagliari
+822,,Crotone,sea,,ITCRV,Crotone,Crotone,Italy,Calabria
+823,,Catania,sea,,ITCTA,Catania,Catania,Italy,Sicilia
+824,,Civitavecchia,sea,,ITCVV,Civitavecchia,Civitavecchia,Italy,Lazio
+825,,Faenza,sea,,ITFAE,Faenza,Faenza,Italy,Emilia-Romagna
+826,,Gaeta,sea,,ITGAE,Gaeta,Gaeta,Italy,Lazio
+827,,Gioia Tauro,sea,,ITGIT,Gioia Tauro,Gioia Tauro,Italy,Calabria
+828,,Genova,sea,,ITGOA,Genova,Genova,Italy,Genova
+829,,Livorno,sea,,ITLIV,Livorno,Livorno,Italy,Toscana
+830,,Milano,sea,,ITMIL,Milano,Milano,Italy,Lombardy
+831,,Monfalcone,sea,,ITMNF,Monfalcone,Monfalcone,Italy,Friuli-Venezia Giulia
+832,,Modena,sea,,ITMOD,Modena,Modena,Italy,Emilia-Romagna
+833,,Napoli,sea,,ITNAP,Napoli,Napoli,Italy,Napoli
+834,,Padova,sea,,ITPDA,Padova,Padova,Italy,Veneto
+835,,Pesaro,sea,,ITPES,Pesaro,Pesaro,Italy,Pesaro e Urbino
+836,,Porto Garibaldi,sea,,ITPGA,Porto Garibaldi,Porto Garibaldi,Italy,Emilia-Romagna
+837,,Palermo,sea,,ITPMO,Palermo,Palermo,Italy,Palermo
+838,,Capri,sea,,ITPRJ,Capri,Capri,Italy,Napoli
+839,,Pescara,sea,,ITPSR,Pescara,Pescara,Italy,Pescara
+840,,Portoscuso (Porto Vesme),sea,,ITPVE,Portoscuso (Porto Vesme),Portoscuso (Porto Vesme),Italy,Sardegna
+841,,Ravenna,sea,,ITRAN,Ravenna,Ravenna,Italy,Emilia-Romagna
+842,,Salerno,sea,,ITSAL,Salerno,Salerno,Italy,Campania
+843,,La Spezia,sea,,ITSPE,La Spezia,La Spezia,Italy,Liguria
+844,,Savona,sea,,ITSVN,Savona,Savona,Italy,Savona
+845,,Taranto,sea,,ITTAR,Taranto,Taranto,Italy,Puglia
+846,,Trapani,sea,,ITTPS,Trapani,Trapani,Italy,Trapani
+847,,Torino,sea,,ITTRN,Torino,Torino,Italy,Piedmont
+848,,Trieste,sea,,ITTRS,Trieste,Trieste,Italy,Friuli-Venezia Giulia
+849,,Venezia,sea,,ITVCE,Venezia,Venezia,Italy,Venezia
+850,,Vado Ligure,sea,,ITVDL,Vado Ligure,Vado Ligure,Italy,Savona
+851,,Viareggio,sea,,ITVIA,Viareggio,Viareggio,Italy,Toscana
+852,,Kingston,sea,,JMKIN,Kingston,Kingston,Jamaica,-
+853,,Montego Bay,sea,,JMMBJ,Montego Bay,Montego Bay,Jamaica,Saint James Parish
+854,,Ocho Rios,sea,,JMOCJ,Ocho Rios,Ocho Rios,Jamaica,Saint Ann Parish
+855,,Port Kaiser,sea,,JMPKS,Port Kaiser,Port Kaiser,Jamaica,Saint Catherine Parish
+856,,Al 'Aqabah,sea,,JOAQJ,Al 'Aqabah,Al 'Aqabah,Jordan,Aqaba
+857,,Aburatsu,sea,,JPABU,Aburatsu,Aburatsu,Japan,Miyazaki
+858,,Aomori,sea,,JPAOJ,Aomori,Aomori,Japan,Aomori
+859,,Akita,sea,,JPAXT,Akita,Akita,Japan,Akita
+860,,Chiba,sea,,JPCHB,Chiba,Chiba,Japan,Tiba [Chiba]
+861,,"Fukuyama, Hiroshima",sea,,JPFKY,"Fukuyama, Hiroshima","Fukuyama, Hiroshima",Japan,Hirosima [Hiroshima]
+862,,Hachinohe,sea,,JPHHE,Hachinohe,Hachinohe,Japan,Aomori
+863,,Hibi,sea,,JPHIB,Hibi,Hibi,Japan,Okayama
+864,,Hitachinaka,sea,,JPHIC,Hitachinaka,Hitachinaka,Japan,Ibaraki
+865,,Hiroshima,sea,,JPHIJ,Hiroshima,Hiroshima,Japan,Hirosima [Hiroshima]
+866,,Himeji,sea,,JPHIM,Himeji,Himeji,Japan,Hyôgo[Hyogo]
+867,,Hikoshima,sea,,JPHIS,Hikoshima,Hikoshima,Japan,Yamaguti [Yamaguchi]
+868,,Hakodate,sea,,JPHKD,Hakodate,Hakodate,Japan,Hokkaidô [Hokkaido]
+869,,Hakata/Fukuoka,sea,,JPHKT,Hakata/Fukuoka,Hakata/Fukuoka,Japan,Hukuoka [Fukuoka]
+870,,Hamada,sea,,JPHMD,Hamada,Hamada,Japan,Simane [Shimane]
+871,,Hamamatsu,sea,,JPHMM,Hamamatsu,Hamamatsu,Japan,Sizuoka [Shizuoka]
+872,,Hososhima,sea,,JPHSM,Hososhima,Hososhima,Japan,Miyazaki
+873,,Hitachi,sea,,JPHTC,Hitachi,Hitachi,Japan,Ibaraki
+874,,Niihama,sea,,JPIHA,Niihama,Niihama,Japan,Ehime
+875,,Imabari,sea,,JPIMB,Imabari,Imabari,Japan,Ehime
+876,,Imari,sea,,JPIMI,Imari,Imari,Japan,Saga
+877,,Ishigaki,sea,,JPISG,Ishigaki,Ishigaki,Japan,Okinawa
+878,,Ishikari,sea,,JPISI,Ishikari,Ishikari,Japan,Hokkaidô [Hokkaido]
+879,,Ishinomaki,sea,,JPISM,Ishinomaki,Ishinomaki,Japan,Miyagi
+880,,Isa,sea,,JPISS,Isa,Isa,Japan,Kagosima [Kagoshima]
+881,,Iwakuni,sea,,JPIWK,Iwakuni,Iwakuni,Japan,Yamaguti [Yamaguchi]
+882,,Iyomishima,sea,,JPIYM,Iyomishima,Iyomishima,Japan,Ehime
+883,,Kochi,sea,,JPKCZ,Kochi,Kochi,Japan,Kôti [Kochi]
+884,,Kakogawa,sea,,JPKGA,Kakogawa,Kakogawa,Japan,Hyôgo[Hyogo]
+885,,Niigata,sea,,JPKIJ,Niigata,Niigata,Japan,Niigata
+886,,Kumamoto,sea,,JPKMJ,Kumamoto,Kumamoto,Japan,Kumamoto
+887,,"Kanda, Fukuoka",sea,,JPKND,"Kanda, Fukuoka","Kanda, Fukuoka",Japan,Hukuoka [Fukuoka]
+888,,Kinuura,sea,,JPKNU,Kinuura,Kinuura,Japan,Aiti [Aichi]
+889,,Kanazawa,sea,,JPKNZ,Kanazawa,Kanazawa,Japan,Isikawa [Ishikawa]
+890,,Kagoshima,sea,,JPKOJ,Kagoshima,Kagoshima,Japan,Kagosima [Kagoshima]
+891,,"Kure, Hiroshima",sea,,JPKRE,"Kure, Hiroshima","Kure, Hiroshima",Japan,Hirosima [Hiroshima]
+892,,"Kashima, Ibaraki",sea,,JPKSM,"Kashima, Ibaraki","Kashima, Ibaraki",Japan,Ibaraki
+893,,Kushiro,sea,,JPKUH,Kushiro,Kushiro,Japan,Hokkaidô [Hokkaido]
+894,,Kawasaki,sea,,JPKWS,Kawasaki,Kawasaki,Japan,Kanagawa
+895,,Kisarazu,sea,,JPKZU,Kisarazu,Kisarazu,Japan,Tiba [Chiba]
+896,,Maizuru,sea,,JPMAI,Maizuru,Maizuru,Japan,Hyôgo [Kyoto]
+897,,"Miike, Fukuoka",sea,,JPMII,"Miike, Fukuoka",Miike,Japan,Hukuoka [Fukuoka]
+898,,Moji/Kitakyushu,sea,,JPMOJ,Moji/Kitakyushu,Moji/Kitakyushu,Japan,Hukuoka [Fukuoka]
+899,,Mutsure,sea,,JPMTR,Mutsure,Mutsure,Japan,Yamaguti [Yamaguchi]
+900,,Muroran,sea,,JPMUR,Muroran,Muroran,Japan,Hokkaidô [Hokkaido]
+901,,Matsuyama,sea,,JPMYJ,Matsuyama,Matsuyama,Japan,Ehime
+902,,"Naha, Okinawa",sea,,JPNAH,"Naha, Okinawa","Naha, Okinawa",Japan,Okinawa
+903,,Nakanoseki,sea,,JPNAN,Nakanoseki,Nakanoseki,Japan,Yamaguti [Yamaguchi]
+904,,Naoetsu,sea,,JPNAO,Naoetsu,Naoetsu,Japan,Niigata
+905,,Naoshima,sea,,JPNAS,Naoshima,Naoshima,Japan,Kagawa
+906,,"Nagoya, Aichi",sea,,JPNGO,"Nagoya, Aichi","Nagoya, Aichi",Japan,Aiti [Aichi]
+907,,Nagasaki,sea,,JPNGS,Nagasaki,Nagasaki,Japan,Nagasaki
+908,,Oita,sea,,JPOIT,Oita,Oita,Japan,Ôita [Oita]
+909,,Okinawa,sea,,JPOKA,Okinawa,Okinawa,Japan,Okinawa
+910,,Omaezaki,sea,,JPOMZ,Omaezaki,Omaezaki,Japan,Sizuoka [Shizuoka]
+911,,Onahama,sea,,JPONA,Onahama,Onahama,Japan,Hukusima [Fukushima]
+912,,Onomichi,sea,,JPONO,Onomichi,Onomichi,Japan,Hirosima [Hiroshima]
+913,,Osaka,sea,,JPOSA,Osaka,Osaka,Japan,Ôsaka [Osaka]
+914,,Otake,sea,,JPOTK,Otake,Otake,Japan,Hirosima [Hiroshima]
+915,,Saganoseki,sea,,JPSAG,Saganoseki,Saganoseki,Japan,Ôita [Oita]
+916,,Shibushi,sea,,JPSBS,Shibushi,Shibushi,Japan,Kagosima [Kagoshima]
+917,,"Sendai, Miyagi",sea,,JPSDJ,"Sendai, Miyagi","Sendai, Miyagi",Japan,Miyagi
+918,,Sendaishinko,sea,,JPSDS,Sendaishinko,Sendaishinko,Japan,Miyagi
+919,,Sodegaura,sea,,JPSDU,Sodegaura,Sodegaura,Japan,Tiba [Chiba]
+920,,Satsumasendai,sea,,JPSEN,Satsumasendai,Satsumasendai,Japan,Kagosima [Kagoshima]
+921,,Shimonoseki,sea,,JPSHS,Shimonoseki,Shimonoseki,Japan,Yamaguti [Yamaguchi]
+922,,Sakaide,sea,,JPSKD,Sakaide,Sakaide,Japan,Kagawa
+923,,Shikama,sea,,JPSKM,Shikama,Shikama,Japan,Hyôgo[Hyogo]
+924,,Sakata,sea,,JPSKT,Sakata,Sakata,Japan,Yamagata
+925,,Souma,sea,,JPSMA,Souma,Souma,Japan,Hukusima [Fukushima]
+926,,Sakaiminato,sea,,JPSMN,Sakaiminato,Sakaiminato,Japan,Tottori
+927,,Shimizu,sea,,JPSMZ,Shimizu,Shimizu,Japan,Sizuoka [Shizuoka]
+928,,Takamatsu,sea,,JPTAK,Takamatsu,Takamatsu,Japan,Kagawa
+929,,Tobata/Kitakyushu,sea,,JPTBT,Tobata/Kitakyushu,Tobata/Kitakyushu,Japan,Hukuoka [Fukuoka]
+930,,Tagonoura,sea,,JPTGO,Tagonoura,Tagonoura,Japan,Sizuoka [Shizuoka]
+931,,Toyohashi,sea,,JPTHS,Toyohashi,Toyohashi,Japan,Aiti [Aichi]
+932,,Tokushima,sea,,JPTKS,Tokushima,Tokushima,Japan,Tokusima [Tokushima]
+933,,Tokuyama,sea,,JPTKY,Tokuyama,Tokuyama,Japan,Yamaguti [Yamaguchi]
+934,,Tsukumi,sea,,JPTMI,Tsukumi,Tsukumi,Japan,Ôita [Oita]
+935,,Tomakomai,sea,,JPTMK,Tomakomai,Tomakomai,Japan,Hokkaidô [Hokkaido]
+936,,Tonda,sea,,JPTND,Tonda,Tonda,Japan,Yamaguti [Yamaguchi]
+937,,Tokachi,sea,,JPTOK,Tokachi,Tokachi,Japan,Hokkaidô [Hokkaido]
+938,,Toyamashinko,sea,,JPTOS,Toyamashinko,Toyamashinko,Japan,Toyama
+939,,Toyama,sea,,JPTOY,Toyama,Toyama,Japan,Toyama
+940,,Tsuruga,sea,,JPTRG,Tsuruga,Tsuruga,Japan,Hukui [Fukui]
+941,,Tokyo,sea,,JPTYO,Tokyo,Tokyo,Japan,Tôkyô [Tokyo]
+942,,Ube,sea,,JPUBJ,Ube,Ube,Japan,Yamaguti [Yamaguchi]
+943,,Kobe,sea,,JPUKB,Kobe,Kobe,Japan,Hyôgo[Hyogo]
+944,,Unten,sea,,JPUNT,Unten,Unten,Japan,Okinawa
+945,,Wakayama,sea,,JPWAK,Wakayama,Wakayama,Japan,Wakayama
+946,,Yatsushiro,sea,,JPYAT,Yatsushiro,Yatsushiro,Japan,Kumamoto
+947,,Yokkaichi,sea,,JPYKK,Yokkaichi,Yokkaichi,Japan,Mie
+948,,Yokohama,sea,,JPYOK,Yokohama,Yokohama,Japan,Kanagawa
+949,,Yokosuka,sea,,JPYOS,Yokosuka,Yokosuka,Japan,Kanagawa
+950,,Yawata/Kitakyushu,sea,,JPYWT,Yawata/Kitakyushu,Yawata/Kitakyushu,Japan,Hukuoka [Fukuoka]
+951,,Mombasa,sea,,KEMBA,Mombasa,Mombasa,Kenya,Mombasa
+952,,Nairobi,sea,,KENBO,Nairobi,Nairobi,Kenya,Nairobi
+953,,Kampong Saom,sea,,KHKOS,Kampong Saom,Kâmpóng Saôm,Cambodia,Preah Sihanouk
+954,,Phnom Penh,sea,,KHPNH,Phnom Penh,Phnom Penh,Cambodia,Phnom Penh
+955,,Tarawa,sea,,KITRW,Tarawa,Tarawa,Kiribati,-
+956,,"Mutsamudu, Anjouan",sea,,KMMUT,"Mutsamudu, Anjouan","Mutsamudu, Anjouan",Comoros,Anjouan
+957,,Moroni,sea,,KMYVA,Moroni,Moroni,Comoros,Grande Comore
+958,,"Basseterre, Saint Kitts",sea,,KNBAS,"Basseterre, Saint Kitts","Basseterre, Saint Kitts",Saint Kitts and Nevis,Saint George Basseterre Parish
+959,,Nevis,sea,,KNNEV,Nevis,Nevis,Saint Kitts and Nevis,-
+960,,Chongjin,sea,,KPCHO,Chongjin,Chongjin,"Korea, Democratic People's Republic of",North Hamgyong
+961,,Wonsan,sea,,KPWON,Wonsan,Wonsan,"Korea, Democratic People's Republic of",Kangwon
+962,,Jeju,sea,,KRCHA,Jeju,Jeju,South Korea,Jeju-teukbyeoljachido [Jeju]
+963,,Jinhae,sea,,KRCHF,Jinhae,Jinhae,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+964,,Janghang/Seocheon-gun,sea,,KRCHG,Janghang/Seocheon-gun,Janghang/Seocheon-gun,South Korea,Chungcheongnamdo [Ch'ungch'ongnam-do]
+965,,Cheonan,sea,,KRCHO,Cheonan,Cheonan,South Korea,Chungcheongnamdo [Ch'ungch'ongnam-do]
+966,,Chungju,sea,,KRCHU,Chungju,Chungju,South Korea,Chungcheongbugdo [Ch'ungch'ongbuk-do]
+967,,Changwon,sea,,KRCHW,Changwon,Changwon,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+968,,Cheongwon-gun,sea,,KRCWO,Cheongwon-gun,Cheongwon-gun,South Korea,Chungcheongbugdo [Ch'ungch'ongbuk-do]
+969,,Goyang,sea,,KRGYG,Goyang,Goyang,South Korea,Gyeonggido [Kyonggi-do]
+970,,Jinju,sea,,KRHIN,Jinju,Jinju,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+971,,Hamyang-gun,sea,,KRHYG,Hamyang-gun,Hamyang-gun,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+972,,Hyeonpoong/Daegu,sea,,KRHYP,Hyeonpoong/Daegu,Hyeonpoong/Daegu,South Korea,Daegu Gwang'yeogsi [Taegu-Kwangyokshi]
+973,,Incheon,sea,,KRICH,Incheon,Incheon,South Korea,Incheon
+974,,Incheon,sea,,KRINC,Incheon,Incheon,South Korea,Incheon Gwang'yeogsi [Incheon]
+975,,Jeongeup,sea,,KRJEO,Jeongeup,Jeongeup,South Korea,Jeonrabugdo [Chollabuk-do]
+976,,Geoje,sea,,KRJGE,Geoje,Geoje,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+977,,Jangheung-gun,sea,,KRJHG,Jangheung-gun,Jangheung-gun,South Korea,Jeonranamdo [Chollanam-do]
+978,,Gwangyang,sea,,KRKAN,Gwangyang,Gwangyang,South Korea,Jeonranamdo [Chollanam-do]
+979,,Geoje,sea,,KRKJE,Geoje,Geoje,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+980,,Gimcheon,sea,,KRKMC,Gimcheon,Gimcheon,South Korea,Gyeongsangbugdo [Kyongsangbuk-do]
+981,,Pohang,sea,,KRKPO,Pohang,Pohang,South Korea,Gyeongsangbugdo [Kyongsangbuk-do]
+982,,Gumi,sea,,KRKUM,Gumi,Gumi,South Korea,Gyeongsangbugdo [Kyongsangbuk-do]
+983,,Gunsan,sea,,KRKUV,Gunsan,Gunsan,South Korea,Jeonrabugdo [Chollabuk-do]
+984,,Gwangju,sea,,KRKWJ,Gwangju,Gwangju,South Korea,Gwangju Gwang'yeogsi [Kwangju-Kwangyokshi]
+985,,Gwangju,sea,,KRKWU,Gwangju,Gwangju,South Korea,Gyeonggido [Kyonggi-do]
+986,,Masan,sea,,KRMAS,Masan,Masan,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+987,,Mokpo,sea,,KRMOK,Mokpo,Mokpo,South Korea,Jeonranamdo [Chollanam-do]
+988,,Namyang/Goheung-gun,sea,,KRNYJ,Namyang/Goheung-gun,Namyang/Goheung-gun,South Korea,Jeonranamdo [Chollanam-do]
+989,,Namyangju,sea,,KRNYU,Namyangju,Namyangju,South Korea,Gyeonggido [Kyonggi-do]
+990,,Okpo/Geoje,sea,,KROKP,Okpo/Geoje,Okpo/Geoje,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+991,,Onsan/Ulsan,sea,,KRONS,Onsan/Ulsan,Onsan/Ulsan,South Korea,Ulsan Gwang'yeogsi [Ulsan-Kwangyokshi]
+992,,Busan,sea,,KRPUS,Busan,Busan,South Korea,Busan Gwang'yeogsi [Pusan-Kwangyokshi]
+993,,Samcheonpo/Sacheon,sea,,KRSCP,Samcheonpo/Sacheon,Samcheonpo/Sacheon,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+994,,Seoul,sea,,KRSEL,Seoul,Seoul,South Korea,Seoul-teukbyeolsi [Seoul]
+995,,Seosan,sea,,KRSSA,Seosan,Seosan,South Korea,Chungcheongnamdo [Ch'ungch'ongnam-do]
+996,,Daegu,sea,,KRTAE,Daegu,Daegu,South Korea,Daegu Gwang'yeogsi [Taegu-Kwangyokshi]
+997,,Daejeon,sea,,KRTJN,Daejeon,Daejeon,South Korea,Daejeon Gwang'yeogsi [Taejon-Kwangyokshi]
+998,,Tongyeong,sea,,KRTYG,Tongyeong,Tongyeong,South Korea,Gyeongsangnamdo [Kyongsangnam-do]
+999,,Ulsan,sea,,KRUSN,Ulsan,Ulsan,South Korea,Ulsan Gwang'yeogsi [Ulsan-Kwangyokshi]
+1000,,Yesan,sea,,KRYES,Yesan,Yesan,South Korea,Chungcheongnamdo [Ch'ungch'ongnam-do]
+1001,,Yeosu,sea,,KRYOS,Yeosu,Yeosu,South Korea,Jeonranamdo [Chollanam-do]
+1002,,Kuwait,sea,,KWKWI,Kuwait,Kuwait,Kuwait,Al Asimah
+1003,,Shuaiba,sea,,KWSAA,Shuaiba,Shuaiba,Kuwait,Ahmadi
+1004,,Shuwaikh,sea,,KWSWK,Shuwaikh,Shuwaikh,Kuwait,Al Asimah
+1005,,Grand Cayman,sea,,KYGCM,Grand Cayman,Grand Cayman,Cayman Islands,-
+1006,,"Georgetown, Grand Cayman",sea,,KYGEC,"Georgetown, Grand Cayman","Georgetown, Grand Cayman",Cayman Islands,George Town
+1007,,Beirut,sea,,LBBEY,Beirut,Beirut,Lebanon,Beirut
+1008,,Tripoli,sea,,LBKYE,Tripoli,Tripoli,Lebanon,North
+1009,,Castries,sea,,LCCAS,Castries,Castries,Saint Lucia,Castries
+1010,,Saint Lucia Apt,sea,,LCSLU,Saint Lucia Apt,Saint Lucia Apt,Saint Lucia,Queensland
+1011,,Vieux Fort,sea,,LCVIF,Vieux Fort,Vieux Fort,Saint Lucia,Vieux Fort
+1012,,Colombo,sea,,LKCMB,Colombo,Colombo,Sri Lanka,Western Province
+1013,,Monrovia,sea,,LRMLW,Monrovia,Monrovia,Liberia,Montserrado
+1014,,Klaipeda,sea,,LTKLJ,Klaipeda,Klaipeda,Lithuania,Klaipėda County
+1015,,Aizkraukle,sea,,LVAIZ,Aizkraukle,Aizkraukle,Latvia,Burtnieku novads (Burtnieki)
+1016,,Riga,sea,,LVRIX,Riga,Riga,Latvia,Riga
+1017,,Salacgriva,sea,,LVSAL,Salacgriva,Salacgriva,Latvia,Limbažu novads (Limbaži)
+1018,,Ventspils,sea,,LVVNT,Ventspils,Ventspils,Latvia,Ventspils
+1019,,Bingazi (Benghazi),sea,,LYBEN,Bingazi (Benghazi),Bingazi (Benghazi),Libya,Banghazi
+1020,,Al Khums,sea,,LYKHO,Al Khums,Al Khums,Libya,Al Murqub
+1021,,Misurata,sea,,LYMRA,Misurata,Misurata,Libya,Misratah
+1022,,Tripoli,sea,,LYTIP,Tripoli,Tripoli,Libya,Tripoli
+1023,,Agadir,sea,,MAAGA,Agadir,Agadir,Morocco,Souss-Massa-Drâa
+1024,,Casablanca,sea,,MACAS,Casablanca,Casablanca,Morocco,Casablanca [Dar el Beïda]*
+1025,,El Jadida,sea,,MAELJ,El Jadida,El Jadida,Morocco,El Jadida
+1026,,Mohammedia,sea,,MAMOH,Mohammedia,Mohammedia,Morocco,Grand Casablanca
+1027,,Kenitra (ex Port Lyautey),sea,,MANNA,Kenitra (ex Port Lyautey),Kenitra (ex Port Lyautey),Morocco,Gharb-Chrarda-Beni Hssen
+1028,,Tanger Med,sea,,MAPTM,Tanger Med,Tanger Med,Morocco,Tanger-Assilah
+1029,,Safi,sea,,MASFI,Safi,Safi,Morocco,Doukkala-Abda
+1030,,Tangier,sea,,MATNG,Tangier,Tangier,Morocco,Tangier-Tetouan
+1031,,Monaco,sea,,MCMON,Monaco,Monaco,Monaco,-
+1032,,Giurgiulesti,sea,,MDGIU,Giurgiulesti,Giurgiulesti,"Moldova, Republic of",Cahul
+1033,,Bar,sea,,MEBAR,Bar,Bar,Montenegro,Bar
+1034,,Antsiranana,sea,,MGDIE,Antsiranana,Antsiranana,Madagascar,Antsiranana
+1035,,Ehoala,sea,,MGEHL,Ehoala,Ehoala,Madagascar,Toliara
+1036,,Majunga (Mahajanga),sea,,MGMJN,Majunga (Mahajanga),Majunga (Mahajanga),Madagascar,Mahajanga
+1037,,Nosy-Be,sea,,MGNOS,Nosy-Be,Nosy-Be,Madagascar,-
+1038,,Tulear (Toliara),sea,,MGTLE,Tulear (Toliara),Tulear (Toliara),Madagascar,Toliara
+1039,,Tamatave (Toamasina),sea,,MGTMM,Tamatave (Toamasina),Tamatave (Toamasina),Madagascar,Toamasina
+1040,,Toamasina,sea,,MGTOA,Toamasina,Toamasina,Madagascar,Toamasina
+1041,,Majuro,sea,,MHMAJ,Majuro,Majuro,Marshall Islands,Majuro
+1042,,Bamako,sea,,MLBKO,Bamako,Bamako,Mali,Bamako
+1043,,Yangon,sea,,MMRGN,Yangon,Yangon,Myanmar,Yangon Region
+1044,,Macau,sea,,MOMFM,Macau,Macau,Macao,-
+1045,,Saipan,sea,,MPSPN,Saipan,Saipan,Northern Mariana Islands,Saipan
+1046,,Fort-de-France,sea,,MQFDF,Fort-de-France,Fort-de-France,Martinique,Fort-de-France
+1047,,Nouadhibou,sea,,MRNDB,Nouadhibou,Nouadhibou,Mauritania,Dakhlet Nouadhibou
+1048,,Nouakchott,sea,,MRNKC,Nouakchott,Nouakchott,Mauritania,Nouakchott
+1049,,Marsaxlokk,sea,,MTMAR,Marsaxlokk,Marsaxlokk,Malta,Birzebbuga
+1050,,"Mgarr, Gozo",sea,,MTMGZ,"Mgarr, Gozo","Mgarr, Gozo",Malta,Attard
+1051,,Valletta,sea,,MTMLA,Valletta,Valletta,Malta,Valletta
+1052,,Port Louis,sea,,MUPLU,Port Louis,Port Louis,Mauritius,Port Louis
+1053,,Male,sea,,MVMLE,Male,Male,Maldives,Male
+1054,,Blantyre,sea,,MWBLZ,Blantyre,Blantyre,Malawi,Southern Region
+1055,,Acapulco,sea,,MXACA,Acapulco,Acapulco,Mexico,Guerrero
+1056,,Altamira,sea,,MXATM,Altamira,Altamira,Mexico,Tamaulipas
+1057,,Coatzacoalcos,sea,,MXCOA,Coatzacoalcos,Coatzacoalcos,Mexico,Veracruz
+1058,,Ensenada,sea,,MXESE,Ensenada,Ensenada,Mexico,Baja California
+1059,,Guaymas,sea,,MXGYM,Guaymas,Guaymas,Mexico,Sonora
+1060,,Ciudad de Mexico,sea,,MXMEX,Ciudad de Mexico,Ciudad de México,Mexico,Distrito Federal
+1061,,Progreso,sea,,MXPGO,Progreso,Progreso,Mexico,Yucatán
+1062,,Puerto Morelos,sea,,MXPMS,Puerto Morelos,Puerto Morelos,Mexico,Quintana Roo
+1063,,Reynosa,sea,,MXREX,Reynosa,Reynosa,Mexico,Tamaulipas
+1064,,Salina Cruz,sea,,MXSCX,Salina Cruz,Salina Cruz,Mexico,Oaxaca
+1065,,Tampico,sea,,MXTAM,Tampico,Tampico,Mexico,Tamaulipas
+1066,,Topolobampo,sea,,MXTPB,Topolobampo,Topolobampo,Mexico,Sinaloa
+1067,,Veracruz,sea,,MXVER,Veracruz,Veracruz,Mexico,Veracruz
+1068,,Manzanillo,sea,,MXZLO,Manzanillo,Manzanillo,Mexico,Colima
+1069,,"Kota Kinabalu, Sabah",sea,,MYBKI,"Kota Kinabalu, Sabah","Kota Kinabalu, Sabah",Malaysia,Sabah
+1070,,"Bintulu, Sarawak",sea,,MYBTU,"Bintulu, Sarawak","Bintulu, Sarawak",Malaysia,Sarawak
+1071,,Bagan Luar (Butterworth),sea,,MYBWH,Bagan Luar (Butterworth),Bagan Luar (Butterworth),Malaysia,Penang
+1072,,Johor Bahru,sea,,MYJHB,Johor Bahru,Johor Bahru,Malaysia,Johor
+1073,,"Kuching, Sarawak",sea,,MYKCH,"Kuching, Sarawak","Kuching, Sarawak",Malaysia,Sarawak
+1074,,Kuantan (Tanjong Gelang),sea,,MYKUA,Kuantan (Tanjong Gelang),Kuantan (Tanjong Gelang),Malaysia,Pahang
+1075,,"Labuan, Sabah",sea,,MYLBU,"Labuan, Sabah","Labuan, Sabah",Malaysia,Wilayah Persekutuan Labuan
+1076,,Mersing,sea,,MYMEP,Mersing,Mersing,Malaysia,Johor
+1077,,Malacca,sea,,MYMKZ,Malacca,Malacca,Malaysia,Malacca
+1078,,Muar,sea,,MYMUA,Muar,Muar,Malaysia,Johor
+1079,,"Miri, Sarawak",sea,,MYMYY,"Miri, Sarawak","Miri, Sarawak",Malaysia,Sarawak
+1080,,Penang (Georgetown),sea,,MYPEN,Penang (Georgetown),Penang (Georgetown),Malaysia,Pulau Pinang
+1081,,"Pasir Gudang, Johor",sea,,MYPGU,"Pasir Gudang, Johor","Pasir Gudang, Johor",Malaysia,Johor
+1082,,Port Klang (Pelabuhan Klang),sea,,MYPKG,Port Klang (Pelabuhan Klang),Port Klang (Pelabuhan Klang),Malaysia,Selangor
+1083,,"Sibu, Sarawak",sea,,MYSBW,"Sibu, Sarawak","Sibu, Sarawak",Malaysia,Sarawak
+1084,,"Sandakan, Sabah",sea,,MYSDK,"Sandakan, Sabah","Sandakan, Sabah",Malaysia,Sabah
+1085,,Tanjong Baran,sea,,MYTBA,Tanjong Baran,Tanjong Baran,Malaysia,Sarawak
+1086,,Kuala Terengganu,sea,,MYTGG,Kuala Terengganu,Kuala Terengganu,Malaysia,Terengganu
+1087,,Tanjung Pelepas,sea,,MYTPP,Tanjung Pelepas,Tanjung Pelepas,Malaysia,Johor
+1088,,"Tawau, Sabah",sea,,MYTWU,"Tawau, Sabah","Tawau, Sabah",Malaysia,Sabah
+1089,,Westport/Port Klang,sea,,MYWSP,Westport/Port Klang,Westport/Port Klang,Malaysia,Selangor
+1090,,Beira,sea,,MZBEW,Beira,Beira,Mozambique,Sofala
+1091,,Nacala,sea,,MZMNC,Nacala,Nacala,Mozambique,Nampula
+1092,,Maputo,sea,,MZMPM,Maputo,Maputo,Mozambique,Maputo City
+1093,,Pemba,sea,,MZPOL,Pemba,Pemba,Mozambique,Cabo Delgado
+1094,,Quelimane,sea,,MZUEL,Quelimane,Quelimane,Mozambique,Zambezia Province
+1095,,Luderitz,sea,,NALUD,Luderitz,Lüderitz,Namibia,Karas
+1096,,Walvis Bay,sea,,NAWVB,Walvis Bay,Walvis Bay,Namibia,Erongo
+1097,,Noumea,sea,,NCNOU,Noumea,Nouméa,New Caledonia,South Province
+1098,,Apapa,sea,,NGAPP,Apapa,Apapa,Nigeria,Lagos
+1099,,Calabar,sea,,NGCBQ,Calabar,Calabar,Nigeria,Cross River
+1100,,Lagos,sea,,NGLOS,Lagos,Lagos,Nigeria,Lagos
+1101,,Onne,sea,,NGONN,Onne,Onne,Nigeria,Rivers
+1102,,Port Harcourt,sea,,NGPHC,Port Harcourt,Port Harcourt,Nigeria,Rivers
+1103,,Tincan/Lagos,sea,,NGTIN,Tincan/Lagos,Tincan/Lagos,Nigeria,Lagos
+1104,,Warri,sea,,NGWAR,Warri,Warri,Nigeria,Delta
+1105,,Corinto,sea,,NICIO,Corinto,Corinto,Nicaragua,Chinandega
+1106,,Managua,sea,,NIMGA,Managua,Managua,Nicaragua,Managua
+1107,,Alkmaar,sea,,NLALK,Alkmaar,Alkmaar,Netherlands,Noord-Holland
+1108,,Amsterdam,sea,,NLAMS,Amsterdam,Amsterdam,Netherlands,North Holland
+1109,,Bergen op Zoom,sea,,NLBZM,Bergen op Zoom,Bergen op Zoom,Netherlands,North Brabant
+1110,,Dordrecht,sea,,NLDOR,Dordrecht,Dordrecht,Netherlands,Zuid-Holland
+1111,,Eemshaven,sea,,NLEEM,Eemshaven,Eemshaven,Netherlands,Groningen
+1112,,Groningen,sea,,NLGRQ,Groningen,Groningen,Netherlands,Groningen
+1113,,Hoek van Holland,sea,,NLHVH,Hoek van Holland,Hoek van Holland,Netherlands,South Holland
+1114,,IJmuiden/Velsen,sea,,NLIJM,IJmuiden/Velsen,IJmuiden/Velsen,Netherlands,North Holland
+1115,,Moerdijk,sea,,NLMOE,Moerdijk,Moerdijk,Netherlands,Noord-Brabant
+1116,,Rotterdam,sea,,NLRTM,Rotterdam,Rotterdam,Netherlands,Zuid-Holland
+1117,,Terneuzen,sea,,NLTNZ,Terneuzen,Terneuzen,Netherlands,Zeeland
+1118,,Velsen,sea,,NLVEL,Velsen,Velsen,Netherlands,North Holland
+1119,,Vlaardingen,sea,,NLVLA,Vlaardingen,Vlaardingen,Netherlands,Zuid-Holland
+1120,,Vlissingen,sea,,NLVLI,Vlissingen,Vlissingen,Netherlands,Zeeland
+1121,,Zaandam,sea,,NLZAA,Zaandam,Zaandam,Netherlands,North Holland
+1122,,Zeewolde,sea,,NLZEW,Zeewolde,Zeewolde,Netherlands,Flevoland
+1123,,Alvik,sea,,NOAAV,Alvik,Ålvik,Norway,Hordaland
+1124,,Alesund,sea,,NOAES,Alesund,Ålesund,Norway,Møre og Romsdal
+1125,,Agotnes,sea,,NOAGO,Agotnes,Ågotnes,Norway,Hordaland
+1126,,Andalsnes,sea,,NOAND,Andalsnes,Åndalsnes,Norway,Møre og Romsdal
+1127,,Austevoll,sea,,NOASV,Austevoll,Austevoll,Norway,Hordaland
+1128,,Bergen,sea,,NOBGO,Bergen,Bergen,Norway,Hordaland
+1129,,Bodo,sea,,NOBOO,Bodo,Bodø,Norway,Nordland
+1130,,Brevik,sea,,NOBVK,Brevik,Brevik,Norway,Telemark
+1131,,Drammen,sea,,NODRM,Drammen,Drammen,Norway,Buskerud
+1132,,Eigersund,sea,,NOEGD,Eigersund,Eigersund,Norway,Rogaland
+1133,,Frekhaug,sea,,NOFKG,Frekhaug,Frekhaug,Norway,Hordaland
+1134,,Fredrikstad,sea,,NOFRK,Fredrikstad,Fredrikstad,Norway,Østfold
+1135,,Floro,sea,,NOFRO,Floro,Florø,Norway,Sogn og Fjordane
+1136,,Fusa,sea,,NOFUS,Fusa,Fusa,Norway,Hordaland
+1137,,Gjemnes,sea,,NOGJM,Gjemnes,Gjemnes,Norway,Møre og Romsdal
+1138,,Halden,sea,,NOHAL,Halden,Halden,Norway,Østfold
+1139,,Haugesund,sea,,NOHAU,Haugesund,Haugesund,Norway,Rogaland
+1140,,Hestvika,sea,,NOHES,Hestvika,Hestvika,Norway,Sør-Trøndelag
+1141,,Holla,sea,,NOHLA,Holla,Holla,Norway,Telemark
+1142,,Hogset,sea,,NOHOG,Hogset,Høgset,Norway,Nordland
+1143,,Husoy - Tonsberg,sea,,NOHOY,Husoy - Tonsberg,Husøy - Tønsberg,Norway,Vestfold
+1144,,Hareid,sea,,NOHRI,Hareid,Hareid,Norway,Møre og Romsdal
+1145,,Heroya,sea,,NOHRY,Heroya,Herøya,Norway,Telemark
+1146,,Husnes,sea,,NOHUS,Husnes,Husnes,Norway,Hordaland
+1147,,Havik,sea,,NOHVI,Havik,Håvik,Norway,Nordland
+1148,,Ikornnes,sea,,NOIKR,Ikornnes,Ikornnes,Norway,Møre og Romsdal
+1149,,Karmoy,sea,,NOKMY,Karmoy,Karmøy,Norway,Rogaland
+1150,,Kristiansand,sea,,NOKRS,Kristiansand,Kristiansand,Norway,Vest-Agder
+1151,,Knarrevik,sea,,NOKRV,Knarrevik,Knarrevik,Norway,Hordaland
+1152,,Kristiansund,sea,,NOKSU,Kristiansund,Kristiansund,Norway,Møre og Romsdal
+1153,,Larvik,sea,,NOLAR,Larvik,Larvik,Norway,Vestfold
+1154,,Lyngdal,sea,,NOLND,Lyngdal,Lyngdal,Norway,Vest-Agder
+1155,,Maloy,sea,,NOMAY,Maloy,Måløy,Norway,Sogn og Fjordane
+1156,,Molde,sea,,NOMOL,Molde,Molde,Norway,Møre og Romsdal
+1157,,Mongstad,sea,,NOMON,Mongstad,Mongstad,Norway,Hordaland
+1158,,Mo i Rana,sea,,NOMQN,Mo i Rana,Mo i Rana,Norway,Nordland
+1159,,Moss,sea,,NOMSS,Moss,Moss,Norway,Østfold
+1160,,Odda,sea,,NOODD,Odda,Odda,Norway,Hordaland
+1161,,Orkanger,sea,,NOORK,Orkanger,Orkanger,Norway,Sør-Trøndelag
+1162,,Oslo,sea,,NOOSL,Oslo,Oslo,Norway,Oslo
+1163,,Porsgrunn,sea,,NOPOR,Porsgrunn,Porsgrunn,Norway,Telemark
+1164,,Sandefjord,sea,,NOSAD,Sandefjord,Sandefjord,Norway,Vestfold
+1165,,Sauda,sea,,NOSAU,Sauda,Sauda,Norway,Rogaland
+1166,,Skien,sea,,NOSKE,Skien,Skien,Norway,Telemark
+1167,,Skogn,sea,,NOSKX,Skogn,Skogn,Norway,Nord-Trøndelag
+1168,,Sortland,sea,,NOSLX,Sortland,Sortland,Norway,Nordland
+1169,,Sarpsborg,sea,,NOSPG,Sarpsborg,Sarpsborg,Norway,Østfold
+1170,,Stord,sea,,NOSRP,Stord,Stord,Norway,Hordaland
+1171,,Straumen,sea,,NOSTM,Straumen,Straumen,Norway,Nord-Trondelag
+1172,,Sunndalsora,sea,,NOSUN,Sunndalsora,Sunndalsøra,Norway,Møre og Romsdal
+1173,,Svelgen,sea,,NOSVE,Svelgen,Svelgen,Norway,Sogn og Fjordane
+1174,,Stavanger,sea,,NOSVG,Stavanger,Stavanger,Norway,Rogaland
+1175,,Tananger,sea,,NOTAE,Tananger,Tananger,Norway,Rogaland
+1176,,Tonsberg,sea,,NOTON,Tonsberg,Tønsberg,Norway,Vestfold
+1177,,Tromso,sea,,NOTOS,Tromso,Tromsø,Norway,Troms
+1178,,Trondheim,sea,,NOTRD,Trondheim,Trondheim,Norway,Sør-Trøndelag
+1179,,Auckland,sea,,NZAKL,Auckland,Auckland,New Zealand,Auckland
+1180,,Bluff,sea,,NZBLU,Bluff,Bluff,New Zealand,Southland
+1181,,Christchurch,sea,,NZCHC,Christchurch,Christchurch,New Zealand,Canterbury
+1182,,Dunedin,sea,,NZDUD,Dunedin,Dunedin,New Zealand,Otago
+1183,,Hamilton,sea,,NZHLZ,Hamilton,Hamilton,New Zealand,Waikato
+1184,,Lyttelton,sea,,NZLYT,Lyttelton,Lyttelton,New Zealand,Canterbury
+1185,,Middleton/Christchurch,sea,,NZMNR,Middleton/Christchurch,Middleton/Christchurch,New Zealand,Canterbury
+1186,,Napier,sea,,NZNPE,Napier,Napier,New Zealand,Hawkes's Bay
+1187,,New Plymouth,sea,,NZNPL,New Plymouth,New Plymouth,New Zealand,Taranaki
+1188,,Nelson,sea,,NZNSN,Nelson,Nelson,New Zealand,Nelson City
+1189,,Palmerston North,sea,,NZPMR,Palmerston North,Palmerston North,New Zealand,Manawatu-Wanganui
+1190,,Port Chalmers,sea,,NZPOE,Port Chalmers,Port Chalmers,New Zealand,Otago
+1191,,Timaru,sea,,NZTIU,Timaru,Timaru,New Zealand,Canterbury
+1192,,Temuka,sea,,NZTKA,Temuka,Temuka,New Zealand,Canterbury
+1193,,Tauranga,sea,,NZTRG,Tauranga,Tauranga,New Zealand,Bay of Plenty
+1194,,Wanganui,sea,,NZWAG,Wanganui,Wanganui,New Zealand,Manawatu-Wanganui
+1195,,Wellington,sea,,NZWLG,Wellington,Wellington,New Zealand,Wellington
+1196,,Whangarei,sea,,NZWRE,Whangarei,Whangarei,New Zealand,Northland
+1197,,Muscat,sea,,OMMCT,Muscat,Muscat,Oman,Muscat Governorate
+1198,,Mina' Qabus,sea,,OMMNQ,Mina' Qabus,Mina' Qabus,Oman,Masqat
+1199,,Port Qaboos,sea,,OMOPQ,Port Qaboos,Port Qaboos,Oman,Muscat Governorate
+1200,,Salalah,sea,,OMSLL,Salalah,Salalah,Oman,Dhofar Governorate
+1201,,Sohar,sea,,OMSOH,Sohar,Sohar,Oman,Al Batinah North Governorate
+1202,,Puerto Armuelles,sea,,PAAML,Puerto Armuelles,Puerto Armuelles,Panama,Chiriqui
+1203,,Balboa,sea,,PABLB,Balboa,Balboa,Panama,Panama
+1204,,Colon Free Zone,sea,,PACFZ,Colon Free Zone,Colón Free Zone,Panama,Colón
+1205,,Coco Solo,sea,,PACSO,Coco Solo,Coco Solo,Panama,Colon
+1206,,Cristobal,sea,,PACTB,Cristobal,Cristóbal,Panama,Colon
+1207,,Chitre,sea,,PACTD,Chitre,Chitre,Panama,Herrera
+1208,,Canazas,sea,,PACZZ,Canazas,Cañazas,Panama,Veraguas
+1209,,Manzanillo,sea,,PAMIT,Manzanillo,Manzanillo,Panama,Veraguas
+1210,,Colon,sea,,PAONX,Colon,Colón,Panama,Colón
+1211,,Rodman,sea,,PAPSA,Rodman,Rousseau,Panama,Panama
+1212,,"Panama, Ciudad de",sea,,PAPTY,"Panama, Ciudad de","Panamá, Ciudad de",Panama,Panamá
+1213,,Atico,sea,,PEATI,Atico,Atico,Peru,Arequipa
+1214,,Chimbote,sea,,PECHM,Chimbote,Chimbote,Peru,Ancash
+1215,,Callao,sea,,PECLL,Callao,Callao,Peru,Lima
+1216,,General San Martin,sea,,PEGSM,General San Martin,General San Martin,Peru,Lima
+1217,,Huacho,sea,,PEHCO,Huacho,Huacho,Peru,Lima
+1218,,Ilo,sea,,PEILQ,Ilo,Ilo,Peru,Moquegua
+1219,,Iquitos,sea,,PEIQT,Iquitos,Iquitos,Peru,Loreto
+1220,,Lobitos,sea,,PELOB,Lobitos,Lobitos,Peru,Piura
+1221,,Matarani,sea,,PEMRI,Matarani,Matarani,Peru,Arequipa
+1222,,Pacasmayo,sea,,PEPAC,Pacasmayo,Pacasmayo,Peru,La Libertad
+1223,,Paita,sea,,PEPAI,Paita,Paita,Peru,Piura
+1224,,Puerto Chicama,sea,,PEPCH,Puerto Chicama,Puerto Chicama,Peru,La Libertad
+1225,,Pisco,sea,,PEPIO,Pisco,Pisco,Peru,Ica
+1226,,San Nicolas,sea,,PESNX,San Nicolas,San Nicolas,Peru,Amazonas
+1227,,Supe,sea,,PESUP,Supe,Supe,Peru,Lima
+1228,,Salaverry,sea,,PESVY,Salaverry,Salaverry,Peru,La Libertad
+1229,,Talara,sea,,PETYL,Talara,Talara,Peru,Piura
+1230,,Papeete,sea,,PFPPT,Papeete,Papeete,French Polynesia,Windward Islands
+1231,,Lae,sea,,PGLAE,Lae,Lae,Papua New Guinea,Morobe Province
+1232,,Madang,sea,,PGMAG,Madang,Madang,Papua New Guinea,Madang Province
+1233,,Port Moresby,sea,,PGPOM,Port Moresby,Port Moresby,Papua New Guinea,National Capital District
+1234,,Rabaul,sea,,PGRAB,Rabaul,Rabaul,Papua New Guinea,East New Britain Province
+1235,,Cebu,sea,,PHCEB,Cebu,Cebu,Philippines,Central Visayas
+1236,,"Cagayan de Oro, Mindanao",sea,,PHCGY,"Cagayan de Oro, Mindanao","Cagayan de Oro, Mindanao",Philippines,Northern Mindanao
+1237,,"Davao, Mindanao",sea,,PHDVO,"Davao, Mindanao","Davao, Mindanao",Philippines,Davao Region
+1238,,General Santos,sea,,PHGES,General Santos,General Santos,Philippines,Region XII
+1239,,"Iligan, Mindanao",sea,,PHIGN,"Iligan, Mindanao","Iligan, Mindanao",Philippines,Northern Mindanao
+1240,,Isabela (Basilan),sea,,PHISB,Isabela (Basilan),Isabela (Basilan),Philippines,Zamboanga Peninsula
+1241,,Magellanes/Masao,sea,,PHMLS,Magellanes/Masao,Magellanes/Masao,Philippines,-
+1242,,Manicani,sea,,PHMNI,Manicani,Manicani,Philippines,Eastern Samar
+1243,,Manila,sea,,PHMNL,Manila,Manila,Philippines,Metro Manila
+1244,,Manila North Harbour,sea,,PHMNN,Manila North Harbour,Manila North Harbour,Philippines,-
+1245,,Manila South Harbour,sea,,PHMNS,Manila South Harbour,Manila South Harbour,Philippines,-
+1246,,"Ozamis, Mindanao",sea,,PHOZC,"Ozamis, Mindanao","Ozamis, Mindanao",Philippines,Northern Mindanao
+1247,,"Pasaleng, Luzon",sea,,PHPSL,"Pasaleng, Luzon","Pasaleng, Luzon",Philippines,Ilocos Norte
+1248,,Subic Bay,sea,,PHSFS,Subic Bay,Subic Bay,Philippines,-
+1249,,Zamboanga,sea,,PHZAM,Zamboanga,Zamboanga,Philippines,Zamboanga Peninsula
+1250,,Karachi-muhammad Bin Qasim,sea,,PKBQM,Karachi-muhammad Bin Qasim,Karachi-muhammad Bin Qasim,Pakistan,Sindh
+1251,,Karachi,sea,,PKKHI,Karachi,Karachi,Pakistan,Sindh
+1252,,Gdansk,sea,,PLGDN,Gdansk,Gdansk,Poland,Pomeranian Voivodeship
+1253,,Gdynia,sea,,PLGDY,Gdynia,Gdynia,Poland,Pomorskie
+1254,,Swinoujscie,sea,,PLSWI,Swinoujscie,Swinoujscie,Poland,West Pomeranian Voivodeship
+1255,,Szczecin,sea,,PLSZZ,Szczecin,Szczecin,Poland,West Pomeranian Voivodeship
+1256,,Aguadilla,sea,,PRBQN,Aguadilla,Aguadilla,Puerto Rico,Aguadilla
+1257,,Mayaguez,sea,,PRMAZ,Mayaguez,Mayagüez,Puerto Rico,Mayagüez
+1258,,Puerto Nuevo,sea,,PRPNU,Puerto Nuevo,Puerto Nuevo,Puerto Rico,San Juan
+1259,,Ponce,sea,,PRPSE,Ponce,Ponce,Puerto Rico,Ponce
+1260,,San Juan,sea,,PRSJU,San Juan,San Juan,Puerto Rico,San Juan
+1261,,Angra do Heroismo,sea,,PTADH,Angra do Heroismo,Angra do Heroísmo,Portugal,Região Autónoma dos Açores
+1262,,Canical,sea,,PTCNL,Canical,Caniçal,Portugal,Região Autónoma da Madeira
+1263,,Entroncamento,sea,,PTENT,Entroncamento,Entroncamento,Portugal,Santarém
+1264,,Figueira da Foz,sea,,PTFDF,Figueira da Foz,Figueira da Foz,Portugal,Coimbra
+1265,,"Funchal, Madeira",sea,,PTFNC,"Funchal, Madeira","Funchal, Madeira",Portugal,Região Autónoma da Madeira
+1266,,Horta,sea,,PTHOR,Horta,Horta,Portugal,Região Autónoma dos Açores
+1267,,Leixoes,sea,,PTLEI,Leixoes,Leixões,Portugal,Porto
+1268,,Lisboa,sea,,PTLIS,Lisboa,Lisboa,Portugal,Lisboa
+1269,,Porto,sea,,PTOPO,Porto,Porto,Portugal,Porto
+1270,,Ponta Delgada,sea,,PTPDL,Ponta Delgada,Ponta Delgada,Portugal,Região Autónoma dos Açores
+1271,,Praia da Vitoria,sea,,PTPRV,Praia da Vitoria,Praia da Vitória,Portugal,Região Autónoma dos Açores
+1272,,Setubal,sea,,PTSET,Setubal,Setúbal,Portugal,Setúbal
+1273,,Sines,sea,,PTSIE,Sines,Sines,Portugal,Setúbal
+1274,,Terceira Island Apt,sea,,PTTER,Terceira Island Apt,Terceira Island Apt,Portugal,Região Autónoma dos Açores
+1275,,Viana do Castelo,sea,,PTVDC,Viana do Castelo,Viana do Castelo,Portugal,Viana do Castelo
+1276,,Asuncion,sea,,PYASU,Asuncion,Asunción,Paraguay,Asunción
+1277,,Barrio Caacupe Mi,sea,,PYBCM,Barrio Caacupe Mi,Barrio Caacupé Mí,Paraguay,Central
+1278,,Fenix,sea,,PYFNX,Fenix,Fenix,Paraguay,Asunción
+1279,,Pilar,sea,,PYPIL,Pilar,Pilar,Paraguay,Neembucu
+1280,,Pto Seguro/col Mariano Roque Alonso,sea,,PYPSE,Pto Seguro/col Mariano Roque Alonso,Pto Seguro/col Mariano Roque Alonso,Paraguay,Presidente Hayes
+1281,,San Antonio,sea,,PYSAN,San Antonio,San Antonio,Paraguay,Central
+1282,,Terport (San Antonio),sea,,PYTER,Terport (San Antonio),Terport (San Antonio),Paraguay,Central
+1283,,Doha,sea,,QADOH,Doha,Doha,Qatar,Ad Dawhah
+1284,,Mesaieed,sea,,QAMES,Mesaieed,Mesaieed,Qatar,Al Wakrah
+1285,,Umm Sa'id (Mesaieed),sea,,QAUMS,Umm Sa'id (Mesaieed),Umm Sa'id (Mesaieed),Qatar,Al Wakrah
+1286,,Le Port,sea,,RELPT,Le Port,Le,Réunion,-
+1287,,Port de Pointe des Galets,sea,,REPDG,Port de Pointe des Galets,Port de Pointe des Galets,Réunion,-
+1288,,Reunion,sea,,REREU,Reunion,Réunion,Réunion,-
+1289,,Saint-Denis de la Reunion Apt,sea,,RERUN,Saint-Denis de la Reunion Apt,Saint-Denis de la Réunion Apt,Réunion,Île-de-France
+1290,,Agigea,sea,,ROAGI,Agigea,Agigea,Romania,Constarta
+1291,,Braila,sea,,ROBRA,Braila,Braila,Romania,Braila
+1292,,Constanta,sea,,ROCND,Constanta,Constanta,Romania,Constarta
+1293,,Galati,sea,,ROGAL,Galati,Galati,Romania,Galati
+1294,,Mangalia,sea,,ROMAG,Mangalia,Mangalia,Romania,Constarţa
+1295,,Arkhangelsk,sea,,RUARH,Arkhangelsk,Arkhangelsk,Russian Federation,Arkhangelsk Oblast
+1296,,Magadan,sea,,RUGDX,Magadan,Magadan,Russian Federation,Magadan Oblast
+1297,,Kaliningrad,sea,,RUKGD,Kaliningrad,Kaliningrad,Russian Federation,Kaliningrad Oblast
+1298,,Kholmsk,sea,,RUKHO,Kholmsk,Kholmsk,Russian Federation,Sakhalinskaya oblast'
+1299,,Korsakov,sea,,RUKOR,Korsakov,Korsakov,Russian Federation,Sakhalin Oblast
+1300,,Krasnodar,sea,,RUKRR,Krasnodar,Krasnodar,Russian Federation,Krasnodar Krai
+1301,,Saint Petersburg (ex Leningrad),sea,,RULED,Saint Petersburg (ex Leningrad),Saint Petersburg (ex Leningrad),Russian Federation,Sankt-Peterburg
+1302,,Murmansk,sea,,RUMMK,Murmansk,Murmansk,Russian Federation,Murmansk Oblast
+1303,,Nakhodka,sea,,RUNJK,Nakhodka,Nakhodka,Russian Federation,Primorsky Krai
+1304,,Novorossiysk,sea,,RUNVS,Novorossiysk,Novorossiysk,Russian Federation,Krasnodarskiy kray
+1305,,Potapova,sea,,RUPTP,Potapova,Potapova,Russian Federation,Irkutskaya oblast'
+1306,,Rostov,sea,,RUROV,Rostov,Rostov,Russian Federation,Rostov Oblast
+1307,,Taganrog,sea,,RUTAG,Taganrog,Taganrog,Russian Federation,Rostov Oblast
+1308,,Vladivostok,sea,,RUVVO,Vladivostok,Vladivostok,Russian Federation,Primorsky Krai
+1309,,Vyborg,sea,,RUVYG,Vyborg,Vyborg,Russian Federation,Leningrad Oblast
+1310,,Vostochnyy Port,sea,,RUVYP,Vostochnyy Port,Vostochnyy,Russian Federation,Moscow
+1311,,Kigali,sea,,RWKGL,Kigali,Kigali,Rwanda,Kigali
+1312,,Ad Dammam,sea,,SADMM,Ad Dammam,Ad Dammam,Saudi Arabia,Ash Sharqiyah
+1313,,Dammam,sea,,SADMN,Dammam,Dammam,Saudi Arabia,Eastern Province
+1314,,Jeddah,sea,,SAJED,Jeddah,Jeddah,Saudi Arabia,Makkah Province
+1315,,Jubail,sea,,SAJUB,Jubail,Jubail,Saudi Arabia,Eastern Province
+1316,,King Abdullah City,sea,,SAKAC,King Abdullah City,King Abdullah City,Saudi Arabia,Makkah al Mukarramah
+1317,,Riyadh,sea,,SARUH,Riyadh,Riyadh,Saudi Arabia,Riyadh Province
+1318,,"Honiara, Guadalcanal Is",sea,,SBHIR,"Honiara, Guadalcanal Is","Honiara, Guadalcanal Is",Solomon Islands,Capital Territory
+1319,,"Noro, New Georgia",sea,,SBNOR,"Noro, New Georgia",Noro,Solomon Islands,New Georgia
+1320,,Mahe,sea,,SCMAW,Mahe,Mahe,Seychelles,-
+1321,,Port Victoria,sea,,SCPOV,Port Victoria,Port Victoria,Seychelles,-
+1322,,Port Sudan,sea,,SDPZU,Port Sudan,Port Sudan,Sudan,Al Bahr al Ahmar
+1323,,Ahus,sea,,SEAHU,Ahus,Åhus,Sweden,Skåne län
+1324,,Falkenberg,sea,,SEFAG,Falkenberg,Falkenberg,Sweden,Hallands län
+1325,,Goteborg,sea,,SEGOT,Goteborg,Göteborg,Sweden,Västra Götalands län
+1326,,Gavle,sea,,SEGVX,Gavle,Gävle,Sweden,Gävleborgs län
+1327,,Halmstad,sea,,SEHAD,Halmstad,Halmstad,Sweden,Hallands län
+1328,,Helsingborg,sea,,SEHEL,Helsingborg,Helsingborg,Sweden,Skåne län
+1329,,Karlshamn,sea,,SEKAN,Karlshamn,Karlshamn,Sweden,Blekinge län
+1330,,Karlstad,sea,,SEKSD,Karlstad,Karlstad,Sweden,Värmlands län
+1331,,Landskrona,sea,,SELAA,Landskrona,Landskrona,Sweden,Skåne län
+1332,,Malmo,sea,,SEMMA,Malmo,Malmö,Sweden,Skåne län
+1333,,Norrkoping,sea,,SENRK,Norrkoping,Norrköping,Sweden,Östergötlands län
+1334,,Oskarshamn,sea,,SEOSK,Oskarshamn,Oskarshamn,Sweden,Kalmar län
+1335,,Oxelosund,sea,,SEOXE,Oxelosund,Oxelösund,Sweden,Södermanlands län
+1336,,Sundsvall,sea,,SESDL,Sundsvall,Sundsvall,Sweden,Västernorrlands län
+1337,,Skelleftea,sea,,SESFT,Skelleftea,Skellefteå,Sweden,Västerbottens län
+1338,,Skelleftehamn,sea,,SESKE,Skelleftehamn,Skelleftehamn,Sweden,Västerbottens län
+1339,,Sodertalje,sea,,SESOE,Sodertalje,Södertälje,Sweden,Stockholms län
+1340,,Stockholm,sea,,SESTO,Stockholm,Stockholm,Sweden,Stockholms län
+1341,,Trelleborg,sea,,SETRG,Trelleborg,Trelleborg,Sweden,Skåne län
+1342,,Uddevalla,sea,,SEUDD,Uddevalla,Uddevalla,Sweden,Västra Götalands län
+1343,,Umea,sea,,SEUME,Umea,Umeå,Sweden,Västerbottens län
+1344,,Vasteras,sea,,SEVST,Vasteras,Västerås,Sweden,Västmanlands län
+1345,,Jurong/Singapore,sea,,SGJUR,Jurong/Singapore,Jurong/Singapore,Singapore,-
+1346,,Singapore,sea,,SGSIN,Singapore,Singapore,Singapore,-
+1347,,Koper,sea,,SIKOP,Koper,Koper,Slovenia,Koper
+1348,,Bratislava,sea,,SKBTS,Bratislava,Bratislava,Slovakia,Bratislavský kraj
+1349,,Freetown,sea,,SLFNA,Freetown,Freetown,Sierra Leone,Western Area
+1350,,Dakar,sea,,SNDKR,Dakar,Dakar,Senegal,Dakar
+1351,,Berbera,sea,,SOBBO,Berbera,Berbera,Somalia,Woqooyi Galbeed
+1352,,Kismayu,sea,,SOKMU,Kismayu,Kismayu,Somalia,Jubbada Hoose
+1353,,Mogadishu,sea,,SOMGQ,Mogadishu,Mogadishu,Somalia,Banaadir
+1354,,Paramaribo,sea,,SRPBM,Paramaribo,Paramaribo,Suriname,Paramaribo District
+1355,,Sao Tome Island,sea,,STTMS,Sao Tome Island,Sao Tome Island,Sao Tome and Principe,-
+1356,,Acajutla,sea,,SVAQJ,Acajutla,Acajutla,El Salvador,Sonsonate
+1357,,La Libertad,sea,,SVLLD,La Libertad,La Libertad,El Salvador,La Libertad
+1358,,La Union,sea,,SVLUN,La Union,La Union,El Salvador,La Union
+1359,,San Salvador,sea,,SVSAL,San Salvador,San Salvador,El Salvador,San Salvador
+1360,,Damascus (Damas),sea,,SYDAM,Damascus (Damas),Damascus (Damas),Syrian Arab Republic,Damascus Governorate
+1361,,Latakia,sea,,SYLTK,Latakia,Latakia,Syrian Arab Republic,Latakia Governorate
+1362,,Tartus,sea,,SYTTS,Tartus,Tartus,Syrian Arab Republic,Tartus
+1363,,Providenciales,sea,,TCPLS,Providenciales,Providenciales,Turks and Caicos Islands,Caicos Islands
+1364,,Lome,sea,,TGLFW,Lome,Lome,Togo,Maritime
+1365,,Bangpakong,sea,,THBGP,Bangpakong,Bangpakong,Thailand,Krung Thep Maha Nakhon
+1366,,Bangkok,sea,,THBKK,Bangkok,Bangkok,Thailand,Krung Thep Maha Nakhon [Bangkok]
+1367,,Bangkok Modern Terminals/Bangkok,sea,,THBMT,Bangkok Modern Terminals/Bangkok,Bangkok Modern Terminals/Bangkok,Thailand,-
+1368,,Koh Sichang,sea,,THKSI,Koh Sichang,Koh Sichang,Thailand,-
+1369,,Khlong Toei,sea,,THKTY,Khlong Toei,Khlong Toei,Thailand,Krung Thep Maha Nakhon [Bangkok]
+1370,,Laem Chabang,sea,,THLCH,Laem Chabang,Laem Chabang,Thailand,Chon Buri
+1371,,Lat Krabang,sea,,THLKR,Lat Krabang,Lat Krabang,Thailand,Bangkok
+1372,,Mab Tapud,sea,,THMAT,Mab Tapud,Mab Tapud,Thailand,จังหวัด กรุงเทพมหานคร
+1373,,Pat Bangkok,sea,,THPAT,Pat Bangkok,Pat Bangkok,Thailand,Pathum Thani
+1374,,Paknam,sea,,THPKN,Paknam,Paknam,Thailand,Maha Sarakham
+1375,,Siam Bangkok Port,sea,,THSBP,Siam Bangkok Port,Siam Bangkok,Thailand,-
+1376,,Songkhla,sea,,THSGZ,Songkhla,Songkhla,Thailand,Songkhla
+1377,,Samut Prakarn,sea,,THSPR,Samut Prakarn,Samut Prakarn,Thailand,Samut Prakan
+1378,,Sriracha,sea,,THSRI,Sriracha,Sriracha,Thailand,-
+1379,,Thai prosperity terminal,sea,,THTPT,Thai prosperity terminal,Thai prosperity terminal,Thailand,-
+1380,,Gabes,sea,,TNGAE,Gabes,Gabès,Tunisia,Gabes
+1381,,Jarjis,sea,,TNJAR,Jarjis,Jarjis,Tunisia,-
+1382,,La Goulette Nord (Halqueloued),sea,,TNLGN,La Goulette Nord (Halqueloued),La Goulette Nord (Halqueloued),Tunisia,Tunis
+1383,,Rades,sea,,TNRDS,Rades,Radès,Tunisia,Tunis
+1384,,Sfax,sea,,TNSFA,Sfax,Sfax,Tunisia,Sfax
+1385,,Sousse,sea,,TNSUS,Sousse,Sousse,Tunisia,Sousse
+1386,,Tunis,sea,,TNTUN,Tunis,Tunis,Tunisia,Tunis
+1387,,Nuku'alofa,sea,,TOTBU,Nuku'alofa,Nuku'alofa,Tonga,Tongatapu
+1388,,Aliaga,sea,,TRALI,Aliaga,Aliaga,Turkey,Izmir
+1389,,Ambarli,sea,,TRAMB,Ambarli,Ambarli,Turkey,Artvin
+1390,,Avcilar,sea,,TRAVC,Avcilar,Avcilar,Turkey,Istanbul
+1391,,Antalya,sea,,TRAYT,Antalya,Antalya,Turkey,Antalya
+1392,,Bayrampasa,sea,,TRBAY,Bayrampasa,Bayrampasa,Turkey,Istanbul
+1393,,Bandirma,sea,,TRBDM,Bandirma,Bandirma,Turkey,Balikesir
+1394,,Evyap Port /Kocaeli,sea,,TREYP,Evyap Port /Kocaeli,Evyap Port /Kocaeli,Turkey,Kocaeli
+1395,,Gebze,sea,,TRGEB,Gebze,Gebze,Turkey,Kocaeli
+1396,,Gemlik,sea,,TRGEM,Gemlik,Gemlik,Turkey,Bursa
+1397,,Haydarpasa,sea,,TRHAY,Haydarpasa,Haydarpasa,Turkey,Istanbul
+1398,,Hereke,sea,,TRHER,Hereke,Hereke,Turkey,Kocaeli
+1399,,Iskenderun,sea,,TRISK,Iskenderun,Iskenderun,Turkey,Hatay
+1400,,Istanbul,sea,,TRIST,Istanbul,Istanbul,Turkey,Istanbul
+1401,,Izmir,sea,,TRIZM,Izmir,Izmir,Turkey,Izmir
+1402,,Izmit,sea,,TRIZT,Izmit,Izmit,Turkey,Kocaeli
+1403,,Kumport,sea,,TRKMX,Kumport,Kumport,Turkey,Istanbul
+1404,,Mardas,sea,,TRMAD,Mardas,Mardas,Turkey,Istanbul
+1405,,Marmara Ereglisi,sea,,TRMAR,Marmara Ereglisi,Marmara Ereglisi,Turkey,Tekirdag
+1406,,Mersin,sea,,TRMER,Mersin,Mersin,Turkey,Mersin
+1407,,Nemrut Bay,sea,,TRNEM,Nemrut Bay,Nemrut Bay,Turkey,Izmir
+1408,,Samsun,sea,,TRSSX,Samsun,Samsun,Turkey,Samsun
+1409,,Tekirdag,sea,,TRTEK,Tekirdag,Tekirdag,Turkey,Tekirdag
+1410,,Trabzon,sea,,TRTZX,Trabzon,Trabzon,Turkey,Trabzon
+1411,,Yarimca,sea,,TRYAR,Yarimca,Yarimca,Turkey,Kocaeli
+1412,,Port-of-Spain,sea,,TTPOS,Port-of-Spain,Port-of-Spain,Trinidad and Tobago,Port of Spain
+1413,,Pointe a Pierre,sea,,TTPTP,Pointe a Pierre,Pointe a Pierre,Trinidad and Tobago,Couva-Tabaquite-Talparo
+1414,,Point Lisas,sea,,TTPTS,Point Lisas,Point Lisas,Trinidad and Tobago,Couva-Tabaquite-Talparo
+1415,,San Fernando,sea,,TTSFE,San Fernando,San Fernando,Trinidad and Tobago,San Fernando
+1416,,Keelung (Chilung),sea,,TWKEL,Keelung (Chilung),Keelung (Chilung),Taiwan,-
+1417,,Kaohsiung,sea,,TWKHH,Kaohsiung,Kaohsiung,Taiwan,Kaohsiung City
+1418,,Mai-liao,sea,,TWMLI,Mai-liao,Mai-liao,Taiwan,-
+1419,,Suao,sea,,TWSUO,Suao,Suao,Taiwan,-
+1420,,Taipei,sea,,TWTPE,Taipei,Taipei,Taiwan,Taiwan
+1421,,Taichung,sea,,TWTXG,Taichung,Taichung,Taiwan,Taichung City
+1422,,Taoyuan,sea,,TWTYN,Taoyuan,Taoyuan,Taiwan,Taoyuan City
+1423,,Dar es Salaam,sea,,TZDAR,Dar es Salaam,Dar es Salaam,"Tanzania, United Republic of",Dar es Salaam
+1424,,Tanga,sea,,TZTGT,Tanga,Tanga,"Tanzania, United Republic of",Tanga
+1425,,Zanzibar,sea,,TZZNZ,Zanzibar,Zanzibar,"Tanzania, United Republic of",Mjini Magharibi
+1426,,Kiev,sea,,UAIEV,Kiev,Kiev,Ukraine,Kyiv city
+1427,,Illichivs'k,sea,,UAILK,Illichivs'k,Illichivs'k,Ukraine,Odeska oblast
+1428,,Kherson,sea,,UAKHE,Kherson,Kherson,Ukraine,Khersons'ka oblast
+1429,,Mariupol (ex Zhdanov),sea,,UAMPW,Mariupol (ex Zhdanov),Mariupol (ex Zhdanov),Ukraine,Donetska oblast
+1430,,Odessa,sea,,UAODS,Odessa,Odessa,Ukraine,Odessa Oblast
+1431,,Sevastopol,sea,,UASVP,Sevastopol,Sevastopol,Ukraine,Sevastopol
+1432,,Jinja,sea,,UGJIN,Jinja,Jinja,Uganda,Eastern Region
+1433,,Kampala,sea,,UGKLA,Kampala,Kampala,Uganda,Central Region
+1434,,Kodiak,sea,,USADQ,Kodiak,Kodiak,United States,Alaska
+1435,,Anchorage,sea,,USANC,Anchorage,Anchorage,United States,Alaska
+1436,,Annapolis,sea,,USANP,Annapolis,Annapolis,United States,Maryland
+1437,,Damascus,sea,,USAR5,Damascus,Damascus,United States,Arkansas
+1438,,Atlanta,sea,,USATL,Atlanta,Atlanta,United States,Georgia
+1439,,Baltimore,sea,,USBAL,Baltimore,Baltimore,United States,Maryland
+1440,,Bear Creek,sea,,USBCC,Bear Creek,Bear Creek,United States,Alaska
+1441,,Birmingham,sea,,USBHM,Birmingham,Birmingham,United States,Alabama
+1442,,Nashville,sea,,USBNA,Nashville,Nashville,United States,Tennessee
+1443,,Boston,sea,,USBOS,Boston,Boston,United States,Massachusetts
+1444,,Beaumont,sea,,USBPT,Beaumont,Beaumont,United States,Texas
+1445,,Brownsville,sea,,USBRO,Brownsville,Brownsville,United States,Texas
+1446,,Buffalo,sea,,USBUF,Buffalo,Buffalo,United States,New York
+1447,,Council Bluffs,sea,,USCBF,Council Bluffs,Council Bluffs,United States,Iowa
+1448,,Chattanooga,sea,,USCHA,Chattanooga,Chattanooga,United States,Tennessee
+1449,,Chicago,sea,,USCHI,Chicago,Chicago,United States,Illinois
+1450,,Charleston,sea,,USCHS,Charleston,Charleston,United States,South Carolina
+1451,,Cleveland,sea,,USCLE,Cleveland,Cleveland,United States,Ohio
+1452,,Port Angeles,sea,,USCLM,Port Angeles,Port Angeles,United States,Washington
+1453,,Charlotte,sea,,USCLT,Charlotte,Charlotte,United States,North Carolina
+1454,,Columbus,sea,,USCMH,Columbus,Columbus,United States,Ohio
+1455,,Chippewa Falls,sea,,USCPF,Chippewa Falls,Chippewa Falls,United States,Wisconsin
+1456,,Cape Canaveral,sea,,USCPV,Cape Canaveral,Cape Canaveral,United States,Florida
+1457,,Corpus Christi,sea,,USCRP,Corpus Christi,Corpus Christi,United States,Texas
+1458,,Cincinnati,sea,,USCVG,Cincinnati,Cincinnati,United States,Ohio
+1459,,Cape Romanzof,sea,,USCZF,Cape Romanzof,Cape Romanzof,United States,Alaska
+1460,,Dauphin,sea,,USDA8,Dauphin,Dauphin,United States,Pennsylvania
+1461,,Dallas,sea,,USDAL,Dallas,Dallas,United States,Texas
+1462,,Decatur,sea,,USDEC,Decatur,Decatur,United States,Illinois
+1463,,Denver,sea,,USDEN,Denver,Denver,United States,Colorado
+1464,,Detroit,sea,,USDET,Detroit,Detroit,United States,Michigan
+1465,,Dalton,sea,,USDNN,Dalton,Dalton,United States,Georgia
+1466,,Des Moines,sea,,USDSM,Des Moines,Des Moines,United States,Iowa
+1467,,Dutch Harbor,sea,,USDUT,Dutch Harbor,Dutch Harbor,United States,Alaska
+1468,,El Paso,sea,,USELP,El Paso,El Paso,United States,Texas
+1469,,Kenai,sea,,USENA,Kenai,Kenai,United States,Alaska
+1470,,Newark,sea,,USEWR,Newark,Newark,United States,New Jersey
+1471,,Fernandina Beach,sea,,USFEB,Fernandina Beach,Fernandina Beach,United States,Florida
+1472,,Fort Lauderdale,sea,,USFLL,Fort Lauderdale,Fort Lauderdale,United States,Florida
+1473,,Freeport,sea,,USFPO,Freeport,Freeport,United States,Texas
+1474,,Fresh Water Bay,sea,,USFRP,Fresh Water Bay,Fresh Water Bay,United States,Alaska
+1475,,Fort Worth,sea,,USFWT,Fort Worth,Fort Worth,United States,Texas
+1476,,Greensboro,sea,,USGBO,Greensboro,Greensboro,United States,North Carolina
+1477,,Galveston,sea,,USGLS,Galveston,Galveston,United States,Texas
+1478,,Gulfport,sea,,USGPT,Gulfport,Gulfport,United States,Mississippi
+1479,,Greer,sea,,USGSP,Greer,Greer,United States,South Carolina
+1480,,Honolulu,sea,,USHNL,Honolulu,Honolulu,United States,Hawaii
+1481,,Houston,sea,,USHOU,Houston,Houston,United States,Texas
+1482,,Huntsville,sea,,USHSV,Huntsville,Huntsville,United States,Alabama
+1483,,Wilmington,sea,,USILM,Wilmington,Wilmington,United States,North Carolina
+1484,,Indianapolis,sea,,USIND,Indianapolis,Indianapolis,United States,Indiana
+1485,,Jacksonville,sea,,USJ3C,Jacksonville,Jacksonville,United States,Oregon
+1486,,Jacksonville,sea,,USJAX,Jacksonville,Jacksonville,United States,Florida
+1487,,Joliet,sea,,USJOT,Joliet,Joliet,United States,Illinois
+1488,,Kansas City,sea,,USKCK,Kansas City,Kansas City,United States,Kansas
+1489,,Las Vegas,sea,,USLAS,Las Vegas,Las Vegas,United States,Nevada
+1490,,Los Alamitos,sea,,USLAT,Los Alamitos,Los Alamitos,United States,California
+1491,,Los Angeles,sea,,USLAX,Los Angeles,Los Angeles,United States,California
+1492,,Lake Charles,sea,,USLCH,Lake Charles,Lake Charles,United States,Louisiana
+1493,,Long Beach,sea,,USLGB,Long Beach,Long Beach,United States,California
+1494,,Laredo,sea,,USLRD,Laredo,Laredo,United States,Texas
+1495,,Louisville,sea,,USLUI,Louisville,Louisville,United States,Kentucky
+1496,,Memphis,sea,,USMEM,Memphis,Memphis,United States,Tennessee
+1497,,Minneapolis,sea,,USMES,Minneapolis,Minneapolis,United States,Minnesota
+1498,,Miami,sea,,USMIA,Miami,Miami,United States,Florida
+1499,,Kansas City,sea,,USMKC,Kansas City,Kansas City,United States,Missouri
+1500,,Milwaukee,sea,,USMKE,Milwaukee,Milwaukee,United States,Wisconsin
+1501,,Mobile,sea,,USMOB,Mobile,Mobile,United States,Alabama
+1502,,Morehead City,sea,,USMRH,Morehead City,Morehead City,United States,North Carolina
+1503,,Minneapolis/St Paul Apt,sea,,USMSP,Minneapolis/St Paul Apt,Minneapolis/St Paul Apt,United States,Minnesota
+1504,,New Orleans,sea,,USMSY,New Orleans,New Orleans,United States,Louisiana
+1505,,Newport News,sea,,USNNS,Newport News,Newport News,United States,Virginia
+1506,,Port Hueneme,sea,,USNTD,Port Hueneme,Port Hueneme,United States,California
+1507,,North Charleston,sea,,USNTS,North Charleston,North Charleston,United States,South Carolina
+1508,,New York,sea,,USNYC,New York,New York,United States,New York
+1509,,Oakland,sea,,USOAK,Oakland,Oakland,United States,California
+1510,,Oceanside,sea,,USOCN,Oceanside,Oceanside,United States,California
+1511,,Washington,sea,,USOCW,Washington,Washington,United States,North Carolina
+1512,,Olympia,sea,,USOLM,Olympia,Olympia,United States,Washington
+1513,,Omaha,sea,,USOMA,Omaha,Omaha,United States,Nebraska
+1514,,Norfolk,sea,,USORF,Norfolk,Norfolk,United States,Virginia
+1515,,Orlando,sea,,USORL,Orlando,Orlando,United States,Florida
+1516,,Otay Mesa,sea,,USOYM,Otay Mesa,Otay Mesa,United States,California
+1517,,Palm Beach,sea,,USPAB,Palm Beach,Palm Beach,United States,Florida
+1518,,Portage Creek,sea,,USPCA,Portage Creek,Portage Creek,United States,Alaska
+1519,,Portland,sea,,USPDX,Portland,Portland,United States,Oregon
+1520,,Port Elizabeth,sea,,USPEB,Port Elizabeth,Port Elizabeth,United States,New Jersey
+1521,,Port Everglades,sea,,USPEF,Port Everglades,Port Everglades,United States,Florida
+1522,,Panama City,sea,,USPFN,Panama City,Panama City,United States,Florida
+1523,,Pascagoula,sea,,USPGL,Pascagoula,Pascagoula,United States,Mississippi
+1524,,Hampton-Williamsburg-Newport News Apt,sea,,USPHF,Hampton-Williamsburg-Newport News Apt,Hampton-Williamsburg-Newport News Apt,United States,Virginia
+1525,,Philadelphia,sea,,USPHL,Philadelphia,Philadelphia,United States,Pennsylvania
+1526,,Phoenix,sea,,USPHX,Phoenix,Phoenix,United States,Arizona
+1527,,Peoria,sea,,USPIA,Peoria,Peoria,United States,Illinois
+1528,,Pittsburgh,sea,,USPIT,Pittsburgh,Pittsburgh,United States,Pennsylvania
+1529,,Port Manatee,sea,,USPME,Port Manatee,Port Manatee,United States,Florida
+1530,,Pensacola,sea,,USPNS,Pensacola,Pensacola,United States,Florida
+1531,,Port Arthur,sea,,USPOA,Port Arthur,Port Arthur,United States,Texas
+1532,,Pennsauken,sea,,USPPS,Pennsauken,Pennsauken,United States,New Jersey
+1533,,Pearson,sea,,USPS6,Pearson,Pearson,United States,Wisconsin
+1534,,Portsmouth,sea,,USPTM,Portsmouth,Portsmouth,United States,Virginia
+1535,,Providence,sea,,USPVD,Providence,Providence,United States,Rhode Island
+1536,,Portland,sea,,USPWM,Portland,Portland,United States,Maine
+1537,,Port Wentworth,sea,,USPWN,Port Wentworth,Port Wentworth,United States,Georgia
+1538,,Plymouth,sea,,USPYM,Plymouth,Plymouth,United States,Massachusetts
+1539,,Rotterdam,sea,,USRAJ,Rotterdam,Rotterdam,United States,New York
+1540,,Riviera Beach,sea,,USRBC,Riviera Beach,Riviera Beach,United States,Florida
+1541,,Richmond,sea,,USRIC,Richmond,Richmond,United States,Virginia
+1542,,Reno,sea,,USRNO,Reno,Reno,United States,Nevada
+1543,,Sacramento,sea,,USSAC,Sacramento,Sacramento,United States,California
+1544,,San Diego,sea,,USSAN,San Diego,San Diego,United States,California
+1545,,San Antonio,sea,,USSAT,San Antonio,San Antonio,United States,Texas
+1546,,Savannah,sea,,USSAV,Savannah,Savannah,United States,Georgia
+1547,,Stockton,sea,,USSCK,Stockton,Stockton,United States,California
+1548,,Seattle,sea,,USSEA,Seattle,Seattle,United States,Washington
+1549,,San Francisco,sea,,USSFO,San Francisco,San Francisco,United States,California
+1550,,Salt Lake City,sea,,USSLC,Salt Lake City,Salt Lake City,United States,Utah
+1551,,South Saint Paul,sea,,USSPT,South Saint Paul,South Saint Paul,United States,Minnesota
+1552,,Brunswick,sea,,USSSI,Brunswick,Brunswick,United States,Georgia
+1553,,Saint Louis,sea,,USSTL,Saint Louis,Saint Louis,United States,Missouri
+1554,,Saint Paul,sea,,USSTP,Saint Paul,Saint Paul,United States,Minnesota
+1555,,Sturgeon Bay,sea,,USSUE,Sturgeon Bay,Sturgeon Bay,United States,Wisconsin
+1556,,Superior,sea,,USSUW,Superior,Superior,United States,Wisconsin
+1557,,Newburgh,sea,,USSWF,Newburgh,Newburgh,United States,New York
+1558,,Santa Teresa,sea,,USSXT,Santa Teresa,Santa Teresa,United States,New Mexico
+1559,,Swartz Creek,sea,,USSXZ,Swartz Creek,Swartz Creek,United States,Michigan
+1560,,Tacoma,sea,,USTIW,Tacoma,Tacoma,United States,Washington
+1561,,Tamms,sea,,USTMM,Tamms,Tamms,United States,Illinois
+1562,,Toledo,sea,,USTOL,Toledo,Toledo,United States,Ohio
+1563,,Tampa,sea,,USTPA,Tampa,Tampa,United States,Florida
+1564,,Savannah,sea,,USTSA,Savannah,Savannah,United States,Tennessee
+1565,,Tulsa,sea,,USTUL,Tulsa,Tulsa,United States,Oklahoma
+1566,,Waukegan,sea,,USUGN,Waukegan,Waukegan,United States,Illinois
+1567,,Port Chester,sea,,USUXZ,Port Chester,Port Chester,United States,New York
+1568,,Tonawanda,sea,,USUZF,Tonawanda,Tonawanda,United States,New York
+1569,,Virginia Beach,sea,,USVAB,Virginia Beach,Virginia Beach,United States,Virginia
+1570,,Howard Beach/Queens/New York,sea,,USXGO,Howard Beach/Queens/New York,Howard Beach/Queens/New York,United States,New York
+1571,,Kirkland,sea,,USXHF,Kirkland,Kirkland,United States,Washington
+1572,,Long Island City/Queens/New York,sea,,USXHO,Long Island City/Queens/New York,Long Island City/Queens/New York,United States,New York
+1573,,Oakboro,sea,,USYOB,Oakboro,Oakboro,United States,North Carolina
+1574,,Colonia,sea,,UYCYR,Colonia,Colonia,Uruguay,-
+1575,,Montevideo,sea,,UYMVD,Montevideo,Montevideo,Uruguay,Montevideo Department
+1576,,Nueva Palmira,sea,,UYNVP,Nueva Palmira,Nueva Palmira,Uruguay,Colonia
+1577,,Paysandu,sea,,UYPDU,Paysandu,Paysandu,Uruguay,Paysandu
+1578,,Kingstown,sea,,VCKTN,Kingstown,Kingstown,Saint Vincent and the Grenadines,Saint George
+1579,,Amuay,sea,,VEAMY,Amuay,Amuay,Venezuela,Falcón
+1580,,Barcelona,sea,,VEBLA,Barcelona,Barcelona,Venezuela,Anzoategui
+1581,,El Guamache,sea,,VEEGU,El Guamache,El Guamache,Venezuela,Nueva Esparta
+1582,,El Tablazo/Maracaibo L,sea,,VEETV,El Tablazo/Maracaibo L,El Tablazo/Maracaibo L,Venezuela,Zulia
+1583,,Guaranao Bay,sea,,VEGUB,Guaranao Bay,Guaranao Bay,Venezuela,-
+1584,,Guanta,sea,,VEGUT,Guanta,Guanta,Venezuela,Anzoategui
+1585,,La Guaira,sea,,VELAG,La Guaira,La Guaira,Venezuela,Vargas
+1586,,La Salina/Maracaibo L,sea,,VELSV,La Salina/Maracaibo L,La Salina/Maracaibo L,Venezuela,Zulia
+1587,,Maracaibo,sea,,VEMAR,Maracaibo,Maracaibo,Venezuela,Zulia
+1588,,Matanzas,sea,,VEMTV,Matanzas,Matanzas,Venezuela,Bolívar
+1589,,Puerto Cabello,sea,,VEPBL,Puerto Cabello,Puerto Cabello,Venezuela,Carabobo
+1590,,Punta Cardon,sea,,VEPCN,Punta Cardon,Punta Cardón,Venezuela,Falcón
+1591,,Puerto Sucre,sea,,VEPSU,Puerto Sucre,Puerto Sucre,Venezuela,Cojedes
+1592,,Puerto Ordaz,sea,,VEPZO,Puerto Ordaz,Puerto Ordaz,Venezuela,Bolívar
+1593,,"Road Town, Tortola",sea,,VGRAD,"Road Town, Tortola","Road Town, Tortola","Virgin Islands, British",Tortola
+1594,,Tortola,sea,,VGTOV,Tortola,Tortola,"Virgin Islands, British",Tortola
+1595,,"Charlotte Amalie, Saint Thomas",sea,,VICHA,"Charlotte Amalie, Saint Thomas","Charlotte Amalie, Saint Thomas","Virgin Islands, U.S.",St. Thomas
+1596,,"Christiansted, Saint Croix",sea,,VICTD,"Christiansted, Saint Croix","Christiansted, Saint Croix","Virgin Islands, U.S.",St. Croix
+1597,,Saint Thomas,sea,,VISTT,Saint Thomas,Saint Thomas,"Virgin Islands, U.S.",VI
+1598,,Saint Croix,sea,,VISTX,Saint Croix,Saint Croix,"Virgin Islands, U.S.",St. Croix
+1599,,Cat Lai,sea,,VNCLI,Cat Lai,Cát Lái,Viet Nam,Ho Chi Minh
+1600,,Cai Lan,sea,,VNCLN,Cai Lan,Cai Lan,Viet Nam,Quảng Ninh
+1601,,Da Nang,sea,,VNDAD,Da Nang,Da Nang,Viet Nam,Da Nang
+1602,,Haiphong,sea,,VNHPH,Haiphong,Haiphong,Viet Nam,Haiphong
+1603,,Nha Trang,sea,,VNNHA,Nha Trang,Nha Trang,Viet Nam,Khanh Hoa Province
+1604,,Phuoc Long,sea,,VNPHG,Phuoc Long,Phuóc Long,Viet Nam,Bac Lieu
+1605,,Ho Chi Minh City,sea,,VNSGN,Ho Chi Minh City,Ho Chi Minh City,Viet Nam,Ho Chi Minh
+1606,,Su Tu Den,sea,,VNSTD,Su Tu Den,Su Tu Den,Viet Nam,Bình Thuận
+1607,,Cai Mep,sea,,VNTOT,Cai Mep,Cai Mep,Viet Nam,Bà Rịa - Vũng Tàu
+1608,,Tan Thuan Dong,sea,,VNTTD,Tan Thuan Dong,Tân Thuan Dông,Viet Nam,Ho Chi Minh
+1609,,Qui Nhon,sea,,VNUIH,Qui Nhon,Qui Nhon,Viet Nam,Bình Định
+1610,,"Ho Chi Minh, VICT",sea,,VNVIC,"Ho Chi Minh, VICT","Ho Chi Minh, VICT",Viet Nam,Hồ Chí Minh
+1611,,Vung Tau,sea,,VNVUT,Vung Tau,Vung Tau,Viet Nam,Bà Rịa - Vung Tàu
+1612,,Espiritu Santo,sea,,VUSON,Espiritu Santo,Espiritu Santo,Vanuatu,-
+1613,,Port Vila,sea,,VUVLI,Port Vila,Port Vila,Vanuatu,Shefa Province
+1614,,Apia,sea,,WSAPW,Apia,Apia,Samoa,Upolu
+1615,,Aden,sea,,YEADE,Aden,Aden,Yemen,Aden
+1616,,Hodeidah,sea,,YEHOD,Hodeidah,Hodeidah,Yemen,Al Hudaydah
+1617,,Little Aden,sea,,YELAD,Little Aden,Little Aden,Yemen,Adan
+1618,,Mukalla,sea,,YEMKX,Mukalla,Mukalla,Yemen,Hadramaut
+1619,,Longoni,sea,,YTLON,Longoni,Longoni,Mayotte,Koungou
+1620,,Bloemfontein,sea,,ZABFN,Bloemfontein,Bloemfontein,South Africa,Free State
+1621,,Cape Town,sea,,ZACPT,Cape Town,Cape Town,South Africa,Western Cape
+1622,,Durban,sea,,ZADUR,Durban,Durban,South Africa,KwaZulu-Natal
+1623,,East London,sea,,ZAELS,East London,East London,South Africa,Eastern Cape
+1624,,Johannesburg,sea,,ZAJNB,Johannesburg,Johannesburg,South Africa,Gauteng
+1625,,Port Elizabeth,sea,,ZAPLZ,Port Elizabeth,Port Elizabeth,South Africa,Eastern Cape
+1626,,Pretoria,sea,,ZAPRY,Pretoria,Pretoria,South Africa,Gauteng
+1627,,Richards Bay,sea,,ZARCB,Richards Bay,Richards Bay,South Africa,KwaZulu-Natal
+1628,,Coega,sea,,ZAZBA,Coega,Coega,South Africa,Eastern Cape
+1629,,Lusaka,sea,,ZMLUN,Lusaka,Lusaka,Zambia,Lusaka
+1630,,Bulawayo,sea,,ZWBUQ,Bulawayo,Bulawayo,Zimbabwe,Bulawayo
+1631,,Harare,sea,,ZWHRE,Harare,Harare,Zimbabwe,Harare
+1632,,Mutare,sea,,ZWUTA,Mutare,Mutare,Zimbabwe,Manicaland
