@@ -5,7 +5,7 @@ from operator import itemgetter
 import utils
 
 
-cities = utils.read_csv_file('data/worldcities.csv')
+cities = utils.read_csv_file('../data/worldcities.csv')
 
 
 def decimal_or_zero(x):
