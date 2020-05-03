@@ -24,6 +24,7 @@ def convert(list_of_dicts: List[Dict], keys: List[str], callable: Callable):
 
 
 convert(business_entities, ['Business Entity Key'], int)
+convert(business_entities, ['Roles'], json.loads)
 convert(addresses, ['Address Key'], int)
 convert(country_pop, ['cumulative'], float)
 
@@ -52,34 +53,47 @@ address_map = {
 }
 
 
-def get_business_entities_from_country(country: str) -> List[int]:
+def get_business_entities_from_country(business_entities_, country: str) -> List[int]:
     """ Returns list of Business Entity Keys
 
     :param country: iso2/alpha-2 code
     :return:
     """
     lst = []
-    for entity in business_entities:
+    for entity in business_entities_:
         if address_map[int(entity['Address Key'])]['Alpha 2'] == country:
             lst.append(entity['Business Entity Key'])
     return lst
 
 
-roles = [
-    'Consignor',
-    'Consignee',
-    'Consolidator',
-    'Transporter',
-    'Courier',
-]
+def get_business_entities_from_role(business_entities_, role: str) -> List[int]:
+    """ Returns list of Business Entity Keys
 
-# country_1 = RandomCountry.random_country_according_to_population()
-# country_2 = RandomCountry.random_country_according_to_population()
-#
-# print(get_business_entities_from_country(country_1))
-#
-#
-# get_business_entities_from_country(country_1)
+    :param role:
+    :return:
+    """
+    lst = []
+    for entity in business_entities_:
+        if role in entity['Role']:
+            lst.append(entity['Business Entity Key'])
+    return lst
+
+
+# roles = [
+#     'Consignor',
+#     'Consignee',
+#     'Consolidator',
+#     'Transporter',
+#     'Courier',
+# ]
+
+
+country_1 = RandomCountry.random_country_according_to_population()
+country_2 = RandomCountry.random_country_according_to_population()
+
+get_business_entities_from_role(business_entities, 'Consignor')
+
+get_business_entities_from_country(business_entities, country_1)
 
 # cosignor, foreign_transpoter, foreign_consolidator
 # place_of_receipt
