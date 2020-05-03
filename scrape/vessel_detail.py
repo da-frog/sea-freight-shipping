@@ -199,7 +199,7 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, *, 
 if __name__ == '__main__':
     driver = webdriver.Chrome(executable_path=r'C:\Users\User\Desktop\Driver\chromedriver.exe')
 
-    scrape_vessels('../data/Ship_link.txt', 'test.csv', 510, 511, driver=driver)
+    scrape_vessels('../scraped_data/ship-links.txt', 'test.csv', 510, 511, driver=driver)
 
     # soup = get_soup_using_selenium('https://www.vesselfinder.com/vessels/RUHR-N-IMO-8410108-MMSI-0', driver=driver)
     # dct = get_vessel_particulars(soup)
