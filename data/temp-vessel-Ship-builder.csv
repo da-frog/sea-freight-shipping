@@ -1,0 +1,415 @@
+surrogate key,country,city,name,founded year,defunct year
+1,Egypt,,Suez shipyard,,
+2,,,Alexandria Shipyard,,
+3,Azerbaijan,,Baku Shipyard LLC,,
+4,Bangladesh,,FMC Dockyard Limited,,
+5,,,Ananda Shipyard and Shipways,,
+6,,,Bashundhara Steel & Engineering,,
+7,,,Khulna Shipyard,,
+8,,,TaraTari Shipyard,,
+9,,,Western Marine Shipyard,,
+10,China,,China State Shipbuilding Corporation,,
+11,,,China Shipbuilding Industry Corporation,,
+12,,,Hudong-Zhonghua Shipbuilding,,
+13,,,Dalian Shipbuilding Industry Company,,
+14,,,Guangzhou Shipyard International,,
+15,,,Jiangnan Shipyard,,
+16,,,Yantai Raffles Shipyard,,
+17,,Hong Kong,Hong Kong and Whampoa Dock,,
+18,,,Hongkong United Dockyards,,
+19,,,Taikoo Dockyard,,
+20,India,,Mazagon Dock Limited,,
+21,,,Cochin Shipyard Limited,,
+22,,,Hindustan Shipyard Limited,,
+23,,,Garden Reach Shipbuilders and Engineers,,
+24,,,Shalimar Works (1980) Ltd,,
+25,,,Hooghly Dock & Port Engineers Limited,,
+26,,,Goa Shipyard Limited,,
+27,,,Naval Dockyard (Bombay),,
+28,,,Naval Dockyard (Visakhapatnam),,
+29,,,Jawaharlal Nehru Port Trust,,
+30,,,Pipavav Shipyard,,
+31,,,Bharati Shipyard Limited,,
+32,,,ABG Shipyard Limited,,
+33,,,L&T Shipbuilding Limited,,
+34,,,Modest Infrastructure Ltd,,
+35,,,Tebma Shipyard Limited,,
+36,,,Timblo Drydocks Private Limited,,
+37,,,Western India Shipyard Limited,,
+38,Indonesia,,PT PAL,,
+39,Iran,,Sadra Shipyard,,
+40,,,Persian Gulf Shipbuilding,,
+41,Israel,,Israel Shipyards,,
+42,,,IAI Ramta,,
+43,Japan,,Imabari Shipbuilding,,
+44,,,Japan Marine United,,
+45,,,Kawasaki Shipbuilding Corporation,,
+46,,,Mitsubishi Heavy Industries,,
+47,,,Sumitomo Heavy Industries,,
+48,Malaysia,,Kinabalu North Shipyard & Maritime,,
+49,,,Boustead Naval Shipyard,,
+50,,,Boustead Penang Shipyard,,
+51,,,Labuan Shipyard and Engineering,,
+52,,,Malaysia Marine and Heavy Engineering,,
+53,,,Boustead Langkawi Shipyard,,
+54,Pakistan,,Karachi Shipyard & Engineering Works,,
+55,,,PN Dockyard,,
+56,Philippines,,Austal Philippines Pty. Ltd.,,
+57,,,Hanjin Heavy Industries Corporation Philippines,,
+58,,,Keppel Philippines Marine Batangas Shipyard,,
+59,,,Keppel Philippines Marine Subic Shipyard,,
+60,Qatar,,Nakilat Damen Shipyards Qatar,,
+61,Saudi Arabia,,King Salman Global Maritime Industries Complex,,
+62,South Korea,,"Daewoo Shipbuilding & Marine Engineering Co., Ltd.",,
+63,,,"Hanjin Heavy Industries Co., Ltd.",,
+64,,,"Hyundai Heavy Industries Co., Ltd.",,
+65,,,"Hyundai Mipo Dockyard Co., Ltd.",,
+66,,,"Hyundai Samho Heavy Industries Co., Ltd.",,
+67,,,"Samsung Heavy Industries Co., Ltd.",,
+68,Sri Lanka,,Colombo Dockyard,,
+69,,Taiwan,"CSBC Corporation, Taiwan",,
+70,,,Horizon Yachts,,
+71,,,Jong Shyn Shipbuilding Company,,
+72,Thailand,,Italthai Industrial Group,,
+73,,,The Bangkok Dock Company,,
+74,Turkey,,Inebolu Shipyard,,
+75,,,Su Marine Yachts Shipyard,,
+76,,,Aegean Yachts Shipyard,,
+77,,,Pendik Naval Shipyard,,
+78,,,Gölcük Naval Shipyard,,
+79,,,Sanmar Denizcilik,,
+80,,,Tersan Shipyard,,
+81,Austria–Hungary,,Stabilimento Tecnico Triestino,,
+82,Bulgaria,,Odessos Shiprepair yard,,
+83,Croatia,,Brodogradilište 3. Maj,,
+84,,,Kraljevica Shipyard,,
+85,,,Brodosplit,,
+86,,,Uljanik,,
+87,Denmark,,Odense Steel Shipyard,,
+88,Estonia,,Baltic Workboats Shipyard,,
+89,,,BLRT Grupp,,
+90,Finland,,Åbo Skeppswarf,,
+91,,,Aker Arctic,,
+92,,,Andrée & Rosenqvist,,
+93,,,Arctech Helsinki Shipyard,,
+94,,,Crichton (Turku shipyard),,
+95,,,Helsingfors Skeppsdocka,,
+96,,,Helsinki Shipyard (company),,
+97,,,Hietalahti shipyard,,
+98,,,Kone- ja Siltarakennus,,
+99,,,Laivateollisuus,,
+100,,,Lehtoniemi,,
+101,,,Meyer Turku,,
+102,,,Perno shipyard,,
+103,,,Rauma Marine Constructions,,
+104,,,Rauma shipyard,,
+105,,,Sandvikens Skeppsdocka och Mekaniska Verkstad,,
+106,,,STX Finland,,
+107,,,Turku Repair Yard,,
+108,,,Uki Workboat,,
+109,,,Vulcan (Turku shipyard),,
+110,,,Vuosaari shipyard,,
+111,,,Wärtsilä Marine,,
+112,,,Wm. Crichton & Co.,,
+113,France,,Arman Brothers,1700,1872
+114,,,Ateliers and Chantiers de Bacalan,1868,1879
+115,,,Dyle et Bacalan,1879,1936
+116,,,Forges et Chantiers de la Gironde,1800,1948
+117,,,Iguana Yachts,2008,
+118,,,Chantiers Navals Français,1917,1954
+119,,,Constructions Mécaniques de Normandie,1945,
+120,,,Ateliers et Chantiers de France,1898,1987
+121,,,Ateliers et Chantiers de Saint-Nazaire Penhoët,1861,1955
+122,,,Chantiers et Ateliers Augustin Normand,,
+123,,,Jeanneau,1957,
+124,,,Ateliers et Chantiers de Bretagne,1800,1900
+125,,,Ateliers et Chantiers de la Loire,1881,1955
+126,,,Chantiers Dubigeon,1760,1987
+127,,,Ateliers et Chantiers de la Loire,1882,1955
+128,,,Ateliers et Chantiers de Saint-Nazaire Penhoët,1861,1955
+129,,,Chantiers de l'Atlantique,1955,
+130,,,Naval Group,1631,
+131,,,Société Nouvelle des Forges et Chantiers de la Méditerranée,1853,1966
+132,Germany,,AG Weser,1872,1983
+133,,,Bremer Vulkan,1893,1997
+134,,,Deutsche Schiff- und Maschinenbau AG,1926,1945
+135,,,Lürssen,1875,
+136,,,Schichau Seebeckwerft,1950,2009
+137,,,Nordseewerke,1930,2010
+138,,,Flensburger Schiffbau-Gesellschaft,1872,
+139,,,Blohm+Voss,1877,
+140,,,Deutsche Werft,1918,1968
+141,,,H. C. Stülcken Sohn,1846,1966
+142,,,Deutsche Werke,1925,1945
+143,,,German Naval Yards Kiel,,
+144,,,Germaniawerft,1867,1945
+145,,,Howaldtswerke-Deutsche Werft,1838,2005
+146,,,Kaiserliche Werft Kiel,1867,1918
+147,,,ThyssenKrupp Marine Systems,2005,
+148,,,Kressbronn am Bodensee: Bodan-Werft,1919,2011
+149,,,Flender Werke,1917,2002
+150,,,Meyer Werft,1795,
+151,,,Nobiskrug,1905,
+152,,,Neptun Werft,1850,
+153,,,Volkswerft,1945,
+154,,,Kaiserliche Werft Wilhelmshaven,1871,1918
+155,,,Kriegsmarinewerft Wilhelmshaven,1918,1945
+156,Greece,,Basileiades,,
+157,,,Elefsis Shipyards,,
+158,,,Hellenic Shipyards Co.,,
+159,,,Neorion,,
+160,Italy,,Azimut,,
+161,,,Baglietto,,
+162,,,Benetti,,
+163,,,FB Design,,
+164,,,Ferretti Group,,
+165,,,Fincantieri,,
+166,,,Perini Navi,,
+167,,,Stabilimento Tecnico Triestino,,
+168,,,Cantiere Navale Visentini,,
+169,,,Cantiere navale di Ancona,,
+170,,,Cantiere navale di Riva Trigoso,,
+171,,,Cantiere navale di Palermo,,
+172,,,Regio Cantiere di Castellammare di Stabia,,
+173,,,Cantiere navale del Muggiano,,
+174,Netherlands,,Barkmeijer Shipyards,,
+175,,,Damen Group,,
+176,,,Amels Holland B.V.,,
+177,,,Feadship,,
+178,,,Heesen Yachts,,
+179,,,Holland Jachtbouw Zaandam BV,,
+180,,,Royal Huisman,,
+181,,,ICON Yachts,,
+182,,,OceAnco,,
+183,,,Jongert,,
+184,Norway,,Kleven Verft,,
+185,,,Moss Verft,,
+186,,,Ulstein Group,,
+187,Poland,,F. Schichau,1854,1954
+188,,,Danziger Werft,1921,1940
+189,,,Kaiserliche Werft Danzig,1871,1918
+190,,,Stocznia Gdańsk,1945,
+191,,,AG Vulcan Stettin,1851,1945
+192,,,Stocznia Szczecińska Nowa,1945,
+193,Portugal,,ENVC Shipyard,,
+194,Romania,,Damen Shipyards Galați,,
+195,,,Mangalia shipyard,,
+196,,,Constanţa Shipyard,,
+197,Russia,,Amur Shipbuilding Plant,1932,
+198,,,Russian Shipyard Number 10,,
+199,,,Admiralty Shipyard,1704,
+200,,,Almaz,1901,
+201,,,Baltic Shipyard,1864,
+202,,,Severnaya Verf,1890,
+203,,,Sredne-Nevsky Shipyard,1912,
+204,,,Sevmash,1939,
+205,,,Zvezdochka,,
+206,,,Vyborg Shipyard,1948,
+207,Spain,,Navantia,,
+208,Sweden,,Dockstavarvet,,
+209,,,Eriksbergs Mekaniska Verkstad,,
+210,,,Götaverken,,
+211,,,Kockums Naval Solutions,,
+212,,,Lödöse varv,,
+213,,,Oskarshamn Shipyard,,
+214,Ukraine,,Zalyv Shipbuilding yard,1938,
+215,,,Kherson Shipyard,1950,
+216,,,Kuznya na Rybalskomu,1928,
+217,,,Black Sea Shipyard,1895,
+218,,,Mykolayiv Shipyard,1788,
+219,,,Okean Shipyard,1951,
+220,England,,A&P Falmouth,,
+221,,,Vickers Limited,1897,1927
+222,,,Vickers-Armstrongs,1927,1977
+223,,,Vickers Shipbuilding and Engineering,1977,2003
+224,,,BAE Systems Maritime – Submarines,2003,
+225,,,Appledore Shipbuilders,1855,2019
+226,,,Furness Shipbuilding Company,1917,1979
+227,,,Palmers Shipbuilding and Iron Company,,
+228,,,Henry Scarr,1897,1932
+229,,,Richard Dunston,1932,1994
+230,,,Vosper & Company,1871,1966
+231,,,Vosper Thornycroft,1966,2008
+232,,,BAE Systems Maritime – Naval Ships,2008,
+233,,,J. Samuel White,1700,1963
+234,,,Thornycroft,1866,1908
+235,,,Thames Ironworks and Shipbuilding Company,1837,1912
+236,,,The Pageants,1700,
+237,,,Cammel Laird,1828,1993
+238,,,A&P Tees,,
+239,,,Smiths Dock Company,1907,1987
+240,,,Parkol Marine Engineering,,
+241,,,Richard Dunston,1858,1985
+242,,,John I. Thornycroft & Company,1908,1966
+243,,,A&P Tyne,,
+244,,,A. Leslie and Company,1853,1886
+245,,,Hawthorn Leslie and Company,1886,1982
+246,,,Sir W. G. Armstrong Whitworth & Company,,1927
+247,,,Smiths Dock Company,1810,1909
+248,,,William Doxford & Sons,1870,1989
+249,,,Short Brothers of Sunderland,1850,1964
+250,,,John Readhead & Sons,1865,1984
+251,,,Austin & Pickersgill,1838,1988
+252,,,Bartram & Sons,1838,1978
+253,,,John Crown & Sons,1847,1947
+254,,,Swan Hunter,1880,2006
+255,,,Clelands Shipbuilding Company,1866,1984
+256,Northern Ireland,,Harland and Wolff,,
+257,Scotland,,"Hall, Russell & Company",1864,1992
+258,,,Burntisland Shipbuilding Company,1918,
+259,,,John Brown & Company,1851,1972
+260,,,Denny,1811,1963
+261,,,BAE Systems Maritime – Naval Ships,,
+262,,,William Beardmore and Company,1900,1930
+263,,,Fairfields,1834,1968
+264,,,Robert Napier and Sons,1826,1900
+265,,,Alexander Stephens and Sons,1870,1968
+266,,,Ferguson Marine Engineering,1903,
+267,,,William Hamilton and Company,1800,1900
+268,,,Barclay Curle,,
+269,,,Charles Connell and Company,1861,1980
+270,,,Yarrow Shipbuilders,1865,1999
+271,,,Upper Clyde Shipbuilders,1968,1972
+272,,,Barclay Curle,,
+273,,,Caledon Shipbuilding & Engineering Company,1874,1980
+274,,,Grangemouth Dockyard Company,1885,1987
+275,,,Robbs,1918,1983
+276,,,Ailsa Shipbuilding Company,1885,2000
+277,Canada,,AF Theriault & Sons,,
+278,,,Allied Shipbuilders Ltd.,,
+279,,,Davie Shipbuilding,,
+280,,,Halifax Shipyard,,
+281,,,Levis,,
+282,,,Marine Industries,,
+283,,,Marystown Shipyard,,
+284,,,MIL-Davie Shipbuilding,,
+285,,,Seaspan Marine Corporation,,
+286,,,Vancouver Shipyards,,
+287,,,Sorel,,
+288,,,TECO Maritime,,
+289,,,Toronto Drydock Company,,
+290,,,Seaway Marine and Industrial Limited,,
+291,Mexico,,SEMAR (Veracruz Federal Shipbuilding),,
+292,,,Carso Marina,,
+293,,,Pemex Construcción,,
+294,,,Veracruz Kukulkan Shipyards,,
+295,,,Strategic Marine Mazatlán,,
+296,,,Zihuatanejo Marina,,
+297,,,Acapulco shipyards (Acapulco Naval Shipbuilding),,
+298,United States,,Alabama Drydock & Shipbuilding,,
+299,,,Alameda Works Shipyard,1916,1956
+300,,,American Shipbuilding,1888,1995
+301,,,Atlantic Basin Iron Works,,
+302,,,Austal USA,,
+303,,,Avondale Shipyard,,
+304,,,BAE Systems Ship Repair,,
+305,,,Bath Iron Works,,
+306,,,Bay Shipbuilding Company,,
+307,,,"Bethlehem Shipbuilding Corporation, Limited (BethShip) ",1913,1964
+308,,,"Bethlehem Sparrows Point Shipyard, Sparrows Point, Maryland ",1914,1997
+309,,,Boston Navy Yard,,
+310,,,Bollinger Shipyards,,
+311,,,Brooklyn Navy Yard,,
+312,,,Brown Shipbuilding,1942,1985
+313,,,Burger Boat Company,,
+314,,,California Shipbuilding Corporation,,
+315,,,Charleston Naval Shipyard,,
+316,,,Chesapeake Shipbuilding,,
+317,,,Chester Shipbuilding,,
+318,,,Commercial Iron Works,,
+319,,,Consolidated Steel Orange Shipyard,,
+320,,,Defoe Shipbuilding Company,1905,1975
+321,,,Delaware River Iron Ship Building and Engine Works,,
+322,,,Dravo Corporation,,
+323,,,Electric Boat Corporation,,
+324,,,Erie Shipbuilding LLC,,
+325,,,Federal Shipbuilding & Drydock,1917,1949
+326,,,Fore River Shipyard,1901,1964
+327,,,Gas Engine & Power Company & Charles L. Seabury Company,,
+328,,,General Dynamics,,
+329,,,General Engineering & Dry Dock Company,,
+330,,,George Lawley & Sons,,
+331,,,Gladding-Hearn Shipbuilding,,
+332,,,Gulf Shipbuilding,,
+333,,,Hans Ditlev Bendixsen,,
+334,,,"Henry B. Nevins, Incorporated",,
+335,,,Higgins,,
+336,,,Ingalls Shipbuilding,,
+337,,,Jakobson Shipyard,,
+338,,,James O. Curtis,,
+339,,,Jeffersonville Boat & Machine,,
+340,,,John H. Mathis & Company,,
+341,,,John Roach & Sons,,
+342,,,John Trumpy & Sons,,
+343,,,Kaiser Shipyards,,
+344,,,Lake Washington Shipyard,,
+345,,,Lawrence & Foulks,,
+346,,,Lockheed Shipbuilding and Construction Company,,
+347,,,Long Beach Naval Shipyard,,
+348,,,Los Angeles Shipbuilding and Drydock,,
+349,,,Mare Island Naval Shipyard,,
+350,,,Marinette Marine,,
+351,,,Marinship – Bechtel Shipyards,,
+352,,,Maryland Drydock,,
+353,,,Merchant Shipbuilding Corporation,,
+354,,,Moore Dry Dock Company,,
+355,,,Morse Dry Dock & Repair Company,,
+356,,,National Steel and Shipbuilding Company,,
+357,,,Neafie & Levy,,
+358,,,New England Shipbuilding Corporation,,
+359,,,Newport News Shipbuilding & Drydock,,
+360,,,New York Shipbuilding Corporation (New York Ship),1899,1967
+361,,,Norfolk Naval Shipyard,,
+362,,,"North Florida Shipyards, Inc.",,
+363,,,Oregon Shipbuilding Corporation,,
+364,,,Pearl Harbor Naval Shipyard,,
+365,,,Pennellville Historic District,,
+366,,,Philadelphia Naval Shipyard,,
+367,,,Philly Shipyard,,
+368,,,Portsmouth Naval Shipyard,,
+369,,,Puget Sound Naval Shipyard,,
+370,,,Pusey and Jones,,
+371,,,"Reaney, Son & Archbold",,
+372,,,Richmond Shipyards,,
+373,,,SAFE Boats International LLC,,
+374,,,Seattle-Tacoma Shipbuilding,,
+375,,,Skinner & Eddy Corporation,,
+376,,,Sun Shipbuilding and Drydock Company,,
+377,,,Tampa Shipbuilding,,
+378,,,T. J. Southard,,
+379,,,United States Coast Guard Yard,,
+380,,,Union Iron Works,1905,1941
+381,,,Vigor Industrial,,
+382,,,VT Halter Marine,,
+383,,,Western Pipe & Steel,,
+384,,,William Cramp & Sons Shipbuilding Company,,
+385,,,William H. Webb,,
+386,,,Winslow Marine Railway & Shipbuilding,,
+387,,,Zidell Marine,,
+388,Australia,,Adelaide Steamship Company,1957,1973
+389,,,Austal,,
+390,,,ASC Pty Ltd,,
+391,,,BAE Systems Australia,,
+392,,,BHP Limited,1939,1978
+393,,,Cockatoo Island Dockyard,1870,1992
+394,,,Evans Deakin and Company,1940,1971
+395,,,Forgacs Group,,
+396,,,Incat,,
+397,,,Morrison & Sinclair,1890,1970
+398,,,Mort's Dock,1855,1959
+399,,,NQEA Australia,,
+400,,,Poole & Steel Limited,1912,1954
+401,,,Richardson Devine Marine,,
+402,,,State Dockyard,1942,1987
+403,,,Strategic Marine,,
+404,,,Walkers Limited,1884,1974
+405,Argentina,,"Astillero ""Rio Santiago"" (AFNE)",,
+406,,,Astilleros Argentinos S.A. (ASTARSA),,
+407,,,Puerto Belgrano Naval Base Shipyard,,
+408,,,Tandanor,,
+409,Brazil,,INACE,,
+410,,,EMGEPRON,,
+411,Chile,,Asenav,,
+412,,,ASMAR,,
+413,Colombia,,COTECMAR,,
+414,Peru,,SIMA,,

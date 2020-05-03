@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 def get_soup_using_selenium(url: str, timeout: int = 10, driver=None) -> BeautifulSoup:
     if driver is None:
-        driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
+        driver = webdriver.Chrome(executable_path=r'C:\Users\User\Desktop\Driver\chromedriver.exe')
         driver.get(url)
         WebDriverWait(driver, timeout)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
@@ -197,9 +197,9 @@ def scrape_vessels(input_file: str, output_file: str, start: int, stop: int, *, 
 
 
 if __name__ == '__main__':
-    driver = webdriver.Chrome('C:\\App\\bin\\chromedriver.exe')
+    driver = webdriver.Chrome(executable_path=r'C:\Users\User\Desktop\Driver\chromedriver.exe')
 
-    scrape_vessels('../data/Ship_link.txt', 'test.csv', 555, 556, driver=driver)
+    scrape_vessels('../data/Ship_link.txt', 'test.csv', 510, 511, driver=driver)
 
     # soup = get_soup_using_selenium('https://www.vesselfinder.com/vessels/RUHR-N-IMO-8410108-MMSI-0', driver=driver)
     # dct = get_vessel_particulars(soup)
