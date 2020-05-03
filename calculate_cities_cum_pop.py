@@ -1,4 +1,5 @@
 import csv
+from decimal import Decimal, InvalidOperation
 from operator import itemgetter
 
 import utils
@@ -7,25 +8,30 @@ import utils
 cities = utils.read_csv_file('data/worldcities.csv')
 
 
-def float_or_zero(x):
+def decimal_or_zero(x):
     try:
-        return float(x)
-    except ValueError:
-        return 0
+        return Decimal(x)
+    except InvalidOperation:
+        if x == '':
+            return Decimal('0')
+        raise
 
 
-total_pop = sum(map(float_or_zero, map(itemgetter('population'), cities)))
+total_pop = sum(map(decimal_or_zero, map(itemgetter('population'), cities)))
+
+country_pop = {}
 
 with open('country-pop-cum.csv', 'w', encoding='utf-8', newline='') as f:
     keys = ['alpha-2', 'percent', 'cumulative']
     writer = csv.DictWriter(f, keys)
     writer.writeheader()
-    dct = {}
-    cum = 0
     for c in cities:
-        dct['alpha-2'] = c['iso2']
-        percent = float_or_zero(c['population']) / total_pop
+        percent = decimal_or_zero(c['population']) / total_pop
+        try:
+            country_pop[c['iso2']] += percent
+        except KeyError:
+            country_pop[c['iso2']] = percent
+    cum = 0
+    for iso, percent in country_pop.items():
         cum += percent
-        dct['percent'] = percent
-        dct['cumulative'] = cum
-        writer.writerow(dct)
+        writer.writerow({'alpha-2': iso, 'percent': percent, 'cumulative': cum})
