@@ -19,7 +19,7 @@ def ensure_loaded():
 def load_data():
     global data
     data = []
-    with open('data/da-base-OLTP - ContainerModel.csv', 'r') as csvfile:
+    with open('database/da-base-OLTP - ContainerModel.csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             data.append(row)
