@@ -18,7 +18,7 @@ def get_bol_check_digit(bol_num: str) -> str:
     return str(10 - last_dig)
 
 
-def random_bol(year: int):
+def random_incoterm(year: int):
     if year > 2020:
         raise AssertionError('The future is not known!')
     if year == 2020:
