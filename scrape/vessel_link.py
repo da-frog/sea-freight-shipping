@@ -12,7 +12,7 @@ def get_page(idx: int) -> str:
 def find_link(page):
     browser = webdriver.Chrome(executable_path=r'C:\Users\User\Desktop\Driver\chromedriver.exe')
     i = 1
-    text = open("../data/Ship_link.txt", "w")
+    text = open("../scraped_data/ship-links.txt", "w")
     while i <= page:
         browser.get('https://www.vesselfinder.com/vessels' + get_page(i))
         soup = BeautifulSoup(browser.page_source, "html.parser")

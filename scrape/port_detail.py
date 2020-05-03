@@ -138,4 +138,4 @@ def scrape_ports(input_file: str, output_file: str, start: int, stop: int, sleep
 
 
 if __name__ == '__main__':
-    scrape_ports('../data/port-link.text', 'test_ports.txt', 1, 20, 1)
+    scrape_ports('../scraped_data/port-link.text', 'test_ports.txt', 1, 20, 1)

@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 
 def get_country_link(soup: BeautifulSoup):
-    text_file = open("../data/port-link-country.text", "a")
+    text_file = open("../scraped_data/port-link-country.text", "a")
     for link in soup.find(id='clist').find_all("a", href=True):
         marine_link = "https://www.searates.com/" + str(link['href'])
         text_file.write(marine_link + '\n')
@@ -62,7 +62,7 @@ def scrape_port_links_and_names(input_file: str, output_file: str):
 def get_each_port_link(file_name: str):
     url_link = open(file_name, "r").read()
     url_list_link = url_link.split()
-    port_file = open("../data/port-link.text", "a")
+    port_file = open("../scraped_data/port-link.text", "a")
 
     for link in url_list_link:
         html = urllib.request.urlopen(link)
