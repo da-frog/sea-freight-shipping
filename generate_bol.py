@@ -35,12 +35,22 @@ convert(addresses, ['Address Key'], int)
 convert(country_pop, ['cumulative'], float)
 
 
-def random_country_according_to_population() -> str:
-    """ Returns country's iso2/alpha-2 code """
-    r = random.random()
-    for row in country_pop:
-        if r <= row['cumulative']:
-            return row['alpha-2']
+class RandomCountry:
+    set = 0
+
+    @staticmethod
+    def random_country_according_to_population() -> str:
+        """ Returns country's iso2/alpha-2 code """
+        r = (random.random() / 2) + RandomCountry.set
+
+        if RandomCountry.set == 0:
+            RandomCountry.set = 0.5
+        else:
+            RandomCountry.set = 0
+
+        for row in country_pop:
+            if r <= row['cumulative']:
+                return row['alpha-2']
 
 
 address_map = {
@@ -62,7 +72,7 @@ def get_business_entities_from_country(country: str) -> List[int]:
     return lst
 
 
-country_1 = random_country_according_to_population()
-country_2 = random_country_according_to_population()
+country_1 = RandomCountry.random_country_according_to_population()
+country_2 = RandomCountry.random_country_according_to_population()
 
 
