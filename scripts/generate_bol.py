@@ -1,3 +1,4 @@
+import csv
 import json
 import random
 from typing import List, Dict, Callable
@@ -23,10 +24,15 @@ def convert(list_of_dicts: List[Dict], keys: List[str], callable: Callable):
             dct[key] = callable(dct[key])
 
 
-convert(business_entities, ['Business Entity Key'], int)
+convert(business_entities, ['Business Entity Key', 'Address Key'], int)
 convert(business_entities, ['Roles'], json.loads)
 convert(addresses, ['Address Key'], int)
 convert(country_pop, ['cumulative'], float)
+
+address_map = {
+    address['Address Key']: address
+    for address in addresses
+}
 
 
 class RandomCountry:
@@ -47,14 +53,24 @@ class RandomCountry:
                 return row['alpha-2']
 
 
-address_map = {
-    address['Address Key']: address
-    for address in addresses
-}
+def get_addresses_by_country(addresses_, country: str) -> List[dict]:
+    lst = []
+    for address in addresses_:
+        if address['Alpha 2'] == country:
+            lst.append(address)
+    return lst
 
 
-def get_business_entities_from_country(business_entities_, country: str) -> List[int]:
-    """ Returns list of Business Entity Keys
+def get_ports_by_country(ports_, country: str) -> List[dict]:
+    lst = []
+    for port in ports_:
+        if address_map[int(port['Address Key'])]['Alpha 2'] == country:
+            lst.append(port)
+    return lst
+
+
+def get_business_entities_from_country(business_entities_, country: str) -> List[dict]:
+    """ Filter Business Entity by Country
 
     :param country: iso2/alpha-2 code
     :return:
@@ -62,20 +78,20 @@ def get_business_entities_from_country(business_entities_, country: str) -> List
     lst = []
     for entity in business_entities_:
         if address_map[int(entity['Address Key'])]['Alpha 2'] == country:
-            lst.append(entity['Business Entity Key'])
+            lst.append(entity)
     return lst
 
 
-def get_business_entities_from_role(business_entities_, role: str) -> List[int]:
-    """ Returns list of Business Entity Keys
+def get_business_entities_from_role(business_entities_, role: str) -> List[dict]:
+    """ Filter Business Entity by Role
 
     :param role:
     :return:
     """
     lst = []
     for entity in business_entities_:
-        if role in entity['Role']:
-            lst.append(entity['Business Entity Key'])
+        if role in entity['Roles']:
+            lst.append(entity)
     return lst
 
 
@@ -88,21 +104,84 @@ def get_business_entities_from_role(business_entities_, role: str) -> List[int]:
 # ]
 
 
-country_1 = RandomCountry.random_country_according_to_population()
-country_2 = RandomCountry.random_country_according_to_population()
+def get_consignor(business_entities_, country: str):
+    a = get_business_entities_from_country(business_entities_, country)
+    b = get_business_entities_from_role(a, 'Consignor')
+    if b:
+        return random.choice(b)
+    return random.choice(a)
 
-get_business_entities_from_role(business_entities, 'Consignor')
 
-get_business_entities_from_country(business_entities, country_1)
+def get_consignee(business_entities_, country: str):
+    a = get_business_entities_from_country(business_entities_, country)
+    b = get_business_entities_from_role(a, 'Consignee')
+    if b:
+        return random.choice(b)
+    return random.choice(a)
 
-# cosignor, foreign_transpoter, foreign_consolidator
-# place_of_receipt
-# port_of_loading
-#
-# consignee, domestic_transporter, domestic_consolidator
-# place_of_delivery
-# port_of_discharge
-#
-# courier
-#
-# commodity
+
+def get_transporter(business_entities_, country: str):
+    a = get_business_entities_from_role(business_entities_, 'Transporter')
+    b = get_business_entities_from_country(a, country)
+    if b:
+        return random.choice(b)
+    return random.choice(a)
+
+
+def get_consolidator(business_entities_, country: str):
+    a = get_business_entities_from_role(business_entities_, 'Consolidator')
+    b = get_business_entities_from_country(a, country)
+    if b:
+        return random.choice(b)
+    return random.choice(a)
+
+
+def get_courier(business_entities_, country: str):
+    a = get_business_entities_from_role(business_entities_, 'Courier')
+    b = get_business_entities_from_country(a, country)
+    if b:
+        return random.choice(b)
+    return random.choice(a)
+
+
+def generate_bol():
+    dct = {}
+    country_1 = RandomCountry.random_country_according_to_population()
+    country_2 = RandomCountry.random_country_according_to_population()
+    consignor = get_consignor(business_entities, country_1)
+    dct['Consignor Key'] = consignor['Business Entity Key']
+    consignee = get_consignee(business_entities, country_2)
+    dct['Consignee Key'] = consignee['Business Entity Key']
+    dct['Domestic Transporter Key'] = get_transporter(business_entities, country_1)['Business Entity Key']
+    dct['Foreign Transporter Key'] = get_transporter(business_entities, country_2)['Business Entity Key']
+    dct['Domestic Consolidator Key'] = get_consolidator(business_entities, country_1)['Business Entity Key']
+    dct['Foreign Consolidator Key'] = get_consolidator(business_entities, country_2)['Business Entity Key']
+    dct['Courier Key'] = get_courier(business_entities, random.choice([country_1, country_2]))['Business Entity Key']
+    port_1 = get_ports_by_country(ports, country_1)
+    dct['Port of Discharge Key'] = random.choice(port_1)['Port Key']
+    port_2 = get_ports_by_country(ports, country_2)
+    dct['Port of Loading Key'] = random.choice(port_2)['Port Key']
+    dct['Place of Receipt Key'] = consignor['Address Key']
+    dct['Place of Delivery Key'] = consignee['Address Key']
+    return dct
+
+
+if __name__ == '__main__':
+    with open('output.csv', 'w', encoding='utf-8', newline='') as outfile:
+        writer = csv.DictWriter(outfile, ['Bill-of-Lading Key', 'Bill-of-Lading Number', 'Issued Date', 'Consignor Key',
+                                          'Consignee Key', 'Foreign Transporter Key', 'Foreign Consolidator Key',
+                                          'Courier Key', 'Domestic Transporter Key', 'Domestic Consolidator Key',
+                                          'Ship Mode', 'Place of Receipt Key', 'Place of Delivery Key', 'Port of Loading Key',
+                                          'Port of Discharge Key', 'Commodity Key', 'Container Key', 'Incoterm',
+                                          'Expected Tariffs', 'Actual Tariffs', 'Ship Mode']
+                                )
+        writer.writeheader()
+        for i in range(1000):
+            while True:
+                try:
+                    bol = generate_bol()
+                except IndexError:
+                    pass
+                else:
+                    break
+            writer.writerow(bol)
