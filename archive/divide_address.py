@@ -1,9 +1,19 @@
-from typing import List
+from typing import List, Dict
 import csv
-
+from operator import itemgetter
+import json
+import re
 
 import utils
 
+import city
+
+
+# addresses = utils.read_csv_file('spreadsheet_data/da-base-OLTP - Address.csv')
+# commodities = utils.read_csv_file('spreadsheet_data/da-base-OLTP - Address.csv')
+# containers = utils.read_csv_file('spreadsheet_data/da-base-OLTP - Address.csv')
+# container_models = utils.read_csv_file('spreadsheet_data/da-base-OLTP - Address.csv')
+#  # = utils.read_csv_file('spreadsheet_data/da-base-OLTP - Address.csv')
 
 def decode_list(s: str) -> List[str]:
     s = s[1:-1]
@@ -63,6 +73,20 @@ def has_num(s: str) -> bool:
     return False
 
 
+def get_num(s: str) -> str:
+    m = re.match('[0-9]+', s)
+    if m is not None:
+        return m[0]
+    return ''
+
+
+def get_zip_code(s: str) -> str:
+    m = re.match('[A-Z]*[ -][0-9]+(-[0-9]*)?', s)
+    if m is not None:
+        return m[0]
+    return ''
+
+
 raw_ports = utils.read_csv_file('spreadsheet_data/raw port data - Sheet1.csv')
 
 
@@ -74,11 +98,34 @@ with open('output.csv', 'w', encoding='utf-8', newline='') as f:
 
     for rp in raw_ports:
         s: str = rp['Address']
+
         if s != '':
             address = decode_list(s)
 
+            # x = []
+            # for i, part in enumerate(address):
+            #     if i == 0:
+            #         continue
+            #     z = get_zip_code(part)
+            #     if z:
+            #         rp['ZIP Code'] = z
+            #         t = part.replace(z, '')
+            #         if t:
+            #             x.append(t)
+            #     else:
+            #         x.append(part)
+            # address = x
+
             street = []
-            for elem in address:
+            for i, elem in enumerate(address):
+                if i == 0:
+                    continue
+                if elem.lower().startswith('bp'):
+                    continue
+                if elem.lower().startswith('cp'):
+                    continue
+                if has_num(elem):
+                    rp['ZIP Code'] = get_num(elem)
                 if rp['City'] in elem:
                     continue
                 if rp['Country'] in elem:
