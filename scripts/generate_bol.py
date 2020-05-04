@@ -150,7 +150,7 @@ T = TypeVar('T')
 
 def sample_with_normal_bias(seq: Sequence[T]) -> T:
     n = len(seq)
-    r = np.random.normal(n/2, n/2/1.96)
+    r = np.random.normal(n/2, n/2/1.96 / 50)
     nearest_int = int(round(r, 0))
     if nearest_int < 0:
         return seq[0]
@@ -214,6 +214,7 @@ def main(n: int = 1000):
             while True:
                 try:
                     bol = generate_bol()
+                    bol['Bill-of-Lading Key'] = i+1
                 except IndexError:
                     pass
                 else:
