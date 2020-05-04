@@ -1,4 +1,4 @@
-import math
+from math import radians, cos, sin, asin, sqrt
 
 
 class Location:
@@ -99,6 +99,31 @@ class Location:
         long_str = " ".join(long)
         return f'{lat_str} / {long_str}'
 
+    def calculate_distance(self, other):
+        # get lat, long in decimal degree format
+        lat1, lon1 = self.get_lat_long(dd=True)
+        lat2, lon2 = other.get_lat_long(dd=True)
+
+        # The math module contains a function named
+        # radians which converts from degrees to radians.
+        lon1 = radians(lon1)
+        lon2 = radians(lon2)
+        lat1 = radians(lat1)
+        lat2 = radians(lat2)
+
+        # Haversine formula
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
+        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+
+        c = 2 * asin(sqrt(a))
+
+        # Radius of earth in kilometers. Use 3956 for miles
+        r = 6371
+
+        # calculate the result
+        return c * r
+
 
 if __name__ == '__main__':
     # check at: https://www.pgc.umn.edu/apps/convert/
@@ -112,4 +137,7 @@ if __name__ == '__main__':
     print("--------------------")
     print(l4)
     print(l4.get_lat_long())
+    print("--------------------")
+    print(f"distance between l2 and l4 = {l2.calculate_distance(l3)}")
+
 
