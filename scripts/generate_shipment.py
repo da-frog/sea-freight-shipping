@@ -1,12 +1,14 @@
+import csv
 import json
 import random
 from typing import List, Dict, Callable, Any
+from operator import itemgetter
 
 import utils
 from location import Location
 
 # bols = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - BillOfLading.csv')
-bols = utils.read_csv_file('bol-5000.csv')
+bols = utils.read_csv_file('bol-10000.csv')
 addresses = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
 commodities = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
 containers = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
@@ -22,7 +24,7 @@ def convert(list_of_dicts: List[Dict], keys: List[str], callable: Callable):
 
 
 convert(bols, [
-    # 'Bill-of-Lading Key',
+    'Bill-of-Lading Key',
     'Consignor Key',
     'Consignee Key',
     'Foreign Transporter Key',
@@ -102,7 +104,10 @@ def create_route(bols, n: int = 5):
         current_bols.remove(bol)
 
     while len(route_ports) < n:
-        bol = random.choice(current_bols)
+        try:
+            bol = random.choice(current_bols)
+        except IndexError:
+            break
         loading_key = bol['Port of Loading Key']
         discharge_key = bol['Port of Discharge Key']
 
@@ -145,25 +150,61 @@ def create_route(bols, n: int = 5):
     return route_ports, route_bols
 
 
+def main(filename: str):
+    with open(filename, 'w', encoding='utf-8', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, ['ports', 'bols'])
+        writer.writeheader()
+        # voyages = []
+        x = bols.copy()
+        while len(x) > 0:
+            route_length = random.randint(3, 6)
+            # print(len(x))
+            route_ports, route_bols = create_route(x, route_length)
+            # print(len(x))
+            # print('\n')
+            # print(route_ports)
+            # for bol in route_bols:
+                # print(get_bol_route_str(bol))
+
+            # print('\n')
+            added_bol = []
+            for bol in x:
+                loading_key = bol['Port of Loading Key']
+                discharge_key = bol['Port of Discharge Key']
+
+                if bol['Port of Discharge Key'] in route_ports:
+                    if bol['Port of Loading Key'] in route_ports:
+                        loading_index = route_ports.index(loading_key)
+                        discharge_index = route_ports.index(discharge_key)
+                        if loading_index < discharge_index:
+                            added_bol.append(bol)
+                            x.remove(bol)
+                            # print(get_bol_route_str(bol))
+            voyage = {'ports': route_ports, 'bols': list(map(itemgetter('Bill-of-Lading Key'), route_bols + added_bol))}
+            # voyages.append(voyage)
+            writer.writerow(voyage)
+
+
 if __name__ == '__main__':
-    x = bols.copy()
-    print(len(x))
-    route_ports, route_bols = create_route(x, 6)
-    print(len(x))
-    print('\n')
-    print(route_ports)
-    for bol in route_bols:
-        print(get_bol_route_str(bol))
-
-    print('\n')
-
-    for bol in x:
-        loading_key = bol['Port of Loading Key']
-        discharge_key = bol['Port of Discharge Key']
-
-        if bol['Port of Discharge Key'] in route_ports:
-            if bol['Port of Loading Key'] in route_ports:
-                # loading_index = route_ports.index(loading_key)
-                # discharge_index = route_ports.index(discharge_key)
-                # if loading_index < discharge_index:
-                    print(get_bol_route_str(bol))
+    main('output.csv')
+    # x = bols.copy()
+    # print(len(x))
+    # route_ports, route_bols = create_route(x, 6)
+    # print(len(x))
+    # print('\n')
+    # print(route_ports)
+    # for bol in route_bols:
+    #     print(get_bol_route_str(bol))
+    #
+    # print('\n')
+    #
+    # for bol in x:
+    #     loading_key = bol['Port of Loading Key']
+    #     discharge_key = bol['Port of Discharge Key']
+    #
+    #     if bol['Port of Discharge Key'] in route_ports:
+    #         if bol['Port of Loading Key'] in route_ports:
+    #             # loading_index = route_ports.index(loading_key)
+    #             # discharge_index = route_ports.index(discharge_key)
+    #             # if loading_index < discharge_index:
+    #                 print(get_bol_route_str(bol))
