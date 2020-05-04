@@ -1,7 +1,7 @@
 import csv
 import json
 import random
-from typing import List, Dict, Callable, Any
+from typing import List, Dict, Callable, Any, Sequence, TypeVar
 from operator import itemgetter
 
 import utils
@@ -152,7 +152,7 @@ def create_route(bols, n: int = 5):
 
 def main(filename: str):
     with open(filename, 'w', encoding='utf-8', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, ['ports', 'bols'])
+        writer = csv.DictWriter(csvfile, ['ports', 'leg miles', 'bols'])
         writer.writeheader()
         # voyages = []
         x = bols.copy()
@@ -180,9 +180,32 @@ def main(filename: str):
                             added_bol.append(bol)
                             x.remove(bol)
                             # print(get_bol_route_str(bol))
-            voyage = {'ports': route_ports, 'bols': list(map(itemgetter('Bill-of-Lading Key'), route_bols + added_bol))}
+            voyage = {'ports': route_ports, 'bols': list(map(itemgetter('Bill-of-Lading Key'), route_bols + added_bol)), 'leg miles': calculate_leg_miles(route_ports)}
             # voyages.append(voyage)
+            voyage['ports'] = json.dumps(voyage['ports'])
+            voyage['bols'] = json.dumps(voyage['bols'])
+            voyage['leg miles'] = json.dumps(voyage['leg miles'])
             writer.writerow(voyage)
+
+
+T = TypeVar('T')
+
+
+def get_location_from_port_key(port_key: int) -> Location:
+    address = address_map[port_map[port_key]['Address Key']]
+    return Location(address['Latitude'], address['Longitude'])
+
+
+def calculate_leg_miles(port_keys: Sequence[T]) -> List[float]:
+    kms = []
+    locations = list(map(get_location_from_port_key, port_keys))
+    for i in range(len(locations) - 1):
+        kms.append(locations[i].calculate_distance(locations[i+1]))
+    return list(map(km_to_mile, kms))
+
+
+def km_to_mile(x: float) -> float:
+    return x * 0.621371192
 
 
 if __name__ == '__main__':
