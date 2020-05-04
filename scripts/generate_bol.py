@@ -161,6 +161,9 @@ def sample_with_bias(seq: Sequence[T]) -> T:
     return seq[r1 + r2]
 
 
+hot_ports = {}
+
+
 def generate_bol():
     dct = {}
     country_1 = RandomCountry.random_country_according_to_population()
@@ -176,9 +179,28 @@ def generate_bol():
     dct['Courier Key'] = get_courier(business_entities, random.choice([country_1, country_2]))['Business Entity Key']
 
     port_1 = get_ports_by_country(ports, country_1)
-    dct['Port of Discharge Key'] = sample_with_bias(port_1)['Port Key']
+    try:
+        hot_port = hot_ports[country_1]
+    except KeyError:
+        hot_port = random.choice(port_1)
+        hot_ports[country_1] = hot_port
+    if random.random() <= 0.49:
+        port = hot_port
+    else:
+        port = random.choice(port_1)
+    dct['Port of Discharge Key'] = port['Port Key']
+
     port_2 = get_ports_by_country(ports, country_2)
-    dct['Port of Loading Key'] = sample_with_bias(port_2)['Port Key']
+    try:
+        hot_port = hot_ports[country_2]
+    except KeyError:
+        hot_port = random.choice(port_2)
+        hot_ports[country_2] = hot_port
+    if random.random() <= 0.49:
+        port = hot_port
+    else:
+        port = random.choice(port_2)
+    dct['Port of Loading Key'] = port['Port Key']
 
     dct['Place of Receipt Key'] = consignor['Address Key']
     dct['Place of Delivery Key'] = consignee['Address Key']
