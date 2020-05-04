@@ -186,7 +186,7 @@ def main(filename: str):
 
 
 if __name__ == '__main__':
-    main('output.csv')
+    main('voyages.csv')
     # x = bols.copy()
     # print(len(x))
     # route_ports, route_bols = create_route(x, 6)
