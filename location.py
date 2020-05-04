@@ -25,8 +25,9 @@ class Location:
         'neg_dir': ['S', 'W']
     }
 
-    def __init__(self, lat_str="", long_str=""):
-        self.lat_deg, self.lat_min, self.lat_sec, self.lat_dir = \
+    def __init__(self, lat_str, long_str):
+        assert lat_str != ''
+        assert long_str != ''
             self._extract_format(lat_str)
 
         self.long_deg, self.long_min, self.long_sec, self.long_dir = \
