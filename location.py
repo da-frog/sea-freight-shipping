@@ -103,26 +103,29 @@ class Location:
         # get lat, long in decimal degree format
         lat1, lon1 = self.get_lat_long(dd=True)
         lat2, lon2 = other.get_lat_long(dd=True)
+        return calculate_distance(lat1, lon1, lat2, lon2)
 
-        # The math module contains a function named
-        # radians which converts from degrees to radians.
-        lon1 = radians(lon1)
-        lon2 = radians(lon2)
-        lat1 = radians(lat1)
-        lat2 = radians(lat2)
 
-        # Haversine formula
-        dlon = lon2 - lon1
-        dlat = lat2 - lat1
-        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+def calculate_distance(lat1, lon1, lat2, lon2):
+    # The math module contains a function named
+    # radians which converts from degrees to radians.
+    lon1 = radians(lon1)
+    lon2 = radians(lon2)
+    lat1 = radians(lat1)
+    lat2 = radians(lat2)
 
-        c = 2 * asin(sqrt(a))
+    # Haversine formula
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
 
-        # Radius of earth in kilometers. Use 3956 for miles
-        r = 6371
+    c = 2 * asin(sqrt(a))
 
-        # calculate the result
-        return c * r
+    # Radius of earth in kilometers. Use 3956 for miles
+    r = 6371
+
+    # calculate the result
+    return c * r
 
 
 if __name__ == '__main__':
