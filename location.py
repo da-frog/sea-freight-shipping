@@ -28,7 +28,10 @@ class Location:
     def __init__(self, lat_str, long_str):
         assert lat_str != ''
         assert long_str != ''
+        self.lat_deg, self.lat_min, self.lat_sec, self.lat_dir = x = \
             self._extract_format(lat_str)
+        # print(f'{x=}')
+        # print(f'{self.lat_deg=}')
 
         self.long_deg, self.long_min, self.long_sec, self.long_dir = \
             self._extract_format(long_str)
@@ -40,7 +43,7 @@ class Location:
         will be replace with empty string.
         """
         elements = input_format.split(' ')
-        degree, minute, second, direction = '', '', '', ''
+        minute, second, direction = '', '', ''
         for ele in elements:
             last_char = ele[-1:]
             if last_char in self.NOTATIONS['degree']:
@@ -56,21 +59,33 @@ class Location:
                 second = float(ele[:-2])
             if last_char.upper() in self.NOTATIONS['pos_dir'] or last_char.upper() in self.NOTATIONS['neg_dir']:
                 direction = last_char.upper()
-        return degree, minute, second, direction
+        try:
+            # print(f'{input_format=} {degree=} {minute=} {second=} {direction=}')
+            return degree, minute, second, direction
+        except UnboundLocalError:
+            degree = float(input_format)
+            return degree, 0, 0, ''
 
     def _convert_to_decimal_degrees(self, deg, min, sec, dir):
         try:
             deg = float(deg)
         except TypeError:
             deg = 0
+        # except ValueError:
+        #     print(f'{deg=}')
+        #     raise
         try:
             min_deg = min / 60
         except TypeError:
             min_deg = 0
+        # except ValueError:
+        #     deg = 0
         try:
             sec_deg = sec / 3600
         except TypeError:
             sec_deg = 0
+        # except ValueError:
+        #     deg = 0
 
         total_degree = sum([deg, min_deg, sec_deg])
         if dir in self.NOTATIONS['neg_dir']:
@@ -83,6 +98,7 @@ class Location:
         by key.
         """
         if dd:
+            # print(f'{self.lat_deg=}')
             lat = self._convert_to_decimal_degrees(
                 self.lat_deg, self.lat_min, self.lat_sec, self.lat_dir
             )
