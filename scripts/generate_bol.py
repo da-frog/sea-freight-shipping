@@ -173,7 +173,7 @@ if __name__ == '__main__':
                                           'Courier Key', 'Domestic Transporter Key', 'Domestic Consolidator Key',
                                           'Ship Mode', 'Place of Receipt Key', 'Place of Delivery Key', 'Port of Loading Key',
                                           'Port of Discharge Key', 'Commodity Key', 'Container Key', 'Incoterm',
-                                          'Expected Tariffs', 'Actual Tariffs', 'Ship Mode']
+                                          'Expected Tariffs', 'Actual Tariffs']
                                 )
         writer.writeheader()
         for i in range(1000):
