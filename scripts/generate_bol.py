@@ -1,6 +1,7 @@
 import csv
 import json
 import random
+import numpy as np
 from typing import List, Dict, Callable
 
 import utils
@@ -158,16 +159,31 @@ def generate_bol():
     dct['Foreign Consolidator Key'] = get_consolidator(business_entities, country_2)['Business Entity Key']
     dct['Courier Key'] = get_courier(business_entities, random.choice([country_1, country_2]))['Business Entity Key']
     port_1 = get_ports_by_country(ports, country_1)
-    dct['Port of Discharge Key'] = random.choice(port_1)['Port Key']
+    while True:
+        try:
+            r = np.random.poisson(len(port_1)/2)
+            dct['Port of Discharge Key'] = port_1[r]['Port Key']
+        except IndexError:
+            pass
+        else:
+            break
     port_2 = get_ports_by_country(ports, country_2)
-    dct['Port of Loading Key'] = random.choice(port_2)['Port Key']
+    while True:
+        try:
+            r = np.random.poisson(len(port_2)/2)
+            dct['Port of Loading Key'] = port_2[r]['Port Key']
+        except IndexError:
+            pass
+        else:
+            break
+    dct['Port of Loading Key'] = port_2[r]['Port Key']
     dct['Place of Receipt Key'] = consignor['Address Key']
     dct['Place of Delivery Key'] = consignee['Address Key']
     return dct
 
 
-if __name__ == '__main__':
-    with open('output.csv', 'w', encoding='utf-8', newline='') as outfile:
+def main(n: int = 1000):
+    with open(f'bol-{n}.csv', 'w', encoding='utf-8', newline='') as outfile:
         writer = csv.DictWriter(outfile, ['Bill-of-Lading Key', 'Bill-of-Lading Number', 'Issued Date', 'Consignor Key',
                                           'Consignee Key', 'Foreign Transporter Key', 'Foreign Consolidator Key',
                                           'Courier Key', 'Domestic Transporter Key', 'Domestic Consolidator Key',
@@ -176,7 +192,7 @@ if __name__ == '__main__':
                                           'Expected Tariffs', 'Actual Tariffs']
                                 )
         writer.writeheader()
-        for i in range(1000):
+        for i in range(n):
             while True:
                 try:
                     bol = generate_bol()
@@ -185,3 +201,7 @@ if __name__ == '__main__':
                 else:
                     break
             writer.writerow(bol)
+
+
+if __name__ == '__main__':
+    main(5000)

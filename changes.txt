@@ -1,0 +1,27 @@
+vlora,Vlore
+st. john's,St. Johns
+ensenada port,Ensenada
+san antonio,San Antonio Este
+Villa Constitucion ,Villa Constitucvilla
+Port of Abbot Point,Abbot Point
+Port of Brisbane,Brisbane
+Port of Broome,Broome
+Cape Cuvier,Cape Jervis
+Port of Carnarvon,Carnarvon
+Port Darwin,Darwin
+Fremantle Port Limit,Fremantle
+Port of Geelong,Geelong
+Port of Gladstone,Gladstone
+Port of Hobart,Hobart
+Port of Melbourne,Melbourne
+Port of Newcastle,Newcastle
+Port Kembla Port Limit,Port Kembla
+Port of Townsville,Townsville
+Port of Wyndham,Wyndham
+cabedelo,Cabedello
+Sao Francisco do Sul,Sao Francisco
+porto trombetas,Trombetas
+amherstberg,Amherstburg
+Baie-Comeau,Baie Comeau
+Halifax Harbour,Halifax
+Port of Liverpool,Liverpool

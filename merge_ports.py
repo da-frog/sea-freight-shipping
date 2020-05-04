@@ -1,6 +1,9 @@
 import csv
 import json
 from typing import List, Dict, Callable
+import difflib
+from operator import itemgetter
+
 
 import utils
 import re
@@ -75,6 +78,12 @@ convert(world_ports, ['index'], int)
 for port in world_ports:
     port['loc'] = Location(*extract_coords(port['coords']))
 
+world_port_names_index = [
+    (wp['PORT_NAME'], wp['index'])
+    for wp in world_ports
+]
+
+
 
 with open('output.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.DictWriter(f, list(ports[0].keys()) + ['worldroutes index'])
@@ -97,6 +106,33 @@ with open('output.csv', 'w', newline='', encoding='utf-8') as f:
                 p['worldroutes index'] = p2['index']
                 break
         else:
-            p['worldroutes index'] = ''
+            matches = difflib.get_close_matches(p['Port Name'], map(itemgetter(0), world_port_names_index), 10)
+            if len(matches) == 0:
+                p['worldroutes index'] = ''
+                continue
+            print(matches)
+            while True:
+                ans = input(f"Select the best match for '{p['Port Name']}': ")
+                if ans == '':
+                    p['worldroutes index'] = ''
+                    break
+                else:
+                    try:
+                        i = int(ans)
+                        for name, index in world_port_names_index:
+                            if name == matches[i]:
+                                p['worldroutes index'] = index
+                                with open('changes.txt', 'a') as cf:
+                                    cf.write(f"{name},{p['Port Name']}\n")
+                                break
+                        else:
+                            print('Whyyyy')
+                        break
+                    except ValueError:
+                        print('Value Error')
+                        pass
+                    except IndexError:
+                        print('Index Error')
+                        pass
             # raise ValueError('No match found for port: ' + str(p))
         writer.writerow(p)

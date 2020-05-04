@@ -1,4 +1,4 @@
 from pathlib import Path
 
-PROJECT_DIR = Path(__file__).parent
-DATA_DIR = PROJECT_DIR / 'data'
+ROOT_DIR = Path(__file__).parent
+DATA_DIR = ROOT_DIR / 'data'
