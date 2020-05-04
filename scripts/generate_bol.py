@@ -148,7 +148,18 @@ def get_courier(business_entities_, country: str):
 T = TypeVar('T')
 
 
-def sample_with_bias(seq: Sequence[T]) -> T:
+def sample_with_normal_bias(seq: Sequence[T]) -> T:
+    n = len(seq)
+    r = np.random.normal(n/2, n/2/1.96)
+    nearest_int = int(round(r, 0))
+    if nearest_int < 0:
+        return seq[0]
+    if nearest_int >= n:
+        return seq[-1]
+    return seq[nearest_int]
+
+
+def sample_with_uniform_sum_bias(seq: Sequence[T]) -> T:
     n = len(seq)
     if n == 1:
         return seq[0]
@@ -179,28 +190,10 @@ def generate_bol():
     dct['Courier Key'] = get_courier(business_entities, random.choice([country_1, country_2]))['Business Entity Key']
 
     port_1 = get_ports_by_country(ports, country_1)
-    try:
-        hot_port = hot_ports[country_1]
-    except KeyError:
-        hot_port = random.choice(port_1)
-        hot_ports[country_1] = hot_port
-    if random.random() <= 0.49:
-        port = hot_port
-    else:
-        port = random.choice(port_1)
-    dct['Port of Discharge Key'] = port['Port Key']
+    dct['Port of Discharge Key'] = sample_with_normal_bias(port_1)['Port Key']
 
     port_2 = get_ports_by_country(ports, country_2)
-    try:
-        hot_port = hot_ports[country_2]
-    except KeyError:
-        hot_port = random.choice(port_2)
-        hot_ports[country_2] = hot_port
-    if random.random() <= 0.49:
-        port = hot_port
-    else:
-        port = random.choice(port_2)
-    dct['Port of Loading Key'] = port['Port Key']
+    dct['Port of Loading Key'] = sample_with_normal_bias(port_2)['Port Key']
 
     dct['Place of Receipt Key'] = consignor['Address Key']
     dct['Place of Delivery Key'] = consignee['Address Key']
