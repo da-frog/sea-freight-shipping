@@ -2,7 +2,7 @@ import csv
 import json
 import random
 import numpy as np
-from typing import List, Dict, Callable
+from typing import List, Dict, Callable, TypeVar, Sequence
 
 import utils
 
@@ -145,6 +145,22 @@ def get_courier(business_entities_, country: str):
     return random.choice(a)
 
 
+T = TypeVar('T')
+
+
+def sample_with_bias(seq: Sequence[T]) -> T:
+    n = len(seq)
+    if n == 1:
+        return seq[0]
+    if n % 2 == 0:
+        r1 = random.randint(0, n//2)
+        r2 = random.randint(0, n//2)
+    else:
+        r1 = random.randint(0, n//2 + 1)
+        r2 = random.randint(0, n//2)
+    return seq[r1 + r2]
+
+
 def generate_bol():
     dct = {}
     country_1 = RandomCountry.random_country_according_to_population()
@@ -158,25 +174,12 @@ def generate_bol():
     dct['Domestic Consolidator Key'] = get_consolidator(business_entities, country_1)['Business Entity Key']
     dct['Foreign Consolidator Key'] = get_consolidator(business_entities, country_2)['Business Entity Key']
     dct['Courier Key'] = get_courier(business_entities, random.choice([country_1, country_2]))['Business Entity Key']
+
     port_1 = get_ports_by_country(ports, country_1)
-    while True:
-        try:
-            r = np.random.poisson(len(port_1)/2)
-            dct['Port of Discharge Key'] = port_1[r]['Port Key']
-        except IndexError:
-            pass
-        else:
-            break
+    dct['Port of Discharge Key'] = sample_with_bias(port_1)['Port Key']
     port_2 = get_ports_by_country(ports, country_2)
-    while True:
-        try:
-            r = np.random.poisson(len(port_2)/2)
-            dct['Port of Loading Key'] = port_2[r]['Port Key']
-        except IndexError:
-            pass
-        else:
-            break
-    dct['Port of Loading Key'] = port_2[r]['Port Key']
+    dct['Port of Discharge Key'] = sample_with_bias(port_2)['Port Key']
+
     dct['Place of Receipt Key'] = consignor['Address Key']
     dct['Place of Delivery Key'] = consignee['Address Key']
     return dct
@@ -204,4 +207,4 @@ def main(n: int = 1000):
 
 
 if __name__ == '__main__':
-    main(5000)
+    main(10000)
