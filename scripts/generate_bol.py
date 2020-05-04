@@ -178,7 +178,7 @@ def generate_bol():
     port_1 = get_ports_by_country(ports, country_1)
     dct['Port of Discharge Key'] = sample_with_bias(port_1)['Port Key']
     port_2 = get_ports_by_country(ports, country_2)
-    dct['Port of Discharge Key'] = sample_with_bias(port_2)['Port Key']
+    dct['Port of Loading Key'] = sample_with_bias(port_2)['Port Key']
 
     dct['Place of Receipt Key'] = consignor['Address Key']
     dct['Place of Delivery Key'] = consignee['Address Key']
