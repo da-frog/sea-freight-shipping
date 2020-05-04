@@ -3106,7 +3106,7 @@ Address Key,Address Line 1,Address Line 2,City,Country,Alpha 2,ZIP Code,Latitude
 3105,,,,Australia,AU,,-19º -35' 0'' S,116º 26' 59'' E
 3106,,,,Australia,AU,,-20º -39' -41'' S,116º 43' 38'' E
 3107,,,Darwin,Australia,AU,,-12º -23' -2'' S,130º 50' 49'' E
-3108,,,,Australia,AU,,,
+3108,,,,Australia,AU,,-12º -23' -2'' S,130º 50' 49'' E
 3109,48 Formby Road,PO Box 478,Devonport,Australia,AU,,-41º -10' -10'' S,146º 21' 10'' E
 3110,PO Box 137,,Eden,Australia,AU,,-37º -4' 0'' S,149º 53' 1'' E
 3111,PO Box 35,,Esperance,Australia,AU,,-33º -52' 0'' S,121º 52' 59'' E
@@ -4315,7 +4315,7 @@ Address Key,Address Line 1,Address Line 2,City,Country,Alpha 2,ZIP Code,Latitude
 4314,,,,Greece,GR,,35º 19' 59'' N,25º 8' 60'' E
 4315,,,,Greece,GR,,39º 31' 59'' N,20º 13' 0'' E
 4316,,,,Greece,GR,,37º 54' 53'' N,23º 0' 30'' E
-4317,,,,Greece,GR,,,
+4317,,,,Greece,GR,,37.7425° N,20.8974° E
 4318,,,,Greece,GR,,36º 56' 0'' N,26º 58' 40'' E
 4319,,,,Greece,GR,,37º 47' 60'' N,26º 40' 59'' E
 4320,,,,Greece,GR,,37º 40' 18'' N,21º 20' 9'' E
