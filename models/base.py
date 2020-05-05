@@ -1,10 +1,12 @@
-from typing import Sequence, List, ClassVar, Tuple
+from typing import Sequence, List, ClassVar, Tuple, TypeVar, Type
 import typing
 
 import csv
 import json
 
 from jsoncompat import JSONEncoder, JSONDecoder
+
+T = TypeVar('T')
 
 
 def common_name_to_snake_case(s: str):
@@ -95,10 +97,9 @@ class BaseModel(metaclass=BaseModelMeta):
             except KeyError:
                 pass
         return cls(**kwargs)  # its subclasses will be dataclasses
-        # TODO: deal with lists
 
     @classmethod
-    def get_instance_by_key(cls, key: int):
+    def get_instance_by_key(cls: Type[T], key: int) -> T:
         if not cls.instances:
             raise IndexError(f"No instances yet! Can't get key={key}")
         return cls.instances[key - 1]
