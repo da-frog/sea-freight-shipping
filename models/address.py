@@ -1,7 +1,12 @@
+from dataclasses import dataclass
+
+
 from location import Location
+
 from .base import BaseModel
 
 
+@dataclass
 class Address(BaseModel):
     instances = []
     fields = (
@@ -16,15 +21,14 @@ class Address(BaseModel):
         'longitude',
     )
 
-    def __init__(self):
-        self.address_line_1: str = ''
-        self.address_line_2: str = ''
-        self.city: str = ''
-        self.country: str = ''
-        self.alpha: str = ''
-        self.zip_code: str = ''
-        self.latitude: str = ''
-        self.longitude: str = ''
+    address_line_1: str = ''
+    address_line_2: str = ''
+    city: str = ''
+    country: str = ''
+    alpha: str = ''
+    zip_code: str = ''
+    latitude: str = ''
+    longitude: str = ''
 
     @property
     def address_key(self) -> int:
