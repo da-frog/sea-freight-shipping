@@ -1,7 +1,10 @@
+from dataclasses import dataclass
+
 from location import Location
 from .base import BaseModel
 
 
+@dataclass
 class Vehicle(BaseModel):
     instances = []
     fields = (
@@ -16,15 +19,14 @@ class Vehicle(BaseModel):
         'Current Longitude'
     )
 
-    def __init__(self):
-        self.vehicle_speed_kmh: float = None,
-        self.vehicle_type: str = '',
-        self.vehicle_name: str = '',
-        self.vehicle_capacity: float  = None,
-        self.vehicle_builder: str = '',
-        self.vehicle_fuel_usage_per_day: float = None,
-        self.current_latitude: str = '',
-        self.current_longitude: str = '',
+    vehicle_speed_kmh: float = None
+    vehicle_type: str = ''
+    vehicle_name: str = ''
+    vehicle_capacity: float = None
+    vehicle_builder: str = ''
+    vehicle_fuel_usage_per_day: float = None
+    current_latitude: str = ''
+    current_longitude: str = ''
 
     @property
     def current_position(self) -> Location:
