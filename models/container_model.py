@@ -5,7 +5,7 @@ from .base import BaseModel
 
 @dataclass
 class ContainerModel(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Container Model Key', 'ISO Size Code', 'ISO Type Code', 'Model Description', 'Owner Code',
         'Serial Number Range Start', 'Serial Number Range End', 'Inside Length (mm)', 'Inside Width (mm)',

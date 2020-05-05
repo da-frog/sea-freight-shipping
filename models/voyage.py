@@ -15,7 +15,7 @@ from jsoncompat import Date, TimeDelta
 
 @dataclass
 class Leg(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Leg Key',
         'Origin Port Key',
@@ -54,8 +54,9 @@ class Leg(BaseModel):
 
     @classmethod
     def get_or_create_instance_from_port_pair(cls, origin_port: Port, destination_port: Port) -> 'Leg':
-        for instance in cls.instances:
-            if instance.origin_port == origin_port and instance.destination_port == destination_port:
+        # print(cls.instances)
+        for instance in cls._instances:
+            if instance.origin_port_key == origin_port.port_key and instance.destination_port_key == destination_port.port_key:
                 return instance
         return Leg(origin_port_key=origin_port.key, destination_port_key=destination_port.key)
 
@@ -76,7 +77,7 @@ def ports_to_legs(ports: Iterable[Port]) -> List[Leg]:
 
 @dataclass
 class LegBridge(BaseModel):
-    instances: ClassVar[List['LegBridge']] = []
+    _instances: ClassVar[List['LegBridge']] = []
     fields = (
         # ('Surrogate Key', 'key'),
         'Leg Bridge Key',
@@ -92,14 +93,13 @@ class LegBridge(BaseModel):
         Returns leg_bridge_key of the LegBridge created.
         """
         try:
-            leg_bridge_key = cls.instances[-1].leg_bridge_key + 1
+            leg_bridge_key = cls._instances[-1].leg_bridge_key + 1
         except IndexError:
             # cls.instances == []
             leg_bridge_key = 1
         for leg in legs:
             cls(leg_bridge_key=leg_bridge_key, leg_key=leg.key)
         return leg_bridge_key
-
 
     @classmethod
     def get_or_create_new_bridge_from_legs(cls, legs: Iterable[Leg]) -> int:
@@ -109,7 +109,7 @@ class LegBridge(BaseModel):
         goal_leg_keys = set(leg.key for leg in legs)
         leg_keys = set()
         leg_brdige_key = None
-        for instance in cls.instances:
+        for instance in cls._instances:
             if leg_brdige_key is None:
                 leg_brdige_key = instance.leg_bridge_key
             if instance.leg_bridge_key == leg_brdige_key:
@@ -123,21 +123,20 @@ class LegBridge(BaseModel):
     @classmethod
     def get_legs(cls, leg_bridge_key: int) -> List[Leg]:
         leg_keys = []
-        found = None
-        for instance in cls.instances:
+        for instance in cls._instances:
             if instance.leg_bridge_key == leg_bridge_key:
                 leg_keys.append(instance.leg_key)
-                found = True
-            elif found is not None:
+            elif leg_keys:
                 break
         else:
-            raise ValueError(f"No LegBridge with key '{leg_bridge_key} found'")
+            if not leg_keys:
+                raise ValueError(f"No LegBridge with key '{leg_bridge_key} found'")
         return list(map(Leg.get_instance_by_key, leg_keys))
 
 
 @dataclass
 class Voyage(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Voyage Key',
         'Leg Bridge Key',
@@ -161,7 +160,7 @@ class Voyage(BaseModel):
 
     @classmethod
     def get_or_create_instance_from_ports(cls, ports: Sequence[Port]):
-        for instance in cls.instances:
+        for instance in cls._instances:
             if instance.ports == ports:
                 return instance
         leg_bridge_key = LegBridge.get_or_create_new_bridge_from_legs(ports_to_legs(ports))
@@ -198,9 +197,9 @@ class Voyage(BaseModel):
         return total_time
 
 
-@dataclass
+@dataclass(eq=False)
 class LegSchedule(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Leg Schedule Key',
         'Leg Key',
@@ -238,7 +237,7 @@ class LegSchedule(BaseModel):
 
 @dataclass
 class LegScheduleBridge(BaseModel):
-    instances: ClassVar[List['LegScheduleBridge']] = []
+    _instances: ClassVar[List['LegScheduleBridge']] = []
     fields: ClassVar[Sequence['fields']] = (
         # ('Surrogate Key', 'key'),
         'Leg Schedule Bridge Key',
@@ -254,12 +253,14 @@ class LegScheduleBridge(BaseModel):
         Returns leg_schedule_bridge_key of the LegBridge created.
         """
         try:
-            leg_schedule_bridge_key = cls.instances[-1].leg_bridge_key + 1
+            leg_schedule_bridge_key = cls._instances[-1].leg_schedule_bridge_key + 1
         except IndexError:
             # cls.instances == []
             leg_schedule_bridge_key = 1
         for leg_schedule in leg_schedules:
-            cls(leg_schedule_bridge_key=leg_schedule_bridge_key, leg_schedule_key=leg_schedule.key)
+            # print('hi')
+            cls(leg_schedule_bridge_key, leg_schedule.key)
+        # print(cls._instances, 'ha')
         return leg_schedule_bridge_key
 
     @classmethod
@@ -267,38 +268,41 @@ class LegScheduleBridge(BaseModel):
         """
         Returns leg_schedule_bridge_key of the LegBridge created/found.
         """
-        goal_leg_schedule_keys = set(leg_schedule.key for leg_schedule in leg_schedules)
+        # print('asd')
+        goal_leg_schedule_keys = set(leg_schedule.leg_schedule_key for leg_schedule in leg_schedules)
         leg_schedule_keys = set()
-        leg_schedule_brdige_key = None
-        for instance in cls.instances:
-            if leg_schedule_brdige_key is None:
-                leg_schedule_brdige_key = instance.leg_schedule_bridge_key
-            if instance.leg_schedule_bridge_key == leg_schedule_brdige_key:
-                leg_schedule_keys.add(instance.leg_key)
+        leg_schedule_bridge_key = None
+        for instance in cls._instances:
+            # print('ho')
+            # instance: LegScheduleBridge
+            if leg_schedule_bridge_key is None:
+                leg_schedule_bridge_key = instance.leg_schedule_bridge_key
+            if instance.leg_schedule_bridge_key == leg_schedule_bridge_key:
+                leg_schedule_keys.add(instance.leg_schedule_key)
             else:
                 if leg_schedule_keys == goal_leg_schedule_keys:
-                    return leg_schedule_brdige_key
-                leg_schedule_brdige_key = None
+                    return leg_schedule_bridge_key
+                leg_schedule_bridge_key = instance.leg_schedule_bridge_key
+                leg_schedule_keys = set()
         return cls._create_new_bridge_from_leg_schedules(leg_schedules)
 
     @classmethod
     def get_leg_schedules(cls, leg_schedule_bridge_key: int) -> List[LegSchedule]:
         leg_schedule_keys = []
-        found = None
-        for instance in cls.instances:
-            if instance.leg_bridge_key == leg_schedule_bridge_key:
-                leg_schedule_keys.append(instance.leg_key)
-                found = True
-            elif found is not None:
+        for instance in cls._instances:
+            if instance.leg_schedule_bridge_key == leg_schedule_bridge_key:
+                leg_schedule_keys.append(instance.leg_schedule_key)
+            elif leg_schedule_keys:
                 break
         else:
-            raise ValueError(f"No Leg Schedule Bridge with key {leg_schedule_bridge_key} found/")
+            if not leg_schedule_keys:
+                raise ValueError(f"No Leg Schedule Bridge with key {leg_schedule_bridge_key} found/")
         return list(map(LegSchedule.get_instance_by_key, leg_schedule_keys))
 
 
 @dataclass
 class VoyageSchedule(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Voyage Schedule Key',
         'Voyage Key',
@@ -391,6 +395,6 @@ class VoyageSchedule(BaseModel):
         legs = ports_to_legs(ports)
         # create leg schedules
         leg_schedules = [LegSchedule(leg.key) for leg in legs]
-        # create leg schedules
+        # create leg schedule bridge
         leg_schedule_bridge = LegScheduleBridge.get_or_create_new_bridge_from_leg_schedules(leg_schedules)
         return VoyageSchedule(leg_schedule_bridge)

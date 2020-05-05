@@ -6,7 +6,7 @@ from .base import BaseModel
 
 @dataclass
 class Vehicle(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Vehicle Key',
         ('Vehicle Speed (km/h)', 'vehicle_speed_kmh'),

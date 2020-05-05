@@ -7,7 +7,7 @@ from .address import Address
 
 @dataclass
 class BusinessEntity(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Business Entity Key',
         'Name',

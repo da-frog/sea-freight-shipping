@@ -5,7 +5,7 @@ from .container_model import ContainerModel
 
 @dataclass
 class Container(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Container Key',
         'Owner Code',

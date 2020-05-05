@@ -88,7 +88,7 @@ def get_bol_check_digit(bol_number: str) -> str:
 
 @dataclass
 class BillOfLading(BaseModel):
-    instances: ClassVar[List['BillOfLading']] = []
+    _instances: ClassVar[List['BillOfLading']] = []
     fields = (
         'Bill-of-Lading Key',
         'Bill-of-Lading Number',

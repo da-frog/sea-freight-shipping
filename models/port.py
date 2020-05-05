@@ -9,7 +9,7 @@ from .address import Address
 
 @dataclass
 class Port(BaseModel):
-    instances: ClassVar[List['Port']] = []
+    _instances: ClassVar[List['Port']] = []
     fields: ClassVar[Sequence[str]] = (
         'Port Key',
         'Address Key',

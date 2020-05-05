@@ -8,7 +8,7 @@ from .base import BaseModel
 
 @dataclass
 class Address(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Address Key',
         'Address Line 1',

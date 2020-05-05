@@ -32,23 +32,17 @@ class BaseModelMeta(type):
             except KeyError:
                 raise AttributeError(f"class attribute 'fields' is not "
                                      f'defined in {name}') from None
-            try:
-                if namespace['instances']:
-                    raise AttributeError(f"class attribute 'instances' is not "
-                                         f'defined in {name}')
-            except KeyError:
-                raise AttributeError(f"class attribute 'instances' is not "
-                                     f'defined in {name}') from None
+        namespace['_instances'] = []
         return super().__new__(mcs, name, bases, namespace)
 
 
 class BaseModel(metaclass=BaseModelMeta):
-    instances: ClassVar[list] = []  # Don't forget to overwrite this
+    _instances: ClassVar[list] = []  # Don't forget to overwrite this
     fields: ClassVar[Tuple[str, ...]] = ()  # Don't forget to overwrite this
 
     def __new__(cls, *args, **kwargs):
         obj = super().__new__(cls)
-        cls.instances.append(obj)
+        cls._instances.append(obj)
         return obj
 
     def __init__(self, **kwargs):
@@ -100,8 +94,6 @@ class BaseModel(metaclass=BaseModelMeta):
                     #     if dct[key] == '':
                     #         kwargs[attr] = Date(1999, 1, 1)
                     #         continue
-                    print(kwargs, attr, type_, dct, key)
-                    print(len(cls.instances))
                     kwargs[attr] = type_(dct[key])
             except KeyError:
                 pass
@@ -109,17 +101,17 @@ class BaseModel(metaclass=BaseModelMeta):
 
     @classmethod
     def get_instance_by_key(cls: Type[T], key: int) -> T:
-        if not cls.instances:
+        if not cls._instances:
             raise IndexError(f"No instances yet! Can't get key={key}")
         try:
-            return cls.instances[key - 1]
+            return cls._instances[key - 1]
         except IndexError:
             print(key)
             raise
 
     @property
     def key(self) -> int:
-        return self.__class__.instances.index(self)
+        return self.__class__._instances.index(self)
 
     @classmethod
     def dump_to_csv(cls, filename: str):
@@ -127,7 +119,7 @@ class BaseModel(metaclass=BaseModelMeta):
             writer = csv.DictWriter(csvfile, cls.get_dict_keys())
             writer.writeheader()
 
-            for instance in cls.instances:
+            for instance in cls._instances:
                 dct = {}
                 for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
                     value = getattr(instance, attr)
@@ -142,7 +134,7 @@ class BaseModel(metaclass=BaseModelMeta):
     def load_from_csv(cls, filename: str, *, clear_instances=True):
         # not recommended
         if clear_instances:
-            cls.instances.clear()
+            cls._instances.clear()
         with open(filename, 'r', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
@@ -151,13 +143,13 @@ class BaseModel(metaclass=BaseModelMeta):
     @classmethod
     def dump_to_json(cls, filename: str):
         with open(filename, 'w', encoding='utf-8') as f:
-            lst = [instance.__dict__ for instance in cls.instances]
+            lst = [instance.__dict__ for instance in cls._instances]
             f.write(json.dumps(lst, cls=JSONEncoder))
 
     @classmethod
     def load_from_json(cls, filename: str, *, clear_instances=True):
         if clear_instances:
-            cls.instances.clear()
+            cls._instances.clear()
         with open(filename, 'r', encoding='utf-8') as f:
             lst = json.loads(f.read(), cls=JSONDecoder)
             for dct in lst:

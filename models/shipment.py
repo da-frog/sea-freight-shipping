@@ -7,7 +7,7 @@ from .bill_of_lading import BillOfLading
 
 @dataclass
 class Shipment(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Shipment Key',
         'Voyage Schedule Key',

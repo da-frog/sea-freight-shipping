@@ -5,7 +5,7 @@ from .base import BaseModel
 
 @dataclass
 class Commodity(BaseModel):
-    instances = []
+    _instances = []
     fields = (
         'Commodity Key',
         'HS Code',
