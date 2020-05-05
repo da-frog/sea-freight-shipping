@@ -1,5 +1,6 @@
-from typing import List
+from typing import List, ClassVar, Tuple
 from datetime import date
+from dataclasses import dataclass
 import random
 
 from .address import Address
@@ -83,8 +84,9 @@ def get_bol_check_digit(bol_number: str) -> str:
     return str(10 - last_dig)
 
 
+@dataclass
 class BillOfLading(BaseModel):
-    instances = []
+    instances: ClassVar[List['BillOfLading']] = []
     fields = (
         'Bill-of-Lading Key',
         'Bill-of-Lading Number',
@@ -108,6 +110,26 @@ class BillOfLading(BaseModel):
         'Actual Tariffs'
     )
 
+    bill_of_lading_number: str = ''
+    issued_date: date = None
+    consignor_key: int = None
+    consignee_key: int = None
+    foreign_transporter_key: int = None
+    foreign_consolidator_key: int = None
+    courier_key: int = None
+    domestic_transporter_key: int = None
+    domestic_consolidator_key: int = None
+    ship_mode: str = ''
+    place_of_receipt_key: int = None
+    place_of_delivery_key: int = None
+    port_of_loading_key: int = None
+    port_of_discharge_key: int = None
+    commodity_key: int = None
+    container_key: int = None
+    incoterm: int = None
+    expected_tariffs: float = None
+    actual_tariffs: float = None
+
     @classmethod
     def random_bill_of_lading_number(cls):
         bol_number = set()
@@ -123,27 +145,6 @@ class BillOfLading(BaseModel):
             ans = result + seventeen
             bol_number.add(ans)
         return bol_number
-
-    def __init__(self):
-        self.bill_of_lading_number: str = ''
-        self.issued_date: date = None
-        self.consignor_key: int = None
-        self.consignee_key: int = None
-        self.foreign_transporter_key: int = None
-        self.foreign_consolidator_key: int = None
-        self.courier_key: int = None
-        self.domestic_transporter_key: int = None
-        self.domestic_consolidator_key: int = None
-        self.ship_mode: str = ''
-        self.place_of_receipt_key: int = None
-        self.place_of_delivery_key: int = None
-        self.port_of_loading_key: int = None
-        self.port_of_discharge_key: int = None
-        self.commodity_key: int = None
-        self.container_key: int = None
-        self.incoterm: int = None
-        self.expected_tariffs: float = None
-        self.actual_tariffs: float = None
 
     @property
     def bill_of_lading_key(self) -> int:
