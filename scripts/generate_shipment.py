@@ -9,7 +9,9 @@ from operator import itemgetter
 import utils
 from location import Location
 
-# bols = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - BillOfLading.csv')
+from models import *
+
+bols = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - BillOfLading.csv')
 bols = utils.read_csv_file('bol-10000.csv')
 addresses = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
 commodities = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
