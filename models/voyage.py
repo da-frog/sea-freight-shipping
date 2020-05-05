@@ -91,10 +91,15 @@ class LegBridge(BaseModel):
         """
         Returns leg_bridge_key of the LegBridge created.
         """
-        leg_bridge_key = cls.instances[-1].leg_bridge_key + 1
+        try:
+            leg_bridge_key = cls.instances[-1].leg_bridge_key + 1
+        except IndexError:
+            # cls.instances == []
+            leg_bridge_key = 1
         for leg in legs:
             cls(leg_bridge_key=leg_bridge_key, leg_key=leg.key)
         return leg_bridge_key
+
 
     @classmethod
     def get_or_create_new_bridge_from_legs(cls, legs: Iterable[Leg]) -> int:
@@ -248,7 +253,11 @@ class LegScheduleBridge(BaseModel):
         """
         Returns leg_schedule_bridge_key of the LegBridge created.
         """
-        leg_schedule_bridge_key = cls.instances[-1].leg_bridge_key + 1
+        try:
+            leg_schedule_bridge_key = cls.instances[-1].leg_bridge_key + 1
+        except IndexError:
+            # cls.instances == []
+            leg_schedule_bridge_key = 1
         for leg_schedule in leg_schedules:
             cls(leg_schedule_bridge_key=leg_schedule_bridge_key, leg_schedule_key=leg_schedule.key)
         return leg_schedule_bridge_key
