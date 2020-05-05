@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from typing import Sequence
+from typing import Sequence, List
+import typing
+
 import csv
 import json
 
@@ -37,22 +39,32 @@ class BaseModel:
         kwargs = {}
         for field in cls.fields:
             if isinstance(field, str):
-                if common_name_to_snake_case(field) in cls.__annotations__:
-                    kwargs[common_name_to_snake_case(field)] = field
+                attr = common_name_to_snake_case(field)
+                key = field
             elif isinstance(field, tuple):
                 assert isinstance(field[0], str)
                 assert isinstance(field[1], str)
-                if common_name_to_snake_case(field[1]) in cls.__annotations__:
-                    kwargs[field[1]] = dct[field[0]]
+                attr = common_name_to_snake_case(field[1])
+                key = field[0]
             else:
                 raise AssertionError("Wrong fields format")
+
+            try:
+                type_ = cls.__annotations__[attr]
+                try:
+                    if type_.__origin__ == list:
+                        kwargs[attr] = json.loads(dct[key])
+                except AttributeError:
+                    kwargs[attr] = type_(dct[key])
+            except KeyError:
+                pass
         return cls(**kwargs)  # its subclasses will be dataclasses
         # TODO: deal with lists
 
     @classmethod
     def get_instance_by_key(cls, key: int):
         if not cls.instances:
-            raise IndexError(f"No instances yet! Can't get {key}")
+            raise IndexError(f"No instances yet! Can't get key={key}")
         return cls.instances[key - 1]
 
     @property
