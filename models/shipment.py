@@ -1,6 +1,6 @@
 from .base import BaseModel
 from .vehicle import Vehicle
-from .route import VoyageSchedule
+from .voyage import VoyageSchedule
 from .bill_of_lading import BillOfLading
 
 
