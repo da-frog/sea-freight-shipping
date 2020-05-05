@@ -13,7 +13,7 @@ class Port(BaseModel):
         'Port Size',
         'Phone',
         'FAX',
-        '800 number',
+        ('800 number', '_800_number'),
         'UNLOCODE',
         'E-mail',
         'Website',
@@ -26,7 +26,7 @@ class Port(BaseModel):
         self.port_size: str = ''
         self.phone: str = ''
         self.fax: str = ''
-        self['800 number']: str = ''
+        self._800_number: str = ''
         self.unlocode: str = ''
         self.email: str = ''
         self.website: str = ''
