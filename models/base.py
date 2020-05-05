@@ -22,7 +22,27 @@ def common_name_to_snake_case(s: str):
     return s.replace(' ', '_').replace('-', '_').lower()
 
 
-class BaseModel:
+class BaseModelMeta(type):
+    def __new__(mcs, name: str, bases: tuple, namespace: dict):
+        if name not in ('BaseModel', 'Bridge'):
+            try:
+                if namespace['fields'] == ():
+                    raise AttributeError(f"class attribute 'fields' is not "
+                                         f'defined in {name}')
+            except KeyError:
+                raise AttributeError(f"class attribute 'fields' is not "
+                                     f'defined in {name}') from None
+            try:
+                if namespace['instances']:
+                    raise AttributeError(f"class attribute 'instances' is not "
+                                         f'defined in {name}')
+            except KeyError:
+                raise AttributeError(f"class attribute 'instances' is not "
+                                     f'defined in {name}') from None
+        return super().__new__(mcs, name, bases, namespace)
+
+
+class BaseModel(metaclass=BaseModelMeta):
     instances = []  # Don't forget to overwrite this
     fields = ()  # Don't forget to overwrite this
 
