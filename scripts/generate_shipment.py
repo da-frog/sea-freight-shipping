@@ -24,11 +24,10 @@ def load_database():
     Vehicle.load_from_csv('../spreadsheet_data/da-base-OLTP - Vehicle.csv')
 
 
-def calculate_total_distance(ports: List[Dict[str, Any]], *, key=True) -> float:
+def calculate_total_distance(ports: List[Port], *, key=True) -> float:
     locations = []
     if key:
-        for key in ports:
-            port = Port.get_instance_by_key(key)
+        for port in ports:
             try:
                 address = port['Address']
             except KeyError:
@@ -43,66 +42,63 @@ def calculate_total_distance(ports: List[Dict[str, Any]], *, key=True) -> float:
     return sum
 
 
-def get_bol_route_str(bol: Dict[str, Any]) -> str:
-    return (
-        f"{bol['Port of Loading']['Port Name']} [{bol['Port of Loading Key']}] "
-        f"--> {bol['Port of Discharge']['Port Name']} [{bol['Port of Discharge Key']}]"
-    )
+def create_route(bols: List[BillOfLading], n: int = 5) -> (List[Port], List[BillOfLading]):
+    """
+    Removes used Bill-of-Lading from `bols`.
+    If there isn't enough Bill-of-Ladings, return early.
+    """
+    current_bols: List[BillOfLading] = bols.copy()
+    route_ports: List[Port] = []
+    route_bols: List[Port] = []
 
-
-def create_route(bols, n: int = 5):
-    current_bols = bols.copy()
-    route_ports = []
-    route_bols = []
-
-    def register_bol(bol):
+    def register_bol(bol: BillOfLading):
         route_bols.append(bol)
         current_bols.remove(bol)
         bols.remove(bol)
         # print(route_ports)
         # print(get_bol_route_str(bol))
 
-    def remove_from_consideration(bol):
+    def remove_from_consideration(bol: BillOfLading):
         current_bols.remove(bol)
 
     while len(route_ports) < n:
         try:
-            bol = random.choice(current_bols)
+            bol: BillOfLading = random.choice(current_bols)
         except IndexError:
             break
-        loading_key = bol['Port of Loading Key']
-        discharge_key = bol['Port of Discharge Key']
+        port_of_loading = bol.port_of_loading
+        port_of_discharge = bol.port_of_discharge
 
         if not route_ports:
-            route_ports.append(loading_key)
-            route_ports.append(discharge_key)
+            route_ports.append(bol.port_of_loading)
+            route_ports.append(bol.port_of_discharge)
             register_bol(bol)
 
         else:
-            if bol['Port of Discharge Key'] in route_ports:
-                if bol['Port of Loading Key'] in route_ports:
-                    loading_index = route_ports.index(loading_key)
-                    discharge_index = route_ports.index(discharge_key)
+            if port_of_discharge in route_ports:
+                if port_of_loading in route_ports:
+                    loading_index = route_ports.index(port_of_loading)
+                    discharge_index = route_ports.index(port_of_discharge)
                     if loading_index < discharge_index:
                         register_bol(bol)
                     else:
                         remove_from_consideration(bol)
                 else:
                     # discharge in, loading not
-                    discharge_index = route_ports.index(discharge_key)
+                    discharge_index = route_ports.index(port_of_discharge)
                     x = {}
                     for i in range(discharge_index + 1):
-                        possible_route = route_ports[0:i] + [loading_key] + route_ports[i:]
+                        possible_route = route_ports[0:i] + [port_of_loading] + route_ports[i:]
                         x[calculate_total_distance(possible_route)] = possible_route
                     route_ports = x[min(x.keys())]
                     register_bol(bol)
-            elif bol['Port of Loading Key'] in route_ports:
+            elif port_of_loading in route_ports:
                 # discharge not in, loading in
-                loading_index = route_ports.index(loading_key)
+                loading_index = route_ports.index(port_of_loading)
                 x = {}
                 re = list(reversed(route_ports))
                 for i in range(loading_index + 1):
-                    possible_route = re[0:i] + [discharge_key] + re[i:]
+                    possible_route = re[0:i] + [port_of_discharge] + re[i:]
                     x[calculate_total_distance(possible_route)] = possible_route
                 route_ports = list(reversed(x[min(x.keys())]))
                 register_bol(bol)
@@ -113,25 +109,9 @@ def create_route(bols, n: int = 5):
 
 
 def main(filename: str):
-    legs = []
-    leg_key = []
-    leg_groups = []
-    leg_group_key = []
-    leg_schedules = []
-    leg_schedule_key = []
-    leg_schedule_groups = []
-    leg_schedule_group_key = []
-    voyages = []
-    voyage_key = 1
-    voyage_schedules = []
-    voyage_schedule_key = 1
-    shipments = []
-    shipment_key = 1
+    def deasssemble_voyage(voyage: Voyage):
 
-    def deasssemble_voyage(voyage: Dict[str, Any]):
-        nonlocal voyages, legs, leg_groups
-        nonlocal voyage_key, leg_key, leg_group_key
-        voyage['Leg Group Key'] = leg_group_key
+        # voyage['Leg Group Key'] = leg_group_key
         for i in range(len(voyage['port keys']) - 1):
             leg = {
                 'Leg Key': leg_key,
@@ -150,7 +130,6 @@ def main(filename: str):
         leg_group_key += 1
 
     def deasssemble_voyage_schedule(voyage_schedule: Dict[str, Any]):
-        nonlocal leg_key, leg_schedule_key, leg_schedule_group_key
         voyage = voyage_schedule['voyage']
         voyage_schedule['Leg Schedule Group Key'] = leg_schedule_group_key
         for i in range(len(voyage['port keys'])-1):
@@ -173,40 +152,41 @@ def main(filename: str):
         leg_schedule_group_key += 1
 
     # voyages = []
-    x = bols.copy()
+    x = BillOfLading.instances.copy()
     while len(x) > 0:
         # create voyage
         route_length = random.randint(3, 6)
         route_ports, route_bols = create_route(x, route_length)
-
+        # add bols to voyage
         added_bol = []
         for bol in x:
-            loading_key = bol['Port of Loading Key']
-            discharge_key = bol['Port of Discharge Key']
+            bol: BillOfLading
+            port_of_loading = bol.port_of_loading
+            port_of_discharge = bol.port_of_discharge
 
-            if bol['Port of Discharge Key'] in route_ports:
-                if bol['Port of Loading Key'] in route_ports:
-                    loading_index = route_ports.index(loading_key)
-                    discharge_index = route_ports.index(discharge_key)
+            if port_of_discharge in route_ports:
+                if port_of_loading in route_ports:
+                    loading_index = route_ports.index(port_of_loading)
+                    discharge_index = route_ports.index(port_of_discharge)
                     if loading_index < discharge_index:
                         added_bol.append(bol)
                         x.remove(bol)
 
         # create voyage dict
-        voyage = {'Voyage Key': voyage_key, 'port keys': route_ports,
-                  'bols': route_bols + added_bol,
-                  'leg miles': calculate_leg_miles(route_ports)}
-        voyage['bol keyes'] = list(map(itemgetter('Bill-of-Lading Key'), voyage['bols']))
+        # voyage = {'Voyage Key': voyage_key, 'port keys': route_ports,
+        #           'bols': route_bols + added_bol,
+        #           'leg miles': calculate_leg_miles(route_ports)}
+        # voyage['bol keyes'] = list(map(itemgetter('Bill-of-Lading Key'), voyage['bols']))
+        voyage = Voyage()
+        voyage.ports = route_ports
 
-        deasssemble_voyage(voyage)
-        voyages.append(voyage)
-        voyage_key += 1
+        all_route_bols  = route_bols + added_bol
+        random.shuffle(all_route_bols)
 
         # split voyage to voyage schedules
-        if len(voyage['bol keys']) > 6:
-            random.shuffle(voyage['bol keys'])
-
+        if len(all_route_bols) > 6:
             # FIRST PART
+            voyage_schedule = VoyageSchedule(voyage_key=voyage.key)
             voyage_schedule = {
                 'Voyage Schedule Key': voyage_schedule_key,
                 'Voyage Key': voyage['Voyage Key'],
@@ -216,9 +196,9 @@ def main(filename: str):
                 'actual destination port arrival dates': [],
             }
 
-            deasssemble_voyage_schedule(voyage_schedule)
-            voyage_schedules.append(voyage_schedule)
-            voyage_schedule_key += 1
+            # deasssemble_voyage_schedule(voyage_schedule)
+            # voyage_schedules.append(voyage_schedule)
+            # voyage_schedule_key += 1
 
             for bol_key in voyage['bol keys'][:len(voyage['bol keys'] // 2)]:
                 shipment = {

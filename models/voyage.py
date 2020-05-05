@@ -23,8 +23,12 @@ class Leg(BaseModel):
         'Leg Miles',
     )
 
-    origin_port_key: int = None
-    destination_port_key: int = None
+    origin_port_key: int
+    destination_port_key: int
+
+    @property
+    def leg_key(self) -> int:
+        return self.key
 
     @property
     def origin_port(self) -> Port:
@@ -48,6 +52,14 @@ class Leg(BaseModel):
     def get_expected_fees(self, vehicle: Vehicle) -> float:
         return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day
 
+    @classmethod
+    def get_or_create_instance_by_port_pair(cls, origin_port: Port, destination_port: Port) -> 'Leg':
+        for instance in cls.instances:
+            if instance.origin_port == origin_port and instance.destination_port == destination_port:
+                return instance
+        else:
+            return Leg(origin_port_key=origin_port.key, destination_port_key=destination_port.key)
+
 
 @dataclass
 class LegBridge(BaseModel):
@@ -61,10 +73,34 @@ class LegBridge(BaseModel):
     leg_key: int
 
     @classmethod
-    def create_new_bridge(cls, legs: Sequence[Leg]):
+    def create_new_bridge(cls, legs: Sequence[Leg]) -> int:
+        """
+        Returns leg_bridge_key of the LegBridge created.
+        """
         leg_bridge_key = cls.instances[-1].leg_bridge_key + 1
         for leg in legs:
             cls(leg_bridge_key=leg_bridge_key, leg_key=leg.key)
+        return leg_bridge_key
+
+    @classmethod
+    def get_or_create_new_bridge(cls, legs: Sequence[Leg]) -> int:
+        """
+        Returns leg_bridge_key of the LegBridge created/found.
+        """
+        goal_leg_keys = set(leg.key for leg in legs)
+        leg_keys = set()
+        leg_brdige_key = None
+        for instance in cls.instances:
+            if leg_brdige_key is None:
+                leg_brdige_key = instance.leg_bridge_key
+            if instance.leg_bridge_key == leg_brdige_key:
+                leg_keys.add(instance.leg_key)
+            else:
+                if leg_keys == goal_leg_keys:
+                    return leg_brdige_key
+                leg_brdige_key = None
+        else:
+            return cls.create_new_bridge(legs)
 
     @classmethod
     def get_legs(cls, leg_bridge_key: int) -> List[Leg]:
@@ -76,6 +112,8 @@ class LegBridge(BaseModel):
                 found = True
             elif found is not None:
                 break
+        else:
+            raise ValueError(f"No LegBridge with key '{leg_bridge_key} found'")
         return list(map(Leg.get_instance_by_key, leg_keys))
 
 
@@ -90,35 +128,47 @@ class Voyage(BaseModel):
     )
 
     leg_bridge_key: int = None
-    port_keys: List[int] = field(default_factory=list)
+    # port_keys: List[int] = field(default_factory=list)
+
+    @property
+    def voyage_key(self) -> int:
+        return self.key
 
     @property
     def legs(self) -> List[Leg]:
-        return LegBridge.get_instance_by_key(self.leg_bridge_key)
+        return LegBridge.get_legs(self.leg_bridge_key)
 
     @property
     def ports(self) -> List[Port]:
-        return list(map(Port.get_instance_by_key, self.port_keys))
+        legs = self.legs
+        ports = [legs[0].origin_port]
+        for leg in legs:
+            ports.append(leg.destination_port)
+        return ports
 
     @ports.setter
     def ports(self, ports: List[Port]):
-        self.port_keys = list(map(lambda port: port.port_key, ports))
+        legs = []
+        for origin, destination in pairwise(ports):
+            leg = Leg.get_or_create_instance_by_port_pair(origin, destination)
+            legs.append(leg)
+        self.leg_bridge_key = LegBridge.get_or_create_new_bridge(legs)
 
     @property
     def origin_port_key(self) -> int:
-        return self.port_keys[0]
+        return self.ports[0].key
 
     @property
     def destination_port_key(self) -> int:
-        return self.port_keys[-1]
+        return self.ports[-1].key
 
     @property
     def origin_port(self) -> Port:
-        return Port.get_instance_by_key(self.origin_port_key)
+        return self.ports[0]
 
     @property
-    def destination_port(self) -> int:
-        return Port.get_instance_by_key(self.destination_port_key)
+    def destination_port(self) -> Port:
+        return self.ports[-1]
 
     def get_expected_total_time(self, vehicle: Vehicle) -> timedelta:
         total_time = timedelta()
@@ -193,6 +243,7 @@ class LegScheduleBridge(BaseModel):
             elif found is not None:
                 break
         return list(map(LegSchedule.get_instance_by_key, leg_schedule_keys))
+
 
 @dataclass
 class VoyageSchedule(BaseModel):
