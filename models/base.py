@@ -156,3 +156,10 @@ class BaseModel(metaclass=BaseModelMeta):
         }
         d.update(self.__dict__)
         return d
+
+    def __getitem__(self, item: str):
+        for key, attr in zip(self.get_dict_keys(), self.get_attr_names()):
+            if key == item:
+                return getattr(self, attr)
+        else:
+            raise KeyError(f"Key '{item}' is not found")
