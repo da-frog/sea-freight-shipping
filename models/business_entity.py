@@ -11,7 +11,7 @@ class BusinessEntity(BaseModel):
     fields = (
         'Business Entity Key',
         'Name',
-        'E-mail',
+        ('E-mail', 'email'),
         'Phone',
         'Fax',
         'Address Key',
@@ -19,7 +19,7 @@ class BusinessEntity(BaseModel):
     )
 
     name: str = ''
-    e_mail: str = ''
+    email: str = ''
     phone: str = ''
     fax: str = ''
     address_key: int = None
