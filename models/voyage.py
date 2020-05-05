@@ -1,5 +1,5 @@
 from datetime import date, datetime, timedelta
-from typing import List
+from typing import List, ClassVar, Sequence
 import random
 from dataclasses import dataclass, field
 
@@ -22,8 +22,8 @@ class Leg(BaseModel):
         'Leg Miles',
     )
 
-    self.origin_port_key: int = None
-    self.destination_port_key: int = None
+    origin_port_key: int = None
+    destination_port_key: int = None
 
     @property
     def origin_port(self) -> Port:
@@ -49,23 +49,27 @@ class Leg(BaseModel):
 
 
 @dataclass
-class LegBridge(Bridge):
-    instances = []
-    fields = (
+class LegBridge(BaseModel):
+    instances: ClassVar[List['Bridge']] = []
+    fields: ClassVar[Sequence['fields']] = (
         'Leg Bridge Key',
         'Leg Key',
     )
 
-    legs: List[Leg] = field(default_factory=list)
-
-    @property
-    def leg_bridge_key(self) -> int:
-        return self.__class__.instances.index(self)
+    leg_bridge_key: int
+    leg_key: int
 
     @classmethod
     def get_legs(cls, leg_bridge_key: int) -> List[Leg]:
-        leg_bridge = cls.get_instance_by_key(leg_bridge_key)
-        return leg_bridge.legs
+        leg_keys = []
+        found = None
+        for instance in cls.instances:
+            if instance.leg_bridge_key == leg_bridge_key:
+                leg_keys.append(instance.leg_key)
+                found = True
+            elif found is not None:
+                break
+        return list(map(Leg.get_instance_by_key, leg_keys))
 
 
 @dataclass
@@ -155,24 +159,27 @@ class LegSchedule(BaseModel):
 
 
 @dataclass
-class LegScheduleBridge(Bridge):
-    instances = []
-    fields = (
+class LegScheduleBridge(BaseModel):
+    instances: ClassVar[List['Bridge']] = []
+    fields: ClassVar[Sequence['fields']] = (
         'Leg Schedule Bridge Key',
         'Leg Schedule Key',
     )
 
-    leg_schedules: List[Leg] = field(default_factory=list)
-
-    @property
-    def leg_schedule_bridge_key(self) -> int:
-        return self.__class__.instances.index(self)
+    leg_schedule_bridge_key: int
+    leg_schedule_key: int
 
     @classmethod
     def get_leg_schedules(cls, leg_schedule_bridge_key: int) -> List[LegSchedule]:
-        leg_bridge = cls.get_instance_by_key(leg_schedule_bridge_key)
-        return leg_bridge.legs
-
+        leg_schedule_keys = []
+        found = None
+        for instance in cls.instances:
+            if instance.leg_bridge_key == leg_schedule_bridge_key:
+                leg_schedule_keys.append(instance.leg_key)
+                found = True
+            elif found is not None:
+                break
+        return list(map(LegSchedule.get_instance_by_key, leg_schedule_keys))
 
 @dataclass
 class VoyageSchedule(BaseModel):

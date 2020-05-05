@@ -164,14 +164,3 @@ class BaseModel(metaclass=BaseModelMeta):
         }
         d.update(self.__dict__)
         return d
-
-
-class Bridge(BaseModel):
-
-    @classmethod
-    def dump_to_csv(cls, filename: str):
-        pass
-
-    @classmethod
-    def load_from_csv(cls, filename: str):
-        pass
