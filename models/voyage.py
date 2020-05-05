@@ -140,7 +140,7 @@ class Voyage(BaseModel):
         'Destination Port Key',
     )
 
-    leg_bridge_key: int
+    leg_bridge_key: int = None
 
     @property
     def voyage_key(self) -> int:
@@ -296,7 +296,7 @@ class VoyageSchedule(BaseModel):
         'Leg Schedule Bridge Key',
     )
 
-    leg_schedule_bridge_key: int
+    leg_schedule_bridge_key: int = None
 
     @property
     def voyage_schedule_key(self) -> int:
@@ -313,6 +313,10 @@ class VoyageSchedule(BaseModel):
     @property
     def legs(self) -> List[Leg]:
         return [leg_schedule.leg for leg_schedule in self.leg_schedules]
+
+    @property
+    def ports(self) -> List[Port]:
+        return self.voyage.ports
 
     @property
     def leg_schedules(self) -> List[LegSchedule]:
@@ -371,3 +375,13 @@ class VoyageSchedule(BaseModel):
     @property
     def actual_arrival_date(self):
         return self.leg_schedules[-1].actual_arrival_date
+
+    @classmethod
+    def create_voyage_schedule_from_ports(cls, ports: List[Port]) -> 'VoyageSchedule':
+        # get/create leg
+        legs = ports_to_legs(ports)
+        # create leg schedules
+        leg_schedules = [LegSchedule(leg.key) for leg in legs]
+        # create leg schedules
+        leg_schedule_bridge = LegScheduleBridge.get_or_create_new_bridge_from_leg_schedules(leg_schedules)
+        return VoyageSchedule(leg_schedule_bridge)

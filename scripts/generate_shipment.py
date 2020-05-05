@@ -6,7 +6,7 @@ import datetime
 from typing import List, Dict, Callable, Any, Sequence, TypeVar
 from operator import itemgetter
 
-import utils
+from utils import km_to_mile
 from location import Location
 
 from models import *
@@ -108,56 +108,13 @@ def create_route(bols: List[BillOfLading], n: int = 5) -> (List[Port], List[Bill
     return route_ports, route_bols
 
 
-def main(filename: str):
-    def deasssemble_voyage(voyage: Voyage):
-
-        # voyage['Leg Group Key'] = leg_group_key
-        for i in range(len(voyage['port keys']) - 1):
-            leg = {
-                'Leg Key': leg_key,
-                'Origin Port': voyage['port keys'][i],
-                'Destination Port': voyage['port keys'][i + 1],
-                'Leg Miles': voyage['leg miles'][i],
-                'Leg Fees': '',
-            }
-            leg_group = {
-                'Leg Group Key': leg_group_key,
-                'Leg Key': leg_key,
-            }
-            legs.append(leg)
-            leg_key += 1
-            leg_groups.append(leg_group)
-        leg_group_key += 1
-
-    def deasssemble_voyage_schedule(voyage_schedule: Dict[str, Any]):
-        voyage = voyage_schedule['voyage']
-        voyage_schedule['Leg Schedule Group Key'] = leg_schedule_group_key
-        for i in range(len(voyage['port keys'])-1):
-            leg_schedule = {
-                'Leg Schedule Key': leg_schedule_key,
-                'Leg Key': leg_schedule_key,
-                'Scheduled Origin Port Departure Date': voyage_schedule['scheduled origin port departure dates'][i],
-                'Scheduled Destination Port Arrival Date': voyage_schedule['scheduled destination port arrival dates'][i],
-                'Actual Origin Port Departure Date': voyage_schedule['actual origin port departure dates'][i],
-                'Actual Destination Port Arrival Date': voyage_schedule['actual destination port arrival dates'][i],
-            }
-            leg_schedule_group = {
-                'Leg Schedule Group Key': leg_schedule_group_key,
-                'Leg Schedule Key': leg_schedule_key,
-            }
-            leg_key += 1
-            leg_schedules.append(leg_schedule)
-            leg_schedule_key += 1
-            leg_schedule_groups.append(leg_schedule_group)
-        leg_schedule_group_key += 1
-
-    # voyages = []
+def main():
     x = BillOfLading.instances.copy()
     while len(x) > 0:
-        # create voyage
+        # create route
         route_length = random.randint(3, 6)
         route_ports, route_bols = create_route(x, route_length)
-        # add bols to voyage
+        # add bols to route
         added_bol = []
         for bol in x:
             bol: BillOfLading
@@ -172,93 +129,45 @@ def main(filename: str):
                         added_bol.append(bol)
                         x.remove(bol)
 
-        # create voyage dict
-        # voyage = {'Voyage Key': voyage_key, 'port keys': route_ports,
-        #           'bols': route_bols + added_bol,
-        #           'leg miles': calculate_leg_miles(route_ports)}
-        # voyage['bol keyes'] = list(map(itemgetter('Bill-of-Lading Key'), voyage['bols']))
+        # create voyage
         voyage = Voyage()
         voyage.ports = route_ports
 
-        all_route_bols  = route_bols + added_bol
+        all_route_bols = route_bols + added_bol
         random.shuffle(all_route_bols)
 
         # split voyage to voyage schedules
         if len(all_route_bols) > 6:
             # FIRST PART
-            voyage_schedule = VoyageSchedule(voyage_key=voyage.key)
-            voyage_schedule = {
-                'Voyage Schedule Key': voyage_schedule_key,
-                'Voyage Key': voyage['Voyage Key'],
-                'scheduled origin port departure dates': [],
-                'scheduled destination port arrival dates': [],
-                'actual origin port departure dates': [],
-                'actual destination port arrival dates': [],
-            }
-
-            # deasssemble_voyage_schedule(voyage_schedule)
-            # voyage_schedules.append(voyage_schedule)
-            # voyage_schedule_key += 1
+            voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
 
             for bol_key in voyage['bol keys'][:len(voyage['bol keys'] // 2)]:
-                shipment = {
-                    'Shipment Key': shipment_key,
-                    'Voyage Schedule Key': voyage_schedule['Voyage Schedule Key'],
-                    'Vehicle Key': '',
-                    'Bill-of-Lading Key': bol_key,
-                }
-                shipments.append(shipment)
-                shipment_key += 1
+                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol_key)
 
             # SECOND PART
-            voyage_schedule = {
-                'Voyage Schedule Key': voyage_schedule_key,
-                'Voyage Key': voyage['Voyage Key'],
-                'scheduled origin port departure dates': [],
-                'scheduled destination port arrival dates': [],
-                'actual origin port departure dates': [],
-                'actual destination port arrival dates': [],
-            }
-
-            deasssemble_voyage_schedule(voyage_schedule)
-            voyage_schedules.append(voyage_schedule)
-            voyage_schedule_key += 1
+            voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
 
             for bol_key in voyage['bol keys'][len(voyage['bol keys'] // 2):]:
-                shipment = {
-                    'Shipment Key': shipment_key,
-                    'Voyage Schedule Key': voyage_schedule['Voyage Schedule Key'],
-                    'Vehicle Key': '',
-                    'Bill-of-Lading Key': bol_key,
-                }
-                shipments.append(shipment)
-                shipment_key += 1
+                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol_key)
 
 
-
-
-T = TypeVar('T')
-
-
-def get_location_from_port_key(port_key: int) -> Location:
-    address = address_map[port_map[port_key]['Address Key']]
-    return Location(address['Latitude'], address['Longitude'])
-
-
-def calculate_leg_miles(port_keys: Sequence[T]) -> List[float]:
-    kms = []
-    locations = list(map(get_location_from_port_key, port_keys))
-    for i in range(len(locations) - 1):
-        kms.append(locations[i].calculate_distance(locations[i + 1]))
-    return list(map(km_to_mile, kms))
-
-
-def km_to_mile(x: float) -> float:
-    return x * 0.621371192
+# T = TypeVar('T')
+#
+#
+# def get_location_from_port_key(port_key: int) -> Location:
+#     return Port.get_instance_by_key(port_key).address.location
+#
+#
+# def calculate_leg_miles(port_keys: Sequence[T]) -> List[float]:
+#     kms = []
+#     locations = list(map(get_location_from_port_key, port_keys))
+#     for i in range(len(locations) - 1):
+#         kms.append(locations[i].calculate_distance(locations[i + 1]))
+#     return list(map(km_to_mile, kms))
 
 
 if __name__ == '__main__':
-    main('voyages.csv')
+    main()
     # x = bols.copy()
     # print(len(x))
     # route_ports, route_bols = create_route(x, 6)
