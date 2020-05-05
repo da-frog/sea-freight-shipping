@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from .base import BaseModel
-from .container_class import ContainerClass
+from .container_class import ContainerModel
 
 
 @dataclass
@@ -20,5 +20,5 @@ class Container(BaseModel):
         return self.key
 
     @property
-    def container_class(self) -> ContainerClass:
-        return ContainerClass.get_instance_by_key(self.container_class_key)
+    def container_class(self) -> ContainerModel:
+        return ContainerModel.get_instance_by_key(self.container_class_key)

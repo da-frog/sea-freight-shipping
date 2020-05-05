@@ -11,70 +11,28 @@ from location import Location
 
 from models import *
 
-bols = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - BillOfLading.csv')
-bols = utils.read_csv_file('bol-10000.csv')
-addresses = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
-commodities = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
-containers = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
-container_models = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Address.csv')
-ports = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - Port.csv')
-business_entities = utils.read_csv_file('../spreadsheet_data/da-base-OLTP - BusinessEntity.csv')
 
-
-def convert(list_of_dicts: List[Dict], keys: List[str], callable: Callable):
-    for key in keys:
-        for dct in list_of_dicts:
-            dct[key] = callable(dct[key])
-
-
-convert(bols, [
-    'Bill-of-Lading Key',
-    'Consignor Key',
-    'Consignee Key',
-    'Foreign Transporter Key',
-    'Foreign Consolidator Key',
-    'Courier Key',
-    'Domestic Transporter Key',
-    'Domestic Consolidator Key',
-    'Place of Receipt Key',
-    'Place of Delivery Key',
-    'Port of Loading Key',
-    'Port of Discharge Key',
-    # 'Commodity Key',
-    # 'Container Key'
-], int)
-convert(business_entities, ['Business Entity Key', 'Address Key'], int)
-convert(business_entities, ['Roles'], json.loads)
-convert(addresses, ['Address Key'], int)
-convert(ports, ['Port Key', 'Address Key'], int)
-
-address_map = {
-    address['Address Key']: address
-    for address in addresses
-}
-
-for _port in ports:
-    _port['Address'] = address_map[_port['Address Key']]
-
-port_map = {
-    port['Port Key']: port
-    for port in ports
-}
-
-for _bol in bols:
-    _bol['Port of Discharge'] = port_map[_bol['Port of Discharge Key']]
-    _bol['Port of Loading'] = port_map[_bol['Port of Loading Key']]
+def load_database():
+    # BillOfLading.load_from_csv('../spreadsheet_data/da-base-OLTP - BillOfLading.csv')
+    BillOfLading.load_from_csv('bol-10000.csv')
+    Address.load_from_csv('../spreadsheet_data/da-base-OLTP - Address.csv')
+    BusinessEntity.load_from_csv('../spreadsheet_data/da-base-OLTP - BusinessEntity.csv')
+    Commodity.load_from_csv('../spreadsheet_data/da-base-OLTP - Commodity.csv')
+    Container.load_from_csv('../spreadsheet_data/da-base-OLTP - Container.csv')
+    ContainerModel.load_from_csv('../spreadsheet_data/da-base-OLTP - ContainerModel.csv')
+    Port.load_from_csv('../spreadsheet_data/da-base-OLTP - Port.csv')
+    Vehicle.load_from_csv('../spreadsheet_data/da-base-OLTP - Vehicle.csv')
 
 
 def calculate_total_distance(ports: List[Dict[str, Any]], *, key=True) -> float:
     locations = []
     if key:
         for key in ports:
-            port = port_map[key]
+            port = Port.get_instance_by_key(key)
             try:
                 address = port['Address']
             except KeyError:
-                address = address_map[port['Address Key']]
+                address = Address.get_instance_by_key(port.address_key)
             location = Location(address['Latitude'], address['Longitude'])
             locations.append(location)
     else:

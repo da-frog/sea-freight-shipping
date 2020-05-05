@@ -53,20 +53,33 @@ class BaseModel(metaclass=BaseModelMeta):
         raise AssertionError('You must subclass this class as a dataclass')
 
     @classmethod
-    def init_from_dict(cls, dct: dict) -> 'BaseModel':
-        kwargs = {}
+    def get_dict_keys(cls) -> List[str]:
+        keys = []
         for field in cls.fields:
             if isinstance(field, str):
-                attr = common_name_to_snake_case(field)
-                key = field
+                keys.append(field)
             elif isinstance(field, tuple):
-                assert isinstance(field[0], str)
-                assert isinstance(field[1], str)
-                attr = common_name_to_snake_case(field[1])
-                key = field[0]
-            else:
-                raise AssertionError("Wrong fields format")
+                assert isinstance(field[0], str), "Wrong fields format"
+                assert isinstance(field[1], str), "Wrong fields format"
+                keys.append(field[0])
+        return keys
 
+    @classmethod
+    def get_attr_names(cls) -> List[str]:
+        attrs = []
+        for field in cls.fields:
+            if isinstance(field, str):
+                attrs.append(common_name_to_snake_case(field))
+            elif isinstance(field, tuple):
+                assert isinstance(field[0], str), "Wrong fields format"
+                assert isinstance(field[1], str), "Wrong fields format"
+                attrs.append(field[1])
+        return attrs
+
+    @classmethod
+    def init_from_dict(cls, dct: dict) -> 'BaseModel':
+        kwargs = {}
+        for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
             try:
                 type_ = cls.__annotations__[attr]
                 if isinstance(type_, str):
@@ -97,36 +110,17 @@ class BaseModel(metaclass=BaseModelMeta):
     @classmethod
     def dump_to_csv(cls, filename: str):
         with open(filename, 'w', encoding='utf-8', newline='') as csvfile:
-            keys = []
-            for field in cls.fields:
-                if isinstance(field, str):
-                    keys.append(field)
-                elif isinstance(field, tuple):
-                    keys.append(field[0])
-                else:
-                    raise AssertionError('field format is wrong')
-            writer = csv.DictWriter(csvfile, keys)
+            writer = csv.DictWriter(csvfile, cls.get_dict_keys())
             writer.writeheader()
+
             for instance in cls.instances:
                 dct = {}
-                for field in cls.fields:
-                    key = None  # insurance, to not use old values
-                    if isinstance(field, str):
-                        key = field
-                        value = getattr(instance, common_name_to_snake_case(field))
-                        if isinstance(value, Sequence):
-                            value = json.dumps(value)
-                        elif isinstance(value, dict):
-                            value = json.dumps(value)
-                        # else:
-                        #     raise AssertionError(f'WHY? {value} is an object [{cls.__name__}]: {instance}')
-                    elif isinstance(field, tuple):
-                        assert isinstance(field[0], str)
-                        assert isinstance(field[1], str)
-                        key = field[0]
-                        value = getattr(instance, field[1])
-                    else:
-                        raise AssertionError('field format is wrong')
+                for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
+                    value = getattr(instance, attr)
+                    if isinstance(value, Sequence):
+                        value = json.dumps(value)
+                    elif isinstance(value, dict):
+                        value = json.dumps(value)
                     dct[key] = value
                 writer.writerow(dct)
 

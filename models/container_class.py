@@ -4,7 +4,7 @@ from .base import BaseModel
 
 
 @dataclass
-class ContainerClass(BaseModel):
+class ContainerModel(BaseModel):
     instances = []
     fields = (
         'Container Class Key',
