@@ -1,11 +1,12 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from typing import List
+import random
 
 from .base import BaseModel, Bridge
 from .port import Port
 from .vehicle import Vehicle
 
-from utils import km_to_mile
+from utils import km_to_mile, pairwise
 
 
 class Leg(BaseModel):
@@ -37,11 +38,11 @@ class Leg(BaseModel):
     def leg_miles(self) -> float:
         return km_to_mile(self.leg_kms)
 
-    def get_leg_time(self, vehicle: Vehicle) -> timedelta:
+    def get_expected_time(self, vehicle: Vehicle) -> timedelta:
         return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
 
-    def get_leg_fees(self, vehicle: Vehicle) -> float:
-        return self.get_leg_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day
+    def get_expected_fees(self, vehicle: Vehicle) -> float:
+        return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day
 
 
 class LegBridge(Bridge):
@@ -105,10 +106,10 @@ class Voyage(BaseModel):
     def destination_port(self) -> int:
         return Port.get_instance_by_key(self.destination_port_key)
 
-    def get_total_time(self, vehicle: Vehicle) -> timedelta:
+    def get_expected_total_time(self, vehicle: Vehicle) -> timedelta:
         total_time = timedelta()
         for leg in self.legs:
-            total_time += leg.get_leg_time(vehicle)
+            total_time += leg.get_expected_time(vehicle)
         return total_time
 
 
@@ -135,12 +136,19 @@ class LegSchedule(BaseModel):
         return self.key
 
     @property
+    def leg(self) -> Leg:
+        return Leg.get_instance_by_key(self.leg_key)
+
+    @property
     def departure_delay(self) -> timedelta:
         return self.actual_departure_date - self.scheduled_departure_date
 
     @property
     def arrival_delay(self) -> timedelta:
         return self.actual_arrival_date - self.scheduled_arrival_date
+
+    def get_actual_time(self) -> timedelta:
+        return self.actual_arrival_date - self.actual_departure_date
 
 
 class LegScheduleBridge(Bridge):
@@ -191,9 +199,32 @@ class VoyageSchedule(BaseModel):
     def scheduled_departure_date(self):
         return self.leg_schedules[0].scheduled_departure_date
 
+    @scheduled_departure_date.setter
+    def scheduled_departure_date(self, scheduled_departure_date: date):
+        self.leg_schedules[0].scheduled_departure_date = scheduled_departure_date
+        print('Please cascade scheduled date', self)
+
+    def cascade_scheduled_date(self, vehicle: Vehicle):
+        for ls1, ls2 in pairwise(self.leg_schedules):
+            expected_delay = random.random()  # TODO: Find a random function
+            ls2.scheduled_arrival_date = ls1.scheduled_departure_date + ls1.leg.get_expected_time(vehicle)
+            ls2.scheduled_departure_date = ls2.scheduled_arrival_date + expected_delay
+
     @property
     def scheduled_arrival_date(self):
         return self.leg_schedules[-1].scheduled_arrival_date
+
+    @scheduled_arrival_date.setter
+    def scheduled_arrival_date(self, scheduled_arrival_date: date):
+        self.leg_schedules[-1].scheduled_arrival_date = scheduled_arrival_date
+        print('Please cascade actual date', self)
+
+    def cascade_actual_date(self, vehicle: Vehicle):
+        for ls1, ls2 in pairwise(self.leg_schedules):
+            travel_delay = random.random()  # TODO: Find a random function
+            port_delay = random.random()    # TODO: Find a random function
+            ls2.actual_arrival_date = ls1.actual_departure_date + ls1.leg.get_expected_time(vehicle) + travel_delay
+            ls2.actual_departure_date = ls2.actual_arrival_date + port_delay
 
     @property
     def actual_departure_date(self):

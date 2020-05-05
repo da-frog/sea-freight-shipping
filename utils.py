@@ -1,5 +1,8 @@
-from typing import List, Dict
+from typing import List, Dict, TypeVar, Iterable, Tuple
 import csv
+from itertools import tee, zip_longest
+
+T = TypeVar('T')
 
 
 def read_csv_file(filename: str, *, encoding: str = 'utf-8') -> List[Dict]:
@@ -36,3 +39,14 @@ def knots_to_kmh(x: float) -> float:
 
 def km_to_mile(x: float) -> float:
     return x * 0.621371192
+
+
+def pairwise(iterable: Iterable[T]) -> Iterable[Tuple[T, T]]:
+    """
+    s -> (s0,s1), (s1,s2), (s2, s3), ...
+
+    Taken from https://docs.python.org/3/library/itertools.html#itertools-recipes
+    """
+    a, b = tee(iterable)
+    next(b, None)
+    return zip(a, b)
