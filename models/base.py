@@ -130,8 +130,7 @@ class BaseModel:
         with open(filename, 'r', encoding='utf-8') as f:
             lst = json.loads(f.read(), cls=JSONDecoder)
             for dct in lst:
-                instance = cls()
-                instance.__dict__.update(dct)
+                cls(**dct)  # shouldn't fail if it's a dataclass
 
     def as_json(self) -> dict:
         d = {
