@@ -1,7 +1,12 @@
+from typing import List
 from datetime import date
 
+from .address import Address
 from .base import BaseModel
-from ,business_entity import BusinessEntity
+from .business_entity import BusinessEntity
+from .commodity import Commodity
+from .container import Container
+from .port import Port
 
 
 class BillOfLading(BaseModel):
@@ -57,3 +62,51 @@ class BillOfLading(BaseModel):
     @property
     def consignor(self) -> BusinessEntity:
         return BusinessEntity.get_instance_by_key(self.consignor_key)
+
+    @property
+    def consignee(self) -> BusinessEntity:
+        return BusinessEntity.get_instance_by_key(self.consignee_key)
+
+    @property
+    def foreign_transporter(self) -> BusinessEntity:
+        return BusinessEntity.get_instance_by_key(self.foreign_transporter_key)
+
+    @property
+    def foreign_consolidator(self) -> BusinessEntity:
+        return BusinessEntity.get_instance_by_key(self.foreign_consolidator_key)
+
+    @property
+    def courier(self) -> BusinessEntity:
+        return BusinessEntity.get_instance_by_key(self.courier_key)
+
+    @property
+    def domestic_transporter(self) -> BusinessEntity:
+        return BusinessEntity.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def domestic_consolidator(self) -> BusinessEntity:
+        return BusinessEntity.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def place_of_receipt(self) -> Address:
+        return Address.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def place_of_delivery(self) -> Address:
+        return Address.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def port_of_loading(self) -> Port:
+        return Port.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def port_of_discharge(self) -> Port:
+        return Port.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def commodity(self) -> Commodity:
+        return Commodity.get_instance_by_key(self.domestic_transporter_key)
+
+    @property
+    def container(self) -> Container:
+        return Container.get_instance_by_key(self.domestic_transporter_key)
