@@ -17,9 +17,9 @@ def common_name_to_snake_case(s: str):
             chars.append(c)
         else:
             if c in (' ', '-', '_'):
-                chars.append(c)
+                chars.append(' ')
     # TODO: deal with numbers in front
-    return s.replace(' ', '_').replace('-', '_').lower()
+    return ''.join(chars).replace(' ', '_').replace('-', '_').lower()
 
 
 class BaseModelMeta(type):
