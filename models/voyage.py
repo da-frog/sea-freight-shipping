@@ -1,6 +1,7 @@
 from datetime import date, datetime, timedelta
 from typing import List
 import random
+from dataclasses import dataclass, field
 
 import numpy as np
 
@@ -11,6 +12,7 @@ from .vehicle import Vehicle
 from utils import km_to_mile, pairwise
 
 
+@dataclass
 class Leg(BaseModel):
     instances = []
     fields = (
@@ -20,9 +22,8 @@ class Leg(BaseModel):
         'Leg Miles',
     )
 
-    def __init__(self):
-        self.origin_port_key: int = None
-        self.destination_port_key: int = None
+    self.origin_port_key: int = None
+    self.destination_port_key: int = None
 
     @property
     def origin_port(self) -> Port:
@@ -47,6 +48,7 @@ class Leg(BaseModel):
         return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day
 
 
+@dataclass
 class LegBridge(Bridge):
     instances = []
     fields = (
@@ -54,8 +56,7 @@ class LegBridge(Bridge):
         'Leg Key',
     )
 
-    def __init__(self):
-        self.legs: List[Leg] = []
+    legs: List[Leg] = field(default_factory=list)
 
     @property
     def leg_bridge_key(self) -> int:
@@ -67,6 +68,7 @@ class LegBridge(Bridge):
         return leg_bridge.legs
 
 
+@dataclass
 class Voyage(BaseModel):
     instances = []
     fields = (
@@ -76,9 +78,8 @@ class Voyage(BaseModel):
         'Destination Port Key',
     )
 
-    def __init__(self):
-        self.leg_bridge_key: int = None
-        self.port_keys: List[int] = []
+    leg_bridge_key: int = None
+    port_keys: List[int] = field(default_factory=list)
 
     @property
     def legs(self) -> List[Leg]:
@@ -115,6 +116,7 @@ class Voyage(BaseModel):
         return total_time
 
 
+@dataclass
 class LegSchedule(BaseModel):
     instances = []
     fields = (
@@ -126,12 +128,11 @@ class LegSchedule(BaseModel):
         'Actual Departure Date',
     )
 
-    def __init__(self):
-        self.leg_key: int = None
-        self.scheduled_departure_date: date = None
-        self.scheduled_arrival_date: date = None
-        self.actual_departure_date: date = None
-        self.actual_arrival_date: date = None
+    leg_key: int = None
+    scheduled_departure_date: date = None
+    scheduled_arrival_date: date = None
+    actual_departure_date: date = None
+    actual_arrival_date: date = None
 
     @property
     def leg_schedule_key(self) -> int:
@@ -153,6 +154,7 @@ class LegSchedule(BaseModel):
         return self.actual_arrival_date - self.actual_departure_date
 
 
+@dataclass
 class LegScheduleBridge(Bridge):
     instances = []
     fields = (
@@ -160,8 +162,7 @@ class LegScheduleBridge(Bridge):
         'Leg Schedule Key',
     )
 
-    def __init__(self):
-        self.leg_schedules: List[Leg] = []
+    leg_schedules: List[Leg] = field(default_factory=list)
 
     @property
     def leg_schedule_bridge_key(self) -> int:
@@ -173,6 +174,7 @@ class LegScheduleBridge(Bridge):
         return leg_bridge.legs
 
 
+@dataclass
 class VoyageSchedule(BaseModel):
     instances = []
     fields = (
@@ -181,13 +183,12 @@ class VoyageSchedule(BaseModel):
         'Leg Schedule Bridge Key',
     )
 
-    def __init__(self):
-        self.voyage_key: int = None
-        self.leg_schedule_bridge_key: int = None
-        self.scheduled_departure_dates = []
-        self.scheduled_arrival_dates = []
-        self.actual_departure_dates = []
-        self.actual_arrival_dates = []
+    voyage_key: int = None
+    leg_schedule_bridge_key: int = None
+    scheduled_departure_dates = []
+    scheduled_arrival_dates = []
+    actual_departure_dates = []
+    actual_arrival_dates = []
 
     @property
     def voyage_schedule_key(self) -> int:
