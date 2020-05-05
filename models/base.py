@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Sequence, List
+from typing import Sequence, List, ClassVar
 import typing
 
 import csv
@@ -71,9 +71,14 @@ class BaseModel(metaclass=BaseModelMeta):
 
             try:
                 type_ = cls.__annotations__[attr]
+                if isinstance(type_, str):
+                    raise NotImplementedError('string annotations cannot be used '
+                                              'to convert type, and is not supported yet')
                 try:
                     if type_.__origin__ == list:
                         kwargs[attr] = json.loads(dct[key])
+                    elif type_.__origin__ == ClassVar:
+                        continue
                 except AttributeError:
                     kwargs[attr] = type_(dct[key])
             except KeyError:

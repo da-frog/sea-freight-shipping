@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+from typing import ClassVar, List, Sequence
 
 from location import Location
 
@@ -9,8 +9,8 @@ from .address import Address
 
 @dataclass
 class Port(BaseModel):
-    instances = []
-    fields = (
+    instances: ClassVar[List['Port']] = []
+    fields: ClassVar[Sequence[str]] = (
         'Port Key',
         'Address Key',
         'Port Name',
