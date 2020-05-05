@@ -1,9 +1,7 @@
 from typing import Sequence
 import csv
 import json
-import dataclasses
 
-dataclasses.dataclass()
 
 def common_name_to_snake_case(s: str):
     """ 'Bill-Of-Lading Key' -> 'bill_of_lading_key' """
@@ -27,17 +25,18 @@ class BaseModel:
         cls.instances.append(obj)
         return obj
 
-    def __init__(self, dct: dict):
-        for field in self.fields:
-            if isinstance(field, str):
-                setattr(self, common_name_to_snake_case(field), dct[field])
-            elif isinstance(field, tuple):
-                assert isinstance(field[0], str)
-                assert isinstance(field[1], str)
-                setattr(self, field[1], dct[field[0]])
-            else:
-                raise AssertionError("Wrong fields format")
-        # TODO: deal with lists
+    def __init__(self, *, dct: dict = None):
+        if dct is not None:
+            for field in self.fields:
+                if isinstance(field, str):
+                    setattr(self, common_name_to_snake_case(field), dct[field])
+                elif isinstance(field, tuple):
+                    assert isinstance(field[0], str)
+                    assert isinstance(field[1], str)
+                    setattr(self, field[1], dct[field[0]])
+                else:
+                    raise AssertionError("Wrong fields format")
+            # TODO: deal with lists
 
 
     @classmethod
@@ -86,11 +85,31 @@ class BaseModel:
                 writer.writerow(dct)
 
     @classmethod
-    def load_from_csv(cls, filename: str):
+    def load_from_csv(cls, filename: str, *, clear_instances=True):
+        # not recommended
+        if clear_instances:
+            cls.instances.clear()
         with open(filename, 'r', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                cls(row)
+                cls(dct=row)
+
+    @classmethod
+    def dump_to_json(cls, filename: str):
+        with open(filename, 'w', encoding='utf-8') as f:
+            lst = [instance.__dict__ for instance in cls.instances]
+            f.write(json.dumps(lst))
+            # TODO: deal with unserializable date
+
+    @classmethod
+    def load_from_json(cls, filename: str, *, clear_instances=True):
+        if clear_instances:
+            cls.instances.clear()
+        with open(filename, 'r', encoding='utf-8') as f:
+            lst = json.loads(f.read())
+            for dct in lst:
+                instance = cls()
+                instance.__dict__.update(dct)
 
 
 class Bridge(BaseModel):
