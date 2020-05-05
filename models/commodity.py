@@ -1,7 +1,6 @@
 from .base import BaseModel
 
 
-
 class Commodity(BaseModel):
     instances = []
     fields = (
@@ -21,3 +20,7 @@ class Commodity(BaseModel):
         self.package_size: float = None
         self.package_weight: float = None
         self.densities: float = None
+
+    @property
+    def commodity_key(self) -> int:
+        return self.key
