@@ -10,9 +10,9 @@ class Commodity(BaseModel):
         'Commodity Key',
         'HS Code',
         'Description',
-        'Package Size',
-        'Package Weight',
-        'Densities',
+        ('Package Size (m^3)', 'package_size'),
+        ('Package Weight (kg)', 'package_weight'),
+        ('Densities (kg/m^3)', 'densities'),
     )
 
     hs_code: str = ''

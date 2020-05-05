@@ -25,7 +25,7 @@ class Address(BaseModel):
     address_line_2: str = ''
     city: str = ''
     country: str = ''
-    alpha: str = ''
+    alpha_2: str = ''
     zip_code: str = ''
     latitude: str = ''
     longitude: str = ''
