@@ -1,9 +1,11 @@
+from dataclasses import dataclass
 from .base import BaseModel
 from .vehicle import Vehicle
 from .voyage import VoyageSchedule
 from .bill_of_lading import BillOfLading
 
 
+@dataclass
 class Shipment(BaseModel):
     instances = []
     fields = (
@@ -13,10 +15,9 @@ class Shipment(BaseModel):
         'Bill-of-Lading Key'
     )
 
-    def __init__(self):
-        self.voyage_schedule_key: int = None
-        self.vehicle_key: int = None
-        self.bill_of_lading_key: int = None
+    voyage_schedule_key: int = None
+    vehicle_key: int = None
+    bill_of_lading_key: int = None
 
     @property
     def shipment_key(self) -> int:
