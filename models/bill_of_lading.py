@@ -111,7 +111,7 @@ class BillOfLading(BaseModel):
     @classmethod
     def random_bill_of_lading_number(cls):
         bol_number = set()
-        for num in range(1000):
+        for num in range(10000):
             three, four, five = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
             six, seven, eight = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
             nine, ten, eleven = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
