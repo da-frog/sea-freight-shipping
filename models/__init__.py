@@ -13,7 +13,7 @@ def km_to_mile(x: float) -> float:
 
 
 def knots_to_kmh(x: float) -> float:
-    pass
+    return x * 1.852
 
 
 class BaseModel:
