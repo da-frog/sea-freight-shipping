@@ -16,7 +16,7 @@ class Shipment(BaseModel):
     def __init__(self):
         self.voyage_schedule_key: int = None
         self.vehicle_key: int = None
-        self.bol_key: int = None
+        self.bill_of_lading_key: int = None
 
     @property
     def shipment_key(self) -> int:
@@ -32,4 +32,4 @@ class Shipment(BaseModel):
 
     @property
     def bill_of_lading(self) -> BillOfLading:
-        return BillOfLading.get_instance_by_key(self.bol_key)
+        return BillOfLading.get_instance_by_key(self.bill_of_lading_key)

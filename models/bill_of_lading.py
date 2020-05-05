@@ -86,7 +86,7 @@ def get_bol_check_digit(bol_number: str) -> str:
 class BillOfLading(BaseModel):
     instances = []
     fields = (
-        'Bill-Of-Lading Key',
+        'Bill-of-Lading Key',
         'Bill-of-Lading Number',
         'Issued Date',
         'Consignor Key',
