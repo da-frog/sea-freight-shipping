@@ -1,8 +1,13 @@
+from dataclasses import dataclass
+
+
 from location import Location
+
 from .base import BaseModel
 from .address import Address
 
 
+@dataclass
 class Port(BaseModel):
     instances = []
     fields = (
@@ -15,21 +20,20 @@ class Port(BaseModel):
         'FAX',
         ('800 number', '_800_number'),
         'UNLOCODE',
-        'E-mail',
+        ('E-mail', 'email'),
         'Website',
     )
 
-    def __init__(self):
-        self.address_key: int = None
-        self.port_name: str = ''
-        self.port_type: str = ''
-        self.port_size: str = ''
-        self.phone: str = ''
-        self.fax: str = ''
-        self._800_number: str = ''
-        self.unlocode: str = ''
-        self.email: str = ''
-        self.website: str = ''
+    address_key: int
+    port_name: str = ''
+    port_type: str = ''
+    port_size: str = ''
+    phone: str = ''
+    fax: str = ''
+    _800_number: str = ''
+    unlocode: str = ''
+    email: str = ''
+    website: str = ''
 
     @property
     def port_key(self) -> int:
