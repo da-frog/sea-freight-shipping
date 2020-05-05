@@ -1,6 +1,8 @@
 import csv
 import json
 import random
+import time
+import datetime
 from typing import List, Dict, Callable, Any, Sequence, TypeVar
 from operator import itemgetter
 
@@ -151,41 +153,148 @@ def create_route(bols, n: int = 5):
 
 
 def main(filename: str):
-    with open(filename, 'w', encoding='utf-8', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, ['ports', 'leg miles', 'bols'])
-        writer.writeheader()
-        # voyages = []
-        x = bols.copy()
-        while len(x) > 0:
-            route_length = random.randint(3, 6)
-            # print(len(x))
-            route_ports, route_bols = create_route(x, route_length)
-            # print(len(x))
-            # print('\n')
-            # print(route_ports)
-            # for bol in route_bols:
-                # print(get_bol_route_str(bol))
+    legs = []
+    leg_key = []
+    leg_groups = []
+    leg_group_key = []
+    leg_schedules = []
+    leg_schedule_key = []
+    leg_schedule_groups = []
+    leg_schedule_group_key = []
+    voyages = []
+    voyage_key = 1
+    voyage_schedules = []
+    voyage_schedule_key = 1
+    shipments = []
+    shipment_key = 1
 
-            # print('\n')
-            added_bol = []
-            for bol in x:
-                loading_key = bol['Port of Loading Key']
-                discharge_key = bol['Port of Discharge Key']
+    def deasssemble_voyage(voyage: Dict[str, Any]):
+        nonlocal voyages, legs, leg_groups
+        nonlocal voyage_key, leg_key, leg_group_key
+        voyage['Leg Group Key'] = leg_group_key
+        for i in range(len(voyage['port keys']) - 1):
+            leg = {
+                'Leg Key': leg_key,
+                'Origin Port': voyage['port keys'][i],
+                'Destination Port': voyage['port keys'][i + 1],
+                'Leg Miles': voyage['leg miles'][i],
+                'Leg Fees': '',
+            }
+            leg_group = {
+                'Leg Group Key': leg_group_key,
+                'Leg Key': leg_key,
+            }
+            legs.append(leg)
+            leg_key += 1
+            leg_groups.append(leg_group)
+        leg_group_key += 1
 
-                if bol['Port of Discharge Key'] in route_ports:
-                    if bol['Port of Loading Key'] in route_ports:
-                        loading_index = route_ports.index(loading_key)
-                        discharge_index = route_ports.index(discharge_key)
-                        if loading_index < discharge_index:
-                            added_bol.append(bol)
-                            x.remove(bol)
-                            # print(get_bol_route_str(bol))
-            voyage = {'ports': route_ports, 'bols': list(map(itemgetter('Bill-of-Lading Key'), route_bols + added_bol)), 'leg miles': calculate_leg_miles(route_ports)}
-            # voyages.append(voyage)
-            voyage['ports'] = json.dumps(voyage['ports'])
-            voyage['bols'] = json.dumps(voyage['bols'])
-            voyage['leg miles'] = json.dumps(voyage['leg miles'])
-            writer.writerow(voyage)
+    def deasssemble_voyage_schedule(voyage_schedule: Dict[str, Any]):
+        nonlocal leg_key, leg_schedule_key, leg_schedule_group_key
+        voyage = voyage_schedule['voyage']
+        voyage_schedule['Leg Schedule Group Key'] = leg_schedule_group_key
+        for i in range(len(voyage['port keys'])-1):
+            leg_schedule = {
+                'Leg Schedule Key': leg_schedule_key,
+                'Leg Key': leg_schedule_key,
+                'Scheduled Origin Port Departure Date': voyage_schedule['scheduled origin port departure dates'][i],
+                'Scheduled Destination Port Arrival Date': voyage_schedule['scheduled destination port arrival dates'][i],
+                'Actual Origin Port Departure Date': voyage_schedule['actual origin port departure dates'][i],
+                'Actual Destination Port Arrival Date': voyage_schedule['actual destination port arrival dates'][i],
+            }
+            leg_schedule_group = {
+                'Leg Schedule Group Key': leg_schedule_group_key,
+                'Leg Schedule Key': leg_schedule_key,
+            }
+            leg_key += 1
+            leg_schedules.append(leg_schedule)
+            leg_schedule_key += 1
+            leg_schedule_groups.append(leg_schedule_group)
+        leg_schedule_group_key += 1
+
+    # voyages = []
+    x = bols.copy()
+    while len(x) > 0:
+        # create voyage
+        route_length = random.randint(3, 6)
+        route_ports, route_bols = create_route(x, route_length)
+
+        added_bol = []
+        for bol in x:
+            loading_key = bol['Port of Loading Key']
+            discharge_key = bol['Port of Discharge Key']
+
+            if bol['Port of Discharge Key'] in route_ports:
+                if bol['Port of Loading Key'] in route_ports:
+                    loading_index = route_ports.index(loading_key)
+                    discharge_index = route_ports.index(discharge_key)
+                    if loading_index < discharge_index:
+                        added_bol.append(bol)
+                        x.remove(bol)
+
+        # create voyage dict
+        voyage = {'Voyage Key': voyage_key, 'port keys': route_ports,
+                  'bols': route_bols + added_bol,
+                  'leg miles': calculate_leg_miles(route_ports)}
+        voyage['bol keyes'] = list(map(itemgetter('Bill-of-Lading Key'), voyage['bols']))
+
+        deasssemble_voyage(voyage)
+        voyages.append(voyage)
+        voyage_key += 1
+
+        # split voyage to voyage schedules
+        if len(voyage['bol keys']) > 6:
+            random.shuffle(voyage['bol keys'])
+
+            # FIRST PART
+            voyage_schedule = {
+                'Voyage Schedule Key': voyage_schedule_key,
+                'Voyage Key': voyage['Voyage Key'],
+                'scheduled origin port departure dates': [],
+                'scheduled destination port arrival dates': [],
+                'actual origin port departure dates': [],
+                'actual destination port arrival dates': [],
+            }
+
+            deasssemble_voyage_schedule(voyage_schedule)
+            voyage_schedules.append(voyage_schedule)
+            voyage_schedule_key += 1
+
+            for bol_key in voyage['bol keys'][:len(voyage['bol keys'] // 2)]:
+                shipment = {
+                    'Shipment Key': shipment_key,
+                    'Voyage Schedule Key': voyage_schedule['Voyage Schedule Key'],
+                    'Vehicle Key': '',
+                    'Bill-of-Lading Key': bol_key,
+                }
+                shipments.append(shipment)
+                shipment_key += 1
+
+            # SECOND PART
+            voyage_schedule = {
+                'Voyage Schedule Key': voyage_schedule_key,
+                'Voyage Key': voyage['Voyage Key'],
+                'scheduled origin port departure dates': [],
+                'scheduled destination port arrival dates': [],
+                'actual origin port departure dates': [],
+                'actual destination port arrival dates': [],
+            }
+
+            deasssemble_voyage_schedule(voyage_schedule)
+            voyage_schedules.append(voyage_schedule)
+            voyage_schedule_key += 1
+
+            for bol_key in voyage['bol keys'][len(voyage['bol keys'] // 2):]:
+                shipment = {
+                    'Shipment Key': shipment_key,
+                    'Voyage Schedule Key': voyage_schedule['Voyage Schedule Key'],
+                    'Vehicle Key': '',
+                    'Bill-of-Lading Key': bol_key,
+                }
+                shipments.append(shipment)
+                shipment_key += 1
+
+
 
 
 T = TypeVar('T')
@@ -200,7 +309,7 @@ def calculate_leg_miles(port_keys: Sequence[T]) -> List[float]:
     kms = []
     locations = list(map(get_location_from_port_key, port_keys))
     for i in range(len(locations) - 1):
-        kms.append(locations[i].calculate_distance(locations[i+1]))
+        kms.append(locations[i].calculate_distance(locations[i + 1]))
     return list(map(km_to_mile, kms))
 
 
