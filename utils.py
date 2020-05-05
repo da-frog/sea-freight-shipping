@@ -28,3 +28,11 @@ def trim_file(file: str):
 
 if __name__ == '__main__':
     trim_file('scrape/test_ports.csv')
+
+
+def knots_to_kmh(x: float) -> float:
+    return x * 1.852
+
+
+def km_to_mile(x: float) -> float:
+    return x * 0.621371192
