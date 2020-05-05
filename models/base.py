@@ -1,6 +1,4 @@
-from __future__ import annotations
-
-from typing import Sequence, List, ClassVar
+from typing import Sequence, List, ClassVar, Tuple
 import typing
 
 import csv
@@ -43,8 +41,8 @@ class BaseModelMeta(type):
 
 
 class BaseModel(metaclass=BaseModelMeta):
-    instances = []  # Don't forget to overwrite this
-    fields = ()  # Don't forget to overwrite this
+    instances: ClassVar[list] = []  # Don't forget to overwrite this
+    fields: ClassVar[Tuple[str, ...]] = ()  # Don't forget to overwrite this
 
     def __new__(cls, *args, **kwargs):
         obj = super().__new__(cls)
@@ -52,10 +50,10 @@ class BaseModel(metaclass=BaseModelMeta):
         return obj
 
     def __init__(self, **kwargs):
-        raise NotImplementedError('You must subclass this class as a dataclass')
+        raise AssertionError('You must subclass this class as a dataclass')
 
     @classmethod
-    def init_from_dict(cls, dct: dict) -> BaseModel:
+    def init_from_dict(cls, dct: dict) -> 'BaseModel':
         kwargs = {}
         for field in cls.fields:
             if isinstance(field, str):

@@ -1,5 +1,5 @@
 from datetime import date, datetime, timedelta
-from typing import List, ClassVar, Sequence
+from typing import List, ClassVar, Sequence, Tuple
 import random
 from dataclasses import dataclass, field
 
@@ -52,7 +52,7 @@ class Leg(BaseModel):
 @dataclass
 class LegBridge(BaseModel):
     instances: ClassVar[List['LegBridge']] = []
-    fields: ClassVar[Sequence['fields']] = (
+    fields = (
         'Leg Bridge Key',
         'Leg Key',
     )
