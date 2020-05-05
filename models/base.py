@@ -4,7 +4,7 @@ import typing
 import csv
 import json
 
-from jsoncompat import JSONEncoder, JSONDecoder
+from jsoncompat import JSONEncoder, JSONDecoder, Date
 
 T = TypeVar('T')
 
@@ -82,6 +82,9 @@ class BaseModel(metaclass=BaseModelMeta):
     def init_from_dict(cls, dct: dict) -> 'BaseModel':
         kwargs = {}
         for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
+            if dct[key] == '':
+                kwargs[attr] = None
+                continue
             try:
                 type_ = cls.__annotations__[attr]
                 if isinstance(type_, str):
@@ -93,6 +96,12 @@ class BaseModel(metaclass=BaseModelMeta):
                     elif type_.__origin__ == ClassVar:
                         continue
                 except AttributeError:
+                    # if type_ == Date:
+                    #     if dct[key] == '':
+                    #         kwargs[attr] = Date(1999, 1, 1)
+                    #         continue
+                    print(kwargs, attr, type_, dct, key)
+                    print(len(cls.instances))
                     kwargs[attr] = type_(dct[key])
             except KeyError:
                 pass

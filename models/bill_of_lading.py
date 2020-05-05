@@ -10,6 +10,8 @@ from .commodity import Commodity
 from .container import Container
 from .port import Port
 
+from jsoncompat import Date
+
 
 def random_incoterm(year: int):
     if year > 2020:
@@ -111,7 +113,7 @@ class BillOfLading(BaseModel):
     )
 
     bill_of_lading_number: str = ''
-    issued_date: date = None
+    issued_date: Date = None
     consignor_key: int = None
     consignee_key: int = None
     foreign_transporter_key: int = None

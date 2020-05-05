@@ -15,10 +15,10 @@ class Address(BaseModel):
         'Address Line 2',
         'City',
         'Country',
-        'Alpha',
+        'Alpha 2',
         'ZIP Code',
-        'latitude',
-        'longitude',
+        'Latitude',
+        'Longitude',
     )
 
     address_line_1: str = ''
