@@ -1,9 +1,11 @@
 from typing import List
+from dataclasses import dataclass, field
 
 from .base import BaseModel
 from .address import Address
 
 
+@dataclass
 class BusinessEntity(BaseModel):
     instances = []
     fields = (
@@ -16,13 +18,12 @@ class BusinessEntity(BaseModel):
         'Roles'
     )
 
-    def __init__(self):
-        self.name: str = ''
-        self.e_mail: str = ''
-        self.phone: str = ''
-        self.fax: str = ''
-        self.address_key: int = None
-        self.roles: List[str] = []
+    name: str = ''
+    e_mail: str = ''
+    phone: str = ''
+    fax: str = ''
+    address_key: int = None
+    roles: List[str] = field(default_factory=list)
 
     @property
     def business_entity_key(self) -> int:
