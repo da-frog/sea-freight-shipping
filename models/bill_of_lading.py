@@ -201,3 +201,9 @@ class BillOfLading(BaseModel):
     @property
     def container(self) -> Container:
         return Container.get_instance_by_key(self.domestic_transporter_key)
+
+    def get_route_str(self) -> str:
+        return (
+            f"{self.port_of_loading.port_name} [{self.port_of_loading_key}] "
+            f"--> {self.port_of_discharge.port_name} [{self.port_of_discharge_key}]"
+        )
