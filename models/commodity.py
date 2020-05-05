@@ -13,7 +13,6 @@ class Commodity(BaseModel):
     )
 
     def __init__(self):
-        self.commodity_key: int = None
         self.hs_code: str = ''
         # String/NULL
         self.description: str = ''
