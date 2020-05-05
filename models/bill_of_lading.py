@@ -83,6 +83,22 @@ def get_bol_check_digit(bol_number: str) -> str:
     return str(10 - last_dig)
 
 
+def random_bill_of_lading_number(n: int):
+    bol_number_set = set()
+    for num in range(n):
+        three, four, five = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
+        six, seven, eight = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
+        nine, ten, eleven = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
+        twelve, thirteen, fourteen = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
+        fifteen, sixteen = str(random.randint(1, 9)), str(random.randint(1, 9))
+        result = "04" + three + four + five + six + seven + eight + nine + ten + eleven + twelve + thirteen + \
+                 fourteen + fifteen + sixteen
+        seventeen = get_bol_check_digit(result)
+        ans = result + seventeen
+        bol_number_set.add(ans)
+    return bol_number_set
+
+
 class BillOfLading(BaseModel):
     instances = []
     fields = (
