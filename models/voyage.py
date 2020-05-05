@@ -5,11 +5,12 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-from .base import BaseModel, Bridge
+from .base import BaseModel
 from .port import Port
 from .vehicle import Vehicle
 
 from utils import km_to_mile, pairwise
+from jsoncompat import Date, TimeDelta
 
 
 @dataclass
@@ -50,7 +51,7 @@ class Leg(BaseModel):
 
 @dataclass
 class LegBridge(BaseModel):
-    instances: ClassVar[List['Bridge']] = []
+    instances: ClassVar[List['LegBridge']] = []
     fields: ClassVar[Sequence['fields']] = (
         'Leg Bridge Key',
         'Leg Key',
@@ -58,6 +59,12 @@ class LegBridge(BaseModel):
 
     leg_bridge_key: int
     leg_key: int
+
+    @classmethod
+    def create_new_bridge(cls, legs: Sequence[Leg]):
+        leg_bridge_key = cls.instances[-1].leg_bridge_key + 1
+        for leg in legs:
+            cls(leg_bridge_key=leg_bridge_key, leg_key=leg.key)
 
     @classmethod
     def get_legs(cls, leg_bridge_key: int) -> List[Leg]:
@@ -133,10 +140,10 @@ class LegSchedule(BaseModel):
     )
 
     leg_key: int = None
-    scheduled_departure_date: date = None
-    scheduled_arrival_date: date = None
-    actual_departure_date: date = None
-    actual_arrival_date: date = None
+    scheduled_departure_date: Date = None
+    scheduled_arrival_date: Date = None
+    actual_departure_date: Date = None
+    actual_arrival_date: Date = None
 
     @property
     def leg_schedule_key(self) -> int:
@@ -160,7 +167,7 @@ class LegSchedule(BaseModel):
 
 @dataclass
 class LegScheduleBridge(BaseModel):
-    instances: ClassVar[List['Bridge']] = []
+    instances: ClassVar[List['LegScheduleBridge']] = []
     fields: ClassVar[Sequence['fields']] = (
         'Leg Schedule Bridge Key',
         'Leg Schedule Key',
@@ -168,6 +175,12 @@ class LegScheduleBridge(BaseModel):
 
     leg_schedule_bridge_key: int
     leg_schedule_key: int
+
+    @classmethod
+    def create_new_bridge(cls, leg_schedules: Sequence[LegSchedule]):
+        leg_schedule_bridge_key = cls.instances[-1].leg_bridge_key + 1
+        for leg_schedule in leg_schedules:
+            cls(leg_schedule_bridge_key=leg_schedule_bridge_key, leg_schedule_key=leg_schedule.key)
 
     @classmethod
     def get_leg_schedules(cls, leg_schedule_bridge_key: int) -> List[LegSchedule]:
@@ -192,10 +205,10 @@ class VoyageSchedule(BaseModel):
 
     voyage_key: int = None
     leg_schedule_bridge_key: int = None
-    scheduled_departure_dates = []
-    scheduled_arrival_dates = []
-    actual_departure_dates = []
-    actual_arrival_dates = []
+    scheduled_departure_dates: List[Date] = field(default_factory=list)
+    scheduled_arrival_dates: List[Date] = field(default_factory=list)
+    actual_departure_dates: List[Date] = field(default_factory=list)
+    actual_arrival_dates: List[Date] = field(default_factory=list)
 
     @property
     def voyage_schedule_key(self) -> int:
