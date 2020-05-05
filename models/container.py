@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from .base import BaseModel
-from .container_class import ContainerModel
+from .container_model import ContainerModel
 
 
 @dataclass
@@ -8,8 +8,11 @@ class Container(BaseModel):
     instances = []
     fields = (
         'Container Key',
-        'Container Number',
-        'Container Class Key'
+        'Owner Code',
+        'Serial Number',
+        'Check Digit',
+        'ISO Size Code',
+        'ISO Type Code'
     )
 
     container_number: str = ''

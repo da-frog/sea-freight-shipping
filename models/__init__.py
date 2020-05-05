@@ -5,7 +5,7 @@ from .bill_of_lading import BillOfLading
 from .business_entity import BusinessEntity
 from .commodity import Commodity
 from .container import Container
-from .container_class import ContainerModel
+from .container_model import ContainerModel
 from .port import Port
 from .shipment import Shipment
 from .vehicle import Vehicle
