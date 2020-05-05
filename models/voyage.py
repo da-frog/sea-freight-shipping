@@ -1,5 +1,5 @@
 from datetime import date, datetime, timedelta
-from typing import List, ClassVar, Sequence, Tuple
+from typing import List, ClassVar, Sequence, Tuple, Iterable
 import random
 from dataclasses import dataclass, field
 
@@ -53,18 +53,32 @@ class Leg(BaseModel):
         return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day
 
     @classmethod
-    def get_or_create_instance_by_port_pair(cls, origin_port: Port, destination_port: Port) -> 'Leg':
+    def get_or_create_instance_from_port_pair(cls, origin_port: Port, destination_port: Port) -> 'Leg':
         for instance in cls.instances:
             if instance.origin_port == origin_port and instance.destination_port == destination_port:
                 return instance
-        else:
-            return Leg(origin_port_key=origin_port.key, destination_port_key=destination_port.key)
+        return Leg(origin_port_key=origin_port.key, destination_port_key=destination_port.key)
+
+
+def legs_to_ports(legs: Sequence[Leg]) -> List[Port]:
+    ports = [legs[0].origin_port]
+    for leg in legs:
+        ports.append(leg.destination_port)
+    return ports
+
+
+def ports_to_legs(ports: Iterable[Port]) -> List[Leg]:
+    return [
+        Leg.get_or_create_instance_from_port_pair(origin, destination)
+        for origin, destination in pairwise(ports)
+    ]
 
 
 @dataclass
 class LegBridge(BaseModel):
     instances: ClassVar[List['LegBridge']] = []
     fields = (
+        # ('Surrogate Key', 'key'),
         'Leg Bridge Key',
         'Leg Key',
     )
@@ -73,7 +87,7 @@ class LegBridge(BaseModel):
     leg_key: int
 
     @classmethod
-    def create_new_bridge(cls, legs: Sequence[Leg]) -> int:
+    def _create_new_bridge_from_legs(cls, legs: Iterable[Leg]) -> int:
         """
         Returns leg_bridge_key of the LegBridge created.
         """
@@ -83,7 +97,7 @@ class LegBridge(BaseModel):
         return leg_bridge_key
 
     @classmethod
-    def get_or_create_new_bridge(cls, legs: Sequence[Leg]) -> int:
+    def get_or_create_new_bridge_from_legs(cls, legs: Iterable[Leg]) -> int:
         """
         Returns leg_bridge_key of the LegBridge created/found.
         """
@@ -99,8 +113,7 @@ class LegBridge(BaseModel):
                 if leg_keys == goal_leg_keys:
                     return leg_brdige_key
                 leg_brdige_key = None
-        else:
-            return cls.create_new_bridge(legs)
+        return cls._create_new_bridge_from_legs(legs)
 
     @classmethod
     def get_legs(cls, leg_bridge_key: int) -> List[Leg]:
@@ -127,8 +140,7 @@ class Voyage(BaseModel):
         'Destination Port Key',
     )
 
-    leg_bridge_key: int = None
-    # port_keys: List[int] = field(default_factory=list)
+    leg_bridge_key: int
 
     @property
     def voyage_key(self) -> int:
@@ -138,21 +150,25 @@ class Voyage(BaseModel):
     def legs(self) -> List[Leg]:
         return LegBridge.get_legs(self.leg_bridge_key)
 
+    @legs.setter
+    def legs(self, legs: List[Leg]):
+        self.leg_bridge_key = LegBridge.get_or_create_new_bridge_from_legs(legs)
+
+    @classmethod
+    def get_or_create_instance_from_ports(cls, ports: Sequence[Port]):
+        for instance in cls.instances:
+            if instance.ports == ports:
+                return instance
+        leg_bridge_key = LegBridge.get_or_create_new_bridge_from_legs(ports_to_legs(ports))
+        return cls(leg_bridge_key=leg_bridge_key)
+
     @property
     def ports(self) -> List[Port]:
-        legs = self.legs
-        ports = [legs[0].origin_port]
-        for leg in legs:
-            ports.append(leg.destination_port)
-        return ports
+        return legs_to_ports(self.legs)
 
     @ports.setter
     def ports(self, ports: List[Port]):
-        legs = []
-        for origin, destination in pairwise(ports):
-            leg = Leg.get_or_create_instance_by_port_pair(origin, destination)
-            legs.append(leg)
-        self.leg_bridge_key = LegBridge.get_or_create_new_bridge(legs)
+        self.leg_bridge_key = LegBridge.get_or_create_new_bridge_from_legs(ports_to_legs(ports))
 
     @property
     def origin_port_key(self) -> int:
@@ -219,6 +235,7 @@ class LegSchedule(BaseModel):
 class LegScheduleBridge(BaseModel):
     instances: ClassVar[List['LegScheduleBridge']] = []
     fields: ClassVar[Sequence['fields']] = (
+        # ('Surrogate Key', 'key'),
         'Leg Schedule Bridge Key',
         'Leg Schedule Key',
     )
@@ -227,10 +244,33 @@ class LegScheduleBridge(BaseModel):
     leg_schedule_key: int
 
     @classmethod
-    def create_new_bridge(cls, leg_schedules: Sequence[LegSchedule]):
+    def _create_new_bridge_from_leg_schedules(cls, leg_schedules: Sequence[LegSchedule]) -> int:
+        """
+        Returns leg_schedule_bridge_key of the LegBridge created.
+        """
         leg_schedule_bridge_key = cls.instances[-1].leg_bridge_key + 1
         for leg_schedule in leg_schedules:
             cls(leg_schedule_bridge_key=leg_schedule_bridge_key, leg_schedule_key=leg_schedule.key)
+        return leg_schedule_bridge_key
+
+    @classmethod
+    def get_or_create_new_bridge_from_leg_schedules(cls, leg_schedules: Sequence[LegSchedule]) -> int:
+        """
+        Returns leg_schedule_bridge_key of the LegBridge created/found.
+        """
+        goal_leg_schedule_keys = set(leg_schedule.key for leg_schedule in leg_schedules)
+        leg_schedule_keys = set()
+        leg_schedule_brdige_key = None
+        for instance in cls.instances:
+            if leg_schedule_brdige_key is None:
+                leg_schedule_brdige_key = instance.leg_schedule_bridge_key
+            if instance.leg_schedule_bridge_key == leg_schedule_brdige_key:
+                leg_schedule_keys.add(instance.leg_key)
+            else:
+                if leg_schedule_keys == goal_leg_schedule_keys:
+                    return leg_schedule_brdige_key
+                leg_schedule_brdige_key = None
+        return cls._create_new_bridge_from_leg_schedules(leg_schedules)
 
     @classmethod
     def get_leg_schedules(cls, leg_schedule_bridge_key: int) -> List[LegSchedule]:
@@ -242,6 +282,8 @@ class LegScheduleBridge(BaseModel):
                 found = True
             elif found is not None:
                 break
+        else:
+            raise ValueError(f"No Leg Schedule Bridge with key {leg_schedule_bridge_key} found/")
         return list(map(LegSchedule.get_instance_by_key, leg_schedule_keys))
 
 
@@ -254,20 +296,31 @@ class VoyageSchedule(BaseModel):
         'Leg Schedule Bridge Key',
     )
 
-    voyage_key: int = None
-    leg_schedule_bridge_key: int = None
-    scheduled_departure_dates: List[Date] = field(default_factory=list)
-    scheduled_arrival_dates: List[Date] = field(default_factory=list)
-    actual_departure_dates: List[Date] = field(default_factory=list)
-    actual_arrival_dates: List[Date] = field(default_factory=list)
+    leg_schedule_bridge_key: int
 
     @property
     def voyage_schedule_key(self) -> int:
-        return self.__class__.instances.index(self.voyage_key)
+        return self.key
+
+    @property
+    def voyage(self) -> Voyage:
+        return Voyage.get_or_create_instance_from_ports(legs_to_ports(self.legs))
+
+    @property
+    def voyage_key(self) -> int:
+        return self.voyage.key
+
+    @property
+    def legs(self) -> List[Leg]:
+        return [leg_schedule.leg for leg_schedule in self.leg_schedules]
 
     @property
     def leg_schedules(self) -> List[LegSchedule]:
         return LegScheduleBridge.get_leg_schedules(self.leg_schedule_bridge_key)
+
+    @leg_schedules.setter
+    def leg_schedules(self, leg_schedules: List[LegSchedule]):
+        self.leg_schedule_bridge_key = LegScheduleBridge.get_or_create_new_bridge_from_leg_schedules(leg_schedules)
 
     @property
     def scheduled_departure_date(self):
@@ -294,6 +347,9 @@ class VoyageSchedule(BaseModel):
         print('Please cascade actual date', self)
 
     def cascade_actual_date(self, vehicle: Vehicle):
+        """
+        Randomize the Actual date for both Arrival and Departure dates.
+        """
         for ls1, ls2 in pairwise(self.leg_schedules):
             travel_delay = np.random.exponential(0.05, 1)
             port_delay = np.random.poisson(1.5, 1)
