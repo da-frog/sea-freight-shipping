@@ -1,7 +1,9 @@
+from dataclasses import dataclass
 from .base import BaseModel
 from .container_class import ContainerClass
 
 
+@dataclass
 class Container(BaseModel):
     instances = []
     fields = (
@@ -10,9 +12,8 @@ class Container(BaseModel):
         'Container Class Key'
     )
 
-    def __init__(self):
-        self.container_number: str = ''
-        self.container_class_key: int = None
+    container_number: str = ''
+    container_class_key: int = None
 
     @property
     def container_key(self) -> int:
