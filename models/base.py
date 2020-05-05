@@ -111,7 +111,11 @@ class BaseModel(metaclass=BaseModelMeta):
     def get_instance_by_key(cls: Type[T], key: int) -> T:
         if not cls.instances:
             raise IndexError(f"No instances yet! Can't get key={key}")
-        return cls.instances[key - 1]
+        try:
+            return cls.instances[key - 1]
+        except IndexError:
+            print(key)
+            raise
 
     @property
     def key(self) -> int:

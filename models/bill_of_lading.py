@@ -182,27 +182,27 @@ class BillOfLading(BaseModel):
 
     @property
     def place_of_receipt(self) -> Address:
-        return Address.get_instance_by_key(self.domestic_transporter_key)
+        return Address.get_instance_by_key(self.place_of_receipt_key)
 
     @property
     def place_of_delivery(self) -> Address:
-        return Address.get_instance_by_key(self.domestic_transporter_key)
+        return Address.get_instance_by_key(self.place_of_delivery_key)
 
     @property
     def port_of_loading(self) -> Port:
-        return Port.get_instance_by_key(self.domestic_transporter_key)
+        return Port.get_instance_by_key(self.port_of_loading_key)
 
     @property
     def port_of_discharge(self) -> Port:
-        return Port.get_instance_by_key(self.domestic_transporter_key)
+        return Port.get_instance_by_key(self.port_of_discharge_key)
 
     @property
     def commodity(self) -> Commodity:
-        return Commodity.get_instance_by_key(self.domestic_transporter_key)
+        return Commodity.get_instance_by_key(self.commodity_key)
 
     @property
     def container(self) -> Container:
-        return Container.get_instance_by_key(self.domestic_transporter_key)
+        return Container.get_instance_by_key(self.container_key)
 
     def get_route_str(self) -> str:
         return (

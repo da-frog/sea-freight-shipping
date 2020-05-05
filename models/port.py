@@ -18,7 +18,7 @@ class Port(BaseModel):
         'Port Size',
         'Phone',
         'Fax',
-        ('800 number', '_800_number'),
+        ('800 Number', '_800_number'),
         ('UN/LOCODE', 'un_locode'),
         'Email',
         'Website',
