@@ -2,6 +2,8 @@ from datetime import date, datetime, timedelta
 from typing import List
 import random
 
+import numpy as np
+
 from .base import BaseModel, Bridge
 from .port import Port
 from .vehicle import Vehicle
@@ -206,7 +208,7 @@ class VoyageSchedule(BaseModel):
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
         for ls1, ls2 in pairwise(self.leg_schedules):
-            expected_delay = random.random()  # TODO: Find a random function
+            expected_delay = np.random.poisson(1.5, 1)
             ls2.scheduled_arrival_date = ls1.scheduled_departure_date + ls1.leg.get_expected_time(vehicle)
             ls2.scheduled_departure_date = ls2.scheduled_arrival_date + expected_delay
 
@@ -221,10 +223,18 @@ class VoyageSchedule(BaseModel):
 
     def cascade_actual_date(self, vehicle: Vehicle):
         for ls1, ls2 in pairwise(self.leg_schedules):
-            travel_delay = random.random()  # TODO: Find a random function
-            port_delay = random.random()    # TODO: Find a random function
-            ls2.actual_arrival_date = ls1.actual_departure_date + ls1.leg.get_expected_time(vehicle) + travel_delay
-            ls2.actual_departure_date = ls2.actual_arrival_date + port_delay
+            travel_delay = np.random.exponential(0.05, 1)
+            port_delay = np.random.poisson(1.5, 1)
+            if random.random() <= 0.05:
+                accidental_delay = np.random.poisson(10, 1)
+            else:
+                accidental_delay = 0
+            ls2.actual_arrival_date = ls1.actual_departure_date + ls1.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
+            if random.random() <= 0.1:
+                accidental_delay = np.random.poisson(4, 1)
+            else:
+                accidental_delay = 0
+            ls2.actual_departure_date = ls2.actual_arrival_date + port_delay + accidental_delay
 
     @property
     def actual_departure_date(self):
