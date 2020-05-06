@@ -14,7 +14,8 @@ class Shipment(BaseModel):
         'Shipment Key',
         'Voyage Schedule Key',
         'Vehicle Key',
-        'Bill-of-Lading Key'
+        'Bill-of-Lading Key',
+        'Shipment Fees',
     )
 
     voyage_schedule_key: int = None
@@ -40,6 +41,10 @@ class Shipment(BaseModel):
     @property
     def bill_of_lading(self) -> BillOfLading:
         return BillOfLading.get_instance_by_key(self.bill_of_lading_key)
+
+    @property
+    def shipment_fees(self) -> float:
+        return self.voyage_schedule.get_fees(self.vehicle)
 
     @classmethod
     def get_instances_from_voyage_schedule_key(cls, voyage_schedule_key: int) -> List['Shipment']:

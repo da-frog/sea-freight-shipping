@@ -50,7 +50,7 @@ class Leg(BaseModel):
         return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
 
     def get_expected_fees(self, vehicle: Vehicle) -> float:
-        return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day
+        return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day * 400
 
     @classmethod
     def get_or_create_instance_from_port_pair(cls, origin_port: Port, destination_port: Port) -> 'Leg':
@@ -234,6 +234,12 @@ class LegSchedule(BaseModel):
     def get_actual_time(self) -> timedelta:
         return self.destination_port_actual_arrival_date - self.origin_port_actual_departure_date
 
+    def get_fees(self, vehicle: Vehicle) -> float:
+        if self.destination_port_actual_arrival_date is not None:
+            if self.origin_port_actual_departure_date is not None:
+                return round((self.destination_port_actual_arrival_date - self.origin_port_actual_departure_date).days * vehicle.vehicle_fuel_usage_per_day * 200, 2)
+        return round((self.destination_port_scheduled_arrival_date - self.origin_port_scheduled_departure_date).days * vehicle.vehicle_fuel_usage_per_day * 200, 2)
+
 
 @dataclass
 class LegScheduleBridge(BaseModel):
@@ -349,7 +355,6 @@ class VoyageSchedule(BaseModel):
         print('Please cascade scheduled date', self)
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
-        expected_delay = TimeDelta(days=int(np.random.poisson(1.5, 1)))
         first_ls = self.leg_schedules[0]
         first_ls.destination_port_scheduled_arrival_date = first_ls.origin_port_scheduled_departure_date + first_ls.leg.get_expected_time(vehicle)
         for ls1, ls2 in pairwise(self.leg_schedules):
@@ -419,3 +424,6 @@ class VoyageSchedule(BaseModel):
         # create leg schedule bridge
         leg_schedule_bridge = LegScheduleBridge.get_or_create_new_bridge_from_leg_schedules(leg_schedules)
         return VoyageSchedule(leg_schedule_bridge)
+
+    def get_fees(self, vehicle: Vehicle) -> float:
+        return sum(ls.get_fees(vehicle) for ls in self.leg_schedules)

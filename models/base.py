@@ -76,6 +76,8 @@ class BaseModel(metaclass=BaseModelMeta):
     def init_from_dict(cls, dct: dict) -> 'BaseModel':
         kwargs = {}
         for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
+            if key == 'Shipment Fees':
+                continue
             if dct[key] == '' or dct[key] == 'NULL':
                 kwargs[attr] = None
                 continue

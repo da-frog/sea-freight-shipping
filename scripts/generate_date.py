@@ -10,6 +10,7 @@ from jsoncompat import Date, TimeDelta
 from location import Location
 from dirs import ROOT_DIR
 
+from models.bill_of_lading import random_incoterm
 from models import *
 
 
@@ -41,9 +42,10 @@ def main(n: int):
         for shipment in shipments:
             shipment.vehicle = vehicle
             d = shipment.voyage_schedule.scheduled_departure_date - TimeDelta(days=3+np.random.poisson(4))
-            print(d.__class__.__name__)
+            # print(d.__class__.__name__)
             shipment.bill_of_lading.issued_date = d
-            print(shipment.bill_of_lading.issued_date)
+            # print(shipment.bill_of_lading.issued_date)
+            shipment.bill_of_lading.incoterm = random_incoterm(shipment.bill_of_lading.issued_date.year)
 
     dump_database(str(n))
     dump_database(str(n), 'json')
