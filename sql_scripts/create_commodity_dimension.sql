@@ -10,6 +10,6 @@ CREATE TABLE CommodityDimension
     [Commodity Description]   nvarchar(100),
     [Catagory Description]    nvarchar(100),
     [Subcategory Description] nvarchar(100),
-    [Package Size (m^3)]      float,
-    [Package Weight (kg)]     float
+    [Package Size (m^3)]      decimal,
+    [Package Weight (kg)]     decimal,
 );
