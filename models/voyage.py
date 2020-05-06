@@ -349,6 +349,9 @@ class VoyageSchedule(BaseModel):
         print('Please cascade scheduled date', self)
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
+        expected_delay = TimeDelta(days=int(np.random.poisson(1.5, 1)))
+        first_ls = self.leg_schedules[0]
+        first_ls.destination_port_scheduled_arrival_date = first_ls.origin_port_scheduled_departure_date + first_ls.leg.get_expected_time(vehicle)
         for ls1, ls2 in pairwise(self.leg_schedules):
             expected_delay = TimeDelta(days=int(np.random.poisson(1.5, 1)))
             ls2.destination_port_scheduled_arrival_date = ls1.origin_port_scheduled_departure_date + ls1.leg.get_expected_time(vehicle)

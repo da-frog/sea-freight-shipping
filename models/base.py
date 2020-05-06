@@ -130,6 +130,7 @@ class BaseModel(metaclass=BaseModelMeta):
                     elif isinstance(value, dict):
                         value = json.dumps(value)
                     elif isinstance(value, Date):
+                        # print(f'dumping date, {value}')
                         value = value.isoformat()
                     dct[key] = value
                 writer.writerow(dct)
