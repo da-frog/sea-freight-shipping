@@ -1,30 +1,30 @@
 USE FreightShippingDW;
 
-IF OBJECT_ID('dbo.ContainerDim', 'U') IS NOT NULL
-    DROP TABLE ContainerDim;
+IF OBJECT_ID('dbo.ContainerDimension', 'U') IS NOT NULL
+    DROP TABLE ContainerDimension;
 GO
-CREATE TABLE dbo.ContainerDim
+CREATE TABLE ContainerDimension
 (
     [Container Key]                     int IDENTITY (1,1) NOT NULL,
-    [Container Number]                  varchar(100),
-    [Container Size (Volume)]           int,
+    [Container Number]                  varchar(11),
+    [Container Size (Volume)]           decimal,
     [Container Type]                    varchar(100),
-    [Container Tare Weight(Kg)]         int,
-    [Container Inside Length (m)]       float,
-    [Container Inside Width (m)]        float,
-    [Container Inside Height (m)]       float,
-    [Container Inside Length (ft)]      float,
-    [Container Inside Width (ft)]       float,
-    [Container Inside Height (ft)]      float,
-    [Container Outside Length (m)]      float,
-    [Container Outside Width (m)]       float,
-    [Container Outside Height (m)]      float,
-    [Container Outside Length (ft)]     float,
-    [Container Outside Width (ft)]      float,
-    [Container Outside Height (ft)]     float,
-    [Container Capacity]                float,
-    [Container Electricity Indicator]   nvarchar(100),
-    [Container Refrigeration Indicator] nvarchar(100),
-    [Container Thermal Indicator]       nvarchar(100),
-    [Container Dangerous Indicator]     nvarchar(100),
+    [Container Tare Weight(Kg)]         decimal,
+    [Container Inside Length (m)]       decimal,
+    [Container Inside Width (m)]        decimal,
+    [Container Inside Height (m)]       decimal,
+    [Container Inside Length (ft)]      decimal,
+    [Container Inside Width (ft)]       decimal,
+    [Container Inside Height (ft)]      decimal,
+    [Container Outside Length (m)]      decimal,
+    [Container Outside Width (m)]       decimal,
+    [Container Outside Height (m)]      decimal,
+    [Container Outside Length (ft)]     decimal,
+    [Container Outside Width (ft)]      decimal,
+    [Container Outside Height (ft)]     decimal,
+    [Container Capacity]                decimal,
+    [Container Electricity Indicator]   varchar(50),
+    [Container Refrigeration Indicator] varchar(50),
+    [Container Thermal Indicator]       varchar(50),
+    [Container Dangerous Indicator]     varchar(50),
 )
