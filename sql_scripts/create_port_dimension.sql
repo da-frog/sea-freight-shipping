@@ -1,6 +1,8 @@
-IF (SELECT OBJECT_ID('dbo.PortDim')) > 0
-    DROP TABLE dbo.PortDim;
+USE FreightShippingDW;
 
+IF OBJECT_ID ('dbo.PortDim', 'U') IS NOT NULL
+    DROP TABLE PortDim;
+GO
 CREATE TABLE PortDim (
     [Port Key]           int IDENTITY (1,1) NOT NULL,
     [Port Name]          nvarchar(50),
@@ -9,4 +11,5 @@ CREATE TABLE PortDim (
     [Port City]          nvarchar(50),
     [Port Address]       nvarchar(100),
     [Port Telephone]     varchar(15),
+    primary key ([Port Key])
 );
