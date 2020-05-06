@@ -8,5 +8,5 @@ CREATE TABLE PortDim (
     [Port Country]       nvarchar(50),
     [Port City]          nvarchar(50),
     [Port Address]       nvarchar(100),
-    [Port Telephone]     int,
+    [Port Telephone]     varchar(15),
 );
