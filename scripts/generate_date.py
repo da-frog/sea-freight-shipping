@@ -40,13 +40,17 @@ def main(n: int):
         shipments = Shipment.get_instances_from_voyage_schedule_key(voyage_schedule.voyage_schedule_key)
         for shipment in shipments:
             shipment.vehicle = vehicle
+            d = shipment.voyage_schedule.scheduled_departure_date - TimeDelta(days=3+np.random.poisson(4))
+            print(d.__class__.__name__)
+            shipment.bill_of_lading.issued_date = d
+            print(shipment.bill_of_lading.issued_date)
 
     dump_database(str(n))
     dump_database(str(n), 'json')
 
 
 if __name__ == '__main__':
-    # main(500)
-    load_database('500', 'json')
+    main(500)
+    # load_database('500', 'json')
 
 

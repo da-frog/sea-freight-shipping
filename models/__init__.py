@@ -55,6 +55,7 @@ def dump_database(dataset: str, mode: str = 'csv'):
         raise AssertionError('no such mode \'' + mode + "'")
 
     for cls in [
+        BillOfLading,
         Shipment,
         Voyage,
         Leg,
