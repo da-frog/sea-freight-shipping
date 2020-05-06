@@ -6,22 +6,9 @@ import datetime
 from typing import List, Dict, Callable, Any, Sequence, TypeVar
 from operator import itemgetter
 
-from utils import km_to_mile
 from location import Location
-
 from models import *
-
-
-def load_database():
-    # BillOfLading.load_from_csv('../spreadsheet_data/da-base-OLTP - BillOfLading.csv')
-    BillOfLading.load_from_csv('bol-10000.csv')
-    Address.load_from_csv('../spreadsheet_data/da-base-OLTP - Address.csv')
-    BusinessEntity.load_from_csv('../spreadsheet_data/da-base-OLTP - BusinessEntity.csv')
-    Commodity.load_from_csv('../spreadsheet_data/da-base-OLTP - Commodity.csv')
-    Container.load_from_csv('../spreadsheet_data/da-base-OLTP - Container.csv')
-    ContainerModel.load_from_csv('../spreadsheet_data/da-base-OLTP - ContainerModel.csv')
-    Port.load_from_csv('../spreadsheet_data/da-base-OLTP - Port.csv')
-    # Vehicle.load_from_csv('../spreadsheet_data/da-base-OLTP - Vehicle.csv')
+from dirs import ROOT_DIR
 
 
 def calculate_total_distance(ports: List[Port], *, key=True) -> float:
@@ -108,10 +95,11 @@ def create_route(bols: List[BillOfLading], n: int = 5) -> (List[Port], List[Bill
     return route_ports, route_bols
 
 
-def main():
+def generate_shipment(n: int):
     print('**** main ****')
     x = BillOfLading._instances.copy()
-    while len(x) > 0:
+    alllen = len(x)
+    while len(x) > alllen - n:
         # create route
         route_length = random.randint(3, 6)
         route_ports, route_bols = create_route(x, route_length)
@@ -154,35 +142,11 @@ def main():
         # else:
 
 
-if __name__ == '__main__':
+def main(n: int):
     load_database()
-    main()
-    Voyage.dump_to_csv('voyages.csv')
-    LegBridge.dump_to_csv('leg_bridge.csv')
-    Leg.dump_to_csv('leg.csv')
-    VoyageSchedule.dump_to_csv('voyage_schedules.csv')
-    LegScheduleBridge.dump_to_csv('leg_schedule_bridge.csv')
-    LegSchedule.dump_to_csv('leg_schedule.csv')
-    Port.dump_to_csv('port.csv')
+    generate_shipment(int(n))
+    dump_database(str(n))
 
-    # x = bols.copy()
-    # print(len(x))
-    # route_ports, route_bols = create_route(x, 6)
-    # print(len(x))
-    # print('\n')
-    # print(route_ports)
-    # for bol in route_bols:
-    #     print(get_bol_route_str(bol))
-    #
-    # print('\n')
-    #
-    # for bol in x:
-    #     loading_key = bol['Port of Loading Key']
-    #     discharge_key = bol['Port of Discharge Key']
-    #
-    #     if bol['Port of Discharge Key'] in route_ports:
-    #         if bol['Port of Loading Key'] in route_ports:
-    #             # loading_index = route_ports.index(loading_key)
-    #             # discharge_index = route_ports.index(discharge_key)
-    #             # if loading_index < discharge_index:
-    #                 print(get_bol_route_str(bol))
+
+if __name__ == '__main__':
+    main(500)
