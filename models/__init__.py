@@ -14,7 +14,7 @@ from .voyage import Leg, LegBridge, Voyage, LegSchedule, LegScheduleBridge, Voya
 from dirs import ROOT_DIR
 
 
-def load_database(dataset: str = None, *, mode: str = 'csv'):
+def load_database(dataset: str = None, mode: str = 'csv'):
     if mode == 'csv':
         method_name = 'load_from_csv'
     elif mode == 'json':
@@ -55,13 +55,13 @@ def dump_database(dataset: str, mode: str = 'csv'):
         raise AssertionError('no such mode \'' + mode + "'")
 
     for cls in [
+        Shipment,
         Voyage,
         Leg,
         LegBridge,
         LegSchedule,
         LegScheduleBridge,
         VoyageSchedule,
-        Shipment,
     ]:
         print(f'dumping {cls.__name__}')
         method = getattr(cls, method_name)

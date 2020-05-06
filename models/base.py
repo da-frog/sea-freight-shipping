@@ -90,10 +90,12 @@ class BaseModel(metaclass=BaseModelMeta):
                     elif type_.__origin__ == ClassVar:
                         continue
                 except AttributeError:
-                    # if type_ == Date:
-                    #     if dct[key] == '':
-                    #         kwargs[attr] = Date(1999, 1, 1)
-                    #         continue
+                    if type_ in [List, dict]:
+                        kwargs[attr] = json.loads(dct[key], cls=JSONDecoder)
+                        continue
+                    elif type_ == Date:
+                        kwargs[attr] = Date.fromisoformat(dct[key])
+                        continue
                     kwargs[attr] = type_(dct[key])
             except KeyError:
                 pass
@@ -111,7 +113,7 @@ class BaseModel(metaclass=BaseModelMeta):
 
     @property
     def key(self) -> int:
-        return self.__class__._instances.index(self)
+        return self.__class__._instances.index(self) + 1
 
     @classmethod
     def dump_to_csv(cls, filename: str):
@@ -123,10 +125,12 @@ class BaseModel(metaclass=BaseModelMeta):
                 dct = {}
                 for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
                     value = getattr(instance, attr)
-                    if isinstance(value, Sequence):
+                    if isinstance(value, list):
                         value = json.dumps(value)
                     elif isinstance(value, dict):
                         value = json.dumps(value)
+                    elif isinstance(value, Date):
+                        value = value.isoformat()
                     dct[key] = value
                 writer.writerow(dct)
 
