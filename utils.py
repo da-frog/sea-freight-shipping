@@ -15,6 +15,15 @@ def read_csv_file(filename: str, *, encoding: str = 'utf-8') -> List[Dict]:
     return data
 
 
+def write_csv_file(filename: str, *, encoding: str = 'utf-8', data: List[Dict]):
+    """ Write a list of dictionaries to csv file. """
+    with open(filename, 'w', encoding=encoding) as csvfile:
+        writer = csv.DictWriter(csvfile, data[0].keys())
+        writer.writeheader()
+        for d in data:
+            writer.writerow(d)
+
+
 def trim_file(file: str):
     with open(file, 'r') as f:
         lines = f.read().splitlines()
