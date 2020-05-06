@@ -7,6 +7,33 @@ GO
 IF OBJECT_ID('dbo.BusinessEntityDimension', 'U') IS NOT NULL
     DROP TABLE BusinessEntityDimension;
 GO
+
+IF OBJECT_ID('dbo.CommodityDimension', 'U') IS NOT NULL
+    DROP TABLE CommodityDimension;
+GO
+
+IF OBJECT_ID('dbo.ContainerDimension', 'U') IS NOT NULL
+    DROP TABLE ContainerDimension;
+GO
+
+IF OBJECT_ID ('dbo.CountrySpecificDateOutrigger', 'U') IS NOT NULL
+    DROP TABLE CountrySpecificDateOutrigger;
+GO
+
+IF OBJECT_ID ('dbo.DateDimension', 'U') IS NOT NULL
+    DROP TABLE DateDimension;
+GO
+
+IF OBJECT_ID('dbo.PortDimension', 'U') IS NOT NULL
+    DROP TABLE PortDimension;
+GO
+
+IF OBJECT_ID('dbo.ShipModeDimension', 'U') IS NOT NULL
+    DROP TABLE ShipModeDimension;
+GO
+
+
+
 CREATE TABLE BusinessEntityDimension
 (
     [Business Entity Key] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
@@ -20,9 +47,7 @@ CREATE TABLE BusinessEntityDimension
     [ZIP code]            varchar(11),
 );
 
-IF OBJECT_ID('dbo.CommodityDimension', 'U') IS NOT NULL
-    DROP TABLE CommodityDimension;
-GO
+
 CREATE TABLE CommodityDimension
 (
     [Commodity Key]           int IDENTITY (1,1) NOT NULL PRIMARY KEY,
@@ -34,25 +59,23 @@ CREATE TABLE CommodityDimension
     [Package Weight (kg)]     decimal,
 );
 
-IF OBJECT_ID('dbo.ContainerDimension', 'U') IS NOT NULL
-    DROP TABLE ContainerDimension;
-GO
+
 CREATE TABLE ContainerDimension
 (
     [Container Key]                     int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Container Number]                  varchar(11),
     [Container Size (Volume)]           decimal,
     [Container Type]                    varchar(100),
-    [Container Tare Weight (kg)]         decimal,
-    [Container Inside Length (m)]       decimal,
-    [Container Inside Width (m)]        decimal,
-    [Container Inside Height (m)]       decimal,
+    [Container Tare Weight (kg)]        decimal,
+    [Container Inside Length (mm)]      int,
+    [Container Inside Width (mm)]       int,
+    [Container Inside Height (mm)]      int,
     [Container Inside Length (ft)]      decimal,
     [Container Inside Width (ft)]       decimal,
     [Container Inside Height (ft)]      decimal,
-    [Container Outside Length (m)]      decimal,
-    [Container Outside Width (m)]       decimal,
-    [Container Outside Height (m)]      decimal,
+    [Container Outside Length (mm)]     decimal,
+    [Container Outside Width (mm)]      decimal,
+    [Container Outside Height (mm)]     decimal,
     [Container Outside Length (ft)]     decimal,
     [Container Outside Width (ft)]      decimal,
     [Container Outside Height (ft)]     decimal,
@@ -63,12 +86,7 @@ CREATE TABLE ContainerDimension
     [Container Dangerous Indicator]     varchar(50),
 )
 
-IF OBJECT_ID ('dbo.CountrySpecificDateOutrigger', 'U') IS NOT NULL
-    DROP TABLE CountrySpecificDateOutrigger;
-GO
-IF OBJECT_ID ('dbo.DateDimension', 'U') IS NOT NULL
-    DROP TABLE DateDimension;
-GO
+
 CREATE TABLE DateDimension
 (
     [Date Key]                      int IDENTITY (1,1) NOT NULL PRIMARY KEY,
@@ -96,6 +114,8 @@ CREATE TABLE DateDimension
     [Fiscal Year-Quarter]           varchar(7),
     [Fiscal Year]                   smallint,
 );
+
+
 CREATE TABLE CountrySpecificDateOutrigger
 (
     [Date Key]                  int NOT NULL REFERENCES DateDimension,
@@ -109,9 +129,7 @@ CREATE TABLE CountrySpecificDateOutrigger
     [Season Name]               nvarchar(50),
 );
 
-IF OBJECT_ID('dbo.PortDimension', 'U') IS NOT NULL
-    DROP TABLE PortDimension;
-GO
+
 CREATE TABLE PortDimension
 (
     [Port Key]       int IDENTITY (1,1) NOT NULL,
@@ -124,9 +142,7 @@ CREATE TABLE PortDimension
     primary key ([Port Key])
 );
 
-IF OBJECT_ID('dbo.ShipModeDimension', 'U') IS NOT NULL
-    DROP TABLE ShipModeDimension;
-GO
+
 CREATE TABLE ShipModeDimension
 (
     [Ship Mode Key]          int IDENTITY (1,1) NOT NULL PRIMARY KEY,
