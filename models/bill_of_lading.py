@@ -132,6 +132,13 @@ class BillOfLading(BaseModel):
     expected_tariffs: float = None
     actual_tariffs: float = None
 
+    # def __setattr__(self, key, value):
+    #     if key == 'issued_date':
+    #         if not isinstance(value, Date):
+    #             if value is not None:
+    #                 raise TypeError(f"{value} is not a 'Date' but a {value.__class__.__name__}")
+    #     super().__setattr__(key, value)
+
     @classmethod
     def random_bill_of_lading_number(cls):
         bol_number = set()

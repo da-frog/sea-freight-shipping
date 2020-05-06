@@ -44,7 +44,7 @@ class Leg(BaseModel):
 
     @property
     def leg_miles(self) -> float:
-        return km_to_mile(self.leg_kms)
+        return round(km_to_mile(self.leg_kms), 2)
 
     def get_expected_time(self, vehicle: Vehicle) -> timedelta:
         return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
@@ -203,17 +203,17 @@ class LegSchedule(BaseModel):
     fields = (
         'Leg Schedule Key',
         'Leg Key',
-        'Scheduled Departure Date',
-        'Scheduled Arrival Date',
-        'Actual Departure Date',
-        'Actual Departure Date',
+        'Origin Port Scheduled Departure Date',
+        'Destination Port Scheduled Arrival Date',
+        'Origin Port Actual Departure Date',
+        'Destination Port Actual Arrival Date',
     )
 
     leg_key: int = None
-    scheduled_departure_date: Date = None
-    scheduled_arrival_date: Date = None
-    actual_departure_date: Date = None
-    actual_arrival_date: Date = None
+    origin_port_scheduled_departure_date: Date = None
+    destination_port_scheduled_arrival_date: Date = None
+    origin_port_actual_departure_date: Date = None
+    destination_port_actual_arrival_date: Date = None
 
     @property
     def leg_schedule_key(self) -> int:
@@ -225,14 +225,14 @@ class LegSchedule(BaseModel):
 
     @property
     def departure_delay(self) -> timedelta:
-        return self.actual_departure_date - self.scheduled_departure_date
+        return self.origin_port_actual_departure_date - self.origin_port_scheduled_departure_date
 
     @property
     def arrival_delay(self) -> timedelta:
-        return self.actual_arrival_date - self.scheduled_arrival_date
+        return self.destination_port_actual_arrival_date - self.destination_port_scheduled_arrival_date
 
     def get_actual_time(self) -> timedelta:
-        return self.actual_arrival_date - self.actual_departure_date
+        return self.destination_port_actual_arrival_date - self.origin_port_actual_departure_date
 
 
 @dataclass
@@ -341,53 +341,71 @@ class VoyageSchedule(BaseModel):
 
     @property
     def scheduled_departure_date(self):
-        return self.leg_schedules[0].scheduled_departure_date
+        return self.leg_schedules[0].origin_port_scheduled_departure_date
 
     @scheduled_departure_date.setter
     def scheduled_departure_date(self, scheduled_departure_date: date):
-        self.leg_schedules[0].scheduled_departure_date = scheduled_departure_date
+        self.leg_schedules[0].origin_port_scheduled_departure_date = scheduled_departure_date
         print('Please cascade scheduled date', self)
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
         for ls1, ls2 in pairwise(self.leg_schedules):
-            expected_delay = np.random.poisson(1.5, 1)
-            ls2.scheduled_arrival_date = ls1.scheduled_departure_date + ls1.leg.get_expected_time(vehicle)
-            ls2.scheduled_departure_date = ls2.scheduled_arrival_date + expected_delay
+            expected_delay = TimeDelta(days=int(np.random.poisson(1.5, 1)))
+            ls2.destination_port_scheduled_arrival_date = ls1.origin_port_scheduled_departure_date + ls1.leg.get_expected_time(vehicle)
+            ls2.origin_port_scheduled_departure_date = ls2.destination_port_scheduled_arrival_date + expected_delay
 
     @property
     def scheduled_arrival_date(self):
-        return self.leg_schedules[-1].scheduled_arrival_date
+        return self.leg_schedules[-1].destination_port_scheduled_arrival_date
 
     @scheduled_arrival_date.setter
     def scheduled_arrival_date(self, scheduled_arrival_date: date):
-        self.leg_schedules[-1].scheduled_arrival_date = scheduled_arrival_date
+        self.leg_schedules[-1].destination_port_scheduled_arrival_date = scheduled_arrival_date
         print('Please cascade actual date', self)
+
+    @staticmethod
+    def get_delays() -> Tuple[TimeDelta, TimeDelta, TimeDelta, TimeDelta]:
+        travel_delay = np.random.exponential(0.05, 1)
+        travel_delay = TimeDelta(days=int(travel_delay))
+        port_delay = np.random.poisson(1.5, 1)
+        port_delay = TimeDelta(days=int(port_delay))
+
+        if random.random() <= 0.05:
+            accidental_delay = np.random.poisson(10, 1)
+        else:
+            accidental_delay = 0
+        accidental_delay = TimeDelta(days=int(accidental_delay))
+        if random.random() <= 0.1:
+            accidental_port_delay = np.random.poisson(4, 1)
+        else:
+            accidental_port_delay = 0
+        accidental_port_delay = TimeDelta(days=int(accidental_port_delay))
+        return travel_delay, port_delay, accidental_delay, accidental_port_delay
 
     def cascade_actual_date(self, vehicle: Vehicle):
         """
         Randomize the Actual date for both Arrival and Departure dates.
         """
+        travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
+        first_ls = self.leg_schedules[0]
+        first_ls.origin_port_actual_departure_date = first_ls.origin_port_scheduled_departure_date + port_delay + accidental_port_delay
+
         for ls1, ls2 in pairwise(self.leg_schedules):
-            travel_delay = np.random.exponential(0.05, 1)
-            port_delay = np.random.poisson(1.5, 1)
-            if random.random() <= 0.05:
-                accidental_delay = np.random.poisson(10, 1)
-            else:
-                accidental_delay = 0
-            ls2.actual_arrival_date = ls1.actual_departure_date + ls1.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
-            if random.random() <= 0.1:
-                accidental_delay = np.random.poisson(4, 1)
-            else:
-                accidental_delay = 0
-            ls2.actual_departure_date = ls2.actual_arrival_date + port_delay + accidental_delay
+            travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
+            ls1.destination_port_actual_arrival_date = ls1.origin_port_actual_departure_date + ls1.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
+            ls2.origin_port_actual_departure_date = ls1.destination_port_actual_arrival_date + port_delay + accidental_port_delay
+
+        travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
+        last_ls = self.leg_schedules[-1]
+        last_ls.destination_port_actual_arrival_date = last_ls.origin_port_actual_departure_date + last_ls.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
 
     @property
     def actual_departure_date(self):
-        return self.leg_schedules[0].actual_departure_date
+        return self.leg_schedules[0].origin_port_actual_departure_date
 
     @property
     def actual_arrival_date(self):
-        return self.leg_schedules[-1].actual_arrival_date
+        return self.leg_schedules[-1].destination_port_actual_arrival_date
 
     @classmethod
     def create_voyage_schedule_from_ports(cls, ports: List[Port]) -> 'VoyageSchedule':
