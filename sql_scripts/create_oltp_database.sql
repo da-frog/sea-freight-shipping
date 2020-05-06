@@ -19,18 +19,18 @@ IF OBJECT_ID('dbo.Voyage', 'U') IS NOT NULL
     DROP TABLE Voyage;
 GO
 
-IF OBJECT_ID('dbo.LegBridge', 'U') IS NOT NULL
-    DROP TABLE LegBridge;
-GO
-IF OBJECT_ID('dbo.Leg', 'U') IS NOT NULL
-    DROP TABLE Leg;
-GO
-
 IF OBJECT_ID('dbo.LegScheduleBridge', 'U') IS NOT NULL
     DROP TABLE LegScheduleBridge;
 GO
 IF OBJECT_ID('dbo.LegSchedule', 'U') IS NOT NULL
     DROP TABLE LegSchedule;
+GO
+
+IF OBJECT_ID('dbo.LegBridge', 'U') IS NOT NULL
+    DROP TABLE LegBridge;
+GO
+IF OBJECT_ID('dbo.Leg', 'U') IS NOT NULL
+    DROP TABLE Leg;
 GO
 
 IF OBJECT_ID('dbo.Port', 'U') IS NOT NULL
@@ -59,81 +59,25 @@ GO
 
 
 
-create table BillOfLading
+create table Address
 (
-    [Bill-of-Lading Key]        int,
-    [Bill-of-Lading Number]     varchar(17),
-    [Issued Date]               date,
-    [Consignor Key]             int
-        references BusinessEntity,
-    [Consignee Key]             int
-        references BusinessEntity,
-    [Foreign Transporter Key]   int
-        references BusinessEntity,
-    [Foreign Consolidator Key]  int
-        references BusinessEntity,
-    [Courier Key]               int
-        references BusinessEntity,
-    [Domestic Transporter Key]  int
-        references BusinessEntity,
-    [Domestic Consolidator Key] int
-        references BusinessEntity,
-    [Ship Mode]                 varchar(50),
-    [Place of Receipt Key]      int
-        references Address,
-    [Place of Delivery Key]     int
-        references Address,
-    [Port of Loading Key]       int
-        references Port,
-    [Port of Discharge Key]     int
-        references Port,
-    [Commodity Key]             int
-        references Commodity,
-    [Container Key]             int
-        references Container,
-    [Incoterm]                  varchar(3),
-    [Expected Tariffs]          money,
-    [Actual Tariffs]            money,
+    [Address Key]    int identity,
+    [Address Line 1] nvarchar(100),
+    [Address Line 2] nvarchar(100),
+    [City]           nvarchar(100),
+    [Country]        nvarchar(50),
+    [Alpha 2]        varchar(2),
+    [ZIP Code]       varchar(11),
+    [Latitude]       varchar(15),
+    [Longitude]      varchar(15)
 )
 go
-
-create unique index [BillOfLading_Bill-of-Lading Number_uindex]
-    on BillOfLading ([Bill-of-Lading Number])
+create unique index [Address_Address Key_uindex]
+    on Address ([Address Key])
 go
-
-create unique index "BillOfLading_[Bill-of-Lading Key]_uindex"
-    on BillOfLading ([Bill-of-Lading Key])
-go
-
-alter table BillOfLading
-    add constraint BillOfLading_pk
-        primary key nonclustered ([Bill-of-Lading Key])
-go
-
-
-create table Shipment
-(
-	[Shipment Key] int identity
-		constraint "Shipment_BillOfLading_[Bill-of-Lading Key]_fk"
-			references BillOfLading
-		constraint "Shipment_Vehicle_[Vehicle Key]_fk"
-			references Vehicle
-		constraint "Shipment_VoyageSchedule_[Voyage Schedule Key]_fk"
-			references VoyageSchedule,
-	[Voyage Schedule Key] int,
-	[Vehicle Key] int,
-	[Bill-of-Lading Key] int,
-	[Shipment Fees] money
-)
-go
-
-create unique index [Shipment_Shipment Key_uindex]
-	on Shipment ([Shipment Key])
-go
-
-alter table Shipment
-	add constraint Shipment_pk
-		primary key nonclustered ([Shipment Key])
+alter table Address
+    add constraint Address_pk
+        primary key nonclustered ([Address Key])
 go
 
 
@@ -151,63 +95,30 @@ alter table BusinessEntity
 	add constraint "BusinessEntity_Address_[Address Key]_fk"
 		foreign key ([Business Entity Key]) references Address
 go
-
 create unique index [Business Entity_Business Entity Key_uindex]
     on BusinessEntity ([Business Entity Key])
 go
-
 alter table BusinessEntity
     add constraint [BusinessEntity_pk]
         primary key nonclustered ([Business Entity Key])
 go
 
 
-create table Address
+create table Container
 (
-    [Address Key]    int identity,
-    [Address Line 1] nvarchar(100),
-    [Address Line 2] nvarchar(100),
-    [City]           nvarchar(100),
-    [Country]        nvarchar(50),
-    [Alpha 2]        varchar(2),
-    [ZIP Code]       varchar(11),
-    [Latitude]       varchar(15),
-    [Longitude]      varchar(15)
+    [Container Key] int identity,
+    [Owner Code]    varchar(4),
+    [Serial Number] int,
+    [Check Digit]   int,
+    [ISO Size Code] varchar(2),
+    [ISO Type Code] varchar(2)
 )
 go
-
-create unique index [Address_Address Key_uindex]
-    on Address ([Address Key])
+create unique index "Container_[Container Key]_uindex"
+    on Container ([Container Key])
 go
-
-alter table Address
-    add constraint Address_pk
-        primary key nonclustered ([Address Key])
-go
-
-
-create table Vehicle
-(
-    [Vehicle Key]                int identity,
-    [Vehicle Type]               varchar(50),
-    [IMO number]                 varchar(7),
-    [Vehicle Name]               nvarchar(255),
-    [Vehicle Capacity]           int,
-    [Vehicle Speed (km/h)]       decimal,
-    [Vehicle Builder]            nvarchar(255),
-    [Vehicle Fuel Usage per Day] decimal,
-    [Current Latitude]           varchar(15),
-    [Current Longitude]          varchar(15)
-)
-go
-
-create unique index [Vehicle_Vehicle Key_uindex]
-    on Vehicle ([Vehicle Key])
-go
-
-alter table Vehicle
-    add constraint Vehicle_pk
-        primary key nonclustered ([Vehicle Key])
+alter table Container
+    add primary key nonclustered ([Container Key])
 go
 
 
@@ -241,49 +152,12 @@ create table ContainerModel
     [Capacity (cbm)]             decimal
 )
 go
-
 create unique index "ContainerModel_[Container Model Key]_uindex"
     on ContainerModel ([Container Model Key])
 go
-
 alter table ContainerModel
     add constraint ContainerModel_pk
         primary key nonclustered ([Container Model Key])
-go
-
-
-create table Leg
-(
-    [Leg Key]              int not null
-        primary key nonclustered,
-    [Origin Port Key]      int not null
-        constraint Leg___fk_1
-            references Port,
-    [Destination Port Key] int not null
-        constraint Leg___fk_2
-            references Port,
-    [Leg Miles]            decimal
-)
-go
-
-
-create table Container
-(
-    [Container Key] int identity,
-    [Owner Code]    varchar(4),
-    [Serial Number] int,
-    [Check Digit]   int,
-    [ISO Size Code] varchar(2),
-    [ISO Type Code] varchar(2)
-)
-go
-
-create unique index "Container_[Container Key]_uindex"
-    on Container ([Container Key])
-go
-
-alter table Container
-    add primary key nonclustered ([Container Key])
 go
 
 
@@ -296,57 +170,11 @@ create table Commodity
     [Package Weight (kg)] decimal
 )
 go
-
 create unique index "Commodity_[Commodity Key]_uindex"
     on Commodity ([Commodity Key])
 go
-
 alter table Commodity
     add primary key nonclustered ([Commodity Key])
-go
-
-
-create table LegBridge
-(
-    [Leg Bridge Key] int not null,
-    [Leg Key]        int not null
-        references Leg ([Leg Key]),
-    constraint Leg_pk
-        primary key nonclustered ([Leg Bridge Key], [Leg Key])
-)
-go
-
-
-create table LegScheduleBridge
-(
-    [Leg Schedule Bridge Key] int not null,
-    [Leg Schedule Key]        int not null
-        references LegSchedule,
-    constraint LegScheduleBridge_pk
-        unique ([Leg Schedule Bridge Key], [Leg Schedule Key])
-)
-go
-
-
-create table LegSchedule
-(
-    [Leg Schedule Key]                        int identity,
-    [Leg Key]                                 int not null
-        constraint LegSchedule___fk_1
-            references Leg,
-    [Origin Port Scheduled Departure Date]    date,
-    [Destination Port Scheduled Arrival Date] date,
-    [Origin Port Actual Departure Date]       date,
-    [Destination Port Actual Arrival Date]    date
-)
-go
-
-create unique index "LegSchedule_[Leg Schedule Key]_uindex"
-    on LegSchedule ([Leg Schedule Key])
-go
-
-alter table LegSchedule
-    add primary key nonclustered ([Leg Schedule Key])
 go
 
 
@@ -368,57 +196,221 @@ create table Port
     Website          varchar(255)
 )
 go
-
 create unique index "Port_[Port Key]_uindex"
     on Port ([Port Key])
 go
-
 alter table Port
     add primary key nonclustered ([Port Key])
 go
 
 
+create table Leg
+(
+	[Leg Key] int not null
+		primary key nonclustered,
+	[Origin Port Key] int not null
+		constraint Leg_Port__fk_1
+			references Port,
+	[Destination Port Key] int not null
+		constraint Leg_Port__fk_2
+			references Port,
+	[Leg Miles] decimal
+)
+go
+
+
+create table LegBridge
+(
+	[Leg Bridge SK] int identity,
+	[Leg Key] int not null,
+	[Leg Bridge Key] int not null
+		constraint "LegBridge_Leg_[Leg Key]_fk"
+			references Leg,
+	constraint Leg_pk
+		unique ([Leg Bridge Key], [Leg Key])
+)
+go
+
+create unique index [LegBridge_Leg Bridge SK_uindex]
+	on LegBridge ([Leg Bridge SK])
+go
+
+alter table LegBridge
+	add constraint LegBridge_pk
+		primary key nonclustered ([Leg Bridge SK])
+go
+
+
+create table LegSchedule
+(
+    [Leg Schedule Key]                        int identity,
+    [Leg Key]                                 int not null
+        constraint LegSchedule___fk_1
+            references Leg,
+    [Origin Port Scheduled Departure Date]    date,
+    [Destination Port Scheduled Arrival Date] date,
+    [Origin Port Actual Departure Date]       date,
+    [Destination Port Actual Arrival Date]    date
+)
+go
+create unique index "LegSchedule_[Leg Schedule Key]_uindex"
+    on LegSchedule ([Leg Schedule Key])
+go
+alter table LegSchedule
+    add primary key nonclustered ([Leg Schedule Key])
+go
+
+
+create table LegScheduleBridge
+(
+    [Leg Schedule Bridge Key] int not null,
+    [Leg Schedule Key]        int not null
+        references LegSchedule,
+    constraint LegScheduleBridge_pk
+        unique ([Leg Schedule Bridge Key], [Leg Schedule Key])
+)
+go
+
 
 create table Voyage
 (
-    [Voyage Key]           int identity,
-    [Leg Bridge Key]       int not null
-        constraint Voyage___fk_1
-            references LegBridge ([Leg Bridge Key]),
-    [Origin Port Key]      int not null
-        constraint Voyage___fk_2
-            references Port,
-    [Destination Port Key] int not null
-        constraint Voyage___fk_3
-            references Port
+	[Voyage Key] int identity,
+	[Leg Bridge Key] int not null,
+	[Origin Port Key] int not null
+		constraint "Voyage_Port_[Port Key]_fk"
+			references Port,
+	[Destination Port Key] int not null
+		constraint "Voyage_Port_[Port Key]_fk_2"
+			references Port
 )
 go
 
 create unique index "Voyage_[Voyage Key]_uindex"
-    on Voyage ([Voyage Key])
+	on Voyage ([Voyage Key])
 go
 
 alter table Voyage
-    add primary key nonclustered ([Voyage Key])
+	add primary key nonclustered ([Voyage Key])
 go
+
 
 
 create table VoyageSchedule
 (
-    [Voyage Schedule Key]     int,
-    [Voyage Key]              int not null
-        constraint VoyageSchedule___fk_1
-            references Voyage,
-    [Leg Schedule Bridge Key] int not null
-        constraint VoyageSchedule___fk_2
-            references LegScheduleBridge ([Leg Schedule Bridge Key])
+	[Voyage Schedule Key] int identity
+		constraint "VoyageSchedule_Voyage_[Voyage Key]_fk"
+			references Voyage,
+	[Voyage Key] int not null,
+	[Leg Schedule Bridge Key] int not null
 )
 go
 
 create unique index "VoyageSchedule_[Voyage Schedule Key]_uindex"
-    on VoyageSchedule ([Voyage Schedule Key])
+	on VoyageSchedule ([Voyage Schedule Key])
 go
 
 alter table VoyageSchedule
-    add primary key nonclustered ([Voyage Schedule Key])
+	add primary key nonclustered ([Voyage Schedule Key])
+go
+
+
+
+create table BillOfLading
+(
+	[Bill-of-Lading Key] int identity,
+	[Bill-of-Lading Number] varchar(17),
+	[Issued Date] date,
+	[Consignor Key] int
+		references BusinessEntity,
+	[Consignee Key] int
+		references BusinessEntity,
+	[Foreign Transporter Key] int
+		references BusinessEntity,
+	[Foreign Consolidator Key] int
+		references BusinessEntity,
+	[Courier Key] int
+		references BusinessEntity,
+	[Domestic Transporter Key] int
+		references BusinessEntity,
+	[Domestic Consolidator Key] int
+		references BusinessEntity,
+	[Ship Mode] varchar(50),
+	[Place of Receipt Key] int
+		references Address,
+	[Place of Delivery Key] int
+		references Address,
+	[Port of Loading Key] int
+		references Port,
+	[Port of Discharge Key] int
+		references Port,
+	[Commodity Key] int
+		references Commodity,
+	[Container Key] int
+		references Container,
+	Incoterm varchar(3),
+	[Expected Tariffs] money,
+	[Actual Tariffs] money
+)
+go
+
+create unique index [BillOfLading_Bill-of-Lading Number_uindex]
+	on BillOfLading ([Bill-of-Lading Number])
+go
+
+create unique index "BillOfLading_[Bill-of-Lading Key]_uindex"
+	on BillOfLading ([Bill-of-Lading Key])
+go
+
+alter table BillOfLading
+	add constraint BillOfLading_pk
+		primary key nonclustered ([Bill-of-Lading Key])
+go
+
+
+create table Vehicle
+(
+    [Vehicle Key]                int identity,
+    [Vehicle Type]               varchar(50),
+    [IMO number]                 varchar(7),
+    [Vehicle Name]               nvarchar(255),
+    [Vehicle Capacity]           int,
+    [Vehicle Speed (km/h)]       decimal,
+    [Vehicle Builder]            nvarchar(255),
+    [Vehicle Fuel Usage per Day] decimal,
+    [Current Latitude]           varchar(15),
+    [Current Longitude]          varchar(15)
+)
+go
+create unique index [Vehicle_Vehicle Key_uindex]
+    on Vehicle ([Vehicle Key])
+go
+alter table Vehicle
+    add constraint Vehicle_pk
+        primary key nonclustered ([Vehicle Key])
+go
+
+
+create table Shipment
+(
+	[Shipment Key] int identity,
+	[Voyage Schedule Key] int,
+	[Vehicle Key] int,
+	[Bill-of-Lading Key] int,
+	[Shipment Fees] money,
+	constraint Shipment_BillOfLading__fk
+		foreign key ([Bill-of-Lading Key]) references BillOfLading,
+	constraint Shipment_Vehicle__fk
+		foreign key ([Vehicle Key]) references Vehicle,
+	constraint Shipment_VoyageSchedule__fk
+		foreign key ([Voyage Schedule Key]) references VoyageSchedule
+)
+go
+
+create unique index [Shipment_Shipment Key_uindex]
+	on Shipment ([Shipment Key])
+go
+
+alter table Shipment
+	add constraint Shipment_pk
+		primary key nonclustered ([Shipment Key])
 go
