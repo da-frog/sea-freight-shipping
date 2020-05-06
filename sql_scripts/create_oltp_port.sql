@@ -1,9 +1,9 @@
 USE FreightShipping;
 
-IF OBJECT_ID('dbo.PortDimension', 'U') IS NOT NULL
-    DROP TABLE PortDimension;
+IF OBJECT_ID('dbo.Port', 'U') IS NOT NULL
+    DROP TABLE Port;
 GO
-CREATE TABLE PortDimension
+CREATE TABLE Port
 (
     [Port Key]       int IDENTITY (1,1) NOT NULL,
     [Port Name]      nvarchar(50),
