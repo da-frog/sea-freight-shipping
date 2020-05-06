@@ -5,7 +5,7 @@ IF OBJECT_ID('dbo.ContainerDimension', 'U') IS NOT NULL
 GO
 CREATE TABLE ContainerDimension
 (
-    [Container Key]                     int IDENTITY (1,1) NOT NULL,
+    [Container Key]                     int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Container Number]                  varchar(11),
     [Container Size (Volume)]           decimal,
     [Container Type]                    varchar(100),
