@@ -5,7 +5,7 @@ IF OBJECT_ID ('dbo.DateDimension', 'U') IS NOT NULL
 GO
 CREATE TABLE DateDimension
 (
-    [Date Key]                      int IDENTITY (1,1) NOT NULL,
+    [Date Key]                      int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Date]                          date,
     [Full date description]	        varchar(255),
     [Date of Week]		            varchar(9),
