@@ -6,7 +6,7 @@ GO
 CREATE TABLE Container
 (
     [Container Key]  int IDENTITY (1,1) NOT NULL PRIMARY KEY,
-    [Owner Code]     varchar(11),
+    [Owner Code]     varchar(4),
     [Serial Number]  int,
     [Check Digit]    int,
     [ISO Size Code]  varchar(2),
