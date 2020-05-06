@@ -128,7 +128,7 @@ class BillOfLading(BaseModel):
     port_of_discharge_key: int = None
     commodity_key: int = None
     container_key: int = None
-    incoterm: int = None
+    incoterm: str = ''
     expected_tariffs: float = None
     actual_tariffs: float = None
 
