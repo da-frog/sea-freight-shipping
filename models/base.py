@@ -131,14 +131,19 @@ class BaseModel(metaclass=BaseModelMeta):
                 writer.writerow(dct)
 
     @classmethod
-    def load_from_csv(cls, filename: str, *, clear_instances=True):
+    def load_from_csv(cls, filename: str, *, clear_instances=True, limit=None):
         # not recommended
         if clear_instances:
             cls._instances.clear()
         with open(filename, 'r', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
+            count = 0
             for row in reader:
+                if limit is not None:
+                    if count == limit:
+                        break
                 cls.init_from_dict(dct=row)
+                count += 1
 
     @classmethod
     def dump_to_json(cls, filename: str):
