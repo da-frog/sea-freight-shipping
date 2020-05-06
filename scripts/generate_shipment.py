@@ -21,7 +21,7 @@ def load_database():
     Container.load_from_csv('../spreadsheet_data/da-base-OLTP - Container.csv')
     ContainerModel.load_from_csv('../spreadsheet_data/da-base-OLTP - ContainerModel.csv')
     Port.load_from_csv('../spreadsheet_data/da-base-OLTP - Port.csv')
-    Vehicle.load_from_csv('../spreadsheet_data/da-base-OLTP - Vehicle.csv')
+    # Vehicle.load_from_csv('../spreadsheet_data/da-base-OLTP - Vehicle.csv')
 
 
 def calculate_total_distance(ports: List[Port], *, key=True) -> float:
@@ -109,11 +109,13 @@ def create_route(bols: List[BillOfLading], n: int = 5) -> (List[Port], List[Bill
 
 
 def main():
-    x = BillOfLading.instances.copy()
+    print('**** main ****')
+    x = BillOfLading._instances.copy()
     while len(x) > 0:
         # create route
         route_length = random.randint(3, 6)
         route_ports, route_bols = create_route(x, route_length)
+        print(f'{len(x)}\n')
         # add bols to route
         added_bol = []
         for bol in x:
@@ -141,33 +143,28 @@ def main():
             # FIRST PART
             voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
 
-            for bol_key in voyage['bol keys'][:len(voyage['bol keys'] // 2)]:
-                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol_key)
+            for bol in route_bols[:len(route_bols) // 2]:
+                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol.bill_of_lading_key)
 
             # SECOND PART
             voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
 
-            for bol_key in voyage['bol keys'][len(voyage['bol keys'] // 2):]:
-                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol_key)
-
-
-# T = TypeVar('T')
-#
-#
-# def get_location_from_port_key(port_key: int) -> Location:
-#     return Port.get_instance_by_key(port_key).address.location
-#
-#
-# def calculate_leg_miles(port_keys: Sequence[T]) -> List[float]:
-#     kms = []
-#     locations = list(map(get_location_from_port_key, port_keys))
-#     for i in range(len(locations) - 1):
-#         kms.append(locations[i].calculate_distance(locations[i + 1]))
-#     return list(map(km_to_mile, kms))
+            for bol in route_bols[len(route_bols) // 2:]:
+                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol.bill_of_lading_key)
+        # else:
 
 
 if __name__ == '__main__':
+    load_database()
     main()
+    Voyage.dump_to_csv('voyages.csv')
+    LegBridge.dump_to_csv('leg_bridge.csv')
+    Leg.dump_to_csv('leg.csv')
+    VoyageSchedule.dump_to_csv('voyage_schedules.csv')
+    LegScheduleBridge.dump_to_csv('leg_schedule_bridge.csv')
+    LegSchedule.dump_to_csv('leg_schedule.csv')
+    Port.dump_to_csv('port.csv')
+
     # x = bols.copy()
     # print(len(x))
     # route_ports, route_bols = create_route(x, 6)
