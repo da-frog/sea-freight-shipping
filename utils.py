@@ -17,7 +17,7 @@ def read_csv_file(filename: str, *, encoding: str = 'utf-8') -> List[Dict]:
 
 def write_csv_file(filename: str, *, encoding: str = 'utf-8', data: List[Dict]):
     """ Write a list of dictionaries to csv file. """
-    with open(filename, 'w', encoding=encoding) as csvfile:
+    with open(filename, 'w', encoding=encoding, newline='') as csvfile:
         writer = csv.DictWriter(csvfile, data[0].keys())
         writer.writeheader()
         for d in data:
