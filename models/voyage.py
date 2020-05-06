@@ -44,7 +44,7 @@ class Leg(BaseModel):
 
     @property
     def leg_miles(self) -> float:
-        return km_to_mile(self.leg_kms)
+        return round(km_to_mile(self.leg_kms), 2)
 
     def get_expected_time(self, vehicle: Vehicle) -> timedelta:
         return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
