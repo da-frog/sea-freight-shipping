@@ -7,7 +7,7 @@ CREATE TABLE Commodity
 (
     [Commodity Key]           int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [HS Code]                 varchar(6),
-    [Description]             nvarchar(100),
+    [Description]             nvarchar(255),
     [Package Size (m^3)]      decimal,
     [Package Weight (kg)]     decimal
 );
