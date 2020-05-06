@@ -1,7 +1,10 @@
-IF (SELECT object_id('dbo.ShipModeDim')) > 0
-	DROP TABLE dbo.ShipModeDim;
+USE FreightShippingDW;
 
-CREATE TABLE ShipModeDim(
+IF OBJECT_ID('dbo.ShipModeDimension', 'U') IS NOT NULL
+	DROP TABLE ShipModeDimension;
+GO
+CREATE TABLE ShipModeDimension
+(
 	[Ship Mode Key]          int IDENTITY (1,1) NOT NULL,
 	[Vehicle Type]           nvarchar(50),
 	[Vehicle Name]           nvarchar(100),
