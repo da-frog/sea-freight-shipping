@@ -62,10 +62,10 @@ GO
 create table Address
 (
     [Address Key]    int identity,
-    [Address Line 1] nvarchar(100),
-    [Address Line 2] nvarchar(100),
-    [City]           nvarchar(100),
-    [Country]        nvarchar(50),
+    [Address Line 1] nvarchar(255),
+    [Address Line 2] nvarchar(255),
+    [City]           nvarchar(255),
+    [Country]        nvarchar(255),
     [Alpha 2]        varchar(2),
     [ZIP Code]       varchar(11),
     [Latitude]       varchar(15),
@@ -165,7 +165,7 @@ create table Commodity
 (
     [Commodity Key]       int identity,
     [HS Code]             varchar(6),
-    Description           nvarchar(255),
+    [Description]         nvarchar(255),
     [Package Size (m^3)]  decimal,
     [Package Weight (kg)] decimal
 )
@@ -185,8 +185,8 @@ create table Port
             references Address,
     [Address Key]    int,
     [Port Name]      nvarchar(255),
-    [Port Type]      varchar(50),
-    [Port Size]      varchar(50),
+    [Port Type]      nvarchar(255),
+    [Port Size]      nvarchar(255),
     [UN/LOCODE]      varchar(10),
     Phone            varchar(15),
     Fax              varchar(15),
@@ -369,7 +369,7 @@ go
 create table Vehicle
 (
     [Vehicle Key]                int identity,
-    [Vehicle Type]               varchar(50),
+    [Vehicle Type]               nvarchar(255),
     [IMO number]                 varchar(7),
     [Vehicle Name]               nvarchar(255),
     [Vehicle Capacity]           int,
