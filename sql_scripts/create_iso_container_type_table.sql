@@ -6,9 +6,9 @@ GO
 
 CREATE TABLE ISOTypeCode
 (
-    [Code]                       nvarchar(255) NOT NULL,
-	[Type group code]            nvarchar(255) NOT NULL,
-	[Detailed Type Code]         nvarchar(255) NOT NULL,
+    [Code]                       varchar(1) NOT NULL,
+	[Type group code]            varchar(2) NOT NULL,
+	[Detailed Type Code]         varchar(2) NOT NULL,
     [Type Designation]           nvarchar(255),
     [Type Group Description]     nvarchar(255),
     [Main Characteristics]       nvarchar(255)
