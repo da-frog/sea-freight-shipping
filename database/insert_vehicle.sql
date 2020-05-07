@@ -1,6 +1,7 @@
 SET IDENTITY_INSERT FreightShipping.dbo.Vehicle ON;
 
-INSERT INTO Vehicle VALUES
+INSERT INTO Vehicle ([Vehicle Key], [Vehicle Type], [IMO number], [Vehicle Name], [Vehicle Capacity], [Vehicle Speed (km/h)], [Vehicle Builder], [Vehicle Fuel Usage per Day], [Current Latitude], [Current Longitude])
+VALUES
     (1,10.5564,N'Offshore Support Vessel',N'PRELUDE',394330.0,N'Kaiser Shipyards',136.98,N'-13.78729',N'123.31391'),
     (2,11.2972,N'Crane Ship',N'PIONEERING SPIRIT',499125.0,N'Suez shipyard',163.12,N'51.96167',N'3.977'),
     (3,9.6304,N'FSO',N'FSO AFRICA',441561.0,N'Oregon Shipbuilding Corporation',144.16,N'26.64437',N'51.89488'),
@@ -1001,7 +1002,8 @@ INSERT INTO Vehicle VALUES
     (998,14.4456,N'Container Ship',N'MSC NATASHA',141398.0,N'Jiangnan Shipyard',85.95,N'17.97637',N'-102.17217'),
     (999,12.7788,N'Container Ship',N'MSC EMMA',141406.0,N'Federal Shipbuilding & Drydock',83.83,N'34.35962',N'123.56049'),
     (1000,22.9648,N'Container Ship',N'MSC ALTAIR',141051.0,N'Nakilat Damen Shipyards Qatar',98.96,N'-18.74451',N'11.2091');
-INSERT INTO Vehicle VALUES
+INSERT INTO Vehicle INSERT INTO Vehicle ([Vehicle Key], [Vehicle Type], [IMO number], [Vehicle Name], [Vehicle Capacity], [Vehicle Speed (km/h)], [Vehicle Builder], [Vehicle Fuel Usage per Day], [Current Latitude], [Current Longitude])
+VALUES
     (1001,15.5568,N'Container Ship',N'MSC CAPELLA',141103.0,N'Severnaya Verf',87.36,N'6.14889',N'94.47007'),
     (1002,12.4084,N'Container Ship',N'MSC VEGA',140989.0,N'Cockatoo Island Dockyard',83.28,N'39.0066',N'121.6898'),
     (1003,12.964,N'Container Ship',N'MSC REGULUS',140951.0,N'Strategic Marine Mazatlán',83.95,N'36.26922',N'19.76324'),
