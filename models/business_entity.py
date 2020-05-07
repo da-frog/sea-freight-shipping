@@ -11,7 +11,7 @@ class BusinessEntity(BaseModel):
     fields = (
         ('Business Entity Key', None, 'int'),
         'Name',
-        ('E-mail', 'email'),
+        ('E-mail', 'email', 'nvarchar(255)'),
         'Phone',
         'Fax',
         'Address Key',
