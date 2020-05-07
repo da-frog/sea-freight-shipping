@@ -65,6 +65,8 @@ def dump_database(dataset: str, mode: str = 'csv'):
         method_name = 'dump_to_csv'
     elif mode == 'json':
         method_name = 'dump_to_json'
+    elif mode == 'sql':
+        method_name = 'dump_to_sql'
     else:
         raise AssertionError('no such mode \'' + mode + "'")
 
