@@ -1,10 +1,11 @@
 from typing import Sequence, List, ClassVar, Tuple, TypeVar, Type
-import typing
+from datetime import date, datetime, time
 
 import csv
 import json
 
 from jsoncompat import JSONEncoder, JSONDecoder, Date
+from frogsql import SQLWriter
 
 T = TypeVar('T')
 
@@ -65,12 +66,78 @@ class BaseModel(metaclass=BaseModelMeta):
         attrs = []
         for field in cls.fields:
             if isinstance(field, str):
+                # name not specified
                 attrs.append(common_name_to_snake_case(field))
             elif isinstance(field, tuple):
                 assert isinstance(field[0], str), "Wrong fields format"
+                if field[1] is None:
+                    # name not specified
+                    attrs.append(common_name_to_snake_case(field[0]))
+                    continue
                 assert isinstance(field[1], str), "Wrong fields format"
                 attrs.append(field[1])
         return attrs
+
+    @classmethod
+    def _get_db_type(cls, attr_name: str) -> str:
+        type_ = cls.__annotations__[common_name_to_snake_case(attr_name)]
+        if isinstance(type_, str):
+            # imported annotations from __future__
+            if type_ == 'str':
+                dbtype = 'nvarchar(255)'
+            elif type_ == 'int':
+                dbtype = 'int'
+            elif type_ == 'float':
+                dbtype = 'decimal'
+            else:
+                raise NotImplementedError(f'What type is this? {type_}')
+            pass
+        elif isinstance(type_, type):
+            # used type directly
+            if type_ == str:
+                dbtype = 'nvarchar(255)'
+            elif type_ == int:
+                dbtype = 'int'
+            elif type_ == float:
+                dbtype = 'decimal'
+            elif type_ == list:
+                dbtype = 'nvarchar(511)'
+            elif type_ == date:
+                dbtype = 'date'
+            elif type_ == datetime:
+                dbtype = 'date'
+            # elif type_ == time:
+            #     dbtype = 'time'
+            else:
+                raise NotImplementedError(f'What type is this? {type_}')
+        else:
+            # TODO: Handle these things
+            try:
+                # typing Generics
+                if type_.__origin__ == list:
+                    dbtype = 'nvarchar(511)'
+                    return dbtype
+                raise NotImplementedError
+            except AttributeError:
+                pass
+            raise AssertionError('What happened')
+        return dbtype
+
+    @classmethod
+    def get_dbtypes(cls) -> List[str]:
+        dbtypes = []
+        for field in cls.fields:
+            if isinstance(field, str):
+                # dbtype not specified
+                dbtypes.append(cls._get_db_type(field))
+            elif isinstance(field, tuple):
+                if not len(field) == 2:
+                    # dbtype not specified
+                    dbtypes.append(cls._get_db_type(common_name_to_snake_case(field[0])))
+                    continue
+                # specified dbtype
+                dbtypes.append(field[2])
+        return dbtypes
 
     @classmethod
     def init_from_dict(cls, dct: dict) -> 'BaseModel':
@@ -166,6 +233,26 @@ class BaseModel(metaclass=BaseModelMeta):
             lst = json.loads(f.read(), cls=JSONDecoder)
             for dct in lst:
                 cls(**dct)  # shouldn't fail if it's a dataclass
+
+    @classmethod
+        def dump_to_sql(cls, filename: str):
+        with open(filename, 'w', encoding='utf-8') as f:
+            writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
+            writer.writeheader(cls.__name__)
+
+            iterable = cls._instances.__iter__()
+            while True:
+                group = []
+                n = 0
+                for instance in iterable:
+                    n += 1
+                    group.append(instance)
+                    if n == 1000:
+                        break
+                if not group:
+                    break
+                writer.writeheader(cls.__name__)
+                writer.writerows(group)
 
     def as_json(self) -> dict:
         d = {
