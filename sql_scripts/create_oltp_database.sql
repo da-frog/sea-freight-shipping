@@ -165,7 +165,7 @@ create table Commodity
 (
     [Commodity Key]       int identity,
     [HS Code]             nvarchar(6),
-    [Description]         nvarchar(255),
+    [Description]         nvarchar(511),
     [Package Size (m^3)]  decimal,
     [Package Weight (kg)] decimal
 )

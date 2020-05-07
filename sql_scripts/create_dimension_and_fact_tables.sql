@@ -52,9 +52,9 @@ CREATE TABLE CommodityDimension
 (
     [Commodity Key]           int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [HS Code]                 nvarchar(6),
-    [Commodity Description]   nvarchar(100),
-    [Catagory Description]    nvarchar(100),
-    [Subcategory Description] nvarchar(100),
+    [Commodity Description]   nvarchar(511),
+    [Catagory Description]    nvarchar(511),
+    [Subcategory Description] nvarchar(511),
     [Package Size (m^3)]      decimal,
     [Package Weight (kg)]     decimal,
 );
