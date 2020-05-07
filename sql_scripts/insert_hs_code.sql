@@ -1,3 +1,6 @@
+IF OBJECT_ID('dbo.HarmonizedSystem', 'U') IS NOT NULL
+    DELETE FROM HarmonizedSystem;
+GO
 INSERT INTO HarmonizedSystem VALUES
     (N'I',N'01',N'Animals; live',N'TOTAL',2),
     (N'I',N'0101',N'Horses, asses, mules and hinnies; live',N'01',4),
@@ -997,8 +1000,8 @@ INSERT INTO HarmonizedSystem VALUES
     (N'IV',N'190590',N'Food preparations; bakers'' wares n.e.c. in heading no. 1605, whether or not containing cocoa; communion wafers, empty cachets suitable for pharmaceutical use, sealing wafers, rice papers and similar products',N'1905',6),
     (N'IV',N'20',N'Preparations of vegetables, fruit, nuts or other parts of plants',N'TOTAL',2),
     (N'IV',N'2001',N'Vegetables, fruit, nuts and other edible parts of plants; prepared or preserved by vinegar or acetic acid',N'20',4),
-    (N'IV',N'200110',N'Vegetable preparations; cucumbers and gherkins, prepared or preserved by vinegar or acetic acid',N'2001',6),
-    (N'IV',N'200190',N'Vegetable preparations; vegetables, fruit, nuts and other edible parts of plants, prepared or preserved by vinegar or acetic acid (excluding cucumbers and gherkins)',N'2001',6),
+    (N'IV',N'200110',N'Vegetable preparations; cucumbers and gherkins, prepared or preserved by vinegar or acetic acid',N'2001',6);
+INSERT INTO HarmonizedSystem VALUES
     (N'IV',N'2002',N'Tomatoes; prepared or preserved otherwise than by vinegar or acetic acid',N'20',4),
     (N'IV',N'200210',N'Vegetable preparations; tomatoes, whole or in pieces, prepared or preserved otherwise than by vinegar or acetic acid',N'2002',6),
     (N'IV',N'200290',N'Vegetable preparations; tomatoes, (other than whole or in pieces), prepared or preserved otherwise than by vinegar or acetic acid',N'2002',6),
@@ -1997,8 +2000,8 @@ INSERT INTO HarmonizedSystem VALUES
     (N'VI',N'293723',N'Steroidal hormones, their derivatives and structural analogues; oestrogens and progestogens',N'2937',6),
     (N'VI',N'293729',N'Steroidal hormones, their derivatives and structural analogues; other than cortisone, hydrocortisone, prednisone (dehydrocortisone), prednisolone (dehydrohydrocortisone), halogenated derivatives of corticosteroidal hormones, oestrogen and progestogens',N'2937',6),
     (N'VI',N'293750',N'Prostaglandins, thromboxanes and leukotrienes, their derivatives and structural analogues',N'2937',6),
-    (N'VI',N'293790',N'Hormones, prostaglandins, thromboxanes and leukotrienes, natural or reproduced by synthesis; derivatives and structural analogues thereof, including chain modified polypeptides, used primarily as hormones, n.e.c. in heading 2937',N'2937',6),
-    (N'VI',N'2938',N'Glycosides, natural or reproduced by synthesis, and their salts, ethers, esters and other derivatives',N'29',4),
+    (N'VI',N'293790',N'Hormones, prostaglandins, thromboxanes and leukotrienes, natural or reproduced by synthesis; derivatives and structural analogues thereof, including chain modified polypeptides, used primarily as hormones, n.e.c. in heading 2937',N'2937',6);
+INSERT INTO HarmonizedSystem VALUES
     (N'VI',N'293810',N'Glycosides; rutoside (rutin) and its derivatives',N'2938',6),
     (N'VI',N'293890',N'Glycosides; natural or reproduced by synthesis, other than rutoside (rutin) and its derivatives',N'2938',6),
     (N'VI',N'2939',N'Alkaloids; natural or reproduced by synthesis, and their salts, ethers, esters and other derivatives',N'29',4),
@@ -2997,8 +3000,8 @@ INSERT INTO HarmonizedSystem VALUES
     (N'X',N'480519',N'Paper and paperboard; uncoated, fluting paper other than semi-chemical or straw, rolls or sheets',N'4805',6),
     (N'X',N'480524',N'Paper & paperboard; uncoated, testliner (recycled linerboard), weight 150g/m2, or less, in rolls or sheets',N'4805',6),
     (N'X',N'480525',N'Paper & paperboard; uncoated, testliner (recycled linerboard), weight over 150g/m2, in rolls or sheets',N'4805',6),
-    (N'X',N'480530',N'Paper and paperboard; sulphite wrapping paper, uncoated, in rolls or sheets',N'4805',6),
-    (N'X',N'480540',N'Paper and paperboard; filter paper and paperboard, uncoated, in rolls or sheets',N'4805',6),
+    (N'X',N'480530',N'Paper and paperboard; sulphite wrapping paper, uncoated, in rolls or sheets',N'4805',6);
+INSERT INTO HarmonizedSystem VALUES
     (N'X',N'480550',N'Paper and paperboard; felt paper and paperboard, uncoated, in rolls or sheets',N'4805',6),
     (N'X',N'480591',N'Paper and paperboard; uncoated, weight 150g/m2 or less, in rolls or sheets, n.e.c. in heading no.4805',N'4805',6),
     (N'X',N'480592',N'Paper and paperboard; uncoated, weight more than 150g/m2 but less than 225 g/m2, in rolls or sheets, n.e.c. in heading no. 4805',N'4805',6),
@@ -3997,8 +4000,8 @@ INSERT INTO HarmonizedSystem VALUES
     (N'XI',N'621133',N'Track suits and other garments n.e.c.; men''s or boys'', of man-made fibres (not knitted or crocheted)',N'6211',6),
     (N'XI',N'621139',N'Track suits and other garments n.e.c.; men''s or boys'', of textile materials n.e.c. in item no. 6211.3 (not knitted or crocheted)',N'6211',6),
     (N'XI',N'621142',N'Track suits and other garments n.e.c.; women''s or girls'', of cotton (not knitted or crocheted)',N'6211',6),
-    (N'XI',N'621143',N'Track suits and other garments n.e.c.; women''s or girls'', of man-made fibres (not knitted or crocheted)',N'6211',6),
-    (N'XI',N'621149',N'Track suits and other garments n.e.c.; women''s or girls'', of textile materials n.e.c. in item no. 6211.4 (not knitted or crocheted)',N'6211',6),
+    (N'XI',N'621143',N'Track suits and other garments n.e.c.; women''s or girls'', of man-made fibres (not knitted or crocheted)',N'6211',6);
+INSERT INTO HarmonizedSystem VALUES
     (N'XI',N'6212',N'Brassieres, girdles, corsets, braces, suspenders, garters and similar articles and parts thereof; whether or not knitted or crocheted',N'62',4),
     (N'XI',N'621210',N'Brassieres; whether or not knitted or crocheted',N'6212',6),
     (N'XI',N'621220',N'Girdles and panty-girdles; whether or not knitted or crocheted',N'6212',6),
@@ -4997,8 +5000,8 @@ INSERT INTO HarmonizedSystem VALUES
     (N'XV',N'8110',N'Antimony; articles thereof, including waste and scrap',N'81',4),
     (N'XV',N'811010',N'Antimony and articles thereof; unwrought antimony, powders',N'8110',6),
     (N'XV',N'811020',N'Antimony; waste and scrap',N'8110',6),
-    (N'XV',N'811090',N'Antimony and articles thereof; wrought, other than waste and scrap',N'8110',6),
-    (N'XV',N'8111',N'Manganese; articles thereof, including waste and scrap',N'81',4),
+    (N'XV',N'811090',N'Antimony and articles thereof; wrought, other than waste and scrap',N'8110',6);
+INSERT INTO HarmonizedSystem VALUES
     (N'XV',N'811100',N'Manganese; articles thereof, including waste and scrap',N'8111',6),
     (N'XV',N'8112',N'Beryllium, chromium, germanium, vanadium, gallium, hafnium, indium, niobium (columbium), rhenium and thallium; and articles of these metals, including waste and scrap',N'81',4),
     (N'XV',N'811212',N'Beryllium and articles thereof; unwrought beryllium, powders',N'8112',6),
@@ -5997,8 +6000,8 @@ INSERT INTO HarmonizedSystem VALUES
     (N'XVI',N'853941',N'Lamps; arc-lamps',N'8539',6),
     (N'XVI',N'853949',N'Lamps; ultra-violet or infra-red lamps, (excluding arc-lamps)',N'8539',6),
     (N'XVI',N'853950',N'Lamps; light-emitting diode (LED) lamps',N'8539',6),
-    (N'XVI',N'853990',N'Lamps; parts of the lamps of heading no. 8539',N'8539',6),
-    (N'XVI',N'8540',N'Thermionic, cold cathode or photo-cathode valves and tubes (e.g. vacuum, vapour, gas filled valves and tubes, mercury arc rectifying valves and tubes, cathode-ray and television camera tubes)',N'85',4),
+    (N'XVI',N'853990',N'Lamps; parts of the lamps of heading no. 8539',N'8539',6);
+INSERT INTO HarmonizedSystem VALUES
     (N'XVI',N'854011',N'Tubes; cathode-ray television picture tubes, including video monitor cathode-ray tubes, colour',N'8540',6),
     (N'XVI',N'854012',N'Tubes; cathode-ray television picture tubes, including video monitor cathode-ray tubes, monochrome',N'8540',6),
     (N'XVI',N'854020',N'Tubes; television camera tubes, image converters and intensifiers, other photo-cathode tubes',N'8540',6),

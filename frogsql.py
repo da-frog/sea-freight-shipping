@@ -5,6 +5,7 @@ class SQLWriter:
     def __init__(self, f: TextIO, dialect: str = "SQL Server", **kwargs):
         if dialect.lower() != 'sql server':
             raise NotImplementedError
+        self.dialect = dialect.lower()
         self.fieldtypes: List[str] = kwargs.pop('fieldtypes', None)
         self.check: List[str] = kwargs.pop('check', True)
         self.f = f
@@ -31,7 +32,10 @@ class SQLWriter:
                         continue
                     # escape single quotes
                     if "'" in value:
-                        value = value.replace("'", r"\'")
+                        if self.dialect == 'sql server':
+                            value = value.replace("'", "''")
+                        else:
+                            value = value.replace("'", r"\'")
 
                     if datatype.startswith('varchar'):
                         text = f"'{value}'"
@@ -57,7 +61,10 @@ class SQLWriter:
                         continue
                     # escape single quotes
                     if "'" in value:
-                        value = value.replace("'", r"\'")
+                        if self.dialect == 'sql server':
+                            value = value.replace("'", "''")
+                        else:
+                            value = value.replace("'", r"\'")
                     text = f"N'{value}'"
                 else:
                     raise ValueError(f"value '{value}' of class '{value.__class__.__name__} 'is not of valid type")
@@ -68,11 +75,18 @@ class SQLWriter:
         self.f.write(f"    {self.convert_row(row)},\n")
 
     def writerows(self, rows: Iterable[Iterable[Any]]):
+        n = 0
         lst = []
         for row in rows:
             lst.append(self.convert_row(row))
+            n += 1
         text = ',\n    '.join(lst)
+        if n > 1000 and self.dialect == 'sql server':
+            raise ValueError("The number of row value expressions in the INSERT statement exceeds the maximum allowed number of 1000 row values.")
         self.f.write(f'    {text};\n')
+
+    def write_delete(self, table_name: str):
+        self.f.write(f"IF OBJECT_ID('dbo.{table_name}', 'U') IS NOT NULL\n    DELETE FROM {table_name};\nGO\n")
 
     def writeheader(self, table_name: str):
         self.f.write(f'INSERT INTO {table_name} VALUES\n')
@@ -106,8 +120,20 @@ class DictWriter:
         return self.writer.writerows(map(self._dict_to_list, rowdicts))
 
 
-def writetable(filename: str, table_name: str, data: List[Dict]):
-    with open(filename, 'w', encoding='utf-8') as csvfile:
-        writer = DictWriter(csvfile, data[0].keys())
-        writer.writeheader(table_name)
-        writer.writerows(data)
+def writetable(data: List[Dict], table_name: str, filename: str):
+    with open(filename, 'w', encoding='utf-8') as file:
+        writer = DictWriter(file, data[0].keys())
+        writer.writer.write_delete(table_name)
+        iterable = data.__iter__()
+        while True:
+            datab = []
+            n = 0
+            for row in iterable:
+                n += 1
+                if n == 1000:
+                    break
+                datab.append(row)
+            if not datab:
+                break
+            writer.writeheader(table_name)
+            writer.writerows(datab)
