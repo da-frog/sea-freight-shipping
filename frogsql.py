@@ -1,20 +1,20 @@
 from typing import List, Dict, TypeVar, Iterable, Tuple, Any, Sequence, TextIO, Generator
-
+from datetime import date, datetime, time
 
 class SQLWriter:
     def __init__(self, f: TextIO, dialect: str = "SQL Server", **kwargs):
         if dialect.lower() != 'sql server':
             raise NotImplementedError
         self.dialect = dialect.lower()
-        self.fieldtypes: List[str] = kwargs.pop('fieldtypes', None)
+        self.dbtypes: List[str] = kwargs.pop('dbtypes', None)
         self.check: List[str] = kwargs.pop('check', True)
         self.f = f
 
     def convert_row(self, row: Iterable[Any]) -> str:
         lst = []
 
-        if self.fieldtypes is not None and self.check:
-            for datatype, value in zip(self.fieldtypes, row):
+        if self.dbtypes is not None and self.check:
+            for datatype, value in zip(self.dbtypes, row):
                 if value is None:
                     text = 'NULL'
                 elif isinstance(value, int):
@@ -43,6 +43,12 @@ class SQLWriter:
                         text = f"N'{value}'"
                     else:
                         raise ValueError(f"datatype '{datatype}' does not match value '{value}' of class {value.__class__.__name__}")
+                elif isinstance(value, date):
+                    text = f"'{value.year:04}-{value.month:02}-{value.day:02}'"
+                elif isinstance(value, datetime):
+                    text = f"'{value.year:04}-{value.month:02}-{value.day:02} {value.hour:02}:{value.minute:02}:{value.second:02}'"
+                elif isinstance(value, time):
+                    text = f"'{value.hour:02}:{value.minute:02}:{value.second:02}'"
                 else:
                     raise ValueError(f"value '{value}' of class '{value.__class__.__name__} 'is not of valid type")
                 lst.append(text)
@@ -129,10 +135,10 @@ def writetable(data: List[Dict], table_name: str, filename: str):
             datab = []
             n = 0
             for row in iterable:
+                datab.append(row)
                 n += 1
                 if n == 1000:
                     break
-                datab.append(row)
             if not datab:
                 break
             writer.writeheader(table_name)
