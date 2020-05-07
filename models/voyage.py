@@ -17,10 +17,10 @@ from jsoncompat import Date, TimeDelta
 class Leg(BaseModel):
     _instances = []
     fields = (
-        'Leg Key',
+        ('Leg Key', None, int),
         'Origin Port Key',
         'Destination Port Key',
-        'Leg Miles',
+        ('Leg Miles', None, 'decimal'),
     )
 
     origin_port_key: int
@@ -141,10 +141,10 @@ class LegBridge(BaseModel):
 class Voyage(BaseModel):
     _instances = []
     fields = (
-        'Voyage Key',
+        ('Voyage Key', None, 'int'),
         'Leg Bridge Key',
-        'Origin Port Key',
-        'Destination Port Key',
+        ('Origin Port Key', None, 'int'),
+        ('Destination Port Key', None, 'int'),
     )
 
     leg_bridge_key: int = None
@@ -204,7 +204,7 @@ class Voyage(BaseModel):
 class LegSchedule(BaseModel):
     _instances = []
     fields = (
-        'Leg Schedule Key',
+        ('Leg Schedule Key', None, 'int'),
         'Leg Key',
         'Origin Port Scheduled Departure Date',
         'Destination Port Scheduled Arrival Date',
@@ -240,8 +240,12 @@ class LegSchedule(BaseModel):
     def get_fees(self, vehicle: Vehicle) -> float:
         if self.destination_port_actual_arrival_date is not None:
             if self.origin_port_actual_departure_date is not None:
-                return round((self.destination_port_actual_arrival_date - self.origin_port_actual_departure_date).days * vehicle.vehicle_fuel_usage_per_day * 200, 2)
-        return round((self.destination_port_scheduled_arrival_date - self.origin_port_scheduled_departure_date).days * vehicle.vehicle_fuel_usage_per_day * 200, 2)
+                return round((
+                                         self.destination_port_actual_arrival_date - self.origin_port_actual_departure_date).days * vehicle.vehicle_fuel_usage_per_day * 200,
+                             2)
+        return round((
+                                 self.destination_port_scheduled_arrival_date - self.origin_port_scheduled_departure_date).days * vehicle.vehicle_fuel_usage_per_day * 200,
+                     2)
 
 
 @dataclass
@@ -313,8 +317,8 @@ class LegScheduleBridge(BaseModel):
 class VoyageSchedule(BaseModel):
     _instances = []
     fields = (
-        'Voyage Schedule Key',
-        'Voyage Key',
+        ('Voyage Schedule Key', None, 'int'),
+        ('Voyage Key', None, 'int'),
         'Leg Schedule Bridge Key',
     )
 
@@ -359,10 +363,12 @@ class VoyageSchedule(BaseModel):
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
         first_ls = self.leg_schedules[0]
-        first_ls.destination_port_scheduled_arrival_date = first_ls.origin_port_scheduled_departure_date + first_ls.leg.get_expected_time(vehicle)
+        first_ls.destination_port_scheduled_arrival_date = first_ls.origin_port_scheduled_departure_date + first_ls.leg.get_expected_time(
+            vehicle)
         for ls1, ls2 in pairwise(self.leg_schedules):
             expected_delay = TimeDelta(days=int(np.random.poisson(1.5, 1)))
-            ls2.destination_port_scheduled_arrival_date = ls1.origin_port_scheduled_departure_date + ls1.leg.get_expected_time(vehicle)
+            ls2.destination_port_scheduled_arrival_date = ls1.origin_port_scheduled_departure_date + ls1.leg.get_expected_time(
+                vehicle)
             ls2.origin_port_scheduled_departure_date = ls2.destination_port_scheduled_arrival_date + expected_delay
 
     @property
@@ -403,12 +409,14 @@ class VoyageSchedule(BaseModel):
 
         for ls1, ls2 in pairwise(self.leg_schedules):
             travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
-            ls1.destination_port_actual_arrival_date = ls1.origin_port_actual_departure_date + ls1.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
+            ls1.destination_port_actual_arrival_date = ls1.origin_port_actual_departure_date + ls1.leg.get_expected_time(
+                vehicle) + travel_delay + accidental_delay
             ls2.origin_port_actual_departure_date = ls1.destination_port_actual_arrival_date + port_delay + accidental_port_delay
 
         travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
         last_ls = self.leg_schedules[-1]
-        last_ls.destination_port_actual_arrival_date = last_ls.origin_port_actual_departure_date + last_ls.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
+        last_ls.destination_port_actual_arrival_date = last_ls.origin_port_actual_departure_date + last_ls.leg.get_expected_time(
+            vehicle) + travel_delay + accidental_delay
 
     @property
     def actual_departure_date(self):

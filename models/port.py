@@ -11,7 +11,7 @@ from .address import Address
 class Port(BaseModel):
     _instances: ClassVar[List['Port']] = []
     fields: ClassVar[Sequence[str]] = (
-        'Port Key',
+        ('Port Key', None, 'int'),
         'Address Key',
         'Port Name',
         'Port Type',

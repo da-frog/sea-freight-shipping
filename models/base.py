@@ -104,6 +104,8 @@ class BaseModel(metaclass=BaseModelMeta):
             elif type_ == date:
                 dbtype = 'date'
             elif type_ == datetime:
+                dbtype = 'datetime'
+            elif type_ == Date:
                 dbtype = 'date'
             # elif type_ == time:
             #     dbtype = 'time'
@@ -247,6 +249,7 @@ class BaseModel(metaclass=BaseModelMeta):
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
             writer.writeheader(cls.__name__)
 
+            iterable = cls._instances.__iter__()
             while True:
                 group = []
                 n = 0

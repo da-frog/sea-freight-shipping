@@ -8,7 +8,7 @@ from .base import BaseModel
 class Vehicle(BaseModel):
     _instances = []
     fields = (
-        'Vehicle Key',
+        ('Vehicle Key', None, 'int'),
         ('Vehicle Speed (km/h)', 'vehicle_speed_kmh'),
         'Vehicle Type',
         'Vehicle Name',

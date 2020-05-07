@@ -7,7 +7,7 @@ from .container_model import ContainerModel
 class Container(BaseModel):
     _instances = []
     fields = (
-        'Container Key',
+        ('Container Key', None, 'int'),
         'Owner Code',
         'Serial Number',
         'Check Digit',
