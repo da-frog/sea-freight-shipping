@@ -133,11 +133,11 @@ CREATE TABLE CountrySpecificDateOutrigger
 CREATE TABLE PortDimension
 (
     [Port Key]       int IDENTITY (1,1) NOT NULL,
-    [Port Name]      nvarchar(50),
+    [Port Name]      nvarchar(255),
     [Port Type]      nvarchar(50),
     [Port Country]   nvarchar(50),
     [Port City]      nvarchar(50),
-    [Port Address]   nvarchar(100),
+    [Port Address]   nvarchar(255),
     [Port Telephone] varchar(15),
     primary key ([Port Key])
 );
@@ -147,7 +147,7 @@ CREATE TABLE ShipModeDimension
 (
     [Ship Mode Key]          int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Vehicle Type]           nvarchar(50),
-    [Vehicle Name]           nvarchar(100),
+    [Vehicle Name]           nvarchar(255),
     [Vehicle Capacity]       decimal,
     [Vehicle Speed (km/h)]   decimal,
     [Vehicle Speed (mile/h)] decimal,

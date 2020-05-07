@@ -108,8 +108,8 @@ create table Container
 (
     [Container Key] int identity,
     [Owner Code]    varchar(4),
-    [Serial Number] int,
-    [Check Digit]   int,
+    [Serial Number] varchar(6),
+    [Check Digit]   varchar(1),
     [ISO Size Code] varchar(2),
     [ISO Type Code] varchar(2)
 )
@@ -184,9 +184,8 @@ create table Port
         constraint Port___fk_1
             references Address,
     [Address Key]    int,
-    [Port Name]      nvarchar(50),
-    [Port Type]      nvarchar(50),
-    [Port Telephone] varchar(15),
+    [Port Name]      nvarchar(255),
+    [Port Type]      varchar(50),
     [Port Size]      varchar(50),
     [UN/LOCODE]      varchar(10),
     Phone            varchar(15),
