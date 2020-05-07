@@ -7,7 +7,7 @@ data = []
 MIN_NUM = 106300
 MAX_NUM = 965999
 
-from check_n_rand.check_digits import get_check_digit
+from models.container import get_check_digit
 
 
 def ensure_loaded():
