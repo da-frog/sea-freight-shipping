@@ -1,21 +1,30 @@
-from typing import List, Dict, TypeVar, Iterable, Tuple
+from typing import List, Dict, TypeVar, Iterable, Tuple, Any, Sequence, TextIO, Generator, Callable
 import csv
 from itertools import tee, zip_longest
 
 T = TypeVar('T')
 
 
-def read_csv_file(filename: str, *, encoding: str = 'utf-8') -> List[Dict]:
+def read_csv_file(filename: str, *, encoding: str = 'utf-8', convert: Dict[str, Callable] = None) -> List[Dict]:
     """ Reads a csv file and return a list of dictionaries. """
     data = []
-    with open(filename, 'r', encoding=encoding) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            data.append(row)
+    if convert is not None:
+        with open(filename, 'r', encoding=encoding) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                for key, value in row.items():
+                    if key in convert:
+                        row[key] = convert[key](row[key])
+                data.append(row)
+    else:
+        with open(filename, 'r', encoding=encoding) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                data.append(row)
     return data
 
 
-def write_csv_file(filename: str, *, encoding: str = 'utf-8', data: List[Dict]):
+def write_csv_file(filename: str, data: List[Dict], *, encoding: str = 'utf-8'):
     """ Write a list of dictionaries to csv file. """
     with open(filename, 'w', encoding=encoding, newline='') as csvfile:
         writer = csv.DictWriter(csvfile, data[0].keys())
