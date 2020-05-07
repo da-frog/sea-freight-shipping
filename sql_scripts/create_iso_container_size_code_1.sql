@@ -9,5 +9,5 @@ CREATE TABLE ISOSizeCode1
     [Container length (mm)] int,
     [Container length (ft)] int,
     [Container length (in)] int,
-    [Code character]        nvarchar(255)
+    [Code character]        nvarchar(1),
 );
