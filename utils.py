@@ -5,16 +5,19 @@ from itertools import tee, zip_longest
 T = TypeVar('T')
 
 
-def read_csv_file(filename: str, *, encoding: str = 'utf-8', convert: Dict[str, Callable] = None) -> List[Dict]:
+def read_csv_file(filename: str, encoding: str = 'utf-8', default: Any = None, **kwargs) -> List[Dict]:
     """ Reads a csv file and return a list of dictionaries. """
     data = []
-    if convert is not None:
+    if kwargs is not None:
         with open(filename, 'r', encoding=encoding) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 for key, value in row.items():
-                    if key in convert:
-                        row[key] = convert[key](row[key])
+                    if key in kwargs:
+                        try:
+                            row[key] = kwargs[key](row[key])
+                        except ValueError:
+                            row[key] = default
                 data.append(row)
     else:
         with open(filename, 'r', encoding=encoding) as csvfile:
