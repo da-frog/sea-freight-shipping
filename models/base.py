@@ -235,7 +235,7 @@ class BaseModel(metaclass=BaseModelMeta):
                 cls(**dct)  # shouldn't fail if it's a dataclass
 
     @classmethod
-        def dump_to_sql(cls, filename: str):
+    def dump_to_sql(cls, filename: str):
         with open(filename, 'w', encoding='utf-8') as f:
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
             writer.writeheader(cls.__name__)
