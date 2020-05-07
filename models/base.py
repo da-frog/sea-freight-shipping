@@ -139,7 +139,7 @@ class BaseModel(metaclass=BaseModelMeta):
                 if not len(field) == 3:
                     # dbtype not specified
                     try:
-                        dbtypes.append(cls._get_dbtype(common_name_to_snake_case(field[0])))
+                        dbtypes.append(cls._get_dbtype(field[1]))
                     except KeyError:
                         # not an actual attribute but a property
                         raise AssertionError(f"Cannot automatically assign dbtype to properties, please indicate the dbtype for '{field}' in class '{cls.__name__}'") from None
