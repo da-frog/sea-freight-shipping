@@ -66,10 +66,10 @@ create table Address
     [Address Line 2] nvarchar(255),
     [City]           nvarchar(255),
     [Country]        nvarchar(255),
-    [Alpha 2]        varchar(2),
-    [ZIP Code]       varchar(11),
-    [Latitude]       varchar(15),
-    [Longitude]      varchar(15)
+    [Alpha 2]        nvarchar(2),
+    [ZIP Code]       nvarchar(11),
+    [Latitude]       nvarchar(15),
+    [Longitude]      nvarchar(15)
 )
 go
 create unique index [Address_Address Key_uindex]
@@ -85,9 +85,9 @@ create table BusinessEntity
 (
     [Business Entity Key] int identity,
     [Name]                nvarchar(255),
-    [E-mail]              varchar(255),
-    [Phone]               varchar(15),
-    [Fax]                 varchar(15),
+    [E-mail]              nvarchar(255),
+    [Phone]               nvarchar(15),
+    [Fax]                 nvarchar(15),
     [Address Key]         int
 )
 go
@@ -107,11 +107,11 @@ go
 create table Container
 (
     [Container Key] int identity,
-    [Owner Code]    varchar(4),
-    [Serial Number] varchar(6),
-    [Check Digit]   varchar(1),
-    [ISO Size Code] varchar(2),
-    [ISO Type Code] varchar(2)
+    [Owner Code]    nvarchar(4),
+    [Serial Number] nvarchar(6),
+    [Check Digit]   nvarchar(1),
+    [ISO Size Code] nvarchar(2),
+    [ISO Type Code] nvarchar(2)
 )
 go
 create unique index "Container_[Container Key]_uindex"
@@ -125,10 +125,10 @@ go
 create table ContainerModel
 (
     [Container Model Key]        int identity,
-    [ISO Size Code]              varchar(2),
-    [ISO Type Code]              varchar(2),
+    [ISO Size Code]              nvarchar(2),
+    [ISO Type Code]              nvarchar(2),
     [Model Description]          nvarchar(255),
-    [Owner Code]                 varchar(4),
+    [Owner Code]                 nvarchar(4),
     [Serial Number Range Start]  int,
     [Serial Number Range End]    int,
     [Inside Length (mm)]         int,
@@ -164,7 +164,7 @@ go
 create table Commodity
 (
     [Commodity Key]       int identity,
-    [HS Code]             varchar(6),
+    [HS Code]             nvarchar(6),
     [Description]         nvarchar(255),
     [Package Size (m^3)]  decimal,
     [Package Weight (kg)] decimal
@@ -187,12 +187,12 @@ create table Port
     [Port Name]   nvarchar(255),
     [Port Type]   nvarchar(255),
     [Port Size]   nvarchar(255),
-    [UN/LOCODE]   varchar(10),
-    Phone         varchar(15),
-    Fax           varchar(15),
-    [800 Number]  varchar(15),
-    Email         varchar(255),
-    Website       varchar(255)
+    [UN/LOCODE]   nvarchar(10),
+    Phone         nvarchar(15),
+    Fax           nvarchar(15),
+    [800 Number]  nvarchar(15),
+    Email         nvarchar(255),
+    Website       nvarchar(255)
 )
 go
 create unique index "Port_[Port Key]_uindex"
@@ -317,7 +317,7 @@ go
 create table BillOfLading
 (
     [Bill-of-Lading Key]        int identity,
-    [Bill-of-Lading Number]     varchar(17),
+    [Bill-of-Lading Number]     nvarchar(17),
     [Issued Date]               date,
     [Consignor Key]             int
         references BusinessEntity,
@@ -333,7 +333,7 @@ create table BillOfLading
         references BusinessEntity,
     [Domestic Consolidator Key] int
         references BusinessEntity,
-    [Ship Mode]                 varchar(50),
+    [Ship Mode]                 nvarchar(50),
     [Place of Receipt Key]      int
         references Address,
     [Place of Delivery Key]     int
@@ -346,7 +346,7 @@ create table BillOfLading
         references Commodity,
     [Container Key]             int
         references Container,
-    Incoterm                    varchar(3),
+    Incoterm                    nvarchar(3),
     [Expected Tariffs]          money,
     [Actual Tariffs]            money
 )

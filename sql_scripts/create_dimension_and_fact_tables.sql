@@ -38,20 +38,20 @@ CREATE TABLE BusinessEntityDimension
 (
     [Business Entity Key] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Name]                nvarchar(50),
-    [Telephone]           varchar(15),
-    [Fax]                 varchar(15),
-    [Email]               varchar(255),
+    [Telephone]           nvarchar(15),
+    [Fax]                 nvarchar(15),
+    [Email]               nvarchar(255),
     [Address]             nvarchar(255),
     [City]                nvarchar(50),
     [Country]             nvarchar(50),
-    [ZIP code]            varchar(11),
+    [ZIP code]            nvarchar(11),
 );
 
 
 CREATE TABLE CommodityDimension
 (
     [Commodity Key]           int IDENTITY (1,1) NOT NULL PRIMARY KEY,
-    [HS Code]                 varchar(6),
+    [HS Code]                 nvarchar(6),
     [Commodity Description]   nvarchar(100),
     [Catagory Description]    nvarchar(100),
     [Subcategory Description] nvarchar(100),
@@ -63,9 +63,9 @@ CREATE TABLE CommodityDimension
 CREATE TABLE ContainerDimension
 (
     [Container Key]                     int IDENTITY (1,1) NOT NULL PRIMARY KEY,
-    [Container Number]                  varchar(11),
+    [Container Number]                  nvarchar(11),
     [Container Size (Volume)]           decimal,
-    [Container Type]                    varchar(100),
+    [Container Type]                    nvarchar(100),
     [Container Tare Weight (kg)]        decimal,
     [Container Inside Length (mm)]      int,
     [Container Inside Width (mm)]       int,
@@ -80,10 +80,10 @@ CREATE TABLE ContainerDimension
     [Container Outside Width (ft)]      decimal,
     [Container Outside Height (ft)]     decimal,
     [Container Capacity]                decimal,
-    [Container Electricity Indicator]   varchar(50),
-    [Container Refrigeration Indicator] varchar(50),
-    [Container Thermal Indicator]       varchar(50),
-    [Container Dangerous Indicator]     varchar(50),
+    [Container Electricity Indicator]   nvarchar(50),
+    [Container Refrigeration Indicator] nvarchar(50),
+    [Container Thermal Indicator]       nvarchar(50),
+    [Container Dangerous Indicator]     nvarchar(50),
 )
 
 
@@ -91,27 +91,27 @@ CREATE TABLE DateDimension
 (
     [Date Key]                      int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Date]                          date,
-    [Full date description]	        varchar(255),
-    [Date of Week]		            varchar(9),
+    [Full date description]	        nvarchar(255),
+    [Date of Week]		            nvarchar(9),
     [Day Number in Calendar Month]	tinyint,
     [Day Number in Calendar Year]	smallint,
     [Day Number in Fiscal Month]	tinyint,
     [Day Number in Fiscal Year]		smallint,
-    [Last Day in Month Indicator]	varchar(50),
+    [Last Day in Month Indicator]	nvarchar(50),
     [Calendar Week Ending Date]     date,
     [Calendar Week Number in Year]  tinyint,
-    [Calendar Month Name]           varchar(9),
+    [Calendar Month Name]           nvarchar(9),
     [Calendar Month Number in Year] tinyint,
-    [Calendar Year-Month (YYYY-MM)] varchar(7),
-    [Calendar Quarter]              varchar(2),
-    [Calendar Year-Quarter]         varchar(7),
+    [Calendar Year-Month (YYYY-MM)] nvarchar(7),
+    [Calendar Quarter]              nvarchar(2),
+    [Calendar Year-Quarter]         nvarchar(7),
     [Calendar Year]                 smallint,
     [Fiscal Week]                   tinyint,
     [Fiscal Week Number in Year]    tinyint,
     [Fiscal Month]	                tinyint,
-    [Fiscal Year-Month]             varchar(7),
-    [Fiscal Quarter]                varchar(2),
-    [Fiscal Year-Quarter]           varchar(7),
+    [Fiscal Year-Month]             nvarchar(7),
+    [Fiscal Quarter]                nvarchar(2),
+    [Fiscal Year-Quarter]           nvarchar(7),
     [Fiscal Year]                   smallint,
 );
 
@@ -138,7 +138,7 @@ CREATE TABLE PortDimension
     [Port Country]   nvarchar(255),
     [Port City]      nvarchar(255),
     [Port Address]   nvarchar(255),
-    [Port Telephone] varchar(15),
+    [Port Telephone] nvarchar(15),
     primary key ([Port Key])
 );
 
@@ -180,7 +180,7 @@ CREATE TABLE ShippingTransportFact
     [Domestic Consolidator Key]             int REFERENCES BusinessEntityDimension,
     [Domestic Transporter Key]              int REFERENCES BusinessEntityDimension,
     [Consignee Key]                         int REFERENCES BusinessEntityDimension,
-    [Bill-of-Lading Number (DD)]            varchar(17),
+    [Bill-of-Lading Number (DD)]            nvarchar(17),
     [Leg Fee]                               money,
     [Expected Tariffs]                      decimal,
     [Actual Tariffs]                        decimal,

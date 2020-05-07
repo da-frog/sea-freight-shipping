@@ -6,6 +6,6 @@ GO
 
 CREATE TABLE HSSection
 (
-    section     varchar(5)    NOT NULL,
-    name        varchar(255)  NOT NULL,
+    section     nvarchar(5)    NOT NULL,
+    name        nvarchar(255)  NOT NULL,
 );
