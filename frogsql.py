@@ -1,6 +1,7 @@
 from typing import List, Dict, TypeVar, Iterable, Tuple, Any, Sequence, TextIO, Generator
 from datetime import date, datetime, time
 
+
 class SQLWriter:
     def __init__(self, f: TextIO, dialect: str = "SQL Server", **kwargs):
         if dialect.lower() != 'sql server':
@@ -10,47 +11,54 @@ class SQLWriter:
         self.check: List[str] = kwargs.pop('check', True)
         self.f = f
 
+    def escape_string(self, s: str) -> str:
+        if "'" in s:
+            if self.dialect == 'sql server':
+                return s.replace("'", "''")
+            else:
+                return s.replace("'", r"\'")
+        return s
+
     def convert_row(self, row: Iterable[Any]) -> str:
         lst = []
 
         if self.dbtypes is not None and self.check:
+            # print(row)
             for datatype, value in zip(self.dbtypes, row):
                 if value is None:
                     text = 'NULL'
-                elif isinstance(value, int):
-                    if datatype.lower() not in ('tinyint', 'smallint', 'int', 'bigint'):
-                        raise ValueError(f"datatype '{datatype}' does not match value '{value}' of class {value.__class__.__name__}")
-                    text = str(value)
-                elif isinstance(value, float):
-                    if datatype.lower() not in ('decimal', 'float'):
-                        raise ValueError(f"datatype '{datatype}' does not match value '{value}' of class {value.__class__.__name__}")
-                    text = str(value)
-                elif isinstance(value, str):
-                    if str == '':
-                        text = 'NULL'
-                        lst.append(text)
-                        continue
-                    # escape single quotes
-                    if "'" in value:
-                        if self.dialect == 'sql server':
-                            value = value.replace("'", "''")
-                        else:
-                            value = value.replace("'", r"\'")
-
-                    if datatype.startswith('varchar'):
-                        text = f"'{value}'"
+                elif isinstance(datatype, str):
+                    if datatype == 'int':
+                        if not isinstance(value, int):
+                            raise ValueError(f"type mismatch '{value}' of class '{value.__class__.__name__}' --> '{datatype}'")
+                        # TODO: check value is within bounds
+                        text = str(value)
+                    elif datatype == 'decimal':
+                        text = str(value)
+                    elif datatype.startswith('varchar'):
+                        assert datatype[7] == '('
+                        assert datatype[-1] == ')'
+                        limit = int(datatype[8:-1])
+                        if len(value) > limit:
+                            raise ValueError(f"value '{value}' exceeds the limite for {datatype}")
+                        text = f"'{self.escape_string(value)}'"
                     elif datatype.startswith('nvarchar'):
-                        text = f"N'{value}'"
+                        assert datatype[8] == '('
+                        assert datatype[-1] == ')'
+                        limit = int(datatype[9:-1])
+                        if len(value) > limit:
+                            raise ValueError(f"value '{value}' exceeds the limite for {datatype}")
+                        text = f"N'{self.escape_string(value)}'"
+                    elif datatype == 'date':
+                        text = f"'{value.year:04}-{value.month:02}-{value.day:02}'"
+                    elif datatype == 'datetime':
+                        text = f"'{value.year:04}-{value.month:02}-{value.day:02} {value.hour:02}:{value.minute:02}:{value.second:02}'"
+                    elif datatype == 'time':
+                        text = f"'{value.hour:02}:{value.minute:02}:{value.second:02}'"
                     else:
-                        raise ValueError(f"datatype '{datatype}' does not match value '{value}' of class {value.__class__.__name__}")
-                elif isinstance(value, date):
-                    text = f"'{value.year:04}-{value.month:02}-{value.day:02}'"
-                elif isinstance(value, datetime):
-                    text = f"'{value.year:04}-{value.month:02}-{value.day:02} {value.hour:02}:{value.minute:02}:{value.second:02}'"
-                elif isinstance(value, time):
-                    text = f"'{value.hour:02}:{value.minute:02}:{value.second:02}'"
+                        raise NotImplementedError(f"encoding for '{datatype}' not supported")
                 else:
-                    raise ValueError(f"value '{value}' of class '{value.__class__.__name__} 'is not of valid type")
+                    raise AssertionError(f"datatype must be a str not a '{datatype}'")
                 lst.append(text)
         else:
             for i, value in enumerate(row):
@@ -66,12 +74,13 @@ class SQLWriter:
                         lst.append(text)
                         continue
                     # escape single quotes
-                    if "'" in value:
-                        if self.dialect == 'sql server':
-                            value = value.replace("'", "''")
-                        else:
-                            value = value.replace("'", r"\'")
-                    text = f"N'{value}'"
+                    text = f"'{self.escape_string(value)}'"
+                elif isinstance(value, date):
+                    text = f"'{value.year:04}-{value.month:02}-{value.day:02}'"
+                elif isinstance(value, datetime):
+                    text = f"'{value.year:04}-{value.month:02}-{value.day:02} {value.hour:02}:{value.minute:02}:{value.second:02}'"
+                elif isinstance(value, time):
+                    text = f"'{value.hour:02}:{value.minute:02}:{value.second:02}'"
                 else:
                     raise ValueError(f"value '{value}' of class '{value.__class__.__name__} 'is not of valid type")
                 lst.append(text)

@@ -57,7 +57,6 @@ class BaseModel(metaclass=BaseModelMeta):
                 keys.append(field)
             elif isinstance(field, tuple):
                 assert isinstance(field[0], str), "Wrong fields format"
-                assert isinstance(field[1], str), "Wrong fields format"
                 keys.append(field[0])
         return keys
 
@@ -69,8 +68,8 @@ class BaseModel(metaclass=BaseModelMeta):
                 # name not specified
                 attrs.append(common_name_to_snake_case(field))
             elif isinstance(field, tuple):
-                assert isinstance(field[0], str), "Wrong fields format"
                 if field[1] is None:
+                    assert isinstance(field[0], str), "Wrong fields format"
                     # name not specified
                     attrs.append(common_name_to_snake_case(field[0]))
                     continue
@@ -79,7 +78,7 @@ class BaseModel(metaclass=BaseModelMeta):
         return attrs
 
     @classmethod
-    def _get_db_type(cls, attr_name: str) -> str:
+    def _get_dbtype(cls, attr_name: str) -> str:
         type_ = cls.__annotations__[common_name_to_snake_case(attr_name)]
         if isinstance(type_, str):
             # imported annotations from __future__
@@ -129,11 +128,19 @@ class BaseModel(metaclass=BaseModelMeta):
         for field in cls.fields:
             if isinstance(field, str):
                 # dbtype not specified
-                dbtypes.append(cls._get_db_type(field))
+                try:
+                    dbtypes.append(cls._get_dbtype(field))
+                except KeyError:
+                    # not an actual attribute but a property
+                    raise AssertionError(f"Cannot automatically assign dbtype to properties, please indicate the dbtype for '{field}' in class '{cls.__name__}'") from None
             elif isinstance(field, tuple):
-                if not len(field) == 2:
+                if not len(field) == 3:
                     # dbtype not specified
-                    dbtypes.append(cls._get_db_type(common_name_to_snake_case(field[0])))
+                    try:
+                        dbtypes.append(cls._get_dbtype(common_name_to_snake_case(field[0])))
+                    except KeyError:
+                        # not an actual attribute but a property
+                        raise AssertionError(f"Cannot automatically assign dbtype to properties, please indicate the dbtype for '{field}' in class '{cls.__name__}'") from None
                     continue
                 # specified dbtype
                 dbtypes.append(field[2])
@@ -240,7 +247,6 @@ class BaseModel(metaclass=BaseModelMeta):
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
             writer.writeheader(cls.__name__)
 
-            iterable = cls._instances.__iter__()
             while True:
                 group = []
                 n = 0
@@ -251,8 +257,18 @@ class BaseModel(metaclass=BaseModelMeta):
                         break
                 if not group:
                     break
+
                 writer.writeheader(cls.__name__)
-                writer.writerows(group)
+                for instance in group:
+                    values = []
+                    for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
+                        value = getattr(instance, attr)
+                        if isinstance(value, list):
+                            value = json.dumps(value)
+                        elif isinstance(value, dict):
+                            value = json.dumps(value)
+                        values.append(value)
+                    writer.writerow(values)
 
     def as_json(self) -> dict:
         d = {
