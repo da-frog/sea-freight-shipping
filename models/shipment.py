@@ -44,7 +44,8 @@ class Shipment(BaseModel):
 
     @property
     def shipment_fees(self) -> float:
-        return self.voyage_schedule.get_fees(self.vehicle)
+        if self.vehicle_key is not None:
+            return self.voyage_schedule.get_fees(self.vehicle)
 
     @classmethod
     def get_instances_from_voyage_schedule_key(cls, voyage_schedule_key: int) -> List['Shipment']:
