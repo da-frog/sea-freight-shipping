@@ -444,8 +444,8 @@ FROM Container C JOIN ContainerModel CM
     AND C.[Serial Number] <= CM.[Serial Number Range End]
 
 SELECT *
-    [HS Code]
-    [Commodity Description],
+    [HS Code],
+    C.[Description] [Commodity Description],
     [Category Description],
     [Subcategory Description],
     [Package Size (m^3)],
@@ -454,10 +454,10 @@ FROM Commodity C
 
 SELECT
     [Name],
-    [Telephone],
+    Phone [Telephone],
     [Fax],
-    [Email],
-    CONCAT([Address Line 1], [Address Line 2], City, Country, [ZIP Code])  [Address],
+    [E-mail] [Email],
+    CONCAT([Address Line 1], [Address Line 2], [City], [Country], [ZIP Code])  [Address],
     [City],
     [Country],
     [ZIP code]
@@ -467,9 +467,9 @@ FROM BusinessEntity BE JOIN Address A ON BE.[Address Key] = A.[Address Key]
 SELECT
     [Port Name],
     [Port Type],
-    A.Country [Port Country],
-    A.City [Port City],
-    CONCAT([Address Line 1], [Address Line 2], City, Country, [ZIP Code])  [Address],
+    [Country] [Port Country],
+    [City] [Port City],
+    CONCAT([Address Line 1], [Address Line 2], [City], [Country], [ZIP Code])  [Address],
     P.Phone [Port Telephone]
 FROM Port P JOIN Address A on P.[Address Key] = A.[Address Key]
 
