@@ -10,7 +10,7 @@ from .base import BaseModel
 class Address(BaseModel):
     _instances = []
     fields = (
-        'Address Key',
+        ('Address Key', None, 'int'),
         'Address Line 1',
         'Address Line 2',
         'City',
