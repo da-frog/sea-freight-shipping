@@ -1,6 +1,9 @@
+from typing import ClassVar, List
 from dataclasses import dataclass
+
 from .base import BaseModel
 from .container_model import ContainerModel
+
 
 letter_covert_table = {
     'A': 10, 'B': 12, 'C': 13,
@@ -43,7 +46,7 @@ def get_check_digit(owner_code: str, number: str) -> int:
 
 @dataclass
 class Container(BaseModel):
-    _instances = []
+    _instances: ClassVar[List['Container']] = []
     fields = (
         ('Container Key', None, 'int'),
         ('Owner Code', None, 'nvarchar(4)'),
@@ -53,39 +56,12 @@ class Container(BaseModel):
         ('ISO Type Code', None, 'nvarchar(2)'),
     )
 
-    container_number: str = ''
-    container_model_key: int = None
+    owner_code: str
+    serial_number: str
+    check_digit: str
+    iso_size_code: str
+    iso_type_code: str
 
     @property
     def container_key(self) -> int:
         return self.key
-
-    @property
-    def container_model(self) -> ContainerModel:
-        return ContainerModel.get_instance_by_key(self.container_model_key)
-
-    @property
-    def owner_code(self) -> str:
-        owner_code = self.container_number[:4]
-        assert len(owner_code) == 4
-        return owner_code
-
-    @property
-    def serial_number(self) -> str:
-        serial_number = self.container_number[4:-1]
-        assert len(serial_number) == 6
-        return serial_number
-
-    @property
-    def check_digit(self) -> str:
-        check_digit = self.container_number[-1]
-        assert len(check_digit) == 1
-        return check_digit
-
-    @property
-    def iso_size_code(self) -> str:
-        return self.container_model.iso_size_code
-
-    @property
-    def iso_type_code(self) -> str:
-        return self.container_model.iso_type_code
