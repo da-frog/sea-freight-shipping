@@ -1,3 +1,5 @@
+USE FreightShipping;
+
 SET IDENTITY_INSERT FreightShipping.dbo.Vehicle ON;
 
 INSERT INTO Vehicle ([Vehicle Key], [Vehicle Type], [IMO number], [Vehicle Name], [Vehicle Capacity], [Vehicle Speed (km/h)], [Vehicle Builder], [Vehicle Fuel Usage per Day], [Current Latitude], [Current Longitude])
