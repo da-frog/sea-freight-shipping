@@ -1,6 +1,9 @@
+USE FreightShipping;
+
 SET IDENTITY_INSERT FreightShipping.dbo.ContainerModel ON;
 
-INSERT INTO ContainerModel VALUES
+INSERT INTO ContainerModel ([ISO Size Code], [ISO Type Code], [Model Description], [Owner Code], [Serial Number Range Start], [Serial Number Range End], [Inside Length (mm)], [Inside Width (mm)], [Inside Height (mm)], [Inside Middle Height (mm)], [Inside Side Height (mm)], [Max stow Height], [Roof Opening Length (mm)], [Roof Opening Width (mm)], [Door Opening Width (mm)], [Door Opening Height (mm)], [Door Opening Width C (mm)], [Door Opening Width D (mm)], [Door Opening Width B (mm)], [Door Opening Height E (mm)], [Door Opening Height F (mm)], [Max Gross Weight (kg)], [Tare Weight (kg)], [Max Payload Weight (kg)], [Capacity (m^3)])
+VALUES
     (31,N'45',N'G0',N'Wooden floor',N'HLBU',106300,109299,12032.0,2432.0,2700.0,NULL,NULL,NULL,NULL,NULL,2340.0,2597.0,NULL,NULL,NULL,NULL,NULL,32500.0,3850.0,28650.0,76.3),
     (19,N'42',N'G0',N'Wooden floor',N'HLBU',112100,114899,12032.0,2352.0,2395.0,NULL,NULL,NULL,NULL,NULL,2340.0,2292.0,NULL,NULL,NULL,NULL,NULL,32500.0,3750.0,28750.0,67.7),
     (26,N'42',N'G1',N'Wooden floor',N'HLBU',112100,114899,12032.0,2352.0,2395.0,NULL,NULL,NULL,NULL,NULL,2340.0,2292.0,NULL,NULL,NULL,NULL,NULL,32500.0,3750.0,28750.0,67.7),
