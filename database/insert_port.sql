@@ -1,3 +1,5 @@
+SET IDENTITY_INSERT FreightShipping.dbo.Port ON;
+
 INSERT INTO Port VALUES
     (1,3001,N'Durres',N'Seaport',N'Small',N'355 52 23115',N'355 52 22028',NULL,N'ALDRZ',N'apd@san.com.al',NULL),
     (2,3002,N'Sarande',N'Pier, Jetty or Wharf',N'Small',N'355 85 25827',N'355 85 25827',NULL,NULL,NULL,NULL),
@@ -4273,3 +4275,5 @@ INSERT INTO Port VALUES
     (4268,7268,N'Ras Isa Marine Terminal',N'Off-Shore Terminal',N'Very Small',N'=+011-967-1-414060',NULL,NULL,NULL,NULL,N'www.huntoil.com'),
     (4269,7269,N'Saleef Port',N'Seaport',N'Small',N'967 3 75057',NULL,NULL,NULL,NULL,NULL),
     (4270,7270,N'Harare',NULL,NULL,NULL,NULL,NULL,N'ZWHRE',NULL,NULL);
+
+SET IDENTITY_INSERT FreightShipping.dbo.Port OFF;

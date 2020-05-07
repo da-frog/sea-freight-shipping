@@ -1,3 +1,5 @@
+SET IDENTITY_INSERT FreightShipping.dbo.Commodity ON;
+
 INSERT INTO Commodity VALUES
     (1,N'290941',N'Nam nulla.',2.663,796.45),
     (2,N'010632',N'Integer a nibh.',1.34,167.0),
@@ -5003,3 +5005,5 @@ INSERT INTO Commodity VALUES
     (4998,N'811213',N'Donec vitae nisi.',1.805,975.67),
     (4999,N'830590',N'Ut at dolor quis odio consequat varius. Integer ac leo.',0.507,570.86),
     (5000,N'030771',N'Nulla suscipit ligula in lacus.',1.245,1071.74);
+
+SET IDENTITY_INSERT FreightShipping.dbo.Commodity OFF;
