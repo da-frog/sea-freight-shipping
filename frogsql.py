@@ -40,14 +40,15 @@ class SQLWriter:
                         assert datatype[-1] == ')'
                         limit = int(datatype[8:-1])
                         if len(value) > limit:
-                            raise ValueError(f"value '{value}' exceeds the limite for {datatype}")
+                            raise ValueError(f"str '{value}' exceeds the limit for {datatype}")
                         text = f"'{self.escape_string(value)}'"
                     elif datatype.startswith('nvarchar'):
                         assert datatype[8] == '('
                         assert datatype[-1] == ')'
                         limit = int(datatype[9:-1])
                         if len(value) > limit:
-                            raise ValueError(f"value '{value}' exceeds the limite for {datatype}")
+                            print(row)
+                            raise ValueError(f"str '{value}' exceeds the limit for {datatype}")
                         text = f"N'{self.escape_string(value)}'"
                     elif datatype == 'date':
                         text = f"'{value.year:04}-{value.month:02}-{value.day:02}'"
