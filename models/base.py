@@ -247,8 +247,6 @@ class BaseModel(metaclass=BaseModelMeta):
     def dump_to_sql(cls, filename: str):
         with open(filename, 'w', encoding='utf-8') as f:
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
-            writer.writeheader(cls.__name__)
-
             iterable = cls._instances.__iter__()
             while True:
                 group = []
@@ -262,6 +260,7 @@ class BaseModel(metaclass=BaseModelMeta):
                     break
 
                 writer.writeheader(cls.__name__)
+                lst = []
                 for instance in group:
                     values = []
                     for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
@@ -271,7 +270,8 @@ class BaseModel(metaclass=BaseModelMeta):
                         elif isinstance(value, dict):
                             value = json.dumps(value)
                         values.append(value)
-                    writer.writerow(values)
+                    lst.append(values)
+                writer.writerows(lst)
 
     def as_json(self) -> dict:
         d = {
