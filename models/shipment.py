@@ -11,11 +11,11 @@ from .bill_of_lading import BillOfLading
 class Shipment(BaseModel):
     _instances: ClassVar[List['Shipment']] = []
     fields = (
-        'Shipment Key',
+        ('Shipment Key', None, 'int'),
         'Voyage Schedule Key',
         'Vehicle Key',
         'Bill-of-Lading Key',
-        'Shipment Fees',
+        ('Shipment Fees', None, 'decimal'),
     )
 
     voyage_schedule_key: int = None

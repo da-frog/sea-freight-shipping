@@ -9,7 +9,7 @@ from .address import Address
 class BusinessEntity(BaseModel):
     _instances = []
     fields = (
-        'Business Entity Key',
+        ('Business Entity Key', None, 'int'),
         'Name',
         ('E-mail', 'email'),
         'Phone',

@@ -90,7 +90,7 @@ def get_bol_check_digit(bol_number: str) -> str:
 class BillOfLading(BaseModel):
     _instances: ClassVar[List['BillOfLading']] = []
     fields = (
-        'Bill-of-Lading Key',
+        ('Bill-of-Lading Key', None, 'int'),
         'Bill-of-Lading Number',
         'Issued Date',
         'Consignor Key',

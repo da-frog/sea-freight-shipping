@@ -7,12 +7,12 @@ from .base import BaseModel
 class Commodity(BaseModel):
     _instances = []
     fields = (
-        'Commodity Key',
+        ('Commodity Key', None, 'int'),
         'HS Code',
-        'Description',
+        ('Description', None, 'nvarchar(511)'),
         ('Package Size (m^3)', 'package_size'),
         ('Package Weight (kg)', 'package_weight'),
-        ('Densities (kg/m^3)', 'densities'),
+        # ('Densities (kg/m^3)', 'densities'),
     )
 
     hs_code: str = ''

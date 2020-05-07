@@ -7,7 +7,7 @@ from .base import BaseModel
 class ContainerModel(BaseModel):
     _instances = []
     fields = (
-        'Container Model Key', 'ISO Size Code', 'ISO Type Code', 'Model Description', 'Owner Code',
+        ('Container Model Key', None, 'int'), 'ISO Size Code', 'ISO Type Code', 'Model Description', 'Owner Code',
         'Serial Number Range Start', 'Serial Number Range End', 'Inside Length (mm)', 'Inside Width (mm)',
         'Inside Height (mm)', 'Inside Middle Height (mm)', 'Inside Side Height (mm)', 'Max stow Height',
         'Roof Opening Length (mm)', 'Roof Opening Width (mm)', 'Door Opening Width (mm)',
