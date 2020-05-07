@@ -17,7 +17,7 @@ from jsoncompat import Date, TimeDelta
 class Leg(BaseModel):
     _instances = []
     fields = (
-        ('Leg Key', None, int),
+        ('Leg Key', None, 'int'),
         'Origin Port Key',
         'Destination Port Key',
         ('Leg Miles', None, 'decimal'),
