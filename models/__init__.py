@@ -1,3 +1,5 @@
+from typing import List, Type
+
 from .base import BaseModel
 
 from .address import Address
@@ -12,6 +14,10 @@ from .vehicle import Vehicle
 from .voyage import Leg, LegBridge, Voyage, LegSchedule, LegScheduleBridge, VoyageSchedule
 
 from dirs import ROOT_DIR
+
+models: List[Type[BaseModel]] = [Address, BillOfLading, BusinessEntity, Commodity, Container, ContainerModel, Port,
+                                 Shipment, Vehicle, Leg, LegBridge, Voyage, LegSchedule, LegScheduleBridge,
+                                 VoyageSchedule]
 
 
 def load_database(dataset: str = None, mode: str = 'csv'):
