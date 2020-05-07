@@ -2,7 +2,7 @@ USE FreightShipping;
 
 SET IDENTITY_INSERT FreightShipping.dbo.Port ON;
 
-INSERT INTO Port ([Address Key], [Port Name], [Port Type], [Port Size], [UN/LOCODE], Phone, Fax, [800 Number], Email, Website)
+INSERT INTO Port ([Port Key], [Address Key], [Port Name], [Port Type], [Port Size], [UN/LOCODE], Phone, Fax, [800 Number], Email, Website)
 VALUES
     (1,3001,N'Durres',N'Seaport',N'Small',N'355 52 23115',N'355 52 22028',NULL,N'ALDRZ',N'apd@san.com.al',NULL),
     (2,3002,N'Sarande',N'Pier, Jetty or Wharf',N'Small',N'355 85 25827',N'355 85 25827',NULL,NULL,NULL,NULL),

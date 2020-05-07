@@ -2,7 +2,7 @@ USE FreightShipping;
 
 SET IDENTITY_INSERT FreightShipping.dbo.Address ON;
 
-INSERT INTO Address ([Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
+INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
 VALUES
     (1,N'64924 Sunfield Road',NULL,N'Turangi',N'New Zealand',N'NZ',N'3382',N'-38.9898711',N'175.8087485'),
     (2,N'30812 Holy Cross Pass',NULL,N'Kasamwa',N'Tanzania',N'TZ',NULL,N'-2.8385304',N'32.4212424'),

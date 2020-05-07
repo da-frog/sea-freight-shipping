@@ -2,7 +2,7 @@ USE FreightShipping;
 
 SET IDENTITY_INSERT FreightShipping.dbo.BillOfLading ON;
 
-INSERT INTO BillOfLading ([Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
+INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
 VALUES
     (1,NULL,NULL,64,1151,3565,4252,4940,4363,3686,NULL,64,1151,2653,672,NULL,NULL,NULL,NULL,NULL),
     (2,NULL,NULL,4536,788,4246,3692,3450,3428,4536,NULL,8806,788,1685,3823,NULL,NULL,NULL,NULL,NULL),

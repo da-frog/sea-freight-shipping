@@ -2,7 +2,7 @@ USE FreightShipping;
 
 SET IDENTITY_INSERT FreightShipping.dbo.BusinessEntity ON;
 
-INSERT INTO BusinessEntity (Name, [E-mail], Phone, Fax, [Address Key])
+INSERT INTO BusinessEntity ([Business Entity Key], Name, [E-mail], Phone, Fax, [Address Key])
 VALUES
     (1,N'Kristine Imlock',N'kimlock0@unblog.fr',N'576-987-3862',N'823-438-9798',1,N'["Consignee", "Consignor"]'),
     (2,N'Gib Areles',N'gareles1@dion.ne.jp',N'814-607-2389',N'605-818-8606',2,N'["Consignor"]'),

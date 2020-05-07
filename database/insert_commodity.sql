@@ -2,7 +2,7 @@ USE FreightShipping;
 
 SET IDENTITY_INSERT FreightShipping.dbo.Commodity ON;
 
-INSERT INTO Commodity INTO Commodity ([HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
+INSERT INTO Commodity INTO Commodity ([Commodity Key], [HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
 VALUES
     (1,N'290941',N'Nam nulla.',2.663,796.45),
     (2,N'010632',N'Integer a nibh.',1.34,167.0),
