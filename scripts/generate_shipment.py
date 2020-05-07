@@ -9,6 +9,7 @@ from operator import itemgetter
 from location import Location
 from models import *
 from dirs import ROOT_DIR
+from utils import capwords_to_snake_case
 
 
 def calculate_total_distance(ports: List[Port], *, key=True) -> float:
@@ -146,7 +147,29 @@ def main(n: int):
     load_database()
     generate_shipment(int(n))
     dump_database(str(n))
+    dump_database(str(n), 'json')
 
 
 if __name__ == '__main__':
-    main(500)
+    # main(500)
+    load_database('500')
+    for model in [
+        Address,
+        BillOfLading,
+        BusinessEntity,
+        Commodity,
+        Container,
+        ContainerModel,
+        Port,
+        Shipment,
+        Vehicle,
+        Leg,
+        LegBridge,
+        Voyage,
+        LegSchedule,
+        LegScheduleBridge,
+        VoyageSchedule
+    ]:
+        if model._instances:
+            print(f'dumping {model.__name__}')
+            model.dump_to_sql(ROOT_DIR / f'database/insert_{capwords_to_snake_case(model.__name__)}.sql')
