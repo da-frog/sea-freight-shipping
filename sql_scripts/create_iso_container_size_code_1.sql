@@ -6,7 +6,7 @@ GO
 
 CREATE TABLE ISOSizeCode1
 (
-    [Container length (mm)] int,
+    [Container length (mm)] decimal,
     [Container length (ft)] decimal,
     [Container length (in)] decimal,
     [Code character]        nvarchar(255)
