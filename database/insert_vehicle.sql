@@ -1,3 +1,5 @@
+SET IDENTITY_INSERT FreightShipping.dbo.Vehicle ON;
+
 INSERT INTO Vehicle VALUES
     (1,10.5564,N'Offshore Support Vessel',N'PRELUDE',394330.0,N'Kaiser Shipyards',136.98,N'-13.78729',N'123.31391'),
     (2,11.2972,N'Crane Ship',N'PIONEERING SPIRIT',499125.0,N'Suez shipyard',163.12,N'51.96167',N'3.977'),
@@ -1200,3 +1202,5 @@ INSERT INTO Vehicle VALUES
     (1198,17.7792,N'LNG Tanker',N'ARCTIC LADY',84878.0,N'ABG Shipyard Limited',74.38,N'52.44874',N'2.90949'),
     (1199,31.2988,N'LNG Tanker',N'ARCTIC PRINCESS',84878.0,N'Aker Arctic',89.95,N'67.53353',N'8.61069'),
     (1200,22.0388,N'LNG Tanker',N'LNG BARKA',82308.0,N'German Naval Yards Kiel',77.62,N'4.259',N'126.37358');
+
+SET IDENTITY_INSERT FreightShipping.dbo.Vehicle OFF;
