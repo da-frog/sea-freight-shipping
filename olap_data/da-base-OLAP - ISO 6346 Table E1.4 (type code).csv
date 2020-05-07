@@ -1,0 +1,92 @@
+Code,Type group code,Detailed Type Code,Type Designation,Type Group Description,Main Characteristics,Container Electricity Indicator,Container Refrigeration Indicator,Container Danger Indicator
+G,GP,G0,General purpose container wihout ventilation,,Opening(s) at one end or both ends,,,
+G,GP,G1,General purpose container wihout ventilation,,Passive vents at upper part of cargo space,,,
+G,GP,G2,General purpose container wihout ventilation,,Opening(s) at one or both ends plus “full” opening(s) on one or both sides,,,
+G,GP,G3,General purpose container wihout ventilation,,Opening(s) at one or both ends plus “partial” opening(s) on one or both sides,,,
+G,GP,G4,General purpose container wihout ventilation,,(Unassigned),,,
+G,GP,G5,General purpose container wihout ventilation,,(Unassigned),,,
+G,GP,G6,General purpose container wihout ventilation,,(Unassigned),,,
+G,GP,G7,General purpose container wihout ventilation,,(Unassigned),,,
+G,GP,G8,General purpose container wihout ventilation,,(Unassigned),,,
+G,GP,G9,General purpose container wihout ventilation,,(Unassigned),,,
+V,VH,V0,General purpose container with ventilation,,"Nonmechanical system, vents at lower and upper parts of cargo space",,,
+V,VH,V1,General purpose container with ventilation,,(Unassigned),,,
+V,VH,V2,General purpose container with ventilation,,"Mechanical ventilation system, located internally",,,
+V,VH,V3,General purpose container with ventilation,,(Unassigned),,,
+V,VH,V4,General purpose container with ventilation,,"Mechanical ventilation system, located externally",,,
+V,VH,V5,General purpose container with ventilation,,(Unassigned),,,
+V,VH,V6,General purpose container with ventilation,,(Unassigned),,,
+V,VH,V7,General purpose container with ventilation,,(Unassigned),,,
+V,VH,V8,General purpose container with ventilation,,(Unassigned),,,
+V,VH,V9,General purpose container with ventilation,,(Unassigned),,,
+B,BU,B0,Dry bulk container,"Nonpressurized, box type",Closed,,,Nonpressurized
+B,BU,B1,Dry bulk container,"Nonpressurized, box type",Airtight,,,Nonpressurized
+B,BU,B2,Dry bulk container,"Nonpressurized, box type",(Unassigned),,,Nonpressurized
+B,BK,B3,Dry bulk container,Pressurized,"Horizontal discharge, test pressure 150 kPa 1)",,,Pressurized
+B,BK,B4,Dry bulk container,Pressurized,"Horizontal discharge, test pressure 265 kPa",,,Pressurized
+B,BK,B5,Dry bulk container,Pressurized,"Tipping discharge, test pressure 150 kPa",,,Pressurized
+B,BK,B6,Dry bulk container,Pressurized,"Tipping discharge, test pressure 265 kPa",,,Pressurized
+B,BK,B7,Dry bulk container,Pressurized,(Unassigned),,,Pressurized
+B,BK,B8,Dry bulk container,Pressurized,(Unassigned),,,Pressurized
+B,BK,B9,Dry bulk container,Pressurized,(Unassigned),,,Pressurized
+S,SN,S0,Named cargo container,,Livestock carrier,,,
+S,SN,S1,Named cargo container,,Automobile carrier,,,
+S,SN,S2,Named cargo container,,Live fish carrier,,,
+S,SN,S3,Named cargo container,,(Unassigned),,,
+S,SN,S4,Named cargo container,,(Unassigned),,,
+S,SN,S5,Named cargo container,,(Unassigned),,,
+S,SN,S6,Named cargo container,,(Unassigned),,,
+S,SN,S7,Named cargo container,,(Unassigned),,,
+S,SN,S8,Named cargo container,,(Unassigned),,,
+S,SN,S9,Named cargo container,,(Unassigned),,,
+R,RE,R0,Thermal container,Refrigerated,Mechanically refrigerated ,,Refrigerated,
+R,RT,R1,Thermal container,Refrigerated and heated ,Mechanically refrigerated and heated,,Refrigerated and heated ,
+R,RS,R2,Thermal container,Self-powered refrigerated/heated,Mechanically refrigerated ,Self-powered,Refrigerated,
+R,RS,R3,Thermal container,Self-powered refrigerated/heated,Mechanically refrigerated and heated,Self-powered,Refrigerated and heated,
+R,RS,R4,Thermal container,Self-powered refrigerated/heated,(Unassigned),Self-powered,Refrigerated and/or heated,
+R,RS,R5,Thermal container,Self-powered refrigerated/heated,(Unassigned),Self-powered,Refrigerated and/or heated,
+R,RS,R6,Thermal container,Self-powered refrigerated/heated,(Unassigned),Self-powered,Refrigerated and/or heated,
+R,RS,R7,Thermal container,Self-powered refrigerated/heated,(Unassigned),Self-powered,Refrigerated and/or heated,
+R,RS,R8,Thermal container,Self-powered refrigerated/heated,(Unassigned),Self-powered,Refrigerated and/or heated,
+R,RS,R9,Thermal container,Self-powered refrigerated/heated,(Unassigned),Self-powered,Refrigerated and/or heated,
+H,HR,H0,Thermal container,Refrigerated and/or heated with removable equipment,"Refrigerated and/or heated, with removable equipment HO heated with removable located externally; heat transfer coefficient equipment K = 0,4 W/(m*mK)",,Refrigerated and/or heated with removable equipment,
+H,HR,H1,Thermal container,Refrigerated and/or heated with removable equipment,Refrigerated and/or heated with removable equipment HI located internally,,Refrigerated and/or heated with removable equipment,
+H,HR,H2,Thermal container,Refrigerated and/or heated with removable equipment,"Refrigerated and/or heated with removable equipment located externally; heat transfer coefficient K = 0,7 W/(m*-K)",,Refrigerated and/or heated with removable equipment,
+H,HR,H3,Thermal container,Refrigerated and/or heated with removable equipment,(Unassigned),,Refrigerated and/or heated with removable equipment,
+H,HR,H4,Thermal container,Refrigerated and/or heated with removable equipment,(Unassigned),,Refrigerated and/or heated with removable equipment,
+H,HI,H5,Thermal container,Insulated,"Insulated; heat transfer coefficient K = 0,4 W/(m*mK)",,,
+H,HI,H6,Thermal container,Insulated,"Insulated; heat transfer coefficient K = 0,7 W/(m*mK)",,,
+H,HI,H7,Thermal container,Insulated,(Unassigned),,,
+H,HI,H8,Thermal container,Insulated,(Unassigned),,,
+H,HI,H9,Thermal container,Insulated,(Unassigned),,,
+U,UT,U0,Open-top container,,Opening(s) at one or both ends,,,
+U,UT,U1,Open-top container,,"Opening(s) at one or both ends, plus removable top member(s) in end frame(s)",,,
+U,UT,U2,Open-top container,,"Opening(s) at one or both ends, plus removable top member(s) in end frame(s)",,,
+U,UT,U3,Open-top container,,"Opening(s) at one or both ends, plus opening(s) on one or both sides",,,
+U,UT,U4,Open-top container,,"Opening(s) at one or both ends, plus opening(s) on one or both sides plus removable top member(s) in end frame(s)",,,
+U,UT,U5,Open-top container,,"Complete, fixed side and end walls (no doors)",,,
+U,UT,U6,Open-top container,,"Complete, fixed side and end walls (no doors)",,,
+U,UT,U7,Open-top container,,(Unassigned),,,
+U,UT,U8,Open-top container,,(Unassigned),,,
+U,UT,U9,Open-top container,,(Unassigned),,,
+P,PL,P0,Platform (container),Platform-based containers with incomplete superstructure,Platform (container),,,
+P,PF,P1,Platform (container),Fixed,Two complete and fixed ends,,,
+P,PF,P2,Platform (container),Fixed,"Fixed posts, either free-standing or with removable top member",,,
+P,PC,P3,Platform (container),Folding (collapsible),Folding complete end structure,,,
+P,PC,P4,Platform (container),Folding (collapsible),"Folding posts, either free-standing or with removable top member",,,
+P,PS,P5,Platform (container),Platform-based containers with complete superstructure,"Open top, open ends (skeletal)",,,
+P,PS,P6,Platform (container),Platform-based containers with complete superstructure,(Unassigned),,,
+P,PS,P7,Platform (container),Platform-based containers with complete superstructure,(Unassigned),,,
+P,PS,P8,Platform (container),Platform-based containers with complete superstructure,(Unassigned),,,
+P,PS,P9,Platform (container),Platform-based containers with complete superstructure,(Unassigned),,,
+T,TN,T0,Tank container,For nondangerous liquids,Minimum pressure 45 kPA,,,Nondangerous liquids
+T,TN,T1,Tank container,For nondangerous liquids,Minimum pressure 150 kPA,,,Nondangerous liquids
+T,TN,T2,Tank container,For nondangerous liquids,Minimum pressure 265 kPA,,,Nondangerous liquids
+T,TD,T3,Tank container,For dangerous liquids,Minimum pressure 150 kPA,,,Dangerous Liquids
+T,TD,T4,Tank container,For dangerous liquids,Minimum pressure 265 kPA,,,Dangerous Liquids
+T,TD,T5,Tank container,For dangerous liquids,Minimum pressure 400 kPA,,,Dangerous Liquids
+T,TD,T6,Tank container,For dangerous liquids,Minimum pressure 600 kPA,,,Dangerous Liquids
+T,TG,T7,Tank container,For gases,Minimum pressure 910 kPA,,,Contains Gases
+T,TG,T8,Tank container,For gases,Minimum pressure 2 200 kPa,,,Contains Gases
+T,TG,T9,Tank container,For gases,Minimum pressure (to be decided),,,Contains Gases
+A,AS,A0,Air/surface container,,,,,

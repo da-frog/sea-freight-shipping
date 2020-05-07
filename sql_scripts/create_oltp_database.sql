@@ -149,7 +149,7 @@ create table ContainerModel
     [Max Gross Weight (kg)]      int,
     [Tare Weight (kg)]           int,
     [Max Payload Weight (kg)]    int,
-    [Capacity (cbm)]             decimal
+    [Capacity (m^3)]             decimal
 )
 go
 create unique index "ContainerModel_[Container Model Key]_uindex"

@@ -1,4 +1,4 @@
-USE FreightShippingDW;
+USE FreightShipping;
 
 IF OBJECT_ID('dbo.ISOSizeCode1', 'U') IS NOT NULL
     DROP TABLE ISOSizeCode1;

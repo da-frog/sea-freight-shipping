@@ -6,9 +6,12 @@ GO
 
 CREATE TABLE ISOSizeCode2
 (
-    [Container height (mm)] int,
-    [Container height (ft)] int,
-    [Container height (in)] int,
-    [Code character]		nvarchar(1),
-    [Container width (mm)]	int,
+    [Container height (mm) Range Start] int,
+    [Container height (mm) Range End]   int,
+    [Container height (ft) Range Start] int,
+    [Container height (ft) Range End]   int,
+    [Container height (in)]             int,
+    [Code character]                    nvarchar(1),
+    [Container width (mm) Range Start]  int,
+    [Container width (mm) Range End]    int,
 );
