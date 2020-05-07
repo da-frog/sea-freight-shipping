@@ -1,6 +1,6 @@
 from typing import List, Dict, TypeVar, Iterable, Tuple, Any, Sequence, TextIO, Generator, Callable
 import csv
-from itertools import tee, zip_longest
+from itertools import tee, zip_longest, islice
 
 T = TypeVar('T')
 
@@ -50,10 +50,6 @@ def trim_file(file: str):
         f.write('\n'.join(trimmed))
 
 
-if __name__ == '__main__':
-    trim_file('scrape/test_ports.csv')
-
-
 def knots_to_kmh(x: float) -> float:
     return x * 1.852
 
@@ -71,3 +67,28 @@ def pairwise(iterable: Iterable[T]) -> Iterable[Tuple[T, T]]:
     a, b = tee(iterable)
     next(b, None)
     return zip(a, b)
+
+
+def capwords_to_snake_case(s: str) -> str:
+    """
+
+    >>> capwords_to_snake_case('BaseModel')
+    'base_model'
+    >>> capwords_to_snake_case('BillOfLading')
+    'bill_of_lading'
+    >>> capwords_to_snake_case('Port')
+    'port'
+    """
+    chars = []
+    for c in s:
+        if c.isupper():
+            chars.append('_')
+            chars.append(c.lower())
+        else:
+            chars.append(c)
+    return ''.join(islice(chars, 1, None))
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
