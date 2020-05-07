@@ -47,7 +47,10 @@ class Leg(BaseModel):
         return round(km_to_mile(self.leg_kms), 2)
 
     def get_expected_time(self, vehicle: Vehicle) -> timedelta:
-        return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
+        try:
+            return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
+        except TypeError:
+            return timedelta(hours=self.leg_kms / 20)
 
     def get_expected_fees(self, vehicle: Vehicle) -> float:
         return self.get_expected_time(vehicle).days * vehicle.vehicle_fuel_usage_per_day * 400
