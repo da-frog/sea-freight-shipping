@@ -1,3 +1,5 @@
+SET IDENTITY_INSERT FreightShipping.dbo.Address ON;
+
 INSERT INTO Address VALUES
     (1,N'64924 Sunfield Road',NULL,N'Turangi',N'New Zealand',N'NZ',N'3382',N'-38.9898711',N'175.8087485'),
     (2,N'30812 Holy Cross Pass',NULL,N'Kasamwa',N'Tanzania',N'TZ',NULL,N'-2.8385304',N'32.4212424'),
@@ -9278,3 +9280,5 @@ INSERT INTO Address VALUES
     (9268,N'11500 Meadow Valley Junction',NULL,N'Chambéry',N'France',N'FR',N'73091 CEDEX',N'45.590443',N'5.8930389'),
     (9269,N'9877 Loeprich Court',NULL,N'Da’an',N'China',N'CN',NULL,N'45.506995',N'124.292626'),
     (9270,N'94695 Morningstar Lane',NULL,N'Eger',N'Hungary',N'HU',N'3304',N'47.9523565',N'20.3586957');
+
+SET IDENTITY_INSERT FreightShipping.dbo.Address OFF;

@@ -1,3 +1,5 @@
+SET IDENTITY_INSERT FreightShipping.dbo.BusinessEntity ON;
+
 INSERT INTO BusinessEntity VALUES
     (1,N'Kristine Imlock',N'kimlock0@unblog.fr',N'576-987-3862',N'823-438-9798',1,N'["Consignee", "Consignor"]'),
     (2,N'Gib Areles',N'gareles1@dion.ne.jp',N'814-607-2389',N'605-818-8606',2,N'["Consignor"]'),
@@ -5003,3 +5005,5 @@ INSERT INTO BusinessEntity VALUES
     (4998,N'Bogan LLC',N'mporkissrp@go.com',N'824-313-7376',N'627-815-0624',9268,N'["Courier", "Consolidator", "Transporter"]'),
     (4999,N'Hilll-Ritchie',N'waspeyrq@networksolutions.com',N'544-225-0654',N'480-795-9119',9269,N'["Courier", "Transporter"]'),
     (5000,N'Toy-Kirlin',N'alochetrr@nasa.gov',N'797-241-2200',N'234-425-9201',9270,N'["Consolidator", "Transporter"]');
+
+SET IDENTITY_INSERT FreightShipping.dbo.BusinessEntity OFF;

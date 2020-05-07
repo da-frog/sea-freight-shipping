@@ -1,3 +1,5 @@
+SET IDENTITY_INSERT FreightShipping.dbo.Container ON;
+
 INSERT INTO Container VALUES
     (1,N'HLXU',N'131073',N'8',N'22',N'G0'),
     (2,N'HLXU',N'131089',N'3',N'22',N'G0'),
@@ -5003,3 +5005,5 @@ INSERT INTO Container VALUES
     (4998,N'HLXU',N'131043',N'0',N'22',N'G0'),
     (4999,N'HLBU',N'131059',N'8',N'45',N'G0'),
     (5000,N'HLBU',N'131067',N'0',N'45',N'G0');
+
+SET IDENTITY_INSERT FreightShipping.dbo.Container OFF;
