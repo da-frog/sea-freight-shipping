@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.Port', 'U') IS NOT NULL
-    TRUNCATE TABLE Port;
-GO
 SET IDENTITY_INSERT Port ON;
 INSERT INTO Port ([Port Key], [Address Key], [Port Name], [Port Type], [Port Size], [Phone], [Fax], [800 Number], [UN/LOCODE], [Email], [Website]) VALUES
     (1,3001,N'Durres',N'Seaport',N'Small',N'355 52 23115',N'355 52 22028',NULL,N'ALDRZ',N'apd@san.com.al',NULL),

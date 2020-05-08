@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.Address', 'U') IS NOT NULL
-    TRUNCATE TABLE Address;
-GO
 SET IDENTITY_INSERT Address ON;
 INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude]) VALUES
     (1,N'64924 Sunfield Road',NULL,N'Turangi',N'New Zealand',N'NZ',N'3382',N'-38.9898711',N'175.8087485'),

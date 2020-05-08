@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.Shipment', 'U') IS NOT NULL
-    TRUNCATE TABLE Shipment;
-GO
 SET IDENTITY_INSERT Shipment ON;
 INSERT INTO Shipment ([Shipment Key], [Voyage Schedule Key], [Vehicle Key], [Bill-of-Lading Key], [Shipment Fees]) VALUES
     (1,1,621,4108,1660850.0),

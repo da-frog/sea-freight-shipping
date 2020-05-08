@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.BusinessEntity', 'U') IS NOT NULL
-    TRUNCATE TABLE BusinessEntity;
-GO
 SET IDENTITY_INSERT BusinessEntity ON;
 INSERT INTO BusinessEntity ([Business Entity Key], [Name], [E-mail], [Phone], [Fax], [Address Key]) VALUES
     (1,N'Kristine Imlock',N'kimlock0@unblog.fr',N'576-987-3862',N'823-438-9798',1),

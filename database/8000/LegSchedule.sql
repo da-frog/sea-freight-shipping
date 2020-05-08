@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.LegSchedule', 'U') IS NOT NULL
-    TRUNCATE TABLE LegSchedule;
-GO
 SET IDENTITY_INSERT LegSchedule ON;
 INSERT INTO LegSchedule ([Leg Schedule Key], [Leg Key], [Origin Port Scheduled Departure Date], [Destination Port Scheduled Arrival Date], [Origin Port Actual Departure Date], [Destination Port Actual Arrival Date]) VALUES
     (1,1,'2018-01-18','2018-02-13','2018-01-21','2018-02-16'),

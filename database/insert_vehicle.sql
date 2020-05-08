@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.Vehicle', 'U') IS NOT NULL
-    TRUNCATE TABLE Vehicle;
-GO
 SET IDENTITY_INSERT Vehicle ON;
 INSERT INTO Vehicle ([Vehicle Key], [Vehicle Speed (km/h)], [Vehicle Type], [Vehicle Name], [Vehicle Capacity], [Vehicle Builder], [Vehicle Fuel Usage per Day], [Current Latitude], [Current Longitude], [IMO Number]) VALUES
     (1,10.556,N'Offshore Support Vessel',N'PRELUDE',394330,N'Kaiser Shipyards',136.98,N'-13.78729',N'123.31391',N'9648714'),

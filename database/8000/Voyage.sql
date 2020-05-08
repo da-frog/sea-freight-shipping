@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.Voyage', 'U') IS NOT NULL
-    TRUNCATE TABLE Voyage;
-GO
 SET IDENTITY_INSERT Voyage ON;
 INSERT INTO Voyage ([Voyage Key], [Leg Bridge Key], [Origin Port Key], [Destination Port Key]) VALUES
     (1,1,2368,3823),

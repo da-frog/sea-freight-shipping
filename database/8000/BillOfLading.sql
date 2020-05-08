@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.BillOfLading', 'U') IS NOT NULL
-    TRUNCATE TABLE BillOfLading;
-GO
 SET IDENTITY_INSERT BillOfLading ON;
 INSERT INTO BillOfLading ([Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs]) VALUES
     (1,N'04175885694685648',NULL,64,1151,3565,4252,4940,4363,3686,NULL,64,1151,2653,672,NULL,NULL,NULL,NULL,NULL),

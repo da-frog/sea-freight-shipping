@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.Leg', 'U') IS NOT NULL
-    TRUNCATE TABLE Leg;
-GO
 SET IDENTITY_INSERT Leg ON;
 INSERT INTO Leg ([Leg Key], [Origin Port Key], [Destination Port Key], [Leg Miles]) VALUES
     (1,2368,2744,7710.48),

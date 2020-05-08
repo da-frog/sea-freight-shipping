@@ -1,6 +1,3 @@
-IF OBJECT_ID('dbo.LegScheduleBridge', 'U') IS NOT NULL
-    TRUNCATE TABLE LegScheduleBridge;
-GO
 INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VALUES
     (1,1),
     (1,2),
