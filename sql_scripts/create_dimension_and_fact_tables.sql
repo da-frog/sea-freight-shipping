@@ -42,8 +42,8 @@ CREATE TABLE BusinessEntityDimension
     [Fax]                 nvarchar(30),
     [Email]               nvarchar(255),
     [Address]             nvarchar(255),
-    [City]                nvarchar(50),
-    [Country]             nvarchar(50),
+    [City]                nvarchar(255),
+    [Country]             nvarchar(255),
     [ZIP code]            nvarchar(30),
 );
 
@@ -118,7 +118,7 @@ CREATE TABLE CountrySpecificDateOutrigger
 (
     [Date Key]                  int NOT NULL REFERENCES DateDimension,
     [Country Key]               int NOT NULL,
-    [Country Name]              nvarchar(50),
+    [Country Name]              nvarchar(255),
     [Civil Name]                nvarchar(50),
     [Civil Holiday Flag]        nvarchar(50),
     [Religious Holiday Flag]    nvarchar(50),
@@ -179,8 +179,8 @@ CREATE TABLE ShippingTransportFact
     [Domestic Transporter Key]              int REFERENCES BusinessEntityDimension,
     [Consignee Key]                         int REFERENCES BusinessEntityDimension,
     [Bill-of-Lading Number (DD)]            nvarchar(17),
-    [Leg Fee]                               decimal(19,2),
+    [Shipment Fee]                               decimal(19,2),
     [Expected Tariffs]                      decimal(19,2),
     [Actual Tariffs]                        decimal(19,2),
-    [Leg Miles]                             decimal(19,2),
+    [Shipment Miles]                             decimal(19,2),
 );
