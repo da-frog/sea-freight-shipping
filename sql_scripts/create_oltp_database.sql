@@ -86,8 +86,8 @@ create table BusinessEntity
     [Business Entity Key] int identity,
     [Name]                nvarchar(255),
     [E-mail]              nvarchar(255),
-    [Phone]               nvarchar(15),
-    [Fax]                 nvarchar(15),
+    [Phone]               nvarchar(30),
+    [Fax]                 nvarchar(30),
     [Address Key]         int
 )
 go
@@ -201,6 +201,30 @@ go
 alter table Port
     add primary key nonclustered ([Port Key])
 go
+
+
+create table Vehicle
+(
+    [Vehicle Key]                int identity,
+    [Vehicle Speed (km/h)]       decimal(18, 3),
+    [Vehicle Type]               nvarchar(255),
+    [Vehicle Name]               nvarchar(255),
+    [Vehicle Capacity]           int,
+    [Vehicle Builder]            nvarchar(255),
+    [Vehicle Fuel Usage per Day] decimal(18, 3),
+    [Current Latitude]           nvarchar(30),
+    [Current Longitude]          nvarchar(30),
+    [IMO Number]                 nvarchar(7),
+)
+go
+create unique index [Vehicle_Vehicle Key_uindex]
+    on Vehicle ([Vehicle Key])
+go
+alter table Vehicle
+    add constraint Vehicle_pk
+        primary key nonclustered ([Vehicle Key])
+go
+
 
 
 create table Leg
@@ -386,29 +410,6 @@ alter table BillOfLading
         primary key nonclustered ([Bill-of-Lading Key])
 go
 
-
-
-create table Vehicle
-(
-    [Vehicle Key]                int identity,
-    [Vehicle Speed (km/h)]       decimal(18, 3),
-    [Vehicle Type]               nvarchar(255),
-    [Vehicle Name]               nvarchar(255),
-    [Vehicle Capacity]           int,
-    [Vehicle Builder]            nvarchar(255),
-    [Vehicle Fuel Usage per Day] decimal(18, 3),
-    [Current Latitude]           nvarchar(30),
-    [Current Longitude]          nvarchar(30),
-    [IMO Number]                 nvarchar(7),
-)
-go
-create unique index [Vehicle_Vehicle Key_uindex]
-    on Vehicle ([Vehicle Key])
-go
-alter table Vehicle
-    add constraint Vehicle_pk
-        primary key nonclustered ([Vehicle Key])
-go
 
 
 create table Shipment

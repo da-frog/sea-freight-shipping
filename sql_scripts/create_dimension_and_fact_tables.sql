@@ -38,8 +38,8 @@ CREATE TABLE BusinessEntityDimension
 (
     [Business Entity Key] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Name]                nvarchar(255),
-    [Telephone]           nvarchar(15),
-    [Fax]                 nvarchar(15),
+    [Telephone]           nvarchar(30),
+    [Fax]                 nvarchar(30),
     [Email]               nvarchar(255),
     [Address]             nvarchar(255),
     [City]                nvarchar(50),
@@ -64,7 +64,6 @@ CREATE TABLE ContainerDimension
 (
     [Container Key]                     int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Container Number]                  nvarchar(11),
-    [Container Size (Volume)]           decimal(18,3),
     [Container Type]                    nvarchar(255),
     [Container Tare Weight (kg)]        int,
     [Container Inside Length (mm)]      int,
@@ -138,7 +137,7 @@ CREATE TABLE PortDimension
     [Port Country]   nvarchar(255),
     [Port City]      nvarchar(255),
     [Port Address]   nvarchar(255),
-    [Port Telephone] nvarchar(15),
+    [Port Telephone] nvarchar(30),
     primary key ([Port Key])
 );
 
