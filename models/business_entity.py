@@ -12,8 +12,8 @@ class BusinessEntity(BaseModel):
         ('Business Entity Key', None, 'int'),
         ('Name', None, 'nvarchar(255)'),
         ('E-mail', 'email', 'nvarchar(255)'),
-        ('Phone', None, 'nvarchar(15)'),
-        ('Fax', None, 'nvarchar(15)'),
+        ('Phone', None, 'nvarchar(30)'),
+        ('Fax', None, 'nvarchar(30)'),
         ('Address Key', None, 'int'),
         ('Roles', None, None),
     )
