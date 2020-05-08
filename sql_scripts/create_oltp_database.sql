@@ -67,7 +67,7 @@ create table Address
     [City]           nvarchar(255),
     [Country]        nvarchar(255),
     [Alpha 2]        nvarchar(2),
-    [ZIP Code]       nvarchar(11),
+    [ZIP Code]       nvarchar(12),
     [Latitude]       nvarchar(15),
     [Longitude]      nvarchar(15)
 )
