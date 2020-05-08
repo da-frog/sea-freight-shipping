@@ -114,8 +114,8 @@ class SQLWriter:
     def writeheader(self, table_name: str, cols: Iterable[str] = None):
         colstr = ''
         if cols is not None:
-            colstr = ', '.join(f'[{col}]' for col in cols)
-        self.f.write(f'INSERT INTO {table_name} {colstr} VALUES\n')
+            colstr = f"({', '.join(f'[{col}]' for col in cols)}) "
+        self.f.write(f'INSERT INTO {table_name} {colstr}VALUES\n')
 
 
 class DictWriter:
