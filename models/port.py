@@ -16,24 +16,34 @@ class Port(BaseModel):
         ('Port Name', None, 'nvarchar(255)'),
         ('Port Type', None, 'nvarchar(255)'),
         ('Port Size', None, 'nvarchar(255)'),
-        ('Phone', None, 'nvarchar(15)'),
-        ('Fax', None, 'nvarchar(15)'),
-        ('800 Number', '_800_number', 'nvarchar(15)'),
-        ('UN/LOCODE', 'un_locode', 'nvarchar(10)'),
+        ('Phone', None, 'nvarchar(30)'),
+        ('Fax', None, 'nvarchar(30)'),
+        ('800 Number', '_800_number', 'nvarchar(30)'),
+        ('UN/LOCODE', 'un_locode', 'nvarchar(5)'),
         ('Email', None, 'nvarchar(255)'),
         ('Website', None, 'nvarchar(255)'),
     )
 
     address_key: int
-    port_name: str = ''
-    port_type: str = ''
-    port_size: str = ''
-    phone: str = ''
-    fax: str = ''
-    _800_number: str = ''
-    un_locode: str = ''
-    email: str = ''
-    website: str = ''
+    port_name: str = None
+    port_type: str = None
+    port_size: str = None
+    phone: str = None
+    fax: str = None
+    _800_number: str = None
+    un_locode: str = None
+    email: str = None
+    website: str = None
+
+    def __post_init__(self):
+        if self.un_locode is not None:
+            self.un_locode = self.un_locode.strip()
+            if len(self.un_locode) > 5:
+                self.un_locode = None
+        if self.phone is not None:
+            self.phone = ''.join(c for c in self.phone if c in '0123456789+() ')
+        if self.fax is not None:
+            self.fax = ''.join(c for c in self.fax if c in '0123456789+() ')
 
     @property
     def port_key(self) -> int:

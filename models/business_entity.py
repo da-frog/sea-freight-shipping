@@ -18,10 +18,10 @@ class BusinessEntity(BaseModel):
         'Roles'
     )
 
-    name: str = ''
-    email: str = ''
-    phone: str = ''
-    fax: str = ''
+    name: str = None
+    email: str = None
+    phone: str = None
+    fax: str = None
     address_key: int = None
     roles: List[str] = field(default_factory=list)
 

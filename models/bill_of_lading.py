@@ -112,7 +112,7 @@ class BillOfLading(BaseModel):
         ('Actual Tariffs', None, 'money')
     )
 
-    bill_of_lading_number: str = ''
+    bill_of_lading_number: str = None
     issued_date: Date = None
     consignor_key: int = None
     consignee_key: int = None
@@ -121,14 +121,14 @@ class BillOfLading(BaseModel):
     courier_key: int = None
     domestic_transporter_key: int = None
     domestic_consolidator_key: int = None
-    ship_mode: str = ''
+    ship_mode: str = None
     place_of_receipt_key: int = None
     place_of_delivery_key: int = None
     port_of_loading_key: int = None
     port_of_discharge_key: int = None
     commodity_key: int = None
     container_key: int = None
-    incoterm: str = ''
+    incoterm: str = None
     expected_tariffs: float = None
     actual_tariffs: float = None
 

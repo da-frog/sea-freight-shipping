@@ -16,9 +16,9 @@ class Address(BaseModel):
         'City',
         'Country',
         ('Alpha 2', None, 'nvarchar(2)'),
-        ('ZIP Code', None, 'nvarchar(20)'),
-        ('Latitude', None, 'nvarchar(20)'),
-        ('Longitude', None, 'nvarchar(20)'),
+        ('ZIP Code', None, 'nvarchar(30)'),
+        ('Latitude', None, 'nvarchar(30)'),
+        ('Longitude', None, 'nvarchar(30)'),
     )
 
     address_line_1: str = None

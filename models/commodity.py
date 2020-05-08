@@ -15,9 +15,9 @@ class Commodity(BaseModel):
         # ('Densities (kg/m^3)', 'densities'),
     )
 
-    hs_code: str = ''
+    hs_code: str
     # String/NULL
-    description: str = ''
+    description: str = None
     package_size: float = None
     package_weight: float = None
     densities: float = None

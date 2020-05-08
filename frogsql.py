@@ -31,7 +31,7 @@ class SQLWriter:
                 elif isinstance(datatype, str):
                     if datatype == 'int':
                         if not isinstance(value, int):
-                            warnings.warn(row)
+                            warnings.warn(repr(row))
                             warnings.warn(UserWarning(f"type mismatch '{value}' of class '{value.__class__.__name__}' --> '{datatype}'"))
                         # TODO: check value is within bounds
                         text = str(value)
@@ -42,7 +42,7 @@ class SQLWriter:
                         assert datatype[-1] == ')', datatype
                         limit = int(datatype[8:-1])
                         if len(value) > limit:
-                            print(row)
+                            warnings.warn(repr(row))
                             warnings.warn(f'str "{value}" exceeds the limit for {datatype}')
                         text = f"'{self.escape_string(value)}'"
                     elif datatype.startswith('nvarchar'):
