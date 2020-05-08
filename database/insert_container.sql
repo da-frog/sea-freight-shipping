@@ -2,7 +2,7 @@ IF OBJECT_ID('dbo.Container', 'U') IS NOT NULL
     DELETE FROM Container;
 GO
 SET IDENTITY_INSERT Container ON;
-INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code] VALUES
+INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code]) VALUES
     (1,N'HLXU',N'131073',N'8',N'22',N'G0'),
     (2,N'HLXU',N'131089',N'3',N'22',N'G0'),
     (3,N'HLBU',N'131092',N'0',N'45',N'G0'),
@@ -1004,7 +1004,7 @@ INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Dig
     (999,N'HLBU',N'107530',N'7',N'45',N'G0'),
     (1000,N'HLXU',N'566298',N'0',N'42',N'U1');
 SET IDENTITY_INSERT Container ON;
-INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code] VALUES
+INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code]) VALUES
     (1001,N'CPSU',N'173082',N'9',N'22',N'G0'),
     (1002,N'CPSU',N'173088',N'1',N'22',N'G1'),
     (1003,N'HLXU',N'566316',N'3',N'42',N'U1'),
@@ -2006,7 +2006,7 @@ INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Dig
     (1999,N'HLXU',N'505439',N'9',N'42',N'G0'),
     (2000,N'HLBU',N'112232',N'7',N'42',N'G0');
 SET IDENTITY_INSERT Container ON;
-INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code] VALUES
+INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code]) VALUES
     (2001,N'CPSU',N'177772',N'3',N'22',N'G1'),
     (2002,N'HLXU',N'439920',N'4',N'42',N'G1'),
     (2003,N'CPSU',N'177777',N'0',N'22',N'G1'),
@@ -3008,7 +3008,7 @@ INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Dig
     (2999,N'HLXU',N'442548',N'0',N'42',N'G0'),
     (3000,N'HLBU',N'114869',N'8',N'42',N'G0');
 SET IDENTITY_INSERT Container ON;
-INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code] VALUES
+INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code]) VALUES
     (3001,N'CPSU',N'180407',N'4',N'22',N'G1'),
     (3002,N'CPSU',N'180410',N'9',N'22',N'G1'),
     (3003,N'CPSU',N'180411',N'4',N'22',N'G1'),
@@ -4010,7 +4010,7 @@ INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Dig
     (3999,N'HLXU',N'446691',N'4',N'42',N'G1'),
     (4000,N'HLXU',N'119021',N'0',N'22',N'G1');
 SET IDENTITY_INSERT Container ON;
-INSERT INTO Container [Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code] VALUES
+INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code]) VALUES
     (4001,N'HLBU',N'151789',N'9',N'42',N'G1'),
     (4002,N'HLXU',N'119033',N'4',N'22',N'G0'),
     (4003,N'HLXU',N'119038',N'1',N'22',N'G1'),
