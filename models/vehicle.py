@@ -20,13 +20,13 @@ class Vehicle(BaseModel):
     )
 
     vehicle_speed_kmh: float
-    vehicle_type: str = ''
-    vehicle_name: str = ''
+    vehicle_type: str = None
+    vehicle_name: str = None
     vehicle_capacity: int = None
-    vehicle_builder: str = ''
+    vehicle_builder: str = None
     vehicle_fuel_usage_per_day: float = None
-    current_latitude: str = ''
-    current_longitude: str = ''
+    current_latitude: str = None
+    current_longitude: str = None
 
     @property
     def current_position(self) -> Location:
