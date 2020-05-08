@@ -289,8 +289,7 @@ class BaseModel(metaclass=BaseModelMeta):
                 print(f"wrote group#{group_num} for {cls.__name__} at {time.ctime(time.time())}")
                 group_num += 1
             if cls.has_identity:
-                writer.write_identity_insert(cls.__name__)
-            writer.write_identity_insert(cls.__name__, 'OFF')
+                writer.write_identity_insert(cls.__name__, 'OFF')
         print()
 
     def as_json(self) -> dict:

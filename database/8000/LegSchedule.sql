@@ -2873,5 +2873,4 @@ INSERT INTO LegSchedule ([Leg Schedule Key], [Leg Key], [Origin Port Scheduled D
     (2864,1646,'2018-01-31','2018-01-31','2018-02-03','2018-03-20'),
     (2865,1647,'2018-03-21','2018-03-17','2018-03-21','2018-05-01'),
     (2866,1648,'2018-05-01','2018-05-01','2018-05-03','2018-05-17');
-SET IDENTITY_INSERT LegSchedule ON;
 SET IDENTITY_INSERT LegSchedule OFF;

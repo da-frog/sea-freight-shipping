@@ -1457,5 +1457,4 @@ INSERT INTO Shipment ([Shipment Key], [Voyage Schedule Key], [Vehicle Key], [Bil
     (1450,758,1115,4538,2301454.0),
     (1451,758,1115,3548,2301454.0),
     (1452,758,1115,7428,2301454.0);
-SET IDENTITY_INSERT Shipment ON;
 SET IDENTITY_INSERT Shipment OFF;

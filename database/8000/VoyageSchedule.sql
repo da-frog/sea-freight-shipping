@@ -761,5 +761,4 @@ INSERT INTO VoyageSchedule ([Voyage Schedule Key], [Voyage Key], [Leg Schedule B
     (756,491,756),
     (757,493,757),
     (758,493,758);
-SET IDENTITY_INSERT VoyageSchedule ON;
 SET IDENTITY_INSERT VoyageSchedule OFF;
