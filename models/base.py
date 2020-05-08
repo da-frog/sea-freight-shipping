@@ -258,7 +258,7 @@ class BaseModel(metaclass=BaseModelMeta):
     def dump_to_sql(cls, filename: str):
         with open(filename, 'w', encoding='utf-8') as f:
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
-            writer.write_delete(cls.__name__)
+            writer.write_truncate(cls.__name__)
             iterable = cls._instances.__iter__()
             group_num = 1
             while True:

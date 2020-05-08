@@ -120,7 +120,7 @@ class SQLWriter:
             raise ValueError("The number of row value expressions in the INSERT statement exceeds the maximum allowed number of 1000 row values.")
         self.f.write(f'    {text};\n')
 
-    def write_delete(self, table_name: str):
+    def write_truncate(self, table_name: str):
         # self.f.write(f"IF OBJECT_ID('dbo.{table_name}', 'U') IS NOT NULL\n    DELETE FROM {table_name};\nGO\n")
         self.f.write(f"IF OBJECT_ID('dbo.Shipment', 'U') IS NOT NULL\b    TRUNCATE TABLE {table_name};\nGO\n")
 
@@ -166,7 +166,7 @@ class DictWriter:
 def writetable(data: List[Dict], table_name: str, filename: str):
     with open(filename, 'w', encoding='utf-8') as file:
         writer = DictWriter(file, data[0].keys())
-        writer.writer.write_delete(table_name)
+        writer.writer.write_truncate(table_name)
         iterable = data.__iter__()
         while True:
             datab = []
