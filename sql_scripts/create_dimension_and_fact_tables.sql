@@ -81,8 +81,7 @@ CREATE TABLE ContainerDimension
     [Container Capacity]                decimal(18,3),
     [Container Electricity Indicator]   nvarchar(255),
     [Container Refrigeration Indicator] nvarchar(255),
-    [Container Thermal Indicator]       nvarchar(255),
-    [Container Dangerous Indicator]     nvarchar(255),
+    [Container Danger Indicator]     nvarchar(255),
 )
 
 
