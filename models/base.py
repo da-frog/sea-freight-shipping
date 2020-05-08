@@ -247,6 +247,7 @@ class BaseModel(metaclass=BaseModelMeta):
     def dump_to_sql(cls, filename: str):
         with open(filename, 'w', encoding='utf-8') as f:
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
+            writer.write_delete(cls.__name__)
             iterable = cls._instances.__iter__()
             while True:
                 group = []
@@ -258,8 +259,8 @@ class BaseModel(metaclass=BaseModelMeta):
                         break
                 if not group:
                     break
-
-                writer.writeheader(cls.__name__)
+                writer.write_identity_insert(cls.__name__)
+                writer.writeheader(cls.__name__, cols=cls.get_dict_keys())
                 lst = []
                 for instance in group:
                     values = []
