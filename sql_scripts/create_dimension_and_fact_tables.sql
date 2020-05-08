@@ -34,35 +34,55 @@ GO
 
 
 
-CREATE TABLE BusinessEntityDimension
+create table BusinessEntityDimension
 (
-    [Business Entity Key] int IDENTITY NOT NULL PRIMARY KEY,
-    [Name]                nvarchar(255),
-    [Telephone]           nvarchar(30),
-    [Fax]                 nvarchar(30),
-    [Email]               nvarchar(255),
-    [Address]             nvarchar(255),
-    [City]                nvarchar(255),
-    [Country]             nvarchar(255),
-    [ZIP code]            nvarchar(30),
-);
+    [Business Entity Key] int identity,
+    Name                  nvarchar(255),
+    Telephone             nvarchar(30),
+    Fax                   nvarchar(30),
+    Email                 nvarchar(255),
+    Address               nvarchar(255),
+    City                  nvarchar(255),
+    Country               nvarchar(255),
+    [ZIP code]            nvarchar(30)
+)
+go
+
+create unique index "BusinessEntityDimension_[Business Entity Key]_uindex"
+    on BusinessEntityDimension ([Business Entity Key])
+go
+
+alter table BusinessEntityDimension
+    add primary key nonclustered ([Business Entity Key])
+go
 
 
-CREATE TABLE CommodityDimension
+
+create table CommodityDimension
 (
-    [Commodity Key]           int IDENTITY NOT NULL PRIMARY KEY,
+    [Commodity Key]           int identity,
     [HS Code]                 nvarchar(6),
     [Commodity Description]   nvarchar(511),
     [Catagory Description]    nvarchar(511),
     [Subcategory Description] nvarchar(511),
     [Package Size (m^3)]      decimal(18, 3),
-    [Package Weight (kg)]     decimal(18, 3),
-);
+    [Package Weight (kg)]     decimal(18, 3)
+)
+go
+
+create unique index "CommodityDimension_[Commodity Key]_uindex"
+    on CommodityDimension ([Commodity Key])
+go
+
+alter table CommodityDimension
+    add primary key nonclustered ([Commodity Key])
+go
 
 
-CREATE TABLE ContainerDimension
+
+create table ContainerDimension
 (
-    [Container Key]                     int IDENTITY NOT NULL PRIMARY KEY,
+    [Container Key]                     int identity,
     [Container Number]                  nvarchar(11),
     [Container Type]                    nvarchar(255),
     [Container Tare Weight (kg)]        int,
@@ -81,14 +101,24 @@ CREATE TABLE ContainerDimension
     [Container Capacity]                decimal(18, 3),
     [Container Electricity Indicator]   nvarchar(255),
     [Container Refrigeration Indicator] nvarchar(255),
-    [Container Danger Indicator]        nvarchar(255),
+    [Container Danger Indicator]        nvarchar(255)
 )
+go
+
+create unique index "ContainerDimension_[Container Key]_uindex"
+    on ContainerDimension ([Container Key])
+go
+
+alter table ContainerDimension
+    add primary key nonclustered ([Container Key])
+go
 
 
-CREATE TABLE DateDimension
+
+create table DateDimension
 (
-    [Date Key]                      int IDENTITY NOT NULL PRIMARY KEY,
-    [Date]                          date,
+    [Date Key]                      int identity,
+    Date                            date,
     [Full date description]         nvarchar(255),
     [Day of Week]                   nvarchar(9),
     [Day Number in Calendar Month]  tinyint,
@@ -111,14 +141,26 @@ CREATE TABLE DateDimension
     [Fiscal Year-Month]             nvarchar(7),
     [Fiscal Quarter]                nvarchar(2),
     [Fiscal Year-Quarter]           nvarchar(7),
-    [Fiscal Year]                   smallint,
-);
+    [Fiscal Year]                   smallint
+)
+go
+
+create unique index "DateDimension_[Date Key]_uindex"
+    on DateDimension ([Date Key])
+go
+
+alter table DateDimension
+    add primary key nonclustered ([Date Key])
+go
 
 
-CREATE TABLE CountrySpecificDateOutrigger
+
+create table CountrySpecificDateOutrigger
 (
-    [Date Key]               int NOT NULL REFERENCES DateDimension,
-    [Country Key]            int NOT NULL,
+    [Date Key]               int         not null
+        constraint "CountrySpecificDateOutrigger_DateDimension_[Date Key]_fk"
+            references DateDimension,
+    [Country Code]           nvarchar(2) not null,
     [Country Name]           nvarchar(255),
     [Civil Name]             nvarchar(50),
     [Civil Holiday Flag]     nvarchar(50),
@@ -126,62 +168,134 @@ CREATE TABLE CountrySpecificDateOutrigger
     [Religious Holiday Name] nvarchar(50),
     [Weekday Indicator]      nvarchar(50),
     [Season Name]            nvarchar(50),
-);
+    constraint CountrySpecificDateOutrigger_pk
+        unique ([Date Key], [Country Code])
+)
+go
 
 
-CREATE TABLE PortDimension
+
+create table PortDimension
 (
-    [Port Key]       int IDENTITY NOT NULL,
+    [Port Key]       int identity,
     [Port Name]      nvarchar(255),
     [Port Type]      nvarchar(255),
     [Port Country]   nvarchar(255),
     [Port City]      nvarchar(255),
     [Port Address]   nvarchar(255),
-    [Port Telephone] nvarchar(30),
-    primary key ([Port Key])
-);
+    [Port Telephone] nvarchar(30)
+)
+go
+
+create unique index "PortDimension_[Port Key]_uindex"
+    on PortDimension ([Port Key])
+go
+
+alter table PortDimension
+    add primary key nonclustered ([Port Key])
+go
 
 
-CREATE TABLE ShipModeDimension
+
+create table ShipModeDimension
 (
-    [Ship Mode Key]          int IDENTITY NOT NULL PRIMARY KEY,
+    [Ship Mode Key]          int identity,
     [Vehicle Type]           nvarchar(255),
     [Vehicle Name]           nvarchar(255),
     [Vehicle Capacity]       int,
     [Vehicle Speed (km/h)]   decimal(18, 3),
     [Vehicle Speed (mile/h)] decimal(18, 3),
     [Vehicle Builder]        nvarchar(255),
-    [Fuel cost per day]      decimal(18, 3),
-);
+    [Fuel cost per day]      decimal(18, 3)
+)
+go
+
+create unique index "ShipModeDimension_[Ship Mode Key]_uindex"
+    on ShipModeDimension ([Ship Mode Key])
+go
+
+alter table ShipModeDimension
+    add primary key nonclustered ([Ship Mode Key])
+go
 
 
-CREATE TABLE ShippingTransportFact
+
+create table ShippingTransportFact
 (
-    [Scheduled Voyage Departure Date Key]   int REFERENCES DateDimension,
-    [Scheduled Voyage Arrival Date Key]     int REFERENCES DateDimension,
-    [Scheduled Shipment Departure Date Key] int REFERENCES DateDimension,
-    [Scheduled Shipment Arrival Date Key]   int REFERENCES DateDimension,
-    [Actual Voyage Departure Date Key]      int REFERENCES DateDimension,
-    [Actual Voyage Arrival Date Key]        int REFERENCES DateDimension,
-    [Actual Shipment Departure Date Key]    int REFERENCES DateDimension,
-    [Actual Shipment Arrival Date Key]      int REFERENCES DateDimension,
-    [Voyage Origin Port Key]                int REFERENCES PortDimension,
-    [Voyage Destination Port Key]           int REFERENCES PortDimension,
-    [Shipment Origin Port Key]              int REFERENCES PortDimension,
-    [Shipment Destination Port Key]         int REFERENCES PortDimension,
-    [Ship Mode Key]                         int REFERENCES ShipModeDimension,
-    [Container Key]                         int REFERENCES ContainerDimension,
-    [Commodity Key]                         int REFERENCES CommodityDimension,
-    [Consignor Key]                         int REFERENCES BusinessEntityDimension,
-    [Foreign Transporter Key]               int REFERENCES BusinessEntityDimension,
-    [Foreign Consolidator Key]              int REFERENCES BusinessEntityDimension,
-    [Shipper Key]                           int REFERENCES BusinessEntityDimension,
-    [Domestic Consolidator Key]             int REFERENCES BusinessEntityDimension,
-    [Domestic Transporter Key]              int REFERENCES BusinessEntityDimension,
-    [Consignee Key]                         int REFERENCES BusinessEntityDimension,
-    [Bill-of-Lading Number (DD)]            nvarchar(17),
+    [Scheduled Voyage Departure Date Key]   int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk"
+            references DateDimension,
+    [Scheduled Voyage Arrival Date Key]     int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_8"
+            references DateDimension,
+    [Scheduled Shipment Departure Date Key] int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_2"
+            references DateDimension,
+    [Scheduled Shipment Arrival Date Key]   int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_3"
+            references DateDimension,
+    [Actual Voyage Departure Date Key]      int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_4"
+            references DateDimension,
+    [Actual Voyage Arrival Date Key]        int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_5"
+            references DateDimension,
+    [Actual Shipment Departure Date Key]    int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_6"
+            references DateDimension,
+    [Actual Shipment Arrival Date Key]      int
+        constraint "ShippingTransportFact_DateDimension_[Date Key]_fk_7"
+            references DateDimension,
+    [Voyage Origin Port Key]                int
+        constraint "ShippingTransportFact_PortDimension_[Port Key]_fk"
+            references PortDimension,
+    [Voyage Destination Port Key]           int
+        constraint "ShippingTransportFact_PortDimension_[Port Key]_fk_2"
+            references PortDimension,
+    [Shipment Origin Port Key]              int
+        constraint "ShippingTransportFact_PortDimension_[Port Key]_fk_3"
+            references PortDimension,
+    [Shipment Destination Port Key]         int
+        constraint "ShippingTransportFact_PortDimension_[Port Key]_fk_4"
+            references PortDimension,
+    [Ship Mode Key]                         int
+        constraint "ShippingTransportFact_ShipModeDimension_[Ship Mode Key]_fk"
+            references ShipModeDimension,
+    [Container Key]                         int
+        constraint "ShippingTransportFact_ContainerDimension_[Container Key]_fk"
+            references ContainerDimension,
+    [Commodity Key]                         int
+        constraint "ShippingTransportFact_CommodityDimension_[Commodity Key]_fk"
+            references CommodityDimension,
+    [Consignor Key]                         int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk"
+            references BusinessEntityDimension,
+    [Foreign Transporter Key]               int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk_2"
+            references BusinessEntityDimension,
+    [Domestic Consolidator Key]             int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk_5"
+            references BusinessEntityDimension,
+    [Shipper Key]                           int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk_4"
+            references BusinessEntityDimension,
+    [Foreign Consolidator Key]              int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk_3"
+            references BusinessEntityDimension,
+    [Domestic Transporter Key]              int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk_6"
+            references BusinessEntityDimension,
+    [Consignee Key]                         int
+        constraint "ShippingTransportFact_BusinessEntityDimension_[Business Entity Key]_fk_7"
+            references BusinessEntityDimension,
+    [Bill-of-Lading Number (DD)]            nvarchar(17) not null,
     [Voyage Fee]                            decimal(19, 2),
     [Expected Tariffs]                      decimal(19, 2),
     [Actual Tariffs]                        decimal(19, 2),
-    [Shipment Miles]                        decimal(19, 2),
-);
+    [Shipment Miles]                        decimal(19, 2)
+)
+go
+
+create unique index "ShippingTransportFact_[Bill-of-Lading Number (DD)]_uindex"
+    on ShippingTransportFact ([Bill-of-Lading Number (DD)])
+go

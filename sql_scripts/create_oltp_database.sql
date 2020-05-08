@@ -45,12 +45,12 @@ IF OBJECT_ID('dbo.Address', 'U') IS NOT NULL
     DROP TABLE Address;
 GO
 
-IF OBJECT_ID('dbo.Container', 'U') IS NOT NULL
-    DROP TABLE Container;
-GO
-
 IF OBJECT_ID('dbo.ContainerModel', 'U') IS NOT NULL
     DROP TABLE ContainerModel;
+GO
+
+IF OBJECT_ID('dbo.Container', 'U') IS NOT NULL
+    DROP TABLE Container;
 GO
 
 IF OBJECT_ID('dbo.Commodity', 'U') IS NOT NULL
@@ -72,54 +72,40 @@ create table Address
     [Longitude]      nvarchar(30)
 )
 go
+
 create unique index [Address_Address Key_uindex]
     on Address ([Address Key])
 go
+
 alter table Address
     add constraint Address_pk
         primary key nonclustered ([Address Key])
 go
 
 
+
 create table BusinessEntity
 (
     [Business Entity Key] int identity,
-    [Name]                nvarchar(255),
+    Name                  nvarchar(255),
     [E-mail]              nvarchar(255),
-    [Phone]               nvarchar(30),
-    [Fax]                 nvarchar(30),
+    Phone                 nvarchar(30),
+    Fax                   nvarchar(30),
     [Address Key]         int
+        constraint "BusinessEntity_Address_[Address Key]_fk"
+            references Address
 )
 go
-alter table BusinessEntity
-    add constraint "BusinessEntity_Address_[Address Key]_fk"
-        foreign key ([Business Entity Key]) references Address
-go
+
 create unique index [Business Entity_Business Entity Key_uindex]
     on BusinessEntity ([Business Entity Key])
 go
+
 alter table BusinessEntity
-    add constraint [BusinessEntity_pk]
+    add constraint BusinessEntity_pk
         primary key nonclustered ([Business Entity Key])
 go
 
-
-create table Container
-(
-    [Container Key] int identity,
-    [Owner Code]    nvarchar(4),
-    [Serial Number] nvarchar(6),
-    [Check Digit]   nvarchar(1),
-    [ISO Size Code] nvarchar(2),
-    [ISO Type Code] nvarchar(2)
-)
-go
-create unique index "Container_[Container Key]_uindex"
-    on Container ([Container Key])
-go
-alter table Container
-    add primary key nonclustered ([Container Key])
-go
 
 
 create table ContainerModel
@@ -152,30 +138,61 @@ create table ContainerModel
     [Capacity (m^3)]             decimal(18, 3)
 )
 go
+
 create unique index "ContainerModel_[Container Model Key]_uindex"
     on ContainerModel ([Container Model Key])
 go
+
 alter table ContainerModel
     add constraint ContainerModel_pk
         primary key nonclustered ([Container Model Key])
 go
 
 
+
+create table Container
+(
+    [Container Key]       int identity,
+    [Container Model Key] int not null
+        constraint "Container_ContainerModel_[Container Model Key]_fk"
+            references ContainerModel,
+    [Serial Number]       nvarchar(6),
+    [Check Digit]         nvarchar(1),
+    [ISO Size Code]       nvarchar(2),
+    [ISO Type Code]       nvarchar(2),
+    [Owner Code]          nvarchar(4)
+)
+go
+
+create unique index "Container_[Container Key]_uindex"
+    on Container ([Container Key])
+go
+
+alter table Container
+    add constraint Container_pk
+        primary key nonclustered ([Container Key])
+go
+
+
+
 create table Commodity
 (
     [Commodity Key]       int identity,
     [HS Code]             nvarchar(6),
-    [Description]         nvarchar(511),
+    Description           nvarchar(511),
     [Package Size (m^3)]  decimal(18, 3),
     [Package Weight (kg)] decimal(18, 3)
 )
 go
+
 create unique index "Commodity_[Commodity Key]_uindex"
     on Commodity ([Commodity Key])
 go
+
 alter table Commodity
     add primary key nonclustered ([Commodity Key])
 go
+
 
 
 create table Port
@@ -195,9 +212,11 @@ create table Port
     Website       nvarchar(255)
 )
 go
+
 create unique index "Port_[Port Key]_uindex"
     on Port ([Port Key])
 go
+
 alter table Port
     add primary key nonclustered ([Port Key])
 go
@@ -217,9 +236,11 @@ create table Vehicle
     [IMO Number]                 nvarchar(7),
 )
 go
+
 create unique index [Vehicle_Vehicle Key_uindex]
     on Vehicle ([Vehicle Key])
 go
+
 alter table Vehicle
     add constraint Vehicle_pk
         primary key nonclustered ([Vehicle Key])
@@ -249,6 +270,7 @@ alter table Leg
 go
 
 
+
 create table LegBridge
 (
     [Leg Bridge SK]  int identity,
@@ -272,6 +294,7 @@ alter table LegBridge
 go
 
 
+
 create table LegSchedule
 (
     [Leg Schedule Key]                        int identity,
@@ -284,12 +307,15 @@ create table LegSchedule
     [Destination Port Actual Arrival Date]    date
 )
 go
+
 create unique index "LegSchedule_[Leg Schedule Key]_uindex"
     on LegSchedule ([Leg Schedule Key])
 go
+
 alter table LegSchedule
     add primary key nonclustered ([Leg Schedule Key])
 go
+
 
 
 create table LegScheduleBridge
