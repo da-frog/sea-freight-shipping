@@ -35,8 +35,24 @@ class SQLWriter:
                             warnings.warn(UserWarning(f"type mismatch '{value}' of class '{value.__class__.__name__}' --> '{datatype}'"))
                         # TODO: check value is within bounds
                         text = str(value)
-                    elif datatype == 'decimal':
+                    elif datatype.startswith('decimal'):
+                        if datatype == 'decimal':
+                            # not specified
+                            precision, scale = 18, 0
+                        else:
+                            assert datatype[7] == '(', datatype
+                            assert datatype[-1] == ')', datatype
+                            precision, scale = datatype[8:-1].split(',')
+                            precision, scale = int(precision), int(scale)
                         text = str(value)
+                        # TODO: check value is within bounds
+                        front, back = text.split('.')
+                        if len(back) > scale:
+                            warnings.warn(f"value '{value}' seems to be out of bound of datatype {datatype}")
+                            text = str(round(value, scale))
+                            front, back = text.split('.')
+                        if len(front + back) > precision:
+                            raise ValueError(f"value '{value}' seems to be out of bound of datatype {datatype}")
                     elif datatype.startswith('varchar'):
                         assert datatype[7] == '(', datatype
                         assert datatype[-1] == ')', datatype

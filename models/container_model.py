@@ -32,7 +32,7 @@ class ContainerModel(BaseModel):
         ('Max Gross Weight (kg)', None, 'int'),
         ('Tare Weight (kg)', None, 'int'),
         ('Max Payload Weight (kg)', None, 'int'),
-        ('Capacity (m^3)', 'capacity_cbm', 'decimal')
+        ('Capacity (m^3)', 'capacity_cbm', 'decimal(18,3)')
     )
 
     container_model_key: int

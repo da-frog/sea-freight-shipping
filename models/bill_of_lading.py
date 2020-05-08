@@ -108,8 +108,8 @@ class BillOfLading(BaseModel):
         ('Commodity Key', None, 'int'),
         ('Container Key', None, 'int'),
         ('Incoterm', None, 'nvarchar(3)'),
-        ('Expected Tariffs', None, 'money'),
-        ('Actual Tariffs', None, 'money')
+        ('Expected Tariffs', None, 'decimal(19,2)'),
+        ('Actual Tariffs', None, 'decimal(19,2)')
     )
 
     bill_of_lading_number: str = None

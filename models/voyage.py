@@ -20,7 +20,7 @@ class Leg(BaseModel):
         ('Leg Key', None, 'int'),
         ('Origin Port Key', None, 'int'),
         ('Destination Port Key', None, 'int'),
-        ('Leg Miles', None, 'decimal'),
+        ('Leg Miles', None, 'decimal(19,2)'),
     )
 
     origin_port_key: int

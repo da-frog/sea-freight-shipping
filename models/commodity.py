@@ -10,8 +10,8 @@ class Commodity(BaseModel):
         ('Commodity Key', None, 'int'),
         ('HS Code', None, 'nvarchar(6)'),
         ('Description', None, 'nvarchar(511)'),
-        ('Package Size (m^3)', 'package_size', 'decimal'),
-        ('Package Weight (kg)', 'package_weight', 'decimal'),
+        ('Package Size (m^3)', 'package_size', 'decimal(18,3)'),
+        ('Package Weight (kg)', 'package_weight', 'decimal(18,3)'),
         # ('Densities (kg/m^3)', 'densities'),
     )
 

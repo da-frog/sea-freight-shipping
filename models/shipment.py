@@ -15,7 +15,7 @@ class Shipment(BaseModel):
         ('Voyage Schedule Key', None, 'int'),
         ('Vehicle Key', None, 'int'),
         ('Bill-of-Lading Key', None, 'int'),
-        ('Shipment Fees', None, 'decimal'),
+        ('Shipment Fees', None, 'decimal(19,2)'),
     )
 
     voyage_schedule_key: int = None
