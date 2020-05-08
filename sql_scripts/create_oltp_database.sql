@@ -45,12 +45,12 @@ IF OBJECT_ID('dbo.Address', 'U') IS NOT NULL
     DROP TABLE Address;
 GO
 
-IF OBJECT_ID('dbo.ContainerModel', 'U') IS NOT NULL
-    DROP TABLE ContainerModel;
-GO
-
 IF OBJECT_ID('dbo.Container', 'U') IS NOT NULL
     DROP TABLE Container;
+GO
+
+IF OBJECT_ID('dbo.ContainerModel', 'U') IS NOT NULL
+    DROP TABLE ContainerModel;
 GO
 
 IF OBJECT_ID('dbo.Commodity', 'U') IS NOT NULL
