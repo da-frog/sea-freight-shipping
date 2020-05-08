@@ -149,7 +149,7 @@ create table ContainerModel
     [Max Gross Weight (kg)]      int,
     [Tare Weight (kg)]           int,
     [Max Payload Weight (kg)]    int,
-    [Capacity (m^3)]             decimal(18,3)
+    [Capacity (m^3)]             decimal(18, 3)
 )
 go
 create unique index "ContainerModel_[Container Model Key]_uindex"
@@ -166,8 +166,8 @@ create table Commodity
     [Commodity Key]       int identity,
     [HS Code]             nvarchar(6),
     [Description]         nvarchar(511),
-    [Package Size (m^3)]  decimal(18,3),
-    [Package Weight (kg)] decimal(18,3)
+    [Package Size (m^3)]  decimal(18, 3),
+    [Package Weight (kg)] decimal(18, 3)
 )
 go
 create unique index "Commodity_[Commodity Key]_uindex"
@@ -190,7 +190,7 @@ create table Port
     Phone         nvarchar(30),
     Fax           nvarchar(30),
     [800 Number]  nvarchar(30),
-	[UN/LOCODE]   nvarchar(5),
+    [UN/LOCODE]   nvarchar(5),
     Email         nvarchar(255),
     Website       nvarchar(255)
 )
@@ -205,23 +205,23 @@ go
 
 create table Leg
 (
-	[Leg Key] int identity,
-	[Origin Port Key] int not null
-		constraint Leg_Port__fk_1
-			references Port,
-	[Destination Port Key] int not null
-		constraint Leg_Port__fk_2
-			references Port,
-	[Leg Miles] decimal(19,2)
+    [Leg Key]              int identity,
+    [Origin Port Key]      int not null
+        constraint Leg_Port__fk_1
+            references Port,
+    [Destination Port Key] int not null
+        constraint Leg_Port__fk_2
+            references Port,
+    [Leg Miles]            decimal(19, 2)
 )
 go
 
 create unique index "Leg_[Leg Key]_uindex"
-	on Leg ([Leg Key])
+    on Leg ([Leg Key])
 go
 
 alter table Leg
-	add primary key nonclustered ([Leg Key])
+    add primary key nonclustered ([Leg Key])
 go
 
 
@@ -271,7 +271,8 @@ create table LegScheduleBridge
 (
     [Leg Schedule Bridge Key] int not null,
     [Leg Schedule Key]        int not null
-        references LegSchedule,
+        constraint "LegScheduleBridge_LegSchedule_[Leg Schedule Key]_fk"
+            references LegSchedule,
     constraint LegScheduleBridge_pk
         unique ([Leg Schedule Bridge Key], [Leg Schedule Key])
 )
@@ -303,20 +304,20 @@ go
 
 create table VoyageSchedule
 (
-	[Voyage Schedule Key] int identity,
-	[Voyage Key] int not null
-		constraint "VoyageSchedule_Voyage_[Voyage Key]_fk"
-			references Voyage,
-	[Leg Schedule Bridge Key] int not null
+    [Voyage Schedule Key]     int identity,
+    [Voyage Key]              int not null
+        constraint "VoyageSchedule_Voyage_[Voyage Key]_fk"
+            references Voyage,
+    [Leg Schedule Bridge Key] int not null
 )
 go
 
 create unique index "VoyageSchedule_[Voyage Schedule Key]_uindex"
-	on VoyageSchedule ([Voyage Schedule Key])
+    on VoyageSchedule ([Voyage Schedule Key])
 go
 
 alter table VoyageSchedule
-	add primary key nonclustered ([Voyage Schedule Key])
+    add primary key nonclustered ([Voyage Schedule Key])
 go
 
 
@@ -354,8 +355,8 @@ create table BillOfLading
     [Container Key]             int
         references Container,
     Incoterm                    nvarchar(3),
-    [Expected Tariffs]          decimal(19,2),
-    [Actual Tariffs]            decimal(19,2)
+    [Expected Tariffs]          decimal(19, 2),
+    [Actual Tariffs]            decimal(19, 2)
 )
 go
 
@@ -376,15 +377,15 @@ go
 create table Vehicle
 (
     [Vehicle Key]                int identity,
-	[Vehicle Speed (km/h)]       decimal(18,3),
+    [Vehicle Speed (km/h)]       decimal(18, 3),
     [Vehicle Type]               nvarchar(255),
     [Vehicle Name]               nvarchar(255),
     [Vehicle Capacity]           int,
     [Vehicle Builder]            nvarchar(255),
-    [Vehicle Fuel Usage per Day] decimal(18,3),
+    [Vehicle Fuel Usage per Day] decimal(18, 3),
     [Current Latitude]           nvarchar(30),
     [Current Longitude]          nvarchar(30),
-	[IMO Number]                 nvarchar(7),
+    [IMO Number]                 nvarchar(7),
 )
 go
 create unique index [Vehicle_Vehicle Key_uindex]
@@ -402,7 +403,7 @@ create table Shipment
     [Voyage Schedule Key] int,
     [Vehicle Key]         int,
     [Bill-of-Lading Key]  int,
-    [Shipment Fees]       decimal(19,2),
+    [Shipment Fees]       decimal(19, 2),
     constraint Shipment_BillOfLading__fk
         foreign key ([Bill-of-Lading Key]) references BillOfLading,
     constraint Shipment_Vehicle__fk
