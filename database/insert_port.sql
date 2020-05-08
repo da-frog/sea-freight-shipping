@@ -1,7 +1,10 @@
 USE FreightShipping;
 
-SET IDENTITY_INSERT FreightShipping.dbo.Port ON;
+IF OBJECT_ID('dbo.Port', 'U') IS NOT NULL
+    DELETE FROM Port;
+GO
 
+SET IDENTITY_INSERT Port ON;
 INSERT INTO Port ([Port Key], [Address Key], [Port Name], [Port Type], [Port Size], [UN/LOCODE], Phone, Fax, [800 Number], Email, Website)
 VALUES
     (1,3001,N'Durres',N'Seaport',N'Small',N'355 52 23115',N'355 52 22028',NULL,N'ALDRZ',N'apd@san.com.al',NULL),
@@ -1004,6 +1007,7 @@ VALUES
     (998,3998,N'La Libertad',N'Pier, Jetty or Wharf',N'Small',NULL,NULL,NULL,N'SVLLD',NULL,NULL),
     (999,3999,N'Manta',N'Pier, Jetty or Wharf',N'Small',N'593 - 5 2627161',N'593 - 5 2621861',NULL,N'ECMEC',N'apm1@apm.gov.ec',N'www.apmanta.gov.ec'),
     (1000,4000,N'Puerto Bolivar',N'Seaport',N'Small',N'593 07 2929999',NULL,NULL,N'ECPBO',N'appb@eo.pro.ec',N'www.appb.gov.ec');
+SET IDENTITY_INSERT Port ON;
 INSERT INTO Port VALUES
     (1001,4001,N'Salinas',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (1002,4002,N'San Lorenzo',N'Pier, Jetty or Wharf',N'Very Small',NULL,NULL,NULL,N'HNSLO',NULL,NULL),
@@ -2005,6 +2009,7 @@ INSERT INTO Port VALUES
     (1998,4998,N'Shimonoseki',N'Seaport',N'Medium',N'+81-832-31-1111',N'+81-832-33-0860',NULL,N'JPSHS',N'webmaster@shimonoseki-port.com',N'www.shimonoseki-port.com'),
     (1999,4999,N'Shimotsu',N'Seaport',N'Small',N'81 734 317266',NULL,NULL,NULL,NULL,NULL),
     (2000,5000,N'Shingu',N'Harbor',N'Small',N'81 735 219654',N'81 735 219643',NULL,NULL,NULL,N'www.pref.wakayama.lg.jp');
+SET IDENTITY_INSERT Port ON;
 INSERT INTO Port VALUES
     (2001,5001,N'Shiogama',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (2002,5002,N'Shirashima',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
@@ -3006,6 +3011,7 @@ INSERT INTO Port VALUES
     (2998,5998,N'Malmo',N'Deepwater Seaport',N'Very Large',N'46 0 40 680 4100',N'46 0 40 180 501',NULL,N'SEMMA',N'cmport@cmport.com',N'www.cmport.com'),
     (2999,5999,N'Mariestad',N'Harbor',N'Small',N'46 501 63125',N'46 501 63315',NULL,NULL,NULL,NULL),
     (3000,6000,N'Marstrand',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+SET IDENTITY_INSERT Port ON;
 INSERT INTO Port VALUES
     (3001,6001,N'Norrkoping',N'Seaport',N'Medium',N'46 11 25 06 00',N'46 11 15 93 58',NULL,N'SENRK',N'info@norrkoping-port.se',N'www.norrkoping-port.se'),
     (3002,6002,N'Norrsundet',N'Pier, Jetty or Wharf',N'Small',N'46 26 85000',N'46 26 85765',NULL,NULL,NULL,N'www.storaenso.com'),
@@ -4007,6 +4013,7 @@ INSERT INTO Port VALUES
     (3998,6998,N'Port Bolivar',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (3999,6999,N'Port Canaveral',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (4000,7000,N'Port Chester Harbor',N'Harbor',N'Small',N'914-939-5202',N'914-937-3169',NULL,NULL,NULL,N'www.portchesterny.com');
+SET IDENTITY_INSERT Port ON;
 INSERT INTO Port VALUES
     (4001,7001,N'Port Clyde',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (4002,7002,N'Port Elizabeth',NULL,NULL,NULL,NULL,NULL,N'ZAPLZ',NULL,NULL),
@@ -4279,4 +4286,4 @@ INSERT INTO Port VALUES
     (4269,7269,N'Saleef Port',N'Seaport',N'Small',N'967 3 75057',NULL,NULL,NULL,NULL,NULL),
     (4270,7270,N'Harare',NULL,NULL,NULL,NULL,NULL,N'ZWHRE',NULL,NULL);
 
-SET IDENTITY_INSERT FreightShipping.dbo.Port OFF;
+SET IDENTITY_INSERT Port OFF;
