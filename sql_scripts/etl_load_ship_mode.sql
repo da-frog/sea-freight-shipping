@@ -9,3 +9,4 @@ SELECT [Vehicle Key],
        [Vehicle Builder],
        [Vehicle Fuel Usage per Day] * 400                             [Fuel cost per day]
 FROM Vehicle V
+ORDER BY [Vehicle Key]

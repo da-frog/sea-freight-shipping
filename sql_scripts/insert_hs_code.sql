@@ -6712,7 +6712,4 @@ INSERT INTO HSCode VALUES
     (N'XXI',N'9705',N'Collections and collectors'' pieces; of zoological, botanical, mineralogical, anatomical, historical, archaeological, palaeontological, ethnographic or numismatic interest',N'97',N'4'),
     (N'XXI',N'970500',N'Collections and collectors'' pieces; of zoological, botanical, mineralogical, anatomical, historical, archaeological, palaeontological, ethnographic or numismatic interest',N'9705',N'6'),
     (N'XXI',N'9706',N'Antiques; of an age exceeding one hundred years',N'97',N'4'),
-    (N'XXI',N'970600',N'Antiques; of an age exceeding one hundred years',N'9706',N'6'),
-    (N'TOTAL',N'99',N'Commodities not specified according to kind',N'TOTAL',N'2'),
-    (N'TOTAL',N'9999',N'Commodities not specified according to kind',N'99',N'4'),
-    (N'TOTAL',N'999999',N'Commodities not specified according to kind',N'9999',N'6');
+    (N'XXI',N'970600',N'Antiques; of an age exceeding one hundred years',N'9706',N'6');

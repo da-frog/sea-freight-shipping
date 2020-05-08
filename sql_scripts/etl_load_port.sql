@@ -9,4 +9,5 @@ SELECT [Port Key],
        P.Phone                                                                   [Port Telephone]
 FROM Port P
          JOIN Address A on P.[Address Key] = A.[Address Key]
+ORDER BY [Port Key]
 

@@ -11,3 +11,4 @@ SELECT [Business Entity Key],
        [ZIP code]
 FROM BusinessEntity BE
          JOIN Address A ON BE.[Address Key] = A.[Address Key]
+ORDER BY [Business Entity Key]

@@ -38,3 +38,4 @@ FROM Container C
               ON SUBSTRING(C.[ISO Size Code], 2, 1) = ISC2.[Code character]
          JOIN ISOTypeCode ITC
               ON C.[ISO Type Code] = ITC.[Detailed Type Code]
+ORDER BY [Container Key]
