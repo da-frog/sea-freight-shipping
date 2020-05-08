@@ -1,6 +1,7 @@
 USE FreightShipping;
 
-SELECT [Port Name],
+SELECT [Port Key],
+       [Port Name],
        [Port Type],
        [Country]                                                                 [Port Country],
        [City]                                                                    [Port City],

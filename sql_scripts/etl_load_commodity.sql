@@ -1,6 +1,7 @@
 USE FreightShipping;
 
-SELECT [HS Code],
+SELECT [Commodity Key],
+       [HS Code],
        C.[Description]  [Commodity Description],
        HSS.name       [Category Description],
        HS.description [Subcategory Description],

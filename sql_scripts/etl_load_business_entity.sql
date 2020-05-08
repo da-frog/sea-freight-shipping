@@ -1,6 +1,7 @@
 USE FreightShipping;
 
-SELECT [Name],
+SELECT [Business Entity Key],
+       [Name],
        [Phone]                                                                   [Telephone],
        [Fax],
        [E-mail]                                                                  [Email],
