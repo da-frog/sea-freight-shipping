@@ -97,6 +97,7 @@ CREATE TABLE DateDimension
     [Day Number in Fiscal Year]     smallint,
     [Last Day in Month Indicator]   nvarchar(50),
     [Calendar Week Ending Date]     date,
+    [Calendar Week]                 tinyint,
     [Calendar Week Number in Year]  tinyint,
     [Calendar Month Name]           nvarchar(9),
     [Calendar Month Number in Year] tinyint,
