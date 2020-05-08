@@ -86,7 +86,7 @@ def get_bol_check_digit(bol_number: str) -> str:
     return str(10 - last_dig)
 
 
-@dataclass
+@dataclass(eq=False)
 class BillOfLading(BaseModel):
     _instances: ClassVar[List['BillOfLading']] = []
     fields = (

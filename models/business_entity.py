@@ -5,7 +5,7 @@ from .base import BaseModel
 from .address import Address
 
 
-@dataclass
+@dataclass(eq=False)
 class BusinessEntity(BaseModel):
     _instances = []
     fields = (

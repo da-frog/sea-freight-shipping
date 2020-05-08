@@ -7,7 +7,7 @@ from .base import BaseModel
 from .address import Address
 
 
-@dataclass
+@dataclass(eq=False)
 class Port(BaseModel):
     _instances: ClassVar[List['Port']] = []
     fields: ClassVar[Sequence[str]] = (

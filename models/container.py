@@ -44,7 +44,7 @@ def get_check_digit(owner_code: str, number: str) -> int:
     return (sum_val % 11) % 10
 
 
-@dataclass
+@dataclass(eq=False)
 class Container(BaseModel):
     _instances: ClassVar[List['Container']] = []
     fields = (

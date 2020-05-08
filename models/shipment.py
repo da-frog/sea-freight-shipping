@@ -7,7 +7,7 @@ from .voyage import VoyageSchedule
 from .bill_of_lading import BillOfLading
 
 
-@dataclass
+@dataclass(eq=False)
 class Shipment(BaseModel):
     _instances: ClassVar[List['Shipment']] = []
     fields = (
