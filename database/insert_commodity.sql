@@ -1,7 +1,10 @@
 USE FreightShipping;
 
-SET IDENTITY_INSERT FreightShipping.dbo.Commodity ON;
+IF OBJECT_ID('dbo.Commodity', 'U') IS NOT NULL
+    DELETE FROM Port;
+GO
 
+SET IDENTITY_INSERT Commodity ON;
 INSERT INTO Commodity INTO Commodity ([Commodity Key], [HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
 VALUES
     (1,N'290941',N'Nam nulla.',2.663,796.45),
@@ -1004,7 +1007,9 @@ VALUES
     (998,N'842219',N'Nulla tellus.',2.488,1396.69),
     (999,N'540259',N'Suspendisse potenti.',1.216,1410.26),
     (1000,N'722990',N'Nulla justo.',0.777,130.49);
-INSERT INTO Commodity VALUES
+SET IDENTITY_INSERT Commodity ON;
+INSERT INTO Commodity INTO Commodity ([Commodity Key], [HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
+VALUES
     (1001,N'621020',N'Nullam molestie nibh in lectus.',1.751,555.3),
     (1002,N'841320',N'Suspendisse potenti.',2.525,1152.09),
     (1003,N'841460',N'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.',0.984,91.54),
@@ -2005,7 +2010,9 @@ INSERT INTO Commodity VALUES
     (1998,N'280450',N'Aliquam erat volutpat.',1.32,3.68),
     (1999,N'852329',N'Curabitur in libero ut massa volutpat convallis.',0.773,960.31),
     (2000,N'640411',N'Donec dapibus.',0.927,650.55);
-INSERT INTO Commodity VALUES
+SET IDENTITY_INSERT Commodity ON;
+INSERT INTO Commodity INTO Commodity ([Commodity Key], [HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
+VALUES
     (2001,N'841932',N'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.',0.602,571.26),
     (2002,N'844842',N'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.',0.906,439.47),
     (2003,N'391710',N'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',3.657,167.0),
@@ -3006,7 +3013,9 @@ INSERT INTO Commodity VALUES
     (2998,N'722012',N'Integer ac neque.',0.642,640.16),
     (2999,N'970190',N'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.',1.629,992.38),
     (3000,N'691490',N'Duis consequat dui nec nisi volutpat eleifend.',0.477,474.59);
-INSERT INTO Commodity VALUES
+SET IDENTITY_INSERT Commodity ON;
+INSERT INTO Commodity INTO Commodity ([Commodity Key], [HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
+VALUES
     (3001,N'850740',N'Praesent blandit lacinia erat.',3.705,5540.88),
     (3002,N'848130',N'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.',6.482,8651.66),
     (3003,N'391590',N'Suspendisse potenti.',0.578,81.37),
@@ -4007,7 +4016,9 @@ INSERT INTO Commodity VALUES
     (3998,N'070810',N'Morbi porttitor lorem id ligula.',1.421,250.28),
     (3999,N'160432',N'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',0.7,1087.66),
     (4000,N'283699',N'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',1.185,110.4);
-INSERT INTO Commodity VALUES
+SET IDENTITY_INSERT Commodity ON;
+INSERT INTO Commodity INTO Commodity ([Commodity Key], [HS Code], Description, [Package Size (m^3)], [Package Weight (kg)])
+VALUES
     (4001,N'580421',N'Mauris sit amet eros.',0.65,216.38),
     (4002,N'640340',N'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.',2.131,1442.33),
     (4003,N'340700',N'Phasellus sit amet erat.',1.135,1797.46),
@@ -5009,4 +5020,4 @@ INSERT INTO Commodity VALUES
     (4999,N'830590',N'Ut at dolor quis odio consequat varius. Integer ac leo.',0.507,570.86),
     (5000,N'030771',N'Nulla suscipit ligula in lacus.',1.245,1071.74);
 
-SET IDENTITY_INSERT FreightShipping.dbo.Commodity OFF;
+SET IDENTITY_INSERT Commodity OFF;
