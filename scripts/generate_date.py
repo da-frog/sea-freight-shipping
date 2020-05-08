@@ -16,6 +16,7 @@ from models import *
 
 def main(n: int):
     load_database(str(n))
+    print()
 
     voyage_schedules: List[VoyageSchedule] = VoyageSchedule._instances.copy()
     random.shuffle(voyage_schedules)
@@ -23,12 +24,13 @@ def main(n: int):
     vehicles: List[Vehicle] = Vehicle._instances.copy()
     random.shuffle(vehicles)
 
-    date = Date(2018, 1, 1)
+    date = Date(2016, 8, 1)
     for voyage_schedule in voyage_schedules:
         if random.random() <= 0.95:
             date = date + TimeDelta(days=np.random.poisson(2))
-        print(date)
+        print(date, end=' ')
         voyage_schedule.scheduled_departure_date = date
+        print(f'{time.ctime(time.time()): <30}')
 
         try:
             vehicle = vehicles.pop(-1)
@@ -47,12 +49,14 @@ def main(n: int):
             # print(shipment.bill_of_lading.issued_date)
             shipment.bill_of_lading.incoterm = random_incoterm(shipment.bill_of_lading.issued_date.year)
 
-    dump_database(str(n))
+    print()
     dump_database(str(n), 'json')
+    print()
+    dump_database(str(n), 'sql')
 
 
 if __name__ == '__main__':
-    main(500)
+    main(8000)
     # load_database('500', 'json')
 
 

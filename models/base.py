@@ -1,5 +1,6 @@
 from typing import Sequence, List, ClassVar, Tuple, TypeVar, Type
-from datetime import date, datetime, time
+from datetime import date, datetime
+import time
 
 import csv
 import json
@@ -249,6 +250,7 @@ class BaseModel(metaclass=BaseModelMeta):
             writer = SQLWriter(f, dbtypes=cls.get_dbtypes())
             writer.write_delete(cls.__name__)
             iterable = cls._instances.__iter__()
+            group_num = 1
             while True:
                 group = []
                 n = 0
@@ -273,6 +275,9 @@ class BaseModel(metaclass=BaseModelMeta):
                         values.append(value)
                     lst.append(values)
                 writer.writerows(lst)
+                print(f"wrote group#{group_num} for {cls.__name__} at {time.ctime(time.time())}")
+                group_num += 1
+        print()
 
     def as_json(self) -> dict:
         d = {

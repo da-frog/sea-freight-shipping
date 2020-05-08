@@ -359,7 +359,7 @@ class VoyageSchedule(BaseModel):
     @scheduled_departure_date.setter
     def scheduled_departure_date(self, scheduled_departure_date: date):
         self.leg_schedules[0].origin_port_scheduled_departure_date = scheduled_departure_date
-        print('Please cascade scheduled date', self)
+        # print('Please cascade scheduled date', self)
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
         first_ls = self.leg_schedules[0]
@@ -378,7 +378,7 @@ class VoyageSchedule(BaseModel):
     @scheduled_arrival_date.setter
     def scheduled_arrival_date(self, scheduled_arrival_date: date):
         self.leg_schedules[-1].destination_port_scheduled_arrival_date = scheduled_arrival_date
-        print('Please cascade actual date', self)
+        # print('Please cascade actual date', self)
 
     @staticmethod
     def get_delays() -> Tuple[TimeDelta, TimeDelta, TimeDelta, TimeDelta]:

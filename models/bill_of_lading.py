@@ -92,7 +92,7 @@ class BillOfLading(BaseModel):
     fields = (
         ('Bill-of-Lading Key', None, 'int'),
         ('Bill-of-Lading Number', None, 'nvarchar(17)'),
-        ('Issued Date', None, 'int'),
+        ('Issued Date', None, 'date'),
         ('Consignor Key', None, 'int'),
         ('Consignee Key', None, 'int'),
         ('Foreign Transporter Key', None, 'int'),
