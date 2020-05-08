@@ -1718,3 +1718,4 @@ INSERT INTO LegBridge ([Leg Bridge Key], [Leg Key]) VALUES
     (493,1646),
     (493,1647),
     (493,1648);
+SET IDENTITY_INSERT LegBridge OFF;

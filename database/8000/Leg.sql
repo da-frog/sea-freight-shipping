@@ -1653,3 +1653,4 @@ INSERT INTO Leg ([Leg Key], [Origin Port Key], [Destination Port Key], [Leg Mile
     (1646,1164,523,6791.24),
     (1647,523,3821,6149.51),
     (1648,3821,3828,2190.07);
+SET IDENTITY_INSERT Leg OFF;

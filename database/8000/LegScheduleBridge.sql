@@ -2873,3 +2873,4 @@ INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VA
     (758,2864),
     (758,2865),
     (758,2866);
+SET IDENTITY_INSERT LegScheduleBridge OFF;

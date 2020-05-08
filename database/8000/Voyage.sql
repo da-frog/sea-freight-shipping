@@ -496,3 +496,4 @@ INSERT INTO Voyage ([Voyage Key], [Leg Bridge Key], [Origin Port Key], [Destinat
     (491,491,2835,1481),
     (492,492,831,233),
     (493,493,2816,3828);
+SET IDENTITY_INSERT Voyage OFF;
