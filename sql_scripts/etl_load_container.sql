@@ -27,11 +27,11 @@ SELECT [Container Key],
        [Container Refrigeration Indicator],
        [Container Danger Indicator]
 FROM Container C
-         JOIN ContainerModel CM
-              ON C.[ISO Size Code] = CM.[ISO Size Code]
-                  AND C.[ISO Type Code] = CM.[ISO Type Code]
-                  AND C.[Serial Number] >= CM.[Serial Number Range Start]
-                  AND C.[Serial Number] <= CM.[Serial Number Range End]
+         JOIN ContainerModel CM ON C.[Container Model Key] = CM.[Container Model Key]
+--               ON C.[ISO Size Code] = CM.[ISO Size Code]
+--                   AND C.[ISO Type Code] = CM.[ISO Type Code]
+--                   AND C.[Serial Number] >= CM.[Serial Number Range Start]
+--                   AND C.[Serial Number] <= CM.[Serial Number Range End]
          JOIN ISOSizeCode1 ISC1
               ON SUBSTRING(C.[ISO Size Code], 1, 1) = ISC1.[Code character]
          JOIN ISOSizeCode2 ISC2
