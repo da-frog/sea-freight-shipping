@@ -252,6 +252,7 @@ go
 create table LegBridge
 (
     [Leg Bridge SK]  int identity,
+    [Order]          int not null,
     [Leg Key]        int not null,
     [Leg Bridge Key] int not null
         constraint "LegBridge_Leg_[Leg Key]_fk"
