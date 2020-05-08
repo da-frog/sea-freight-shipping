@@ -205,16 +205,23 @@ go
 
 create table Leg
 (
-    [Leg Key]              int not null
-        primary key nonclustered,
-    [Origin Port Key]      int not null
-        constraint Leg_Port__fk_1
-            references Port,
-    [Destination Port Key] int not null
-        constraint Leg_Port__fk_2
-            references Port,
-    [Leg Miles]            decimal(19,2)
+	[Leg Key] int identity,
+	[Origin Port Key] int not null
+		constraint Leg_Port__fk_1
+			references Port,
+	[Destination Port Key] int not null
+		constraint Leg_Port__fk_2
+			references Port,
+	[Leg Miles] decimal(19,2)
 )
+go
+
+create unique index "Leg_[Leg Key]_uindex"
+	on Leg ([Leg Key])
+go
+
+alter table Leg
+	add primary key nonclustered ([Leg Key])
 go
 
 
