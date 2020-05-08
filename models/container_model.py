@@ -35,7 +35,6 @@ class ContainerModel(BaseModel):
         ('Capacity (m^3)', 'capacity_cbm', 'decimal(18,3)')
     )
 
-    container_model_key: int
     iso_size_code: str
     iso_type_code: str
     owner_code: str
@@ -63,5 +62,5 @@ class ContainerModel(BaseModel):
     capacity_cbm: float = None
 
     @property
-    def container_class_key(self) -> int:
+    def container_model_key(self) -> int:
         return self.key

@@ -54,6 +54,7 @@ class Container(BaseModel):
         ('Check Digit', None, 'nvarchar(1)'),
         ('ISO Size Code', None, 'nvarchar(2)'),
         ('ISO Type Code', None, 'nvarchar(2)'),
+        ('Container Model Key', None, 'int'),
     )
 
     owner_code: str
@@ -61,6 +62,7 @@ class Container(BaseModel):
     check_digit: str
     iso_size_code: str
     iso_type_code: str
+    container_model_key: int = None
 
     @property
     def container_key(self) -> int:
