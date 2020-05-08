@@ -37,14 +37,14 @@ GO
 CREATE TABLE BusinessEntityDimension
 (
     [Business Entity Key] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
-    [Name]                nvarchar(50),
+    [Name]                nvarchar(255),
     [Telephone]           nvarchar(15),
     [Fax]                 nvarchar(15),
     [Email]               nvarchar(255),
     [Address]             nvarchar(255),
     [City]                nvarchar(50),
     [Country]             nvarchar(50),
-    [ZIP code]            nvarchar(11),
+    [ZIP code]            nvarchar(30),
 );
 
 
@@ -55,8 +55,8 @@ CREATE TABLE CommodityDimension
     [Commodity Description]   nvarchar(511),
     [Catagory Description]    nvarchar(511),
     [Subcategory Description] nvarchar(511),
-    [Package Size (m^3)]      decimal,
-    [Package Weight (kg)]     decimal,
+    [Package Size (m^3)]      decimal(18,3),
+    [Package Weight (kg)]     decimal(18,3),
 );
 
 
@@ -64,22 +64,22 @@ CREATE TABLE ContainerDimension
 (
     [Container Key]                     int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Container Number]                  nvarchar(11),
-    [Container Size (Volume)]           decimal,
-    [Container Type]                    nvarchar(100),
-    [Container Tare Weight (kg)]        decimal,
+    [Container Size (Volume)]           decimal(18,3),
+    [Container Type]                    nvarchar(255),
+    [Container Tare Weight (kg)]        int,
     [Container Inside Length (mm)]      int,
     [Container Inside Width (mm)]       int,
     [Container Inside Height (mm)]      int,
-    [Container Inside Length (ft)]      decimal,
-    [Container Inside Width (ft)]       decimal,
-    [Container Inside Height (ft)]      decimal,
-    [Container Outside Length (mm)]     decimal,
-    [Container Outside Width (mm)]      decimal,
-    [Container Outside Height (mm)]     decimal,
-    [Container Outside Length (ft)]     decimal,
-    [Container Outside Width (ft)]      decimal,
-    [Container Outside Height (ft)]     decimal,
-    [Container Capacity]                decimal,
+    [Container Inside Length (ft)]      int,
+    [Container Inside Width (ft)]       int,
+    [Container Inside Height (ft)]      int,
+    [Container Outside Length (mm)]     int,
+    [Container Outside Width (mm)]      int,
+    [Container Outside Height (mm)]     int,
+    [Container Outside Length (ft)]     int,
+    [Container Outside Width (ft)]      int,
+    [Container Outside Height (ft)]     int,
+    [Container Capacity]                decimal(18,3),
     [Container Electricity Indicator]   nvarchar(50),
     [Container Refrigeration Indicator] nvarchar(50),
     [Container Thermal Indicator]       nvarchar(50),
@@ -148,11 +148,11 @@ CREATE TABLE ShipModeDimension
     [Ship Mode Key]          int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Vehicle Type]           nvarchar(255),
     [Vehicle Name]           nvarchar(255),
-    [Vehicle Capacity]       decimal,
-    [Vehicle Speed (km/h)]   decimal,
-    [Vehicle Speed (mile/h)] decimal,
+    [Vehicle Capacity]       int,
+    [Vehicle Speed (km/h)]   decimal(18,3),
+    [Vehicle Speed (mile/h)] decimal(18,3),
     [Vehicle Builder]        nvarchar(255),
-    [Fuel cost per day]      decimal,
+    [Fuel cost per day]      decimal(18,3),
 );
 
 
@@ -181,8 +181,8 @@ CREATE TABLE ShippingTransportFact
     [Domestic Transporter Key]              int REFERENCES BusinessEntityDimension,
     [Consignee Key]                         int REFERENCES BusinessEntityDimension,
     [Bill-of-Lading Number (DD)]            nvarchar(17),
-    [Leg Fee]                               money,
-    [Expected Tariffs]                      decimal,
-    [Actual Tariffs]                        decimal,
-    [Leg Miles]                             decimal,
+    [Leg Fee]                               decimal(19,2),
+    [Expected Tariffs]                      decimal(19,2),
+    [Actual Tariffs]                        decimal(19,2),
+    [Leg Miles]                             decimal(19,2),
 );
