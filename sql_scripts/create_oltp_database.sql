@@ -181,7 +181,7 @@ go
 create table Port
 (
     [Port Key]    int identity
-        constraint Port___fk_1
+        constraint Port_Address__fk
             references Address,
     [Address Key] int,
     [Port Name]   nvarchar(255),
