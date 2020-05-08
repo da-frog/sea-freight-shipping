@@ -8,10 +8,10 @@ class Commodity(BaseModel):
     _instances = []
     fields = (
         ('Commodity Key', None, 'int'),
-        'HS Code',
+        ('HS Code', None, 'nvarchar(6)'),
         ('Description', None, 'nvarchar(511)'),
-        ('Package Size (m^3)', 'package_size'),
-        ('Package Weight (kg)', 'package_weight'),
+        ('Package Size (m^3)', 'package_size', 'decimal'),
+        ('Package Weight (kg)', 'package_weight', 'decimal'),
         # ('Densities (kg/m^3)', 'densities'),
     )
 
