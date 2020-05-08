@@ -303,20 +303,20 @@ go
 
 create table VoyageSchedule
 (
-    [Voyage Schedule Key]     int identity
-        constraint "VoyageSchedule_Voyage_[Voyage Key]_fk"
-            references Voyage,
-    [Voyage Key]              int not null,
-    [Leg Schedule Bridge Key] int not null
+	[Voyage Schedule Key] int identity,
+	[Voyage Key] int not null
+		constraint "VoyageSchedule_Voyage_[Voyage Key]_fk"
+			references Voyage,
+	[Leg Schedule Bridge Key] int not null
 )
 go
 
 create unique index "VoyageSchedule_[Voyage Schedule Key]_uindex"
-    on VoyageSchedule ([Voyage Schedule Key])
+	on VoyageSchedule ([Voyage Schedule Key])
 go
 
 alter table VoyageSchedule
-    add primary key nonclustered ([Voyage Schedule Key])
+	add primary key nonclustered ([Voyage Schedule Key])
 go
 
 
