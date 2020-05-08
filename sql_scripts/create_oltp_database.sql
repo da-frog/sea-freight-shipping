@@ -419,7 +419,7 @@ create table Shipment
     [Voyage Schedule Key] int,
     [Vehicle Key]         int,
     [Bill-of-Lading Key]  int,
-    [Shipment Fees]       decimal(19, 2),
+    [Voyage Fee]          decimal(19, 2),
     constraint Shipment_BillOfLading__fk
         foreign key ([Bill-of-Lading Key]) references BillOfLading,
     constraint Shipment_Vehicle__fk
