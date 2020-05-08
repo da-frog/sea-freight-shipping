@@ -18,8 +18,8 @@ class Leg(BaseModel):
     _instances = []
     fields = (
         ('Leg Key', None, 'int'),
-        'Origin Port Key',
-        'Destination Port Key',
+        ('Origin Port Key', None, 'int'),
+        ('Destination Port Key', None, 'int'),
         ('Leg Miles', None, 'decimal'),
     )
 

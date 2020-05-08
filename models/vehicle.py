@@ -10,13 +10,13 @@ class Vehicle(BaseModel):
     fields = (
         ('Vehicle Key', None, 'int'),
         ('Vehicle Speed (km/h)', 'vehicle_speed_kmh'),
-        'Vehicle Type',
-        'Vehicle Name',
-        'Vehicle Capacity',
-        'Vehicle Builder',
-        'Vehicle Fuel Usage per Day',
-        'Current Latitude',
-        'Current Longitude'
+        ('Vehicle Type', None, 'nvarchar(50)'),
+        ('Vehicle Name', None, 'nvarchar(50)'),
+        ('Vehicle Capacity', None, 'int'),
+        ('Vehicle Builder', None, 'nvarchar(50)'),
+        ('Vehicle Fuel Usage per Day', None, 'int'),
+        ('Current Latitude', None, 'nvarchar(50)'),
+        ('Current Longitude', None, 'nvarchar(50)')
     )
 
     vehicle_speed_kmh: float

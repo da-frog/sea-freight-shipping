@@ -12,16 +12,16 @@ class Port(BaseModel):
     _instances: ClassVar[List['Port']] = []
     fields: ClassVar[Sequence[str]] = (
         ('Port Key', None, 'int'),
-        'Address Key',
-        'Port Name',
-        'Port Type',
-        'Port Size',
-        'Phone',
-        'Fax',
-        ('800 Number', '_800_number'),
-        ('UN/LOCODE', 'un_locode'),
-        'Email',
-        'Website',
+        ('Address Key', None, 'int'),
+        ('Port Name', None, 'nvarchar(255)'),
+        ('Port Type', None, 'nvarchar(255)'),
+        ('Port Size', None, 'nvarchar(255)'),
+        ('Phone', None, 'nvarchar(15)'),
+        ('Fax', None, 'nvarchar(15)'),
+        ('800 Number', '_800_number', 'nvarchar(15)'),
+        ('UN/LOCODE', 'un_locode', 'nvarchar(10)'),
+        ('Email', None, 'nvarchar(255)'),
+        ('Website', None, 'nvarchar(255)'),
     )
 
     address_key: int
