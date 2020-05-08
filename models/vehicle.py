@@ -16,7 +16,8 @@ class Vehicle(BaseModel):
         ('Vehicle Builder', None, 'nvarchar(255)'),
         ('Vehicle Fuel Usage per Day', None, 'decimal'),
         ('Current Latitude', None, 'nvarchar(30)'),
-        ('Current Longitude', None, 'nvarchar(30)')
+        ('Current Longitude', None, 'nvarchar(30)'),
+        ('IMO Number', None, 'nvarchar(7)'),
     )
 
     vehicle_speed_kmh: float
@@ -27,6 +28,7 @@ class Vehicle(BaseModel):
     vehicle_fuel_usage_per_day: float = None
     current_latitude: str = None
     current_longitude: str = None
+    imo_number: str = None
 
     @property
     def current_position(self) -> Location:

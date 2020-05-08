@@ -1,4 +1,4 @@
-Vehicle Key,Vehicle Type,IMO number,Vehicle Name,Vehicle Capacity,Vehicle Speed (km/h),Vehicle Builder,Vehicle Fuel Usage per Day,Current Latitude,Current Longitude
+Vehicle Key,Vehicle Type,IMO Number,Vehicle Name,Vehicle Capacity,Vehicle Speed (km/h),Vehicle Builder,Vehicle Fuel Usage per Day,Current Latitude,Current Longitude
 1,Offshore Support Vessel,9648714,PRELUDE,394330,10.5564,Kaiser Shipyards,136.98,-13.78729,123.31391
 2,Crane Ship,9593505,PIONEERING SPIRIT,499125,11.2972,Suez shipyard,163.12,51.96167,3.977
 3,FSO,9224764,FSO AFRICA,441561,9.6304,Oregon Shipbuilding Corporation,144.16,26.64437,51.89488
