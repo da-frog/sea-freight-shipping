@@ -29,12 +29,28 @@ class SQLWriter:
                 if value is None:
                     text = 'NULL'
                 elif isinstance(datatype, str):
-                    if datatype == 'int':
+                    if datatype in ('int', 'tinyint', 'smallint', 'bigint'):
                         if not isinstance(value, int):
                             warnings.warn(repr(row))
                             warnings.warn(UserWarning(f"type mismatch '{value}' of class '{value.__class__.__name__}' --> '{datatype}'"))
-                        # TODO: check value is within bounds
-                        text = str(value)
+                        if datatype == 'int':
+                            if not -2_147_483_648 <= value <= 2_147_483_647:
+                                warnings.warn(UserWarning(f"value '{value}' seems to be out of bound for datatype {datatype} ({-2_147_483_648},{2_147_483_647})"))
+                            text = str(value)
+                        elif datatype == 'tinyint':
+                            if not 0 <= value <= 255:
+                                warnings.warn(UserWarning(f"value '{value}' seems to be out of bound for datatype {datatype} ({0},{255})"))
+                            text = str(value)
+                        elif datatype == 'smallint':
+                            if not -32_768 <= value <= 32_767:
+                                warnings.warn(UserWarning(f"value '{value}' seems to be out of bound for datatype {datatype} ({-32_768},{32_767})"))
+                            text = str(value)
+                        elif datatype == 'bigint':
+                            if not -9_223_372_036_854_775_808 <= value <= 9_223_372_036_854_775_807:
+                                warnings.warn(UserWarning(f"value '{value}' seems to be out of bound for datatype {datatype} ({-9_223_372_036_854_775_808},{9_223_372_036_854_775_807})"))
+                            text = str(value)
+                        else:
+                            raise AssertionError(f"What is this data type? '{datatype}'??? not supported")
                     elif datatype.startswith('decimal'):
                         if datatype == 'decimal':
                             # not specified

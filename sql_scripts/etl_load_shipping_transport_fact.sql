@@ -1,11 +1,11 @@
-SELECT SVDDDim.[Date]                [Scheduled Voyage Departure Date Key],
-       SVADDim.[Date]                [Scheduled Voyage Arrival Date Key],
-       SSDDDim.[Date]                [Scheduled Shipment Departure Date Key],
-       SSADDim.[Date]                [Scheduled Shipment Arrival Date Key],
-       AVDDDim.[Date]                [Actual Voyage Departure Date Key],
-       AVADDim.[Date]                [Actual Voyage Arrival Date Key],
-       ASDDDim.[Date]                [Actual Shipment Departure Date Key],
-       ASADDim.[Date]                [Actual Shipment Arrival Date Key],
+SELECT SVDDDim.[Date Key]                [Scheduled Voyage Departure Date Key],
+       SVADDim.[Date Key]                [Scheduled Voyage Arrival Date Key],
+       SSDDDim.[Date Key]                [Scheduled Shipment Departure Date Key],
+       SSADDim.[Date Key]                [Scheduled Shipment Arrival Date Key],
+       AVDDDim.[Date Key]                [Actual Voyage Departure Date Key],
+       AVADDim.[Date Key]                [Actual Voyage Arrival Date Key],
+       ASDDDim.[Date Key]                [Actual Shipment Departure Date Key],
+       ASADDim.[Date Key]                [Actual Shipment Arrival Date Key],
        StartLeg.[Origin Port Key]    [Voyage Origin Port Key],
        EndLeg.[Destination Port Key] [Voyage Destination Port Key],
        L1.[Origin Port Key]          [Shipment Origin Port Key],
@@ -54,10 +54,10 @@ FROM FreightShipping.dbo.Shipment S
          JOIN FreightShippingDW.dbo.DateDimension AVADDim ON EndLS.[Destination Port Actual Arrival Date] = AVADDim.[Date]
          JOIN FreightShippingDW.dbo.DateDimension ASDDDim ON LS1.[Origin Port Actual Departure Date] = ASDDDim.[Date]
          JOIN FreightShippingDW.dbo.DateDimension ASADDim ON LS2.[Destination Port Actual Arrival Date] = ASADDim.[Date]
-GROUP BY LB.[Leg Bridge Key], SVDDDim.[Date], SVADDim.[Date], SSDDDim.[Date], SSADDim.[Date], AVDDDim.[Date],
-         AVADDim.[Date], ASDDDim.[Date], ASADDim.[Date], StartLeg.[Origin Port Key], EndLeg.[Destination Port Key],
-         L1.[Origin Port Key], L2.[Destination Port Key], S.[Vehicle Key], [Container Key], [Commodity Key],
-         [Consignor Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key],
+GROUP BY LB.[Leg Bridge Key], SVDDDim.[Date Key], SVADDim.[Date Key], SSDDDim.[Date Key], SSADDim.[Date Key],
+         AVDDDim.[Date Key], AVADDim.[Date Key], ASDDDim.[Date Key], ASADDim.[Date Key], StartLeg.[Origin Port Key],
+         EndLeg.[Destination Port Key], L1.[Origin Port Key], L2.[Destination Port Key], S.[Vehicle Key], [Container Key],
+         [Commodity Key], [Consignor Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key],
          [Domestic Consolidator Key], [Domestic Transporter Key], [Consignee Key], [Bill-of-Lading Number],
          [Voyage Fee], [Expected Tariffs], [Actual Tariffs], [Shipment Key]
 ORDER BY [Shipment Key]

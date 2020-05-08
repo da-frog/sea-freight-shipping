@@ -5,6 +5,8 @@ from jsoncompat import Date
 
 from .base import BaseModel
 
+__all__ = ['DateDimension']
+
 _MONTH_NAMES = [None, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 _DAY_NAMES = [None, "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -58,7 +60,7 @@ class DateDimension(BaseModel):
 
     @property
     def full_date_description(self) -> str:
-        return self.date.ctime()
+        return f"{self.calendar_month_name} {self.date.day}, {self.date.year}"
 
     @property
     def day_of_week(self) -> str:
@@ -87,9 +89,9 @@ class DateDimension(BaseModel):
         return 'Not the last day in month'
 
     @property
-    def calendar_week_ending_date(self) -> str:
+    def calendar_week_ending_date(self) -> Date:
         # Sunday
-        return str(self.date + (datetime.timedelta(days=7 - self.date.isoweekday())))
+        return self.date + (datetime.timedelta(days=7 - self.date.isoweekday()))
 
     @property
     def calendar_week(self) -> int:
