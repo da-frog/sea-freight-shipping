@@ -1,7 +1,10 @@
 USE FreightShipping;
 
-SET IDENTITY_INSERT FreightShipping.dbo.BusinessEntity ON;
+IF OBJECT_ID('dbo.BusinessEntity', 'U') IS NOT NULL
+    DELETE FROM BusinessEntity;
+GO
 
+SET IDENTITY_INSERT BusinessEntity ON;
 INSERT INTO BusinessEntity ([Business Entity Key], Name, [E-mail], Phone, Fax, [Address Key])
 VALUES
     (1,N'Kristine Imlock',N'kimlock0@unblog.fr',N'576-987-3862',N'823-438-9798',1,N'["Consignee", "Consignor"]'),
@@ -1004,7 +1007,9 @@ VALUES
     (998,N'Saree Astbury',N'sastburyrp@ning.com',N'121-764-1010',N'180-389-5205',998,N'["Consignee", "Consignor"]'),
     (999,N'Preston Proger',N'pprogerrq@sciencedaily.com',N'983-418-6711',N'210-925-6332',999,N'["Consignee"]'),
     (1000,N'Elvera Haylands',N'ehaylandsrr@globo.com',N'175-464-5520',N'977-304-0623',1000,N'["Consignee"]');
-INSERT INTO BusinessEntity VALUES
+SET IDENTITY_INSERT BusinessEntity ON;
+INSERT INTO BusinessEntity ([Business Entity Key], Name, [E-mail], Phone, Fax, [Address Key])
+VALUES
     (1001,N'Lacy Deverale',N'ldeverale0@oaic.gov.au',N'458-398-2468',N'661-559-4392',1001,N'["Consignor"]'),
     (1002,N'Tobe Gildersleeve',N'tgildersleeve1@pcworld.com',N'449-329-8864',N'824-766-0069',1002,N'["Consignee"]'),
     (1003,N'Katherina Ackerley',N'kackerley2@yandex.ru',N'855-754-3004',N'979-769-4025',1003,N'["Consignee", "Consignor"]'),
@@ -2005,7 +2010,9 @@ INSERT INTO BusinessEntity VALUES
     (1998,N'Wendi Halliberton',N'whallibertonrp@istockphoto.com',N'463-480-8274',N'129-798-2629',1998,N'["Consignor"]'),
     (1999,N'Eli Annon',N'eannonrq@bigcartel.com',N'460-171-3706',N'891-193-5998',1999,N'["Consignor"]'),
     (2000,N'Rubie Diche',N'rdicherr@devhub.com',N'593-968-4428',N'440-861-7255',2000,N'["Consignee"]');
-INSERT INTO BusinessEntity VALUES
+SET IDENTITY_INSERT BusinessEntity ON;
+INSERT INTO BusinessEntity ([Business Entity Key], Name, [E-mail], Phone, Fax, [Address Key])
+VALUES
     (2001,N'Dag Rochford',N'drochford0@icio.us',N'124-586-6799',N'342-685-0221',2001,N'["Consignee"]'),
     (2002,N'Charisse De Nisco',N'cde1@geocities.jp',N'706-686-6890',N'942-343-9971',2002,N'["Consignor"]'),
     (2003,N'Tim Battman',N'tbattman2@unicef.org',N'209-880-1724',N'772-576-5693',2003,N'["Consignor"]'),
@@ -3006,7 +3013,9 @@ INSERT INTO BusinessEntity VALUES
     (2998,N'Moria Pinckstone',N'mpinckstonerp@columbia.edu',N'726-271-2451',N'687-846-7139',2998,N'["Consignee"]'),
     (2999,N'Sloan Bankes',N'sbankesrq@devhub.com',N'312-243-8002',N'511-108-8464',2999,N'["Consignee", "Consignor"]'),
     (3000,N'Teriann Blenkinsopp',N'tblenkinsopprr@addthis.com',N'956-859-4624',N'101-369-1353',3000,N'["Consignor"]');
-INSERT INTO BusinessEntity VALUES
+SET IDENTITY_INSERT BusinessEntity ON;
+INSERT INTO BusinessEntity ([Business Entity Key], Name, [E-mail], Phone, Fax, [Address Key])
+VALUES
     (3001,N'Stark-Reichert',N'amuggach0@mozilla.org',N'682-432-9610',N'290-306-7612',7271,N'["Transporter"]'),
     (3002,N'Leannon, Boyle and Hayes',N'dcuttin1@msn.com',N'863-192-3490',N'244-956-9251',7272,N'["Consignor", "Courier", "Consolidator", "Transporter"]'),
     (3003,N'Schultz Group',N'mgodbolt2@blogspot.com',N'840-573-4774',N'240-576-7270',7273,N'["Courier", "Consolidator", "Consignee", "Consignor"]'),
@@ -4007,7 +4016,9 @@ INSERT INTO BusinessEntity VALUES
     (3998,N'Waters, Howe and Heaney',N'ksweetenrp@wired.com',N'163-488-0044',N'444-951-9733',8268,N'["Courier", "Transporter"]'),
     (3999,N'Lesch, Rutherford and Satterfield',N'scorkhillrq@yellowpages.com',N'708-903-2675',N'487-583-3581',8269,N'["Courier", "Transporter"]'),
     (4000,N'Keeling, Jacobi and Schmitt',N'gmencorr@bloglines.com',N'884-260-5724',N'485-401-3238',8270,N'["Consignor"]');
-INSERT INTO BusinessEntity VALUES
+SET IDENTITY_INSERT BusinessEntity ON;
+INSERT INTO BusinessEntity ([Business Entity Key], Name, [E-mail], Phone, Fax, [Address Key])
+VALUES
     (4001,N'Kuhlman Inc',N'bpinnick0@uol.com.br',N'331-507-9000',N'857-863-6029',8271,N'["Consignor", "Courier", "Transporter"]'),
     (4002,N'Block, Grimes and Fadel',N'sfarahar1@patch.com',N'792-518-6253',N'742-387-0141',8272,N'["Transporter", "Consignor"]'),
     (4003,N'Okuneva-Kuphal',N'abains2@businessinsider.com',N'676-260-7199',N'765-712-3074',8273,N'["Consolidator", "Consignee"]'),

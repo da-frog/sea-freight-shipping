@@ -10,11 +10,11 @@ class BusinessEntity(BaseModel):
     _instances = []
     fields = (
         ('Business Entity Key', None, 'int'),
-        'Name',
+        ('Name', None, 'nvarchar(255)'),
         ('E-mail', 'email', 'nvarchar(255)'),
-        'Phone',
-        'Fax',
-        'Address Key',
+        ('Phone', None, 'nvarchar(15)'),
+        ('Fax', None, 'nvarchar(15)'),
+        ('Address Key', None, 'int'),
         'Roles'
     )
 
