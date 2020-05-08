@@ -150,6 +150,15 @@ class BaseModel(metaclass=BaseModelMeta):
         return dbtypes
 
     @classmethod
+    def get_column_names(cls) -> List[str]:
+        cols = []
+        for dbtype, key in zip(cls.get_dbtypes(), cls.get_dict_keys()):
+            if dbtype is None:
+                continue
+            cols.append(key)
+        return cols
+
+    @classmethod
     def init_from_dict(cls, dct: dict) -> 'BaseModel':
         kwargs = {}
         for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
@@ -262,11 +271,11 @@ class BaseModel(metaclass=BaseModelMeta):
                 if not group:
                     break
                 writer.write_identity_insert(cls.__name__)
-                writer.writeheader(cls.__name__, cols=cls.get_dict_keys())
+                writer.writeheader(cls.__name__, cols=cls.get_column_names())
                 lst = []
                 for instance in group:
                     values = []
-                    for key, attr in zip(cls.get_dict_keys(), cls.get_attr_names()):
+                    for key, attr in zip(cls.get_column_names(), cls.get_attr_names()):
                         value = getattr(instance, attr)
                         if isinstance(value, list):
                             value = json.dumps(value)
