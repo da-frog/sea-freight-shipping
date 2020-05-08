@@ -13,7 +13,7 @@ from utils import km_to_mile, pairwise
 from jsoncompat import Date, TimeDelta
 
 
-@dataclass
+@dataclass(eq=False)
 class Leg(BaseModel):
     _instances = []
     fields = (
@@ -78,7 +78,7 @@ def ports_to_legs(ports: Iterable[Port]) -> List[Leg]:
     ]
 
 
-@dataclass
+@dataclass(eq=False)
 class LegBridge(BaseModel):
     _instances: ClassVar[List['LegBridge']] = []
     fields = (
@@ -137,7 +137,7 @@ class LegBridge(BaseModel):
         return list(map(Leg.get_instance_by_key, leg_keys))
 
 
-@dataclass
+@dataclass(eq=False)
 class Voyage(BaseModel):
     _instances = []
     fields = (
@@ -248,7 +248,7 @@ class LegSchedule(BaseModel):
                      2)
 
 
-@dataclass
+@dataclass(eq=False)
 class LegScheduleBridge(BaseModel):
     _instances: ClassVar[List['LegScheduleBridge']] = []
     fields: ClassVar[Sequence['fields']] = (
@@ -313,7 +313,7 @@ class LegScheduleBridge(BaseModel):
         return list(map(LegSchedule.get_instance_by_key, leg_schedule_keys))
 
 
-@dataclass
+@dataclass(eq=False)
 class VoyageSchedule(BaseModel):
     _instances = []
     fields = (

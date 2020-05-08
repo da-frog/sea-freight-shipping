@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from .base import BaseModel
 
 
-@dataclass
+@dataclass(eq=False)
 class Commodity(BaseModel):
     _instances = []
     fields = (

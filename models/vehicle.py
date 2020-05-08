@@ -4,7 +4,7 @@ from location import Location
 from .base import BaseModel
 
 
-@dataclass
+@dataclass(eq=False)
 class Vehicle(BaseModel):
     _instances = []
     fields = (

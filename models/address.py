@@ -6,7 +6,7 @@ from location import Location
 from .base import BaseModel
 
 
-@dataclass
+@dataclass(eq=False)
 class Address(BaseModel):
     _instances = []
     fields = (
