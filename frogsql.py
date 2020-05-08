@@ -1,5 +1,6 @@
 from typing import List, Dict, TypeVar, Iterable, Tuple, Any, Sequence, TextIO, Generator
 from datetime import date, datetime, time
+import warnings
 
 
 class SQLWriter:
@@ -30,25 +31,27 @@ class SQLWriter:
                 elif isinstance(datatype, str):
                     if datatype == 'int':
                         if not isinstance(value, int):
-                            raise ValueError(f"type mismatch '{value}' of class '{value.__class__.__name__}' --> '{datatype}'")
+                            warnings.warn(row)
+                            warnings.warn(UserWarning(f"type mismatch '{value}' of class '{value.__class__.__name__}' --> '{datatype}'"))
                         # TODO: check value is within bounds
                         text = str(value)
                     elif datatype == 'decimal':
                         text = str(value)
                     elif datatype.startswith('varchar'):
-                        assert datatype[7] == '('
-                        assert datatype[-1] == ')'
+                        assert datatype[7] == '(', datatype
+                        assert datatype[-1] == ')', datatype
                         limit = int(datatype[8:-1])
                         if len(value) > limit:
-                            raise ValueError(f"str '{value}' exceeds the limit for {datatype}")
+                            print(row)
+                            warnings.warn(f'str "{value}" exceeds the limit for {datatype}')
                         text = f"'{self.escape_string(value)}'"
                     elif datatype.startswith('nvarchar'):
-                        assert datatype[8] == '('
-                        assert datatype[-1] == ')'
+                        assert datatype[8] == '(', datatype
+                        assert datatype[-1] == ')', datatype
                         limit = int(datatype[9:-1])
                         if len(value) > limit:
                             print(row)
-                            raise ValueError(f"str '{value}' exceeds the limit for {datatype}")
+                            warnings.warn(f'str "{value}" exceeds the limit for {datatype}')
                         text = f"N'{self.escape_string(value)}'"
                     elif datatype == 'date':
                         text = f"'{value.year:04}-{value.month:02}-{value.day:02}'"
@@ -104,8 +107,15 @@ class SQLWriter:
     def write_delete(self, table_name: str):
         self.f.write(f"IF OBJECT_ID('dbo.{table_name}', 'U') IS NOT NULL\n    DELETE FROM {table_name};\nGO\n")
 
-    def writeheader(self, table_name: str):
-        self.f.write(f'INSERT INTO {table_name} VALUES\n')
+    def write_identity_insert(self, table_name: str, value: str = 'ON'):
+        assert value.upper() in ('ON', 'OFF')
+        self.f.write(f"SET IDENTITY_INSERT {table_name} {value.upper()};\n")
+
+    def writeheader(self, table_name: str, cols: Iterable[str] = None):
+        colstr = ''
+        if cols is not None:
+            colstr = ', '.join(f'[{col}]' for col in cols)
+        self.f.write(f'INSERT INTO {table_name} {colstr} VALUES\n')
 
 
 class DictWriter:
