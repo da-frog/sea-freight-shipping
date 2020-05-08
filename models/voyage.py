@@ -82,7 +82,7 @@ def ports_to_legs(ports: Iterable[Port]) -> List[Leg]:
 class LegBridge(BaseModel):
     _instances: ClassVar[List['LegBridge']] = []
     fields = (
-        # ('Surrogate Key', 'key'),
+        ('Order', 'key', 'int'),
         'Leg Bridge Key',
         'Leg Key',
     )
