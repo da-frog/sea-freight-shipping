@@ -37,7 +37,7 @@ FROM FreightShipping.dbo.Shipment S
          JOIN FreightShipping.dbo.Leg StartLeg ON Vo.[Origin Port Key] = StartLeg.[Origin Port Key]
          JOIN FreightShipping.dbo.LegSchedule StartLS ON StartLeg.[Leg Key] = StartLS.[Leg Key] AND StartLS.[Leg Schedule Key] = LSB1.[Leg Schedule Key]
          JOIN FreightShipping.dbo.Leg EndLeg ON Vo.[Destination Port Key] = EndLeg.[Destination Port Key]
-         JOIN FreightShipping.dbo.LegSchedule EndLS ON EndLeg.[Leg Key] = EndLS.[Leg Key] AND EndLS.[Leg Key] = LSB2.[Leg Schedule Key]
+         JOIN FreightShipping.dbo.LegSchedule EndLS ON EndLeg.[Leg Key] = EndLS.[Leg Key] AND EndLS.[Leg Schedule Key] = LSB2.[Leg Schedule Key]
          JOIN FreightShipping.dbo.Leg L1 ON BOL.[Port of Loading Key] = L1.[Origin Port Key]
          JOIN FreightShipping.dbo.LegBridge LB1 ON L1.[Leg Key] = LB1.[Leg Key]
          JOIN FreightShipping.dbo.LegSchedule LS1 ON L1.[Leg Key] = LS1.[Leg Key] AND LS1.[Leg Schedule Key] = LSB3.[Leg Schedule Key]
