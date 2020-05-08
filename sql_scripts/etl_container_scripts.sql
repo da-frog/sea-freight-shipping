@@ -1,6 +1,7 @@
 USE FreightShipping;
 
-SELECT CONCAT(C.[Owner Code], [Serial Number], [Check Digit]) [Container Number],
+SELECT [Container Key],
+       CONCAT(C.[Owner Code], [Serial Number], [Check Digit]) [Container Number],
        [Type Designation]                                     [Container Type],
        [Tare Weight (kg)]                                     [Container Tare Weight (kg)],
        [Inside Length (mm)]                                   [Container Inside Length (mm)],
