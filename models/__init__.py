@@ -1,4 +1,5 @@
 from typing import List, Type
+import time
 
 from .base import BaseModel
 
@@ -80,6 +81,6 @@ def dump_database(dataset: str, mode: str = 'csv'):
         LegScheduleBridge,
         VoyageSchedule,
     ]:
-        print(f'dumping {cls.__name__}')
+        print(f'dumping {cls.__name__}'.ljust(30) + f'{time.ctime(time.time())}')
         method = getattr(cls, method_name)
         method(ROOT_DIR / f'database/{dataset}/{cls.__name__}.{mode}')

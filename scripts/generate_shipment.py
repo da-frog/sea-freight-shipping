@@ -104,7 +104,7 @@ def generate_shipment(n: int):
         # create route
         route_length = random.randint(3, 6)
         route_ports, route_bols = create_route(x, route_length)
-        print(f'{len(x)}\n')
+        print(f'{len(x)}'.ljust(30) + f'{time.ctime(time.time())}\n')
         # add bols to route
         added_bol = []
         for bol in x:
@@ -146,30 +146,30 @@ def generate_shipment(n: int):
 def main(n: int):
     load_database()
     generate_shipment(int(n))
-    dump_database(str(n))
     dump_database(str(n), 'json')
+    dump_database(str(n))
 
 
 if __name__ == '__main__':
-    # main(500)
-    load_database('500')
-    for model in [
-        Address,
-        BillOfLading,
-        BusinessEntity,
-        Commodity,
-        Container,
-        ContainerModel,
-        Port,
-        Shipment,
-        Vehicle,
-        Leg,
-        LegBridge,
-        Voyage,
-        LegSchedule,
-        LegScheduleBridge,
-        VoyageSchedule
-    ]:
-        if model._instances:
-            print(f'dumping {model.__name__}')
-            model.dump_to_sql(ROOT_DIR / f'database/insert_{capwords_to_snake_case(model.__name__)}.sql')
+    main(8000)
+    # load_database('500')
+    # for model in [
+    #     Address,
+    #     BillOfLading,
+    #     BusinessEntity,
+    #     Commodity,
+    #     Container,
+    #     ContainerModel,
+    #     Port,
+    #     Shipment,
+    #     Vehicle,
+    #     Leg,
+    #     LegBridge,
+    #     Voyage,
+    #     LegSchedule,
+    #     LegScheduleBridge,
+    #     VoyageSchedule
+    # ]:
+    #     if model._instances:
+    #         print(f'dumping {model.__name__}')
+    #         model.dump_to_sql(ROOT_DIR / f'database/insert_{capwords_to_snake_case(model.__name__)}.sql')
