@@ -16,11 +16,11 @@ IF OBJECT_ID('dbo.ContainerDimension', 'U') IS NOT NULL
     DROP TABLE ContainerDimension;
 GO
 
-IF OBJECT_ID ('dbo.CountrySpecificDateOutrigger', 'U') IS NOT NULL
+IF OBJECT_ID('dbo.CountrySpecificDateOutrigger', 'U') IS NOT NULL
     DROP TABLE CountrySpecificDateOutrigger;
 GO
 
-IF OBJECT_ID ('dbo.DateDimension', 'U') IS NOT NULL
+IF OBJECT_ID('dbo.DateDimension', 'U') IS NOT NULL
     DROP TABLE DateDimension;
 GO
 
@@ -55,8 +55,8 @@ CREATE TABLE CommodityDimension
     [Commodity Description]   nvarchar(511),
     [Catagory Description]    nvarchar(511),
     [Subcategory Description] nvarchar(511),
-    [Package Size (m^3)]      decimal(18,3),
-    [Package Weight (kg)]     decimal(18,3),
+    [Package Size (m^3)]      decimal(18, 3),
+    [Package Weight (kg)]     decimal(18, 3),
 );
 
 
@@ -78,10 +78,10 @@ CREATE TABLE ContainerDimension
     [Container Outside Length (ft)]     int,
     [Container Outside Width (ft)]      int,
     [Container Outside Height (ft)]     int,
-    [Container Capacity]                decimal(18,3),
+    [Container Capacity]                decimal(18, 3),
     [Container Electricity Indicator]   nvarchar(255),
     [Container Refrigeration Indicator] nvarchar(255),
-    [Container Danger Indicator]     nvarchar(255),
+    [Container Danger Indicator]        nvarchar(255),
 )
 
 
@@ -89,13 +89,13 @@ CREATE TABLE DateDimension
 (
     [Date Key]                      int IDENTITY (1,1) NOT NULL PRIMARY KEY,
     [Date]                          date,
-    [Full date description]	        nvarchar(255),
-    [Date of Week]		            nvarchar(9),
-    [Day Number in Calendar Month]	tinyint,
-    [Day Number in Calendar Year]	smallint,
-    [Day Number in Fiscal Month]	tinyint,
-    [Day Number in Fiscal Year]		smallint,
-    [Last Day in Month Indicator]	nvarchar(50),
+    [Full date description]         nvarchar(255),
+    [Date of Week]                  nvarchar(9),
+    [Day Number in Calendar Month]  tinyint,
+    [Day Number in Calendar Year]   smallint,
+    [Day Number in Fiscal Month]    tinyint,
+    [Day Number in Fiscal Year]     smallint,
+    [Last Day in Month Indicator]   nvarchar(50),
     [Calendar Week Ending Date]     date,
     [Calendar Week Number in Year]  tinyint,
     [Calendar Month Name]           nvarchar(9),
@@ -106,7 +106,7 @@ CREATE TABLE DateDimension
     [Calendar Year]                 smallint,
     [Fiscal Week]                   tinyint,
     [Fiscal Week Number in Year]    tinyint,
-    [Fiscal Month]	                tinyint,
+    [Fiscal Month]                  tinyint,
     [Fiscal Year-Month]             nvarchar(7),
     [Fiscal Quarter]                nvarchar(2),
     [Fiscal Year-Quarter]           nvarchar(7),
@@ -116,15 +116,15 @@ CREATE TABLE DateDimension
 
 CREATE TABLE CountrySpecificDateOutrigger
 (
-    [Date Key]                  int NOT NULL REFERENCES DateDimension,
-    [Country Key]               int NOT NULL,
-    [Country Name]              nvarchar(255),
-    [Civil Name]                nvarchar(50),
-    [Civil Holiday Flag]        nvarchar(50),
-    [Religious Holiday Flag]    nvarchar(50),
-    [Religious Holiday Name]    nvarchar(50),
-    [Weekday Indicator]         nvarchar(50),
-    [Season Name]               nvarchar(50),
+    [Date Key]               int NOT NULL REFERENCES DateDimension,
+    [Country Key]            int NOT NULL,
+    [Country Name]           nvarchar(255),
+    [Civil Name]             nvarchar(50),
+    [Civil Holiday Flag]     nvarchar(50),
+    [Religious Holiday Flag] nvarchar(50),
+    [Religious Holiday Name] nvarchar(50),
+    [Weekday Indicator]      nvarchar(50),
+    [Season Name]            nvarchar(50),
 );
 
 
@@ -147,10 +147,10 @@ CREATE TABLE ShipModeDimension
     [Vehicle Type]           nvarchar(255),
     [Vehicle Name]           nvarchar(255),
     [Vehicle Capacity]       int,
-    [Vehicle Speed (km/h)]   decimal(18,3),
-    [Vehicle Speed (mile/h)] decimal(18,3),
+    [Vehicle Speed (km/h)]   decimal(18, 3),
+    [Vehicle Speed (mile/h)] decimal(18, 3),
     [Vehicle Builder]        nvarchar(255),
-    [Fuel cost per day]      decimal(18,3),
+    [Fuel cost per day]      decimal(18, 3),
 );
 
 
@@ -179,8 +179,8 @@ CREATE TABLE ShippingTransportFact
     [Domestic Transporter Key]              int REFERENCES BusinessEntityDimension,
     [Consignee Key]                         int REFERENCES BusinessEntityDimension,
     [Bill-of-Lading Number (DD)]            nvarchar(17),
-    [Shipment Fee]                               decimal(19,2),
-    [Expected Tariffs]                      decimal(19,2),
-    [Actual Tariffs]                        decimal(19,2),
-    [Shipment Miles]                             decimal(19,2),
+    [Voyage Fee]                            decimal(19, 2),
+    [Expected Tariffs]                      decimal(19, 2),
+    [Actual Tariffs]                        decimal(19, 2),
+    [Shipment Miles]                        decimal(19, 2),
 );
