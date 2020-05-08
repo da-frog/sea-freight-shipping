@@ -15,7 +15,7 @@ class BusinessEntity(BaseModel):
         ('Phone', None, 'nvarchar(15)'),
         ('Fax', None, 'nvarchar(15)'),
         ('Address Key', None, 'int'),
-        'Roles'
+        ('Roles', None, None),
     )
 
     name: str = None
