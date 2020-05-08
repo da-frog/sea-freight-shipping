@@ -12,38 +12,38 @@ _FULL_MONTH_NAMES = [None, "January", "February", "March", "April", "May", "June
                      "July", "August", "September", "October", "November", "December"]
 _FULL_DAY_NAMES = [None, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-_FISCAL_MISMATCH = datetime.timedelta(days=365//4)
+_FISCAL_MISMATCH = datetime.timedelta(days=365 // 4)
 
 
 @dataclass
 class DateDimension(BaseModel):
     _instances = []
     fields = (
-        'Date Key',
-        'Date',
-        'Full date description',
-        'Day of Week',
-        'Day Number in Calendar Month',
-        'Day Number in Calendar Year',
-        'Day Number in Fiscal Month',
-        'Day Number in Fiscal Year',
-        'Last Day in Month Indicator',
-        'Calendar Week Ending Date',
-        'Calendar Week',
-        'Calendar Week Number in Year',
-        'Calendar Month Name',
-        'Calendar Month Number in Year',
-        'Calendar Year-Month (YYYY-MM)',
-        'Calendar Quarter',
-        'Calendar Year-Quarter',
-        'Calendar Year',
-        'Fiscal Week',
-        'Fiscal Week Number in Year',
-        'Fiscal Month',
-        'Fiscal Year-Month',
-        'Fiscal Quarter',
-        'Fiscal Year-Quarter',
-        'Fiscal Year',
+        ('Date Key', None, 'int'),
+        ('Date', None, 'date'),
+        ('Full date description', None, 'nvarchar(255)'),
+        ('Day of Week', None, 'nvarchar(9)'),
+        ('Day Number in Calendar Month', None, 'tinyint'),
+        ('Day Number in Calendar Year', None, 'smallint'),
+        ('Day Number in Fiscal Month', None, 'tinyint'),
+        ('Day Number in Fiscal Year', None, 'smallint'),
+        ('Last Day in Month Indicator', None, 'nvarchar(50)'),
+        ('Calendar Week Ending Date', None, 'date'),
+        ('Calendar Week', None, 'tinyint'),
+        ('Calendar Week Number in Year', None, 'tinyint'),
+        ('Calendar Month Name', None, 'nvarchar(9)'),
+        ('Calendar Month Number in Year', None, 'tinyint'),
+        ('Calendar Year-Month (YYYY-MM)', None, 'nvarchar(7)'),
+        ('Calendar Quarter', None, 'nvarchar(2)'),
+        ('Calendar Year-Quarter', None, 'nvarchar(7)'),
+        ('Calendar Year', None, 'smallint'),
+        ('Fiscal Week', None, 'tinyint'),
+        ('Fiscal Week Number in Year', None, 'tinyint'),
+        ('Fiscal Month', None, 'tinyint'),
+        ('Fiscal Year-Month', None, 'nvarchar(7)'),
+        ('Fiscal Quarter', None, 'nvarchar(2)'),
+        ('Fiscal Year-Quarter', None, 'nvarchar(7)'),
+        ('Fiscal Year', None, 'smallint'),
     )
 
     date: Date
@@ -89,7 +89,7 @@ class DateDimension(BaseModel):
     @property
     def calendar_week_ending_date(self) -> str:
         # Sunday
-        return str(self.date + (datetime.timedelta(days=7-self.date.isoweekday())))
+        return str(self.date + (datetime.timedelta(days=7 - self.date.isoweekday())))
 
     @property
     def calendar_week(self) -> int:
