@@ -1,8 +1,11 @@
 USE FreightShipping;
 
-SET IDENTITY_INSERT FreightShipping.dbo.ContainerModel ON;
+IF OBJECT_ID('dbo.ContainerModel', 'U') IS NOT NULL
+    DELETE FROM ContainerModel;
+GO
 
-INSERT INTO ContainerModel ([ISO Size Code], [ISO Type Code], [Model Description], [Owner Code], [Serial Number Range Start], [Serial Number Range End], [Inside Length (mm)], [Inside Width (mm)], [Inside Height (mm)], [Inside Middle Height (mm)], [Inside Side Height (mm)], [Max stow Height], [Roof Opening Length (mm)], [Roof Opening Width (mm)], [Door Opening Width (mm)], [Door Opening Height (mm)], [Door Opening Width C (mm)], [Door Opening Width D (mm)], [Door Opening Width B (mm)], [Door Opening Height E (mm)], [Door Opening Height F (mm)], [Max Gross Weight (kg)], [Tare Weight (kg)], [Max Payload Weight (kg)], [Capacity (m^3)])
+SET IDENTITY_INSERT ContainerModel ON;
+INSERT INTO ContainerModel ([Container Model Key], [ISO Size Code], [ISO Type Code], [Model Description], [Owner Code], [Serial Number Range Start], [Serial Number Range End], [Inside Length (mm)], [Inside Width (mm)], [Inside Height (mm)], [Inside Middle Height (mm)], [Inside Side Height (mm)], [Max stow Height], [Roof Opening Length (mm)], [Roof Opening Width (mm)], [Door Opening Width (mm)], [Door Opening Height (mm)], [Door Opening Width C (mm)], [Door Opening Width D (mm)], [Door Opening Width B (mm)], [Door Opening Height E (mm)], [Door Opening Height F (mm)], [Max Gross Weight (kg)], [Tare Weight (kg)], [Max Payload Weight (kg)], [Capacity (m^3)])
 VALUES
     (31,N'45',N'G0',N'Wooden floor',N'HLBU',106300,109299,12032.0,2432.0,2700.0,NULL,NULL,NULL,NULL,NULL,2340.0,2597.0,NULL,NULL,NULL,NULL,NULL,32500.0,3850.0,28650.0,76.3),
     (19,N'42',N'G0',N'Wooden floor',N'HLBU',112100,114899,12032.0,2352.0,2395.0,NULL,NULL,NULL,NULL,NULL,2340.0,2292.0,NULL,NULL,NULL,NULL,NULL,32500.0,3750.0,28750.0,67.7),
@@ -100,4 +103,4 @@ VALUES
     (86,N'45',N'R1',NULL,N'LNXU',965000,965999,11590.0,2290.0,2540.0,NULL,NULL,2420.0,NULL,NULL,2290.0,2569.0,NULL,NULL,NULL,NULL,NULL,34000.0,4800.0,29200.0,67.4),
     (93,N'45',N'R9',NULL,N'LNXU',965000,965999,11590.0,2290.0,2540.0,NULL,NULL,2420.0,NULL,NULL,2290.0,2569.0,NULL,NULL,NULL,NULL,NULL,34000.0,4800.0,29200.0,67.4);
 
-SET IDENTITY_INSERT FreightShipping.dbo.ContainerModel OFF;
+SET IDENTITY_INSERT ContainerModel OFF;
