@@ -58,28 +58,31 @@ class DateDimension(BaseModel):
         return _FULL_DAY_NAMES[self.date.isoweekday()]
 
     @property
-    def day_number_in_calendar_month(self) -> str:
+    def day_number_in_calendar_month(self) -> int:
+        return self.date.day
+
+    @property
+    def day_number_in_calendar_year(self) -> int:
+        return ((self.date - datetime.date(self.date.year, 1, 1)) + datetime.timedelta(days=1)).days
+
+    @property
+    def day_number_in_fiscal_month(self) -> int:
         return
 
     @property
-    def day_number_in_calendar_year(self) -> str:
-        return
-
-    @property
-    def day_number_in_fiscal_month(self) -> str:
-        return
-
-    @property
-    def day_number_in_fiscal_year(self) -> str:
+    def day_number_in_fiscal_year(self) -> int:
         return
 
     @property
     def last_day_in_month_indicator(self) -> str:
-        return
+        if (self.date + datetime.timedelta(days=1)).month != self.date.month:
+            return 'Last day in month'
+        return 'Not the last day in month'
 
     @property
     def calendar_week_ending_date(self) -> str:
-        return
+        # Sunday
+        return str(self.date + (datetime.timedelta(days=7-self.date.isoweekday())))
 
     @property
     def calendar_week_number_in_year(self) -> int:
@@ -87,15 +90,15 @@ class DateDimension(BaseModel):
 
     @property
     def calendar_month_name(self) -> str:
-        return
+        return _FULL_MONTH_NAMES[self.date.month]
 
     @property
-    def calendar_month_number_in_year(self) -> str:
-        return
+    def calendar_month_number_in_year(self) -> int:
+        return self.date.month
 
     @property
     def calendar_year_month_yyyy_mm(self) -> str:
-        return
+        return self.date.isoformat()[:-3]
 
     @property
     def calendar_quarter(self) -> str:
@@ -106,15 +109,15 @@ class DateDimension(BaseModel):
         return
 
     @property
-    def calendar_year(self) -> str:
+    def calendar_year(self) -> int:
+        return self.date.year
+
+    @property
+    def fiscal_week(self) -> int:
         return
 
     @property
-    def fiscal_week(self) -> str:
-        return
-
-    @property
-    def fiscal_week_number_in_year(self) -> str:
+    def fiscal_week_number_in_year(self) -> int:
         return
 
     @property
@@ -134,5 +137,5 @@ class DateDimension(BaseModel):
         return
 
     @property
-    def fiscal_year(self) -> str:
+    def fiscal_year(self) -> int:
         return
