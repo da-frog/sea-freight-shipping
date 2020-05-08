@@ -67,9 +67,9 @@ create table Address
     [City]           nvarchar(255),
     [Country]        nvarchar(255),
     [Alpha 2]        nvarchar(2),
-    [ZIP Code]       nvarchar(12),
-    [Latitude]       nvarchar(15),
-    [Longitude]      nvarchar(15)
+    [ZIP Code]       nvarchar(30),
+    [Latitude]       nvarchar(30),
+    [Longitude]      nvarchar(30)
 )
 go
 create unique index [Address_Address Key_uindex]
@@ -149,7 +149,7 @@ create table ContainerModel
     [Max Gross Weight (kg)]      int,
     [Tare Weight (kg)]           int,
     [Max Payload Weight (kg)]    int,
-    [Capacity (m^3)]             decimal
+    [Capacity (m^3)]             decimal(18,3)
 )
 go
 create unique index "ContainerModel_[Container Model Key]_uindex"
@@ -166,8 +166,8 @@ create table Commodity
     [Commodity Key]       int identity,
     [HS Code]             nvarchar(6),
     [Description]         nvarchar(511),
-    [Package Size (m^3)]  decimal,
-    [Package Weight (kg)] decimal
+    [Package Size (m^3)]  decimal(18,3),
+    [Package Weight (kg)] decimal(18,3)
 )
 go
 create unique index "Commodity_[Commodity Key]_uindex"
@@ -187,10 +187,10 @@ create table Port
     [Port Name]   nvarchar(255),
     [Port Type]   nvarchar(255),
     [Port Size]   nvarchar(255),
-    [UN/LOCODE]   nvarchar(10),
-    Phone         nvarchar(15),
-    Fax           nvarchar(15),
-    [800 Number]  nvarchar(15),
+    Phone         nvarchar(30),
+    Fax           nvarchar(30),
+    [800 Number]  nvarchar(30),
+	[UN/LOCODE]   nvarchar(5),
     Email         nvarchar(255),
     Website       nvarchar(255)
 )
@@ -213,7 +213,7 @@ create table Leg
     [Destination Port Key] int not null
         constraint Leg_Port__fk_2
             references Port,
-    [Leg Miles]            decimal
+    [Leg Miles]            decimal(19,2)
 )
 go
 
@@ -347,8 +347,8 @@ create table BillOfLading
     [Container Key]             int
         references Container,
     Incoterm                    nvarchar(3),
-    [Expected Tariffs]          money,
-    [Actual Tariffs]            money
+    [Expected Tariffs]          decimal(19,2),
+    [Actual Tariffs]            decimal(19,2)
 )
 go
 
@@ -369,15 +369,15 @@ go
 create table Vehicle
 (
     [Vehicle Key]                int identity,
+	[Vehicle Speed (km/h)]       decimal(18,3),
     [Vehicle Type]               nvarchar(255),
-    [IMO number]                 nvarchar(7),
     [Vehicle Name]               nvarchar(255),
     [Vehicle Capacity]           int,
-    [Vehicle Speed (km/h)]       decimal,
     [Vehicle Builder]            nvarchar(255),
-    [Vehicle Fuel Usage per Day] decimal,
-    [Current Latitude]           nvarchar(15),
-    [Current Longitude]          nvarchar(15)
+    [Vehicle Fuel Usage per Day] decimal(18,3),
+    [Current Latitude]           nvarchar(30),
+    [Current Longitude]          nvarchar(30),
+	[IMO Number]                 nvarchar(7),
 )
 go
 create unique index [Vehicle_Vehicle Key_uindex]
@@ -395,7 +395,7 @@ create table Shipment
     [Voyage Schedule Key] int,
     [Vehicle Key]         int,
     [Bill-of-Lading Key]  int,
-    [Shipment Fees]       money,
+    [Shipment Fees]       decimal(19,2),
     constraint Shipment_BillOfLading__fk
         foreign key ([Bill-of-Lading Key]) references BillOfLading,
     constraint Shipment_Vehicle__fk
