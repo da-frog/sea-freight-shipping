@@ -86,6 +86,7 @@ class LegBridge(BaseModel):
         'Leg Bridge Key',
         'Leg Key',
     )
+    has_identity = False
 
     leg_bridge_key: int
     leg_key: int
@@ -256,6 +257,7 @@ class LegScheduleBridge(BaseModel):
         'Leg Schedule Bridge Key',
         'Leg Schedule Key',
     )
+    has_identity = False
 
     leg_schedule_bridge_key: int
     leg_schedule_key: int

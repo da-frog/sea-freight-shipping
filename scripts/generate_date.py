@@ -15,7 +15,7 @@ from models import *
 
 
 def main(n: int):
-    load_database(str(n))
+    load_database(str(n), 'json')
     print()
 
     voyage_schedules: List[VoyageSchedule] = VoyageSchedule._instances.copy()
@@ -24,7 +24,7 @@ def main(n: int):
     vehicles: List[Vehicle] = Vehicle._instances.copy()
     random.shuffle(vehicles)
 
-    date = Date(2016, 8, 1)
+    date = Date(2016, 6, 1)
     for voyage_schedule in voyage_schedules:
         if random.random() <= 0.95:
             date = date + TimeDelta(days=np.random.poisson(2))

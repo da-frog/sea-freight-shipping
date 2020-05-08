@@ -1,7 +1,6 @@
 IF OBJECT_ID('dbo.LegBridge', 'U') IS NOT NULL
     DELETE FROM LegBridge;
 GO
-SET IDENTITY_INSERT LegBridge ON;
 INSERT INTO LegBridge ([Leg Bridge Key], [Leg Key]) VALUES
     (1,1),
     (1,2),
@@ -1003,7 +1002,6 @@ INSERT INTO LegBridge ([Leg Bridge Key], [Leg Key]) VALUES
     (297,978),
     (297,979),
     (297,980);
-SET IDENTITY_INSERT LegBridge ON;
 INSERT INTO LegBridge ([Leg Bridge Key], [Leg Key]) VALUES
     (297,649),
     (298,981),

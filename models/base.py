@@ -41,6 +41,7 @@ class BaseModelMeta(type):
 class BaseModel(metaclass=BaseModelMeta):
     _instances: ClassVar[list] = []  # Don't forget to overwrite this
     fields: ClassVar[Tuple[str, ...]] = ()  # Don't forget to overwrite this
+    has_identity: ClassVar[bool] = True
 
     def __new__(cls, *args, **kwargs):
         obj = super().__new__(cls)
@@ -270,7 +271,8 @@ class BaseModel(metaclass=BaseModelMeta):
                         break
                 if not group:
                     break
-                writer.write_identity_insert(cls.__name__)
+                if cls.has_identity:
+                    writer.write_identity_insert(cls.__name__)
                 writer.writeheader(cls.__name__, cols=cls.get_column_names())
                 lst = []
                 for instance in group:
@@ -286,6 +288,8 @@ class BaseModel(metaclass=BaseModelMeta):
                 writer.writerows(lst)
                 print(f"wrote group#{group_num} for {cls.__name__} at {time.ctime(time.time())}")
                 group_num += 1
+            if cls.has_identity:
+                writer.write_identity_insert(cls.__name__)
             writer.write_identity_insert(cls.__name__, 'OFF')
         print()
 

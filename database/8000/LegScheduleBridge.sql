@@ -1,7 +1,6 @@
 IF OBJECT_ID('dbo.LegScheduleBridge', 'U') IS NOT NULL
     DELETE FROM LegScheduleBridge;
 GO
-SET IDENTITY_INSERT LegScheduleBridge ON;
 INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VALUES
     (1,1),
     (1,2),
@@ -1003,7 +1002,6 @@ INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VA
     (289,998),
     (289,999),
     (289,1000);
-SET IDENTITY_INSERT LegScheduleBridge ON;
 INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VALUES
     (289,1001),
     (290,1002),
@@ -2005,7 +2003,6 @@ INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VA
     (549,1998),
     (549,1999),
     (550,2000);
-SET IDENTITY_INSERT LegScheduleBridge ON;
 INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VALUES
     (550,2001),
     (550,2002),

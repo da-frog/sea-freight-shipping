@@ -29,8 +29,9 @@ def load_database(dataset: str = None, mode: str = 'csv'):
     else:
         raise AssertionError('no such mode \'' + mode + "'")
 
-    print(f'loading BillOfLading')
-    BillOfLading.load_from_csv(ROOT_DIR / 'scripts/bol-10000.csv')
+    if dataset is None:
+        print(f'loading BillOfLading')
+        BillOfLading.load_from_csv(ROOT_DIR / 'scripts/bol-10000.csv')
     print(f'loading Address')
     Address.load_from_csv(ROOT_DIR / 'spreadsheet_data/da-base-OLTP - Address.csv')
     print(f'loading BusinessEntity')
@@ -48,6 +49,7 @@ def load_database(dataset: str = None, mode: str = 'csv'):
 
     if dataset is not None:
         for cls in [
+            BillOfLading,
             Leg,
             LegBridge,
             Voyage,
