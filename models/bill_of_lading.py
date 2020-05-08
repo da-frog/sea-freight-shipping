@@ -1,4 +1,4 @@
-from typing import List, ClassVar, Tuple
+from typing import List, ClassVar, Tuple, Set
 from datetime import date
 from dataclasses import dataclass
 import random
@@ -112,6 +112,8 @@ class BillOfLading(BaseModel):
         ('Actual Tariffs', None, 'decimal(19,2)')
     )
 
+    bol_nums: ClassVar[Set[str]] = set()
+
     bill_of_lading_number: str = None
     issued_date: Date = None
     consignor_key: int = None
@@ -132,17 +134,18 @@ class BillOfLading(BaseModel):
     expected_tariffs: float = None
     actual_tariffs: float = None
 
-    # def __setattr__(self, key, value):
-    #     if key == 'issued_date':
-    #         if not isinstance(value, Date):
-    #             if value is not None:
-    #                 raise TypeError(f"{value} is not a 'Date' but a {value.__class__.__name__}")
-    #     super().__setattr__(key, value)
+    def __post_init__(self):
+        if self.bill_of_lading_number:
+            if self.bill_of_lading_number in self.bol_nums:
+                import warnings
+                warnings.warn(f"duplicate Bill-of-Lading number: '{self.bill_of_lading_number}' for bol key: '{self.bill_of_lading_key}'")
+            self.__class__.bol_nums.add(self.bill_of_lading_number)
+        else:
+            self.bill_of_lading_number = self.random_bill_of_lading_number()
 
     @classmethod
-    def random_bill_of_lading_number(cls):
-        bol_number = set()
-        for num in range(10000):
+    def random_bill_of_lading_number(cls) -> str:
+        while True:
             three, four, five = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
             six, seven, eight = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
             nine, ten, eleven = str(random.randint(1, 9)), str(random.randint(1, 9)), str(random.randint(1, 9))
@@ -152,8 +155,10 @@ class BillOfLading(BaseModel):
                      fourteen + fifteen + sixteen
             seventeen = get_bol_check_digit(result)
             ans = result + seventeen
-            bol_number.add(ans)
-        return bol_number
+
+            if ans not in cls.bol_nums:
+                cls.bol_nums.add(ans)
+                return ans
 
     @property
     def bill_of_lading_key(self) -> int:
