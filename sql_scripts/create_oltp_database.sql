@@ -324,41 +324,69 @@ go
 
 create table BillOfLading
 (
-    [Bill-of-Lading Key]        int identity,
-    [Bill-of-Lading Number]     nvarchar(17),
-    [Issued Date]               date,
-    [Consignor Key]             int
-        references BusinessEntity,
-    [Consignee Key]             int
-        references BusinessEntity,
-    [Foreign Transporter Key]   int
-        references BusinessEntity,
-    [Foreign Consolidator Key]  int
-        references BusinessEntity,
-    [Courier Key]               int
-        references BusinessEntity,
-    [Domestic Transporter Key]  int
-        references BusinessEntity,
-    [Domestic Consolidator Key] int
-        references BusinessEntity,
-    [Ship Mode]                 nvarchar(50),
-    [Place of Receipt Key]      int
-        references Address,
-    [Place of Delivery Key]     int
-        references Address,
-    [Port of Loading Key]       int
-        references Port,
-    [Port of Discharge Key]     int
-        references Port,
-    [Commodity Key]             int
-        references Commodity,
-    [Container Key]             int
-        references Container,
-    Incoterm                    nvarchar(3),
-    [Expected Tariffs]          decimal(19, 2),
-    [Actual Tariffs]            decimal(19, 2)
+	[Bill-of-Lading Key] int,
+	[Bill-of-Lading Number] nvarchar(17),
+	[Issued Date] date,
+	[Consignor Key] int
+		constraint BillOfLading_BusinessEntity__fk_consignor
+			references BusinessEntity,
+	[Consignee Key] int
+		constraint BillOfLading_BusinessEntity__fk_consignee
+			references BusinessEntity,
+	[Foreign Transporter Key] int
+		constraint BillOfLading_BusinessEntity_foreign_transporter_fk
+			references BusinessEntity,
+	[Foreign Consolidator Key] int
+		constraint BillOfLading_BusinessEntity_foreign_consolidator_fk
+			references BusinessEntity,
+	[Courier Key] int,
+	[Domestic Transporter Key] int
+		constraint BillOfLading_BusinessEntity_domestic_transporter_fk
+			references BusinessEntity,
+	[Domestic Consolidator Key] int
+		constraint BillOfLading_BusinessEntity_domestic_consolidator_fk
+			references BusinessEntity,
+	[Ship Mode] nvarchar(50),
+	[Place of Receipt Key] int
+		constraint BillOfLading_Address_place_of_receipt_fk
+			references Address,
+	[Place of Delivery Key] int
+		constraint BillOfLading_Address_place_of_delivery_fk
+			references Address,
+	[Port of Loading Key] int
+		constraint BillOfLading_Port_port_of_loading_fk
+			references Port,
+	[Port of Discharge Key] int
+		constraint BillOfLading_Port_port_of_discharge_fk
+			references Port,
+	[Commodity Key] int
+		constraint "BillOfLading_Commodity_[Commodity Key]_fk"
+			references Commodity,
+	[Container Key] int
+		constraint "BillOfLading_Container_[Container Key]_fk"
+			references Container,
+	Incoterm nvarchar(3),
+	[Expected Tariffs] decimal(19,2),
+	[Actual Tariffs] decimal(19,2),
+	constraint BillOfLading_BusinessEntity__fk_courier
+		foreign key ([Bill-of-Lading Key], [Courier Key]) references BusinessEntity ([Business Entity Key], [Business Entity Key])
 )
 go
+
+create unique index [BillOfLading_Bill-of-Lading Number_uindex]
+	on BillOfLading ([Bill-of-Lading Number])
+go
+
+create unique index "BillOfLading_[Bill-of-Lading Key]_uindex"
+	on BillOfLading ([Bill-of-Lading Key])
+go
+
+alter table BillOfLading
+	add constraint BillOfLading_pk
+		primary key nonclustered ([Bill-of-Lading Key])
+go
+
+
 
 create unique index [BillOfLading_Bill-of-Lading Number_uindex]
     on BillOfLading ([Bill-of-Lading Number])
