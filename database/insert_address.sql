@@ -1,12 +1,8 @@
-USE FreightShipping;
-
 IF OBJECT_ID('dbo.Address', 'U') IS NOT NULL
     DELETE FROM Address;
 GO
-
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (1,N'64924 Sunfield Road',NULL,N'Turangi',N'New Zealand',N'NZ',N'3382',N'-38.9898711',N'175.8087485'),
     (2,N'30812 Holy Cross Pass',NULL,N'Kasamwa',N'Tanzania',N'TZ',NULL,N'-2.8385304',N'32.4212424'),
     (3,N'0 Eggendart Road',NULL,N'Głubczyce',N'Poland',N'PL',N'48-100',N'50.20027',N'17.8287'),
@@ -1008,8 +1004,7 @@ VALUES
     (999,N'63574 Hooker Junction',NULL,N'Poshekhon’ye',N'Russia',N'RU',N'152850',N'58.5007075',N'39.1422317'),
     (1000,N'98944 Reindahl Avenue',NULL,N'Abovyan',N'Armenia',N'AM',NULL,N'40.2715286',N'44.633383');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (1001,N'6 South Terrace',NULL,N'Dusun Desa Bunter',N'Indonesia',N'ID',NULL,N'-7.2906502',N'108.4691492'),
     (1002,N'34 Merrick Trail',NULL,N'Pitrufquén',N'Chile',N'CL',NULL,N'-38.9833',N'-72.6417312'),
     (1003,N'013 Spaight Pass',NULL,N'Hacı Zeynalabdin',N'Azerbaijan',N'AZ',NULL,N'40.4422219',N'49.7584523'),
@@ -2011,8 +2006,7 @@ VALUES
     (1999,N'13 Barnett Drive',NULL,N'Zelenodolsk',N'Russia',N'RU',N'422549',N'55.8697739',N'48.5236711'),
     (2000,N'86093 New Castle Point',NULL,N'Lospalos',N'East Timor',N'TL',NULL,N'-8.5207109',N'127.0024533');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (2001,N'3 Ramsey Park',NULL,N'Voskresensk',N'Russia',N'RU',N'140209',N'55.3238424',N'38.6815132'),
     (2002,N'60982 Buhler Crossing',NULL,N'Kanganpur',N'Pakistan',N'PK',N'55000',N'30.8273337',N'74.1000849'),
     (2003,N'60 Westerfield Plaza',NULL,N'Choya',N'Russia',N'RU',N'649193',N'52.0108',N'86.5467'),
@@ -3014,8 +3008,7 @@ VALUES
     (2999,N'7 Manufacturers Pass',NULL,N'Kedungharjo',N'Indonesia',N'ID',NULL,N'-6.9731701',N'111.7227125'),
     (3000,N'290 Holmberg Center',NULL,N'Batulawang',N'Indonesia',N'ID',NULL,N'-6.6769374',N'107.0244171');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (3001,N'Kapitenerija e Portit',N'L Nr 1 Rruga Tregtare',N'Durres',N'Albania',N'AL',NULL,N'41º 19'' 7'''' N',N'19º 26'' 55'''' E'),
     (3002,N'Port Office',NULL,N'Sarande',N'Albania',N'AL',NULL,N'39º 52'' 59'''' N',N'20º 0'' 0'''' E'),
     (3003,NULL,NULL,NULL,N'Albania',N'AL',NULL,N'41º 49'' 0'''' N',N'19º 36'' 0'''' E'),
@@ -4017,8 +4010,7 @@ VALUES
     (3999,N'Avda. Malecon S/N',NULL,N'Manta',N'Ecuador',N'EC',NULL,N'0º -56'' -59'''' S',N'-80º -42'' -58'''' W'),
     (4000,NULL,NULL,NULL,N'Ecuador',N'EC',NULL,N'-3º -15'' 0'''' S',N'-80º -1'' 0'''' W');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (4001,NULL,NULL,N'Salinas',N'Ecuador',N'EC',NULL,N'-2º -7'' -47'''' S',N'-80º -34'' -48'''' W'),
     (4002,NULL,NULL,N'San Lorenzo',N'Ecuador',N'EC',NULL,N'1º 15'' 39'''' N',N'-78º -57'' -15'''' W'),
     (4003,NULL,NULL,NULL,N'Egypt',N'EG',NULL,N'31º 19'' 31'''' N',N'30º 3'' 52'''' E'),
@@ -4492,7 +4484,7 @@ VALUES
     (4471,NULL,NULL,NULL,N'India',N'IN',NULL,N'17º 19'' 53'''' N',N'73º 13'' 17'''' E'),
     (4472,NULL,NULL,NULL,N'India',N'IN',NULL,N'23º 14'' 0'''' N',N'68º 35'' 49'''' E'),
     (4473,NULL,NULL,NULL,N'India',N'IN',NULL,N'18º 56'' 60'''' N',N'72º 56'' 59'''' E'),
-    (4474,N' 2nd Floor, Port Administrative Building',N'Beach Road',N'Kakinada',N'India',N'IN',NULL,N'16º 56'' 23'''' N',N'82º 15'' 48'''' E'),
+    (4474,N'2nd Floor, Port Administrative Building',N'Beach Road',N'Kakinada',N'India',N'IN',NULL,N'16º 56'' 23'''' N',N'82º 15'' 48'''' E'),
     (4475,NULL,NULL,NULL,N'India',N'IN',NULL,N'23º 0'' 27'''' N',N'70º 13'' 18'''' E'),
     (4476,NULL,NULL,NULL,N'India',N'IN',NULL,N'26º 21'' 42'''' N',N'80º 23'' 57'''' E'),
     (4477,NULL,NULL,NULL,N'India',N'IN',NULL,N'8º 4'' 42'''' N',N'77º 32'' 25'''' E'),
@@ -4810,7 +4802,7 @@ VALUES
     (4789,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'36º 44'' 0'''' N',N'15º 6'' 45'''' E'),
     (4790,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'37º 39'' 7'''' N',N'12º 35'' 48'''' E'),
     (4791,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'37º 6'' 56'''' N',N'15º 13'' 41'''' E'),
-    (4792,N' Via V Emanuele 11, n 3',NULL,N'Messina',N'Italy',N'IT',NULL,N'38º 10'' 59'''' N',N'15º 33'' 0'''' E'),
+    (4792,N'Via V Emanuele 11, n 3',NULL,N'Messina',N'Italy',N'IT',NULL,N'38º 10'' 59'''' N',N'15º 33'' 0'''' E'),
     (4793,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'45º 27'' 49'''' N',N'9º 11'' 17'''' E'),
     (4794,NULL,NULL,N'Modena',N'Italy',N'IT',NULL,N'44º 38'' 42'''' N',N'10º 55'' 53'''' E'),
     (4795,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'41º 11'' 30'''' N',N'16º 35'' 40'''' E'),
@@ -4864,10 +4856,10 @@ VALUES
     (4843,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'42º 6'' 0'''' N',N'14º 43'' 0'''' E'),
     (4844,N'Zatere, 1401',N'Venezia, VE 30123',N'Venice',N'Italy',N'IT',NULL,N'45º 26'' 8'''' N',N'12º 18'' 27'''' E'),
     (4845,NULL,NULL,NULL,N'Italy',N'IT',NULL,N'43º 28'' 11'''' N',N'7º 21'' 36'''' E'),
-    (4846,N'Cote D''Ivoire',NULL,N'Abidjan',N'Ivory Coast',N'CI ',NULL,N'5º 15'' 22'''' N',N'-3º -58'' -40'''' W'),
-    (4847,NULL,NULL,NULL,N'Ivory Coast',N'CI ',NULL,N'5º 10'' 32'''' N',N'-4º -48'' -5'''' W'),
-    (4848,NULL,NULL,NULL,N'Ivory Coast',N'CI ',NULL,N'5º 2'' 60'''' N',N'-5º -20'' -23'''' W'),
-    (4849,NULL,NULL,N'San Pedro',N'Ivory Coast',N'CI ',NULL,N'4º 44'' 25'''' N',N'-6º -37'' -9'''' W'),
+    (4846,N'Cote D''Ivoire',NULL,N'Abidjan',N'Ivory Coast',N'CI',NULL,N'5º 15'' 22'''' N',N'-3º -58'' -40'''' W'),
+    (4847,NULL,NULL,NULL,N'Ivory Coast',N'CI',NULL,N'5º 10'' 32'''' N',N'-4º -48'' -5'''' W'),
+    (4848,NULL,NULL,NULL,N'Ivory Coast',N'CI',NULL,N'5º 2'' 60'''' N',N'-5º -20'' -23'''' W'),
+    (4849,NULL,NULL,N'San Pedro',N'Ivory Coast',N'CI',NULL,N'4º 44'' 25'''' N',N'-6º -37'' -9'''' W'),
     (4850,N'15-17 Duke Street',NULL,N'Kingston',N'Jamaica',N'JM',NULL,N'18º 2'' 43'''' N',N'-77º -53'' -9'''' W'),
     (4851,N'15-17 Duke Street',NULL,N'Kingston',N'Jamaica',N'JM',NULL,N'17º 59'' 23'''' N',N'-76º -49'' -35'''' W'),
     (4852,N'15-17 Duke Street',NULL,N'Kingston',N'Jamaica',N'JM',NULL,N'18º 26'' 49'''' N',N'-78º -11'' -15'''' W'),
@@ -5020,8 +5012,7 @@ VALUES
     (4999,NULL,NULL,NULL,N'Japan',N'JP',NULL,N'34º 7'' 14'''' N',N'135º 8'' 14'''' E'),
     (5000,NULL,NULL,NULL,N'Japan',N'JP',NULL,N'33º 39'' 47'''' N',N'135º 58'' 22'''' E');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (5001,NULL,NULL,NULL,N'Japan',N'JP',NULL,N'38º 19'' 0'''' N',N'141º 4'' 0'''' E'),
     (5002,NULL,NULL,NULL,N'Japan',N'JP',NULL,N'34º 0'' 0'''' N',N'130º 45'' 0'''' E'),
     (5003,NULL,NULL,NULL,N'Japan',N'JP',NULL,N'37º 28'' 11'''' N',N'140º 33'' 0'''' E'),
@@ -6023,8 +6014,7 @@ VALUES
     (5999,N'Port Office',NULL,N'Mariestad',N'Sweden',N'SE',NULL,N'58º 42'' 51'''' N',N'13º 49'' 45'''' E'),
     (6000,NULL,NULL,NULL,N'Sweden',N'SE',NULL,N'57º 53'' 28'''' N',N'11º 34'' 33'''' E');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (6001,N'PO Box 6075',NULL,N'Norrkoping',N'Sweden',N'SE',NULL,N'58º 35'' 38'''' N',N'16º 11'' 45'''' E'),
     (6002,NULL,NULL,NULL,N'Sweden',N'SE',NULL,N'60º 55'' 59'''' N',N'17º 8'' 60'''' E'),
     (6003,NULL,NULL,N'Nykoping',N'Sweden',N'SE',NULL,N'58º 44'' 59'''' N',N'17º 0'' 35'''' E'),
@@ -7026,8 +7016,7 @@ VALUES
     (6999,NULL,NULL,NULL,N'United States',N'US',NULL,N'28º 21'' 35'''' N',N'-80º -36'' -33'''' W'),
     (7000,NULL,NULL,NULL,N'United States',N'US',NULL,N'40º 58'' 59'''' N',N'-73º -40'' 0'''' W');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (7001,NULL,NULL,NULL,N'United States',N'US',NULL,N'43º 55'' 19'''' N',N'-69º -15'' 0'''' W'),
     (7002,NULL,NULL,N'Port Elizabeth',N'United States',N'US',NULL,N'39º 10'' 48'''' N',N'-74º -34'' -48'''' W'),
     (7003,NULL,NULL,NULL,N'United States',N'US',NULL,N'26º 3'' 59'''' N',N'-80º -7'' -7'''' W'),
@@ -8029,8 +8018,7 @@ VALUES
     (7999,N'17 Ridgeway Crossing',NULL,N'Idfu',N'Egypt',N'EG',NULL,N'24.978548',N'32.8758199'),
     (8000,N'2387 Ohio Circle',NULL,N'Mazhu',N'China',N'CN',NULL,N'30.072087',N'121.050167');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (8001,N'9012 Little Fleur Point',NULL,N'Ridderkerk',N'Netherlands',N'NL',N'2989',N'51.8530202',N'4.6175276'),
     (8002,N'35576 Pearson Center',NULL,N'Ampasimanolotra',N'Madagascar',N'MG',NULL,N'-18.8200534',N'49.0652963'),
     (8003,N'288 Maywood Terrace',NULL,N'Kota Kinabalu',N'Malaysia',N'MY',N'88861',N'5.9840985',N'116.0761121'),
@@ -9032,8 +9020,7 @@ VALUES
     (8999,N'9599 Upham Point',NULL,N'Köping',N'Sweden',N'SE',N'731 27',N'59.6027686',N'16.5250369'),
     (9000,N'7 Westend Pass',NULL,N'Wangqingtuo',N'China',N'CN',NULL,N'39.172378',N'116.931607');
 SET IDENTITY_INSERT Address ON;
-INSERT INTO Address ([Address Key], [Address Line 1], [Address Line 2], City, Country, [Alpha 2], [ZIP Code], Latitude, Longitude)
-VALUES
+INSERT INTO Address [Address Key], [Address Line 1], [Address Line 2], [City], [Country], [Alpha 2], [ZIP Code], [Latitude], [Longitude] VALUES
     (9001,N'0 Ruskin Point',NULL,N'Moyuan',N'China',N'CN',NULL,N'31.559502',N'120.364428'),
     (9002,N'061 Barby Pass',NULL,N'Villa María',N'Argentina',N'AR',N'5900',N'-32.4084888',N'-63.2596263'),
     (9003,N'259 Lighthouse Bay Parkway',NULL,N'Ea T’ling',N'Vietnam',N'VN',NULL,N'12.5854531',N'107.8880075'),
@@ -9304,5 +9291,3 @@ VALUES
     (9268,N'11500 Meadow Valley Junction',NULL,N'Chambéry',N'France',N'FR',N'73091 CEDEX',N'45.590443',N'5.8930389'),
     (9269,N'9877 Loeprich Court',NULL,N'Da’an',N'China',N'CN',NULL,N'45.506995',N'124.292626'),
     (9270,N'94695 Morningstar Lane',NULL,N'Eger',N'Hungary',N'HU',N'3304',N'47.9523565',N'20.3586957');
-
-SET IDENTITY_INSERT FreightShipping.dbo.Address OFF;

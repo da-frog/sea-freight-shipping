@@ -1,12 +1,8 @@
-USE FreightShipping;
-
 IF OBJECT_ID('dbo.BillOfLading', 'U') IS NOT NULL
     DELETE FROM BillOfLading;
 GO
-
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (1,NULL,NULL,64,1151,3565,4252,4940,4363,3686,NULL,64,1151,2653,672,NULL,NULL,NULL,NULL,NULL),
     (2,NULL,NULL,4536,788,4246,3692,3450,3428,4536,NULL,8806,788,1685,3823,NULL,NULL,NULL,NULL,NULL),
     (3,NULL,NULL,2363,736,3075,3075,3708,4926,4110,NULL,2363,736,2796,1482,NULL,NULL,NULL,NULL,NULL),
@@ -1008,8 +1004,7 @@ VALUES
     (999,NULL,NULL,616,2218,4832,4217,3037,3723,3128,NULL,616,2218,1413,1950,NULL,NULL,NULL,NULL,NULL),
     (1000,NULL,NULL,2097,2179,3692,4750,4832,4455,3437,NULL,2097,2179,1685,3827,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (1001,NULL,NULL,3111,1360,4140,3649,3203,4538,4538,NULL,7381,1360,1163,1951,NULL,NULL,NULL,NULL,NULL),
     (1002,NULL,NULL,4821,2085,3100,3764,3742,4962,4424,NULL,9091,2085,2744,3829,NULL,NULL,NULL,NULL,NULL),
     (1003,NULL,NULL,128,3210,4436,4436,4663,4018,3957,NULL,128,7480,2907,673,NULL,NULL,NULL,NULL,NULL),
@@ -2011,8 +2006,7 @@ VALUES
     (1999,NULL,NULL,2852,2054,3075,3075,4717,3418,3828,NULL,2852,2054,2796,3831,NULL,NULL,NULL,NULL,NULL),
     (2000,NULL,NULL,2363,1604,4228,4831,4781,4841,4571,NULL,2363,1604,4250,1482,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (2001,NULL,NULL,3040,2539,3690,3896,3910,4081,3218,NULL,7310,2539,2744,671,NULL,NULL,NULL,NULL,NULL),
     (2002,NULL,NULL,3742,4551,4710,3826,4978,3644,4966,NULL,8012,8821,2744,3833,NULL,NULL,NULL,NULL,NULL),
     (2003,NULL,NULL,4461,259,3076,4027,4674,3034,3164,NULL,8731,259,3200,671,NULL,NULL,NULL,NULL,NULL),
@@ -3014,8 +3008,7 @@ VALUES
     (2999,NULL,NULL,3380,4168,4328,4472,3425,4889,4279,NULL,7650,8438,4266,671,NULL,NULL,NULL,NULL,NULL),
     (3000,NULL,NULL,4695,400,4128,4128,3169,4586,3092,NULL,8965,400,1741,233,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (3001,NULL,NULL,1291,1508,4452,3750,4866,4580,4776,NULL,1291,1508,284,3834,NULL,NULL,NULL,NULL,NULL),
     (3002,NULL,NULL,4666,239,4067,4067,3777,4388,4921,NULL,8936,239,2494,1951,NULL,NULL,NULL,NULL,NULL),
     (3003,NULL,NULL,546,280,4399,4318,4314,4919,3227,NULL,546,280,1261,2200,NULL,NULL,NULL,NULL,NULL),
@@ -4017,8 +4010,7 @@ VALUES
     (3999,NULL,NULL,2748,1652,3143,4067,4376,4255,3548,NULL,2748,1652,2494,673,NULL,NULL,NULL,NULL,NULL),
     (4000,NULL,NULL,859,4524,3284,3226,4524,4287,4580,NULL,859,8794,2948,3826,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (4001,NULL,NULL,2259,368,3941,3882,3964,3512,3425,NULL,2259,368,1598,671,NULL,NULL,NULL,NULL,NULL),
     (4002,NULL,NULL,4581,3210,3519,4436,4436,4581,3419,NULL,8851,7480,2907,2199,NULL,NULL,NULL,NULL,NULL),
     (4003,NULL,NULL,1072,1199,3386,3143,4776,4580,3856,NULL,1072,1199,2494,3826,NULL,NULL,NULL,NULL,NULL),
@@ -5020,8 +5012,7 @@ VALUES
     (4999,NULL,NULL,1078,993,4216,4216,4835,4538,4921,NULL,1078,993,2859,1951,NULL,NULL,NULL,NULL,NULL),
     (5000,NULL,NULL,4923,2218,4330,3766,4141,4586,4746,NULL,9193,2218,1413,233,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (5001,NULL,NULL,1291,4024,3506,4998,4097,4888,4580,NULL,1291,8294,1165,3831,NULL,NULL,NULL,NULL,NULL),
     (5002,NULL,NULL,110,4045,3992,4045,3715,3578,3756,NULL,110,8315,2840,671,NULL,NULL,NULL,NULL,NULL),
     (5003,NULL,NULL,3251,1370,3304,4884,3304,4828,4808,NULL,7521,1370,1601,671,NULL,NULL,NULL,NULL,NULL),
@@ -6023,8 +6014,7 @@ VALUES
     (5999,NULL,NULL,2559,441,4599,3447,3876,4222,3228,NULL,2559,441,2092,672,NULL,NULL,NULL,NULL,NULL),
     (6000,NULL,NULL,2363,1361,3004,3126,4929,3616,4210,NULL,2363,1361,1794,1482,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (6001,NULL,NULL,4365,204,4517,4436,4436,4281,3211,NULL,8635,204,2907,233,NULL,NULL,NULL,NULL,NULL),
     (6002,NULL,NULL,2363,1433,4305,4629,4840,4353,4150,NULL,2363,1433,891,1482,NULL,NULL,NULL,NULL,NULL),
     (6003,NULL,NULL,4321,68,4944,4849,3338,3482,3766,NULL,8591,68,274,671,NULL,NULL,NULL,NULL,NULL),
@@ -7026,8 +7016,7 @@ VALUES
     (6999,NULL,NULL,4281,3263,3263,3263,3561,3998,3211,NULL,8551,7533,2816,233,NULL,NULL,NULL,NULL,NULL),
     (7000,NULL,NULL,4821,1711,4452,4619,3054,3418,4821,NULL,9091,1711,284,3833,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (7001,NULL,NULL,3295,4603,4671,4777,4426,4580,3297,NULL,7565,8873,1600,3828,NULL,NULL,NULL,NULL,NULL),
     (7002,NULL,NULL,2336,238,4940,3138,3035,4832,3054,NULL,2336,238,3057,3825,NULL,NULL,NULL,NULL,NULL),
     (7003,NULL,NULL,4536,2226,3193,4191,3008,3437,3418,NULL,8806,2226,3086,3828,NULL,NULL,NULL,NULL,NULL),
@@ -8029,8 +8018,7 @@ VALUES
     (7999,NULL,NULL,2426,1408,4170,3345,3295,3001,4966,NULL,2426,1408,3358,3829,NULL,NULL,NULL,NULL,NULL),
     (8000,NULL,NULL,2870,2244,4067,4376,4122,4222,4697,NULL,2870,2244,2494,671,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (8001,NULL,NULL,2363,1132,4349,4236,3894,4234,3212,NULL,2363,1132,16,1481,NULL,NULL,NULL,NULL,NULL),
     (8002,NULL,NULL,4587,2218,3285,3658,3020,4348,3246,NULL,8857,2218,1413,233,NULL,NULL,NULL,NULL,NULL),
     (8003,NULL,NULL,2843,2617,4482,3314,3756,4660,3611,NULL,2843,2617,2368,671,NULL,NULL,NULL,NULL,NULL),
@@ -9032,8 +9020,7 @@ VALUES
     (8999,NULL,NULL,1291,601,4048,4482,3272,4635,3295,NULL,1291,601,2369,3828,NULL,NULL,NULL,NULL,NULL),
     (9000,NULL,NULL,1128,601,4643,3272,4048,3509,3996,NULL,1128,601,2368,233,NULL,NULL,NULL,NULL,NULL);
 SET IDENTITY_INSERT BillOfLading ON;
-INSERT INTO BillOfLading ([Bill-of-Lading Key] [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], Incoterm, [Expected Tariffs], [Actual Tariffs])
-VALUES
+INSERT INTO BillOfLading [Bill-of-Lading Key], [Bill-of-Lading Number], [Issued Date], [Consignor Key], [Consignee Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key], [Domestic Transporter Key], [Domestic Consolidator Key], [Ship Mode], [Place of Receipt Key], [Place of Delivery Key], [Port of Loading Key], [Port of Discharge Key], [Commodity Key], [Container Key], [Incoterm], [Expected Tariffs], [Actual Tariffs] VALUES
     (9001,NULL,NULL,923,766,4064,3992,4220,3298,3124,NULL,923,766,2841,671,NULL,NULL,NULL,NULL,NULL),
     (9002,NULL,NULL,3986,2935,4946,4599,3561,3677,3761,NULL,8256,2935,2744,233,NULL,NULL,NULL,NULL,NULL),
     (9003,NULL,NULL,2344,49,4370,4789,4426,3428,3742,NULL,2344,49,4215,3834,NULL,NULL,NULL,NULL,NULL),
@@ -10034,5 +10021,3 @@ VALUES
     (9998,NULL,NULL,2363,2448,4226,3955,4631,4348,4793,NULL,2363,2448,3156,1481,NULL,NULL,NULL,NULL,NULL),
     (9999,NULL,NULL,533,1071,3126,3397,3742,4159,4287,NULL,533,1071,1795,3829,NULL,NULL,NULL,NULL,NULL),
     (10000,NULL,NULL,2866,204,3519,3519,4436,4159,3295,NULL,2866,204,2907,3825,NULL,NULL,NULL,NULL,NULL);
-
-SET IDENTITY_INSERT BillOfLading OFF;
