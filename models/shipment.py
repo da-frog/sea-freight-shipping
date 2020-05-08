@@ -12,9 +12,9 @@ class Shipment(BaseModel):
     _instances: ClassVar[List['Shipment']] = []
     fields = (
         ('Shipment Key', None, 'int'),
-        'Voyage Schedule Key',
-        'Vehicle Key',
-        'Bill-of-Lading Key',
+        ('Voyage Schedule Key', None, 'int'),
+        ('Vehicle Key', None, 'int'),
+        ('Bill-of-Lading Key', None, 'int'),
         ('Shipment Fees', None, 'decimal'),
     )
 
