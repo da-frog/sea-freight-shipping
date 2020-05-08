@@ -36,7 +36,7 @@ GO
 
 CREATE TABLE BusinessEntityDimension
 (
-    [Business Entity Key] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [Business Entity Key] int IDENTITY NOT NULL PRIMARY KEY,
     [Name]                nvarchar(255),
     [Telephone]           nvarchar(30),
     [Fax]                 nvarchar(30),
@@ -50,7 +50,7 @@ CREATE TABLE BusinessEntityDimension
 
 CREATE TABLE CommodityDimension
 (
-    [Commodity Key]           int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [Commodity Key]           int IDENTITY NOT NULL PRIMARY KEY,
     [HS Code]                 nvarchar(6),
     [Commodity Description]   nvarchar(511),
     [Catagory Description]    nvarchar(511),
@@ -62,7 +62,7 @@ CREATE TABLE CommodityDimension
 
 CREATE TABLE ContainerDimension
 (
-    [Container Key]                     int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [Container Key]                     int IDENTITY NOT NULL PRIMARY KEY,
     [Container Number]                  nvarchar(11),
     [Container Type]                    nvarchar(255),
     [Container Tare Weight (kg)]        int,
@@ -87,10 +87,10 @@ CREATE TABLE ContainerDimension
 
 CREATE TABLE DateDimension
 (
-    [Date Key]                      int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [Date Key]                      int IDENTITY NOT NULL PRIMARY KEY,
     [Date]                          date,
     [Full date description]         nvarchar(255),
-    [Date of Week]                  nvarchar(9),
+    [Day of Week]                   nvarchar(9),
     [Day Number in Calendar Month]  tinyint,
     [Day Number in Calendar Year]   smallint,
     [Day Number in Fiscal Month]    tinyint,
@@ -130,7 +130,7 @@ CREATE TABLE CountrySpecificDateOutrigger
 
 CREATE TABLE PortDimension
 (
-    [Port Key]       int IDENTITY (1,1) NOT NULL,
+    [Port Key]       int IDENTITY NOT NULL,
     [Port Name]      nvarchar(255),
     [Port Type]      nvarchar(255),
     [Port Country]   nvarchar(255),
@@ -143,7 +143,7 @@ CREATE TABLE PortDimension
 
 CREATE TABLE ShipModeDimension
 (
-    [Ship Mode Key]          int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [Ship Mode Key]          int IDENTITY NOT NULL PRIMARY KEY,
     [Vehicle Type]           nvarchar(255),
     [Vehicle Name]           nvarchar(255),
     [Vehicle Capacity]       int,
