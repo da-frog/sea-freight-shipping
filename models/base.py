@@ -286,6 +286,7 @@ class BaseModel(metaclass=BaseModelMeta):
                 writer.writerows(lst)
                 print(f"wrote group#{group_num} for {cls.__name__} at {time.ctime(time.time())}")
                 group_num += 1
+            writer.write_identity_insert(cls.__name__, 'OFF')
         print()
 
     def as_json(self) -> dict:

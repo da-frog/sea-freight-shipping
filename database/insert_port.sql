@@ -4281,3 +4281,4 @@ INSERT INTO Port ([Port Key], [Address Key], [Port Name], [Port Type], [Port Siz
     (4268,7268,N'Ras Isa Marine Terminal',N'Off-Shore Terminal',N'Very Small',N'+0119671414060',NULL,NULL,NULL,NULL,N'www.huntoil.com'),
     (4269,7269,N'Saleef Port',N'Seaport',N'Small',N'967 3 75057',NULL,NULL,NULL,NULL,NULL),
     (4270,7270,N'Harare',NULL,NULL,NULL,NULL,NULL,N'ZWHRE',NULL,NULL);
+SET IDENTITY_INSERT Port OFF;

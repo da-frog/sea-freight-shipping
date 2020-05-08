@@ -5011,3 +5011,4 @@ INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Di
     (4998,N'HLXU',N'131043',N'0',N'22',N'G0'),
     (4999,N'HLBU',N'131059',N'8',N'45',N'G0'),
     (5000,N'HLBU',N'131067',N'0',N'45',N'G0');
+SET IDENTITY_INSERT Container OFF;

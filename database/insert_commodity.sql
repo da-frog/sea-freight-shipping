@@ -5011,3 +5011,4 @@ INSERT INTO Commodity ([Commodity Key], [HS Code], [Description], [Package Size 
     (4998,N'811213',N'Donec vitae nisi.',1.805,975.67),
     (4999,N'830590',N'Ut at dolor quis odio consequat varius. Integer ac leo.',0.507,570.86),
     (5000,N'030771',N'Nulla suscipit ligula in lacus.',1.245,1071.74);
+SET IDENTITY_INSERT Commodity OFF;

@@ -1205,3 +1205,4 @@ INSERT INTO Vehicle ([Vehicle Key], [Vehicle Speed (km/h)], [Vehicle Type], [Veh
     (1198,17.779,N'LNG Tanker',N'ARCTIC LADY',84878,N'ABG Shipyard Limited',74.38,N'52.44874',N'2.90949',N'9284192'),
     (1199,31.299,N'LNG Tanker',N'ARCTIC PRINCESS',84878,N'Aker Arctic',89.95,N'67.53353',N'8.61069',N'9271248'),
     (1200,22.039,N'LNG Tanker',N'LNG BARKA',82308,N'German Naval Yards Kiel',77.62,N'4.259',N'126.37358',N'9341299');
+SET IDENTITY_INSERT Vehicle OFF;

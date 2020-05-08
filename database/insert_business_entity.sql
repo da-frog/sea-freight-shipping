@@ -5011,3 +5011,4 @@ INSERT INTO BusinessEntity ([Business Entity Key], [Name], [E-mail], [Phone], [F
     (4998,N'Bogan LLC',N'mporkissrp@go.com',N'824-313-7376',N'627-815-0624',9268),
     (4999,N'Hilll-Ritchie',N'waspeyrq@networksolutions.com',N'544-225-0654',N'480-795-9119',9269),
     (5000,N'Toy-Kirlin',N'alochetrr@nasa.gov',N'797-241-2200',N'234-425-9201',9270);
+SET IDENTITY_INSERT BusinessEntity OFF;
