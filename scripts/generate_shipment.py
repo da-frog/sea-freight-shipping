@@ -147,11 +147,11 @@ def main(n: int):
     load_database()
     generate_shipment(int(n))
     dump_database(str(n), 'json')
-    dump_database(str(n))
+    dump_database(str(n), 'sql')
 
 
 if __name__ == '__main__':
-    main(8000)
+    main(1000)
     # load_database('500')
     # for model in [
     #     Address,

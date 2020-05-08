@@ -43,7 +43,7 @@ class Shipment(BaseModel):
         return BillOfLading.get_instance_by_key(self.bill_of_lading_key)
 
     @property
-    def shipment_fees(self) -> float:
+    def voyage_fee(self) -> float:
         if self.vehicle_key is not None:
             return self.voyage_schedule.get_fees(self.vehicle)
 

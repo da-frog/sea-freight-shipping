@@ -40,7 +40,9 @@ class Leg(BaseModel):
 
     @property
     def leg_kms(self) -> float:
-        return self.origin_port.location.calculate_distance(self.destination_port.location)
+        d = self.origin_port.location.calculate_distance(self.destination_port.location)
+        assert d > 0
+        return d
 
     @property
     def leg_miles(self) -> float:
@@ -48,7 +50,9 @@ class Leg(BaseModel):
 
     def get_expected_time(self, vehicle: Vehicle) -> timedelta:
         try:
-            return timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
+            time = timedelta(hours=self.leg_kms / vehicle.vehicle_speed_kmh)
+            assert time > timedelta(0)
+            return time
         except TypeError:
             return timedelta(hours=self.leg_kms / 20)
 
@@ -365,13 +369,16 @@ class VoyageSchedule(BaseModel):
 
     def cascade_scheduled_date(self, vehicle: Vehicle):
         first_ls = self.leg_schedules[0]
-        first_ls.destination_port_scheduled_arrival_date = first_ls.origin_port_scheduled_departure_date + first_ls.leg.get_expected_time(
-            vehicle)
+        first_ls.destination_port_scheduled_arrival_date = first_ls.origin_port_scheduled_departure_date + first_ls.leg.get_expected_time(vehicle)
         for ls1, ls2 in pairwise(self.leg_schedules):
             expected_delay = TimeDelta(days=int(np.random.poisson(1.5, 1)))
-            ls2.destination_port_scheduled_arrival_date = ls1.origin_port_scheduled_departure_date + ls1.leg.get_expected_time(
-                vehicle)
-            ls2.origin_port_scheduled_departure_date = ls2.destination_port_scheduled_arrival_date + expected_delay
+            ls2.origin_port_scheduled_departure_date = ls1.destination_port_scheduled_arrival_date + expected_delay
+            ls2.destination_port_scheduled_arrival_date = ls2.origin_port_scheduled_departure_date + ls2.leg.get_expected_time(vehicle)
+
+            if not ls1.destination_port_scheduled_arrival_date >= ls1.origin_port_scheduled_departure_date:
+                raise AssertionError(f'{ls2.destination_port_scheduled_arrival_date=} {ls1.origin_port_scheduled_departure_date=} {ls1.leg.get_expected_time(vehicle)=} {ls1.leg.leg_miles=} {ls1.leg.origin_port=} {ls1.leg.destination_port=}')
+            if not ls2.destination_port_scheduled_arrival_date >= ls2.origin_port_scheduled_departure_date:
+                raise AssertionError(f'{ls2.origin_port_scheduled_departure_date=} {ls2.destination_port_scheduled_arrival_date=} {expected_delay=}')
 
     @property
     def scheduled_arrival_date(self):
@@ -399,6 +406,10 @@ class VoyageSchedule(BaseModel):
         else:
             accidental_port_delay = 0
         accidental_port_delay = TimeDelta(days=int(accidental_port_delay))
+        # assert travel_delay >= timedelta(0)
+        # assert port_delay >= timedelta(0)
+        # assert accidental_delay >= timedelta(0)
+        # assert accidental_port_delay >= timedelta(0)
         return travel_delay, port_delay, accidental_delay, accidental_port_delay
 
     def cascade_actual_date(self, vehicle: Vehicle):
@@ -408,17 +419,15 @@ class VoyageSchedule(BaseModel):
         travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
         first_ls = self.leg_schedules[0]
         first_ls.origin_port_actual_departure_date = first_ls.origin_port_scheduled_departure_date + port_delay + accidental_port_delay
-
+        first_ls.destination_port_actual_arrival_date = first_ls.origin_port_actual_departure_date + first_ls.leg.get_expected_time(vehicle) + travel_delay + accidental_delay
         for ls1, ls2 in pairwise(self.leg_schedules):
             travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
-            ls1.destination_port_actual_arrival_date = ls1.origin_port_actual_departure_date + ls1.leg.get_expected_time(
-                vehicle) + travel_delay + accidental_delay
             ls2.origin_port_actual_departure_date = ls1.destination_port_actual_arrival_date + port_delay + accidental_port_delay
+            ls2.destination_port_actual_arrival_date = ls2.origin_port_actual_departure_date + ls2.leg.get_expected_time(
+                vehicle) + travel_delay + accidental_delay
 
-        travel_delay, port_delay, accidental_delay, accidental_port_delay = self.get_delays()
-        last_ls = self.leg_schedules[-1]
-        last_ls.destination_port_actual_arrival_date = last_ls.origin_port_actual_departure_date + last_ls.leg.get_expected_time(
-            vehicle) + travel_delay + accidental_delay
+            assert ls1.destination_port_actual_arrival_date >= ls1.origin_port_actual_departure_date
+            assert ls2.destination_port_actual_arrival_date >= ls2.origin_port_actual_departure_date
 
     @property
     def actual_departure_date(self):
