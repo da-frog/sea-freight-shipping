@@ -1,4 +1,4 @@
-from typing import Sequence, List, ClassVar, Tuple, TypeVar, Type
+from typing import List, ClassVar, Tuple, TypeVar, Type
 from datetime import date, datetime
 import time
 
@@ -7,21 +7,9 @@ import json
 
 from jsoncompat import JSONEncoder, JSONDecoder, Date
 from frogsql import SQLWriter
+from utils import common_name_to_snake_case
 
 T = TypeVar('T')
-
-
-def common_name_to_snake_case(s: str):
-    """ 'Bill-Of-Lading Key' -> 'bill_of_lading_key' """
-    chars = []
-    for c in s:
-        if c.isalnum():
-            chars.append(c)
-        else:
-            if c in (' ', '-', '_'):
-                chars.append(' ')
-    # TODO: deal with numbers in front
-    return ''.join(chars).replace(' ', '_').replace('-', '_').lower()
 
 
 class BaseModelMeta(type):

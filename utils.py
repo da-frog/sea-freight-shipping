@@ -92,3 +92,16 @@ def capwords_to_snake_case(s: str) -> str:
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
+
+
+def common_name_to_snake_case(s: str):
+    """ 'Bill-Of-Lading Key' -> 'bill_of_lading_key' """
+    chars = []
+    for c in s:
+        if c.isalnum():
+            chars.append(c)
+        else:
+            if c in (' ', '-', '_'):
+                chars.append(' ')
+    # TODO: deal with numbers in front
+    return ''.join(chars).replace(' ', '_').replace('-', '_').lower()
