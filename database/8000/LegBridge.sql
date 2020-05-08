@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.LegBridge', 'U') IS NOT NULL
-    DELETE FROM LegBridge;
+    TRUNCATE TABLE LegBridge;
 GO
 INSERT INTO LegBridge ([Leg Bridge Key], [Leg Key]) VALUES
     (1,1),

@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.VoyageSchedule', 'U') IS NOT NULL
-    DELETE FROM VoyageSchedule;
+    TRUNCATE TABLE VoyageSchedule;
 GO
 SET IDENTITY_INSERT VoyageSchedule ON;
 INSERT INTO VoyageSchedule ([Voyage Schedule Key], [Voyage Key], [Leg Schedule Bridge Key]) VALUES

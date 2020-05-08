@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.Vehicle', 'U') IS NOT NULL
-    DELETE FROM Vehicle;
+    TRUNCATE TABLE Vehicle;
 GO
 SET IDENTITY_INSERT Vehicle ON;
 INSERT INTO Vehicle ([Vehicle Key], [Vehicle Speed (km/h)], [Vehicle Type], [Vehicle Name], [Vehicle Capacity], [Vehicle Builder], [Vehicle Fuel Usage per Day], [Current Latitude], [Current Longitude], [IMO Number]) VALUES

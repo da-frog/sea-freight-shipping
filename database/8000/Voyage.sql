@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.Voyage', 'U') IS NOT NULL
-    DELETE FROM Voyage;
+    TRUNCATE TABLE Voyage;
 GO
 SET IDENTITY_INSERT Voyage ON;
 INSERT INTO Voyage ([Voyage Key], [Leg Bridge Key], [Origin Port Key], [Destination Port Key]) VALUES

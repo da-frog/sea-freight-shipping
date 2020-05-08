@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.LegScheduleBridge', 'U') IS NOT NULL
-    DELETE FROM LegScheduleBridge;
+    TRUNCATE TABLE LegScheduleBridge;
 GO
 INSERT INTO LegScheduleBridge ([Leg Schedule Bridge Key], [Leg Schedule Key]) VALUES
     (1,1),

@@ -121,7 +121,8 @@ class SQLWriter:
         self.f.write(f'    {text};\n')
 
     def write_delete(self, table_name: str):
-        self.f.write(f"IF OBJECT_ID('dbo.{table_name}', 'U') IS NOT NULL\n    DELETE FROM {table_name};\nGO\n")
+        # self.f.write(f"IF OBJECT_ID('dbo.{table_name}', 'U') IS NOT NULL\n    DELETE FROM {table_name};\nGO\n")
+        self.f.write(f"IF OBJECT_ID('dbo.Shipment', 'U') IS NOT NULL\b    TRUNCATE TABLE {table_name};\nGO\n")
 
     def write_identity_insert(self, table_name: str, value: str = 'ON'):
         assert value.upper() in ('ON', 'OFF')

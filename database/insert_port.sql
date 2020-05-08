@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.Port', 'U') IS NOT NULL
-    DELETE FROM Port;
+    TRUNCATE TABLE Port;
 GO
 SET IDENTITY_INSERT Port ON;
 INSERT INTO Port ([Port Key], [Address Key], [Port Name], [Port Type], [Port Size], [Phone], [Fax], [800 Number], [UN/LOCODE], [Email], [Website]) VALUES

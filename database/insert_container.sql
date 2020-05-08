@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.Container', 'U') IS NOT NULL
-    DELETE FROM Container;
+    TRUNCATE TABLE Container;
 GO
 SET IDENTITY_INSERT Container ON;
 INSERT INTO Container ([Container Key], [Owner Code], [Serial Number], [Check Digit], [ISO Size Code], [ISO Type Code]) VALUES

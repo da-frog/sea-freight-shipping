@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.BusinessEntity', 'U') IS NOT NULL
-    DELETE FROM BusinessEntity;
+    TRUNCATE TABLE BusinessEntity;
 GO
 SET IDENTITY_INSERT BusinessEntity ON;
 INSERT INTO BusinessEntity ([Business Entity Key], [Name], [E-mail], [Phone], [Fax], [Address Key]) VALUES

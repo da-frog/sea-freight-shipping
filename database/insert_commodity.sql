@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.Commodity', 'U') IS NOT NULL
-    DELETE FROM Commodity;
+    TRUNCATE TABLE Commodity;
 GO
 SET IDENTITY_INSERT Commodity ON;
 INSERT INTO Commodity ([Commodity Key], [HS Code], [Description], [Package Size (m^3)], [Package Weight (kg)]) VALUES

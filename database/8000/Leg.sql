@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.Leg', 'U') IS NOT NULL
-    DELETE FROM Leg;
+    TRUNCATE TABLE Leg;
 GO
 SET IDENTITY_INSERT Leg ON;
 INSERT INTO Leg ([Leg Key], [Origin Port Key], [Destination Port Key], [Leg Miles]) VALUES
