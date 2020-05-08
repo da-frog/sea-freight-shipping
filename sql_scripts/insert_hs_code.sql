@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.HarmonizedSystem', 'U') IS NOT NULL
-    DELETE FROM HarmonizedSystem;
+    TRUNCATE TABLE HarmonizedSystem;
 GO
 INSERT INTO HarmonizedSystem VALUES
     (N'I',N'01',N'Animals; live',N'TOTAL',N'2'),

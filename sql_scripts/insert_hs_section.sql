@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.HSSection', 'U') IS NOT NULL
-    DELETE FROM HSSection;
+    TRUNCATE TABLE HSSection;
 GO
 INSERT INTO HSSection VALUES
     (N'I',N'live animals; animal products'),

@@ -1,5 +1,5 @@
 IF OBJECT_ID('dbo.ISOTypeCode', 'U') IS NOT NULL
-    DELETE FROM ISOTypeCode;
+    TRUNCATE TABLE ISOTypeCode;
 GO
 INSERT INTO ISOTypeCode VALUES
     (N'G',N'GP',N'G0',N'General purpose container wihout ventilation',NULL,N'Opening(s) at one end or both ends',NULL,NULL,NULL),
