@@ -1,7 +1,7 @@
 USE FreightShipping;
 
 IF OBJECT_ID('dbo.Commodity', 'U') IS NOT NULL
-    DELETE FROM Port;
+    DELETE FROM Commodity;
 GO
 
 SET IDENTITY_INSERT Commodity ON;
