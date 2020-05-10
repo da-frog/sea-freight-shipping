@@ -1,5 +1,5 @@
 from typing import List
-
+table_name = 'Date Dimension'
 table_columns_text = '''
 [Date Key]
 [Date]
@@ -27,16 +27,54 @@ table_columns_text = '''
 [Fiscal Year-Quarter]
 [Fiscal Year]
 '''
-
 view_names_text = '''
-Scheduled Voyage Departure Date Key
-Scheduled Voyage Arrival Date Key
-Scheduled Shipment Departure Date Key
-Scheduled Shipment Arrival Date Key
-Actual Voyage Departure Date Key
-Actual Voyage Arrival Date Key
-Actual Shipment Departure Date Key
-Actual Shipment Arrival Date Key
+Scheduled Voyage Departure Date
+Scheduled Voyage Arrival Date
+Scheduled Shipment Departure Date
+Scheduled Shipment Arrival Date
+Actual Voyage Departure Date
+Actual Voyage Arrival Date
+Actual Shipment Departure Date
+Actual Shipment Arrival Date
+'''
+
+table_name = 'Port Dimension'
+table_columns_text = '''
+[Port Key]
+[Port Name]
+[Port Type]
+[Port Country]
+[Port City]
+[Port Address]
+[Port Telephone]
+'''
+view_names_text = '''
+Voyage Origin Port
+Voyage Destination Port
+Shipment Origin Port
+Shipment Destination Port
+'''
+
+table_name = 'Business Entity Dimension'
+table_columns_text = '''
+[Business Entity Key]
+[Business Entity Name]
+[Business Entity Telephone]
+[Business Entity Fax]
+[Business Entity Email]
+[Business Entity Address]
+[Business Entity City]
+[Business Entity Country]
+[Business Entity ZIP code]
+'''
+view_names_text = '''
+Consignor
+Foreign Transporter
+Foreign Consolidator
+Shipper
+Domestic Consolidator
+Domestic Transporter
+Consignee
 '''
 
 view_names = [line.strip() for line in view_names_text.splitlines() if line.strip()]
@@ -50,9 +88,9 @@ def write_create_view(source_name: str, view_name: str, source_columns: List[str
 
 for view_name in view_names:
     view_columns = [
-        f'[{view_name} {col[1:-1]}]'
+        f'[{col[1:-1]}]'.replace(table_name.split('Dimension')[0].strip(), view_name)
         for col in table_columns
     ]
-    write_create_view('DateDimension', view_names[0].replace(' ', ''), table_columns, view_columns)
-    print()
+    write_create_view(table_name, view_name.replace(' ', ''), table_columns, view_columns)
+    # print()
 
