@@ -29,10 +29,10 @@ def main(table_name: str, table_columns_text: str, view_names_text: str, file: T
             for col in table_columns
         ]
         if file is not None:
-            write_file_drop_view(file, view_name)
+            write_file_drop_view(file, view_name.replace(' ', ''))
             write_file_create_view(file, table_name.replace(' ', ''), view_name.replace(' ', ''), table_columns, view_columns)
         else:
-            write_drop_view(view_name)
+            write_drop_view(view_name.replace(' ', ''))
             write_create_view(table_name.replace(' ', ''), view_name.replace(' ', ''), table_columns, view_columns)
 
 
