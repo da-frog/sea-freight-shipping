@@ -2,20 +2,20 @@ from typing import List, TextIO
 
 
 def write_create_view(source_name: str, view_name: str, source_columns: List[str], view_columns: List[str]):
-    print(f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name} go")
+    print(f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name};\ngo")
 
 
 def write_drop_view(view_name: str):
-    print(f"drop view if exists {view_name} go")
+    print(f"drop view if exists {view_name};\ngo")
 
 
 def write_file_create_view(file: TextIO, source_name: str, view_name: str, source_columns: List[str], view_columns: List[str]):
-    file.write(f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name} go")
+    file.write(f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name};\ngo")
     file.write('\n')
 
 
 def write_file_drop_view(file: TextIO, view_name: str):
-    file.write(f"drop view if exists {view_name} go")
+    file.write(f"drop view if exists {view_name};\ngo")
     file.write('\n')
 
 
