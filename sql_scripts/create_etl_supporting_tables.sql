@@ -1,4 +1,4 @@
-USE FreightShipping;
+USE FreightShippingETL;
 
 IF OBJECT_ID('dbo.HSCode', 'U') IS NOT NULL
     DROP TABLE HSCode;
@@ -20,7 +20,6 @@ CREATE TABLE HSSection
     section nvarchar(5)   NOT NULL,
     name    nvarchar(255) NOT NULL,
 );
-USE FreightShipping;
 
 IF OBJECT_ID('dbo.ISOSizeCode1', 'U') IS NOT NULL
     DROP TABLE ISOSizeCode1;
