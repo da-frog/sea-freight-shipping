@@ -83,3 +83,17 @@ alter table ContainerCompany
     add constraint container_company_pk
         primary key nonclustered ([BIC Code])
 go
+
+
+IF OBJECT_ID('dbo.CountryAndContinentCodes', 'U') IS NOT NULL
+    DROP TABLE CountryAndContinentCodes;
+GO
+CREATE TABLE CountryAndContinentCodes
+(
+    [Continent_Name]                         nvarchar(255),
+    [Continent_Code]                         nvarchar(2),
+    [Country_Name]                           nvarchar(255),
+    [Two_Letter_Country_Code]                nvarchar(2),
+    [Three_Letter_Country_Code]              nvarchar(3),
+    [Country_Number]                         int
+);
