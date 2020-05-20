@@ -1,8 +1,8 @@
-USE FreightShipping;
-
-SELECT [Container Key],
+SELECT C.[Container Key],
        CONCAT(C.[Owner Code], [Serial Number], [Check Digit])              [Container Number],
-       [Type Designation]                                                  [Container Type],
+       C.[Owner Code]                                                      [Container Owner Code],
+       CC.[Company Name]                                                   [Container Builder],
+       ITC.[Type Designation]                                              [Container Type],
        [Tare Weight (kg)]                                                  [Container Tare Weight (kg)],
        [Inside Length (mm)]                                                [Container Inside Length (mm)],
        [Inside Width (mm)]                                                 [Container Inside Width (mm)],
@@ -26,16 +26,18 @@ SELECT [Container Key],
        [Container Electricity Indicator],
        [Container Refrigeration Indicator],
        [Container Danger Indicator]
-FROM Container C
-         JOIN ContainerModel CM ON C.[Container Model Key] = CM.[Container Model Key]
---               ON C.[ISO Size Code] = CM.[ISO Size Code]
+FROM FreightShipping.dbo.Container C
+         JOIN FreightShipping.dbo.ContainerModel CM ON C.[Container Model Key] = CM.[Container Model Key]
+    --               ON C.[ISO Size Code] = CM.[ISO Size Code]
 --                   AND C.[ISO Type Code] = CM.[ISO Type Code]
 --                   AND C.[Serial Number] >= CM.[Serial Number Range Start]
 --                   AND C.[Serial Number] <= CM.[Serial Number Range End]
-         JOIN ISOSizeCode1 ISC1
+         JOIN FreightShippingETL.dbo.ISOSizeCode1 ISC1
               ON SUBSTRING(C.[ISO Size Code], 1, 1) = ISC1.[Code character]
-         JOIN ISOSizeCode2 ISC2
+         JOIN FreightShippingETL.dbo.ISOSizeCode2 ISC2
               ON SUBSTRING(C.[ISO Size Code], 2, 1) = ISC2.[Code character]
-         JOIN ISOTypeCode ITC
+         JOIN FreightShippingETL.dbo.ISOTypeCode ITC
               ON C.[ISO Type Code] = ITC.[Detailed Type Code]
+         JOIN FreightShippingETL.dbo.ContainerCompany CC
+              ON C.[Owner Code] = CC.[BIC Code]
 ORDER BY [Container Key]

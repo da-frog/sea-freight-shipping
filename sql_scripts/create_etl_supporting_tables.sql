@@ -62,3 +62,24 @@ CREATE TABLE ISOTypeCode
     [Container Refrigeration Indicator] nvarchar(255),
     [Container Danger Indicator]        nvarchar(255)
 );
+
+
+IF OBJECT_ID('dbo.ContainerCompany', 'U') IS NOT NULL
+    DROP TABLE ContainerCompany;
+GO
+
+create table ContainerCompany
+(
+	[BIC Code] nvarchar(4) not null,
+	[Company Name] nvarchar(255) not null
+)
+go
+
+create unique index [container_company_BIC_code_uindex]
+	on ContainerCompany ([BIC Code])
+go
+
+alter table ContainerCompany
+	add constraint container_company_pk
+		primary key nonclustered ([BIC Code])
+go
