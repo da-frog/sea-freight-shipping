@@ -60,13 +60,21 @@ go
 
 create table CommodityDimension
 (
-    [Commodity Key]           int identity,
-    [HS Code]                 nvarchar(6),
-    [Commodity Description]   nvarchar(511),
-    [Catagory Description]    nvarchar(511),
-    [Subcategory Description] nvarchar(511),
-    [Package Size (m^3)]      decimal(18, 3),
-    [Package Weight (kg)]     decimal(18, 3)
+    [Commodity Key]              int identity,
+    [HS Code]                    nvarchar(6),
+    [HS Sub Heading]             nvarchar(6),
+    [HS Sub Heading Description] nvarchar(255),
+    [HS Heading]                 nvarchar(4),
+    [HS Heading Description]     nvarchar(255),
+    [HS Chapter]                 nvarchar(2),
+    [HS Chapter Description]     nvarchar(255),
+    [HS Section]                 nvarchar(5),
+    [HS Section Name]            nvarchar(255),
+    [Commodity Description]      nvarchar(511),
+    [Catagory Description]       nvarchar(511),
+    [Subcategory Description]    nvarchar(511),
+    [Package Size (m^3)]         decimal(18, 3),
+    [Package Weight (kg)]        decimal(18, 3)
 )
 go
 
@@ -84,7 +92,13 @@ create table ContainerDimension
 (
     [Container Key]                     int identity,
     [Container Number]                  nvarchar(11),
+    [Container Owner Code]              nvarchar(4),
+    [Container Builder]                 nvarchar(255),
+    [ISO Size Code]                     nvarchar(2),
+    [ISO Type Code]                     nvarchar(2),
+    [ISO Type Group Code]               nvarchar(2),
     [Container Type]                    nvarchar(255),
+    [Container Model Description]       nvarchar(255),
     [Container Tare Weight (kg)]        int,
     [Container Inside Length (mm)]      int,
     [Container Inside Width (mm)]       int,
