@@ -70,16 +70,16 @@ GO
 
 create table ContainerCompany
 (
-	[BIC Code] nvarchar(4) not null,
-	[Company Name] nvarchar(255) not null
+    [BIC Code]     nvarchar(4)   not null,
+    [Company Name] nvarchar(255) not null
 )
 go
 
 create unique index [container_company_BIC_code_uindex]
-	on ContainerCompany ([BIC Code])
+    on ContainerCompany ([BIC Code])
 go
 
 alter table ContainerCompany
-	add constraint container_company_pk
-		primary key nonclustered ([BIC Code])
+    add constraint container_company_pk
+        primary key nonclustered ([BIC Code])
 go
