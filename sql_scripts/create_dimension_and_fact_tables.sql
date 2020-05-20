@@ -292,6 +292,6 @@ create table ShippingTransportFact
 )
 go
 
-create unique index "ShippingTransportFact_[Bill-of-Lading Number (DD)]_uindex"
+create unique index "ShippingTransportFact_[Bill-of-Lading Number]_uindex"
     on ShippingTransportFact ([Bill-of-Lading Number])
 go
