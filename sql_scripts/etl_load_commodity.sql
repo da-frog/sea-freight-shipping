@@ -10,6 +10,12 @@ SELECT [Commodity Key],
        HSS.name        [HS Section Name],
        C.[Description] [HS Commodity Description],
        [Package Size (m^3)],
+       CASE
+           WHEN [Package Size (m^3)] < 1 THEN N'0.000–0.999'
+           WHEN [Package Size (m^3)] < 3 THEN N'1.000–2.999'
+           WHEN [Package Size (m^3)] < 5 THEN N'3.000–4.999'
+           ELSE N'5.000+'
+       END [Package Size Range (m^3)],
        [Package Weight (kg)]
 FROM FreightShipping.dbo.Commodity C
          JOIN FreightShippingETL.dbo.HSCode HS6 on SUBSTRING(C.[HS Code], 1, 6) = HS6.hscode -- Sub Heading
