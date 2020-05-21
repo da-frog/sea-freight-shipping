@@ -217,7 +217,7 @@ create table ShipModeDimension
     [Vehicle Speed (km/h)]   decimal(18, 3),
     [Vehicle Speed (mile/h)] decimal(18, 3),
     [Vehicle Builder]        nvarchar(255),
-    [Fuel cost per day]      decimal(18, 3)
+    [Fuel cost per day]      decimal(18, 2)
 )
 go
 
