@@ -14,7 +14,7 @@ SELECT [Vehicle Key],
            ELSE N'Ultra Large Container Vessel'
        END [Ship Size Category],
        [Vehicle Speed (km/h)],
-       CAST(ROUND([Vehicle Speed (km/h)] * 0.6, 3) AS decimal(18, 3)) [Vehicle Speed (mile/h)],
+       CAST(ROUND([Vehicle Speed (km/h)] * 0.6, 3) AS decimal(18, 3)) [Vehicle Speed (mph)],
        CAST(ROUND([Vehicle Speed (km/h)] * 0.54, 3) AS decimal(18, 1)) [Vehicle Speed (knots)],
        CASE
            WHEN [Vehicle Speed (km/h)] <= 22.2 THEN N'0.0–11.9'
