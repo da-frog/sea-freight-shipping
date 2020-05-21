@@ -42,9 +42,10 @@ create table BusinessEntityDimension
     [Business Entity Fax]       nvarchar(30),
     [Business Entity Email]     nvarchar(255),
     [Business Entity Address]   nvarchar(255),
+	[Business Entity Region]    nvarchar(255),
     [Business Entity City]      nvarchar(255),
     [Business Entity Country]   nvarchar(255),
-    [Business Entity ZIP code]  nvarchar(30)
+    [Business Entity ZIP code]  nvarchar(30),
 )
 go
 
@@ -70,9 +71,7 @@ create table CommodityDimension
     [HS Chapter Description]     nvarchar(255),
     [HS Section]                 nvarchar(5),
     [HS Section Name]            nvarchar(255),
-    [Commodity Description]      nvarchar(511),
-    [Catagory Description]       nvarchar(511),
-    [Subcategory Description]    nvarchar(511),
+    [HS Commodity Description]   nvarchar(511),
     [Package Size (m^3)]         decimal(18, 3),
     [Package Weight (kg)]        decimal(18, 3)
 )
@@ -210,14 +209,18 @@ go
 
 create table ShipModeDimension
 (
-    [Ship Mode Key]          int identity,
-    [Vehicle Type]           nvarchar(255),
-    [Vehicle Name]           nvarchar(255),
-    [Vehicle Capacity]       int,
-    [Vehicle Speed (km/h)]   decimal(18, 3),
-    [Vehicle Speed (mile/h)] decimal(18, 3),
-    [Vehicle Builder]        nvarchar(255),
-    [Fuel cost per day]      decimal(18, 2)
+    [Ship Mode Key]                        int identity,
+    [Vehicle Type]                         nvarchar(255),
+    [Vehicle Name]                         nvarchar(255),
+    [Vehicle Capacity]                     int,
+	[Ship Size Category]                   nvarchar(255),
+    [Vehicle Speed (km/h)]                 decimal(18, 3),
+	[Vehicle Speed Range (knots)]          nvarchar(255),
+    [Vehicle Speed (mile/h)]               decimal(18, 3),
+	[Vehicle Fuel Usage per Day Range 1]   nvarchar(255),
+	[Vehicle Fuel Usage per Day Range 2]   nvarchar(255),
+    [Vehicle Builder]                      nvarchar(255),
+    [Fuel cost per day]                    decimal(18, 2)
 )
 go
 
