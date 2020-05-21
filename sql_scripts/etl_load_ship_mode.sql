@@ -37,12 +37,12 @@ SELECT [Vehicle Key],
            WHEN [Vehicle Fuel Usage per Day] <= 225 THEN N'80000–89999'
            WHEN [Vehicle Fuel Usage per Day] <= 250 THEN N'90000–99999'
            ELSE N'100000+'
-       END [Vehicle Fuel Usage per Day Range],
+       END [Vehicle Fuel Usage per Day Range 1],
        CASE
            WHEN [Vehicle Fuel Usage per Day] <= 50  THEN     N'0-19999'
            WHEN [Vehicle Fuel Usage per Day] <= 150 THEN N'20000–59999'
            WHEN [Vehicle Fuel Usage per Day] <= 250 THEN N'60000–99999'
            ELSE N'100000+'
-       END [Vehicle Fuel Usage per Day Range]
+       END [Vehicle Fuel Usage per Day Range 2]
 FROM Vehicle V
 ORDER BY [Vehicle Key]
