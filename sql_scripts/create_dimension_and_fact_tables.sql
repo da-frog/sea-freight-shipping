@@ -73,6 +73,7 @@ create table CommodityDimension
     [HS Section Name]            nvarchar(255),
     [HS Commodity Description]   nvarchar(511),
     [Package Size (m^3)]         decimal(18, 3),
+    [Package Size Range (m^3)]   nvarchar(255),
     [Package Weight (kg)]        decimal(18, 3)
 )
 go
@@ -189,6 +190,7 @@ create table PortDimension
     [Port Key]       int identity,
     [Port Name]      nvarchar(255),
     [Port Type]      nvarchar(255),
+    [Port Region]    nvarchar(255),
     [Port Country]   nvarchar(255),
     [Port City]      nvarchar(255),
     [Port Address]   nvarchar(255),
@@ -215,8 +217,9 @@ create table ShipModeDimension
     [Vehicle Capacity]                     int,
 	[Ship Size Category]                   nvarchar(255),
     [Vehicle Speed (km/h)]                 decimal(18, 3),
+    [Vehicle Speed (mph)]                  decimal(18, 3),
+	[Vehicle Speed (knots)]                decimal(18, 1),
 	[Vehicle Speed Range (knots)]          nvarchar(255),
-    [Vehicle Speed (mile/h)]               decimal(18, 3),
 	[Vehicle Fuel Usage per Day Range 1]   nvarchar(255),
 	[Vehicle Fuel Usage per Day Range 2]   nvarchar(255),
     [Vehicle Builder]                      nvarchar(255),
