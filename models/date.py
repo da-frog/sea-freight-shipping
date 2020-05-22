@@ -56,6 +56,14 @@ class DateDimension(BaseModel):
         ('Fiscal Week Of Quarter', None, 'int'),
         ('Fiscal Week Of Year', None, 'int'),
         ('Calendar Week Ending Date', None, 'date'),
+        ('Day Name', None, 'nvarchar(3)'),
+        ('Month Name', None, 'nvarchar(3)'),
+        ('Full Day Name', None, 'nvarchar(9)'),
+        ('Full Month Name', None, 'nvarchar(9)'),
+        ('Fiscal Day Name', None, 'nvarchar(3)'),
+        ('Fiscal Month Name', None, 'nvarchar(3)'),
+        ('Fiscal Full Day Name', None, 'nvarchar(9)'),
+        ('Fiscal Full Month Name', None, 'nvarchar(9)'),
     )
 
     date: Date
@@ -204,9 +212,37 @@ class DateDimension(BaseModel):
     def fiscal_week_of_year(self) -> int:
         return self.fiscal_date.isocalendar()[1]
 
-    # @property
-    # def day_of_week(self) -> str:
-    #     return _FULL_DAY_NAMES[self.date.isoweekday()]
+    @property
+    def day_name(self) -> str:
+        return _DAY_NAMES[self.date.isoweekday()]
+
+    @property
+    def month_name(self) -> str:
+        return _MONTH_NAMES[self.month_of_year]
+
+    @property
+    def full_day_name(self) -> str:
+        return _FULL_DAY_NAMES[self.date.isoweekday()]
+
+    @property
+    def full_month_name(self) -> str:
+        return _FULL_MONTH_NAMES[self.month_of_year]
+
+    @property
+    def fiscal_day_name(self) -> str:
+        return _DAY_NAMES[self.fiscal_date.isoweekday()]
+
+    @property
+    def fiscal_month_name(self) -> str:
+        return _MONTH_NAMES[self.fiscal_month_of_year]
+
+    @property
+    def fiscal_full_day_name(self) -> str:
+        return _FULL_DAY_NAMES[self.fiscal_date.isoweekday()]
+
+    @property
+    def fiscal_full_month_name(self) -> str:
+        return _FULL_MONTH_NAMES[self.fiscal_month_of_year]
 
     @property
     def last_day_in_month_indicator(self) -> str:
