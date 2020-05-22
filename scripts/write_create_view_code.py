@@ -78,7 +78,15 @@ if __name__ == '__main__':
             [Fiscal Week Of Month]       
             [Fiscal Week Of Quarter]     
             [Fiscal Week Of Year]        
-            [Calendar Week Ending Date]  
+            [Calendar Week Ending Date]
+            [Day Name]
+            [Month Name]
+            [Full Day Name]
+            [Full Month Name]
+            [Fiscal Day Name]
+            [Fiscal Month Name]
+            [Fiscal Full Day Name]
+            [Fiscal Full Month Name]
             ''', '''
             Scheduled Voyage Departure Date
             Scheduled Voyage Arrival Date

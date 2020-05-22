@@ -166,6 +166,14 @@ create table DateDimension
     [Fiscal Week Of Quarter]      int,
     [Fiscal Week Of Year]         int,
     [Calendar Week Ending Date]   date
+    ,[Day Name]                   nvarchar(3)
+    ,[Month Name]                 nvarchar(3)
+    ,[Full Day Name]              nvarchar(9)
+    ,[Full Month Name]            nvarchar(9)
+    ,[Fiscal Day Name]            nvarchar(3)
+    ,[Fiscal Month Name]          nvarchar(3)
+    ,[Fiscal Full Day Name]       nvarchar(9)
+    ,[Fiscal Full Month Name]     nvarchar(9)
 )
 go
 

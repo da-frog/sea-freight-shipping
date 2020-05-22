@@ -14,7 +14,9 @@ create view ScheduledVoyageDepartureDateDimension
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Scheduled Voyage Departure Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -51,6 +53,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Scheduled Shipment Departure Date Key];
 go
@@ -60,16 +70,18 @@ drop view if exists ScheduledVoyageArrivalDateDimension;
 go
 
 create view ScheduledVoyageArrivalDateDimension
-            ([Scheduled Voyage Arrival Date Key], [Full date description], [Scheduled Voyage Arrival Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Scheduled Voyage Arrival Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Scheduled Voyage Arrival Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -106,6 +118,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Scheduled Voyage Arrival Date Key];
 go
@@ -115,16 +135,18 @@ drop view if exists ScheduledShipmentDepartureDateDimension;
 go
 
 create view ScheduledShipmentDepartureDateDimension
-            ([Scheduled Shipment Departure Date Key], [Full date description], [Scheduled Shipment Departure Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Scheduled Shipment Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Scheduled Shipment Departure Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -161,6 +183,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Scheduled Shipment Departure Date Key];
 go
@@ -170,16 +200,18 @@ drop view if exists ScheduledShipmentArrivalDateDimension;
 go
 
 create view ScheduledShipmentArrivalDateDimension
-            ([Scheduled Shipment Arrival Date Key], [Full date description], [Scheduled Shipment Arrival Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Scheduled Shipment Arrival Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Scheduled Shipment Arrival Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -216,6 +248,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Scheduled Shipment Arrival Date Key];
 go
@@ -225,16 +265,18 @@ drop view if exists ActualVoyageDepartureDateDimension;
 go
 
 create view ActualVoyageDepartureDateDimension
-            ([Actual Voyage Departure Date Key], [Full date description], [Actual Voyage Departure Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Actual Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Actual Voyage Departure Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -271,6 +313,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Actual Voyage Departure Date Key];
 go
@@ -280,16 +330,18 @@ drop view if exists ActualVoyageArrivalDateDimension;
 go
 
 create view ActualVoyageArrivalDateDimension
-            ([Actual Voyage Arrival Date Key], [Full date description], [Actual Voyage Arrival Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Actual Voyage Arrival Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Actual Voyage Arrival Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -326,6 +378,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Actual Voyage Arrival Date Key];
 go
@@ -335,16 +395,18 @@ drop view if exists ActualShipmentDepartureDateDimension;
 go
 
 create view ActualShipmentDepartureDateDimension
-            ([Actual Shipment Departure Date Key], [Full date description], [Actual Shipment Departure Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Actual Shipment Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Actual Shipment Departure Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -381,6 +443,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Actual Shipment Departure Date Key];
 go
@@ -390,16 +460,18 @@ drop view if exists ActualShipmentArrivalDateDimension;
 go
 
 create view ActualShipmentArrivalDateDimension
-            ([Actual Shipment Arrival Date Key], [Full date description], [Actual Shipment Arrival Date],
+            ([Scheduled Voyage Departure Date Key], [Full date description], [Scheduled Voyage Departure Date],
              [Day Of Half Year], [Day Of Month], [Day Of Quarter], [Day Of Week], [Day Of Year], [Half Year Of Year],
              [Month Of Half Year], [Month Of Quarter], [Month Of Year], [Quarter Of Half Year], [Quarter Of Year],
              [Week Of Half Year], [Week Of Month], [Week Of Quarter], [Week Of Year],
-             [Fiscal Actual Shipment Arrival Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
+             [Fiscal Scheduled Voyage Departure Date], [Fiscal Day Of Half Year], [Fiscal Day Of Month],
              [Fiscal Day Of Quarter], [Fiscal Day Of Week], [Fiscal Day Of Year], [Fiscal Half Year Of Year],
              [Fiscal Month Of Half Year], [Fiscal Month Of Quarter], [Fiscal Month Of Year],
              [Fiscal Quarter Of Half Year], [Fiscal Quarter Of Year], [Fiscal Week Of Half Year],
              [Fiscal Week Of Month], [Fiscal Week Of Quarter], [Fiscal Week Of Year],
-             [Calendar Week Ending Actual Shipment Arrival Date])
+             [Calendar Week Ending Scheduled Voyage Departure Date], [Day Name], [Month Name], [Full Day Name],
+             [Full Month Name], [Fiscal Day Name], [Fiscal Month Name], [Fiscal Full Day Name],
+             [Fiscal Full Month Name])
 as
 select [Date Key],
        [Full date description],
@@ -436,6 +508,14 @@ select [Date Key],
        [Fiscal Week Of Quarter],
        [Fiscal Week Of Year],
        [Calendar Week Ending Date]
+       ,[Day Name]
+       ,[Month Name]
+       ,[Full Day Name]
+       ,[Full Month Name]
+       ,[Fiscal Day Name]
+       ,[Fiscal Month Name]
+       ,[Fiscal Full Day Name]
+       ,[Fiscal Full Month Name]
 from DateDimension DD
          join ShippingTransportFact STF on DD.[Date Key] = STF.[Actual Shipment Arrival Date Key];
 go
