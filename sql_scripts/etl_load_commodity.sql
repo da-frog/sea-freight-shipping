@@ -8,7 +8,7 @@ SELECT [Commodity Key],
        HS2.description [HS Chapter Description],
        HSS.section     [HS Section],
        HSS.name        [HS Section Name],
-       C.[Description] [HS Commodity Description],
+       C.[Description] [Commodity Description],
        [Package Size (m^3)],
        CASE
            WHEN [Package Size (m^3)] < 1 THEN N'0.000–0.999'

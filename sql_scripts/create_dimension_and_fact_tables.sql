@@ -71,7 +71,7 @@ create table CommodityDimension
     [HS Chapter Description]     nvarchar(255),
     [HS Section]                 nvarchar(5),
     [HS Section Name]            nvarchar(255),
-    [HS Commodity Description]   nvarchar(511),
+    [Commodity Description]      nvarchar(511),
     [Package Size (m^3)]         decimal(18, 3),
     [Package Size Range (m^3)]   nvarchar(255),
     [Package Weight (kg)]        decimal(18, 3)
@@ -220,10 +220,10 @@ create table ShipModeDimension
     [Vehicle Speed (mph)]                  decimal(18, 3),
 	[Vehicle Speed (knots)]                decimal(18, 1),
 	[Vehicle Speed Range (knots)]          nvarchar(255),
-	[Vehicle Fuel Usage per Day Range 1]   nvarchar(255),
-	[Vehicle Fuel Usage per Day Range 2]   nvarchar(255),
+	[Vehicle Fuel Cost Per Day Range 1]    nvarchar(255),
+	[Vehicle Fuel Cost Per Day Range 2]    nvarchar(255),
     [Vehicle Builder]                      nvarchar(255),
-    [Fuel cost per day]                    decimal(18, 2)
+    [Vehicle Fuel Cost Per Day]            decimal(18, 2)
 )
 go
 
