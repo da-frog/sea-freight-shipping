@@ -2,15 +2,18 @@ from typing import List, TextIO
 
 
 def write_create_view(source_name: str, view_name: str, source_columns: List[str], view_columns: List[str]):
-    print(f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name};\ngo")
+    print(
+        f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name};\ngo")
 
 
 def write_drop_view(view_name: str):
     print(f"drop view if exists {view_name};\ngo")
 
 
-def write_file_create_view(file: TextIO, source_name: str, view_name: str, source_columns: List[str], view_columns: List[str]):
-    file.write(f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name};\ngo")
+def write_file_create_view(file: TextIO, source_name: str, view_name: str, source_columns: List[str],
+                           view_columns: List[str]):
+    file.write(
+        f"create view {view_name} ({', '.join(view_columns)}) as select {', '.join(source_columns)} from {source_name};\ngo")
     file.write('\n')
 
 
@@ -30,7 +33,8 @@ def main(table_name: str, table_columns_text: str, view_names_text: str, file: T
         ]
         if file is not None:
             write_file_drop_view(file, view_name.replace(' ', ''))
-            write_file_create_view(file, table_name.replace(' ', ''), view_name.replace(' ', ''), table_columns, view_columns)
+            write_file_create_view(file, table_name.replace(' ', ''), view_name.replace(' ', ''), table_columns,
+                                   view_columns)
         else:
             write_drop_view(view_name.replace(' ', ''))
             write_create_view(table_name.replace(' ', ''), view_name.replace(' ', ''), table_columns, view_columns)
@@ -40,31 +44,41 @@ if __name__ == '__main__':
     with open('views.txt', 'w') as f:
         main(
             'Date Dimension', '''
-            [Date Key]
-            [Date]
-            [Full date description]
-            [Day of Week]
-            [Day Number in Calendar Month]
-            [Day Number in Calendar Year]
-            [Day Number in Fiscal Month]
-            [Day Number in Fiscal Year]
-            [Last Day in Month Indicator]
-            [Calendar Week Ending Date]
-            [Calendar Week]
-            [Calendar Week Number in Year]
-            [Calendar Month Name]
-            [Calendar Month Number in Year]
-            [Calendar Year-Month (YYYY-MM)]
-            [Calendar Quarter]
-            [Calendar Year-Quarter]
-            [Calendar Year]
-            [Fiscal Week]
-            [Fiscal Week Number in Year]
-            [Fiscal Month]
-            [Fiscal Year-Month]
-            [Fiscal Quarter]
-            [Fiscal Year-Quarter]
-            [Fiscal Year]
+            [Date Key]                   
+            [Full date description]      
+            [Date]                       
+            [Day Of Half Year]           
+            [Day Of Month]               
+            [Day Of Quarter]             
+            [Day Of Week]                
+            [Day Of Year]                
+            [Half Year Of Year]          
+            [Month Of Half Year]         
+            [Month Of Quarter]           
+            [Month Of Year]              
+            [Quarter Of Half Year]       
+            [Quarter Of Year]            
+            [Week Of Half Year]          
+            [Week Of Month]              
+            [Week Of Quarter]            
+            [Week Of Year]               
+            [Fiscal Date]                
+            [Fiscal Day Of Half Year]    
+            [Fiscal Day Of Month]        
+            [Fiscal Day Of Quarter]      
+            [Fiscal Day Of Week]         
+            [Fiscal Day Of Year]         
+            [Fiscal Half Year Of Year]   
+            [Fiscal Month Of Half Year]  
+            [Fiscal Month Of Quarter]    
+            [Fiscal Month Of Year]       
+            [Fiscal Quarter Of Half Year]
+            [Fiscal Quarter Of Year]     
+            [Fiscal Week Of Half Year]   
+            [Fiscal Week Of Month]       
+            [Fiscal Week Of Quarter]     
+            [Fiscal Week Of Year]        
+            [Calendar Week Ending Date]  
             ''', '''
             Scheduled Voyage Departure Date
             Scheduled Voyage Arrival Date
@@ -117,4 +131,4 @@ if __name__ == '__main__':
             Consignee
             ''',
             file=f
-    )
+        )
