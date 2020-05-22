@@ -22,65 +22,191 @@ class DateDimension(BaseModel):
     _instances = []
     fields = (
         ('Date Key', None, 'int'),
-        ('Date', None, 'date'),
         ('Full date description', None, 'nvarchar(255)'),
-        ('Day of Week', None, 'nvarchar(9)'),
-        ('Day Number in Calendar Month', None, 'tinyint'),
-        ('Day Number in Calendar Year', None, 'smallint'),
-        ('Day Number in Fiscal Month', None, 'tinyint'),
-        ('Day Number in Fiscal Year', None, 'smallint'),
-        ('Last Day in Month Indicator', None, 'nvarchar(50)'),
+        ('Date', None, 'date'),
+        ('Day Of Half Year', None, 'int'),
+        ('Day Of Month', None, 'int'),
+        ('Day Of Quarter', None, 'int'),
+        ('Day Of Week', None, 'int'),
+        ('Day Of Year', None, 'int'),
+        ('Half Year Of Year', None, 'int'),
+        ('Month Of Half Year', None, 'int'),
+        ('Month Of Quarter', None, 'int'),
+        ('Month Of Year', None, 'int'),
+        ('Quarter Of Half Year', None, 'int'),
+        ('Quarter Of Year', None, 'int'),
+        ('Week Of Half Year', None, 'int'),
+        ('Week Of Month', None, 'int'),
+        ('Week Of Quarter', None, 'int'),
+        ('Week Of Year', None, 'int'),
+        ('Fiscal Date', None, 'date'),
+        ('Fiscal Day Of Half Year', None, 'int'),
+        ('Fiscal Day Of Month', None, 'int'),
+        ('Fiscal Day Of Quarter', None, 'int'),
+        ('Fiscal Day Of Week', None, 'int'),
+        ('Fiscal Day Of Year', None, 'int'),
+        ('Fiscal Half Year Of Year', None, 'int'),
+        ('Fiscal Month Of Half Year', None, 'int'),
+        ('Fiscal Month Of Quarter', None, 'int'),
+        ('Fiscal Month Of Year', None, 'int'),
+        ('Fiscal Quarter Of Half Year', None, 'int'),
+        ('Fiscal Quarter Of Year', None, 'int'),
+        ('Fiscal Week Of Half Year', None, 'int'),
+        ('Fiscal Week Of Month', None, 'int'),
+        ('Fiscal Week Of Quarter', None, 'int'),
+        ('Fiscal Week Of Year', None, 'int'),
         ('Calendar Week Ending Date', None, 'date'),
-        ('Calendar Week', None, 'tinyint'),
-        ('Calendar Week Number in Year', None, 'tinyint'),
-        ('Calendar Month Name', None, 'nvarchar(9)'),
-        ('Calendar Month Number in Year', None, 'tinyint'),
-        ('Calendar Year-Month (YYYY-MM)', None, 'nvarchar(7)'),
-        ('Calendar Quarter', None, 'nvarchar(2)'),
-        ('Calendar Year-Quarter', None, 'nvarchar(7)'),
-        ('Calendar Year', None, 'smallint'),
-        ('Fiscal Week', None, 'tinyint'),
-        ('Fiscal Week Number in Year', None, 'tinyint'),
-        ('Fiscal Month', None, 'tinyint'),
-        ('Fiscal Year-Month', None, 'nvarchar(7)'),
-        ('Fiscal Quarter', None, 'nvarchar(2)'),
-        ('Fiscal Year-Quarter', None, 'nvarchar(7)'),
-        ('Fiscal Year', None, 'smallint'),
     )
 
     date: Date
-
-    @property
-    def fiscal_date(self) -> Date:
-        return self.date + _FISCAL_MISMATCH
 
     @property
     def date_key(self) -> int:
         return self.key
 
     @property
+    def fiscal_date(self) -> Date:
+        return self.date + _FISCAL_MISMATCH
+
+    @property
     def full_date_description(self) -> str:
         return f"{self.calendar_month_name} {self.date.day}, {self.date.year}"
 
     @property
-    def day_of_week(self) -> str:
-        return _FULL_DAY_NAMES[self.date.isoweekday()]
+    def day_of_half_year(self) -> int:
+        month = ((self.half_year_of_year - 1) * 6) + 1
+        return ((self.date - datetime.date(self.date.year, month, 1)) + datetime.timedelta(days=1)).days
 
     @property
-    def day_number_in_calendar_month(self) -> int:
+    def day_of_month(self) -> int:
         return self.date.day
 
     @property
-    def day_number_in_calendar_year(self) -> int:
+    def day_of_quarter(self) -> int:
+        month = ((self.quarter_of_year - 1) * 3) + 1
+        return ((self.date - datetime.date(self.date.year, month, 1)) + datetime.timedelta(days=1)).days
+
+    @property
+    def day_of_week(self) -> int:
+        return self.date.isoweekday()
+
+    @property
+    def day_of_year(self) -> int:
         return ((self.date - datetime.date(self.date.year, 1, 1)) + datetime.timedelta(days=1)).days
 
     @property
-    def day_number_in_fiscal_month(self) -> int:
+    def half_year_of_year(self) -> int:
+        if self.date - datetime.date(self.date.year, 7, 1) >= datetime.timedelta(0):
+            return 2
+        return 1
+
+    @property
+    def month_of_half_year(self) -> int:
+        return ((self.date.month - 1) % 6) + 1
+
+    @property
+    def month_of_quarter(self) -> int:
+        return ((self.date.month - 1) % 3) + 1
+
+    @property
+    def month_of_year(self) -> int:
+        return self.date.month
+
+    @property
+    def quarter_of_half_year(self) -> int:
+        return ((self.quarter_of_year - 1) % 2) + 1
+
+    @property
+    def quarter_of_year(self) -> int:
+        return (self.date.month - 1) // 3 + 1
+
+    @property
+    def week_of_half_year(self) -> int:
+        month = ((self.half_year_of_year - 1) * 6) + 1
+        return (self.date + (self.date - datetime.date(self.date.year, month, 1))).isocalendar()[1]
+
+    @property
+    def week_of_month(self) -> int:
+        return (self.date + (self.date - datetime.date(self.date.year, self.date.month, 1))).isocalendar()[1]
+
+    @property
+    def week_of_quarter(self) -> int:
+        month = ((self.quarter_of_year - 1) * 3) + 1
+        return (self.date + (self.date - datetime.date(self.date.year, month, 1))).isocalendar()[1]
+
+    @property
+    def week_of_year(self) -> int:
+        return self.date.isocalendar()[1]
+
+    @property
+    def fiscal_day_of_half_year(self) -> int:
+        month = ((self.fiscal_half_year_of_year - 1) * 6) + 1
+        return ((self.fiscal_date - datetime.date(self.fiscal_date.year, month, 1)) + datetime.timedelta(days=1)).days
+
+    @property
+    def fiscal_day_of_month(self) -> int:
         return self.fiscal_date.day
 
     @property
-    def day_number_in_fiscal_year(self) -> int:
+    def fiscal_day_of_quarter(self) -> int:
+        month = ((self.fiscal_quarter_of_year - 1) * 3) + 1
+        return ((self.fiscal_date - datetime.date(self.fiscal_date.year, month, 1)) + datetime.timedelta(days=1)).days
+
+    @property
+    def fiscal_day_of_week(self) -> int:
+        return self.fiscal_date.isoweekday()
+
+    @property
+    def fiscal_day_of_year(self) -> int:
         return ((self.fiscal_date - datetime.date(self.fiscal_date.year, 1, 1)) + datetime.timedelta(days=1)).days
+
+    @property
+    def fiscal_half_year_of_year(self) -> int:
+        if self.fiscal_date - datetime.date(self.fiscal_date.year, 7, 1) >= datetime.timedelta(0):
+            return 2
+        return 1
+
+    @property
+    def fiscal_month_of_half_year(self) -> int:
+        return ((self.fiscal_date.month - 1) % 6) + 1
+
+    @property
+    def fiscal_month_of_quarter(self) -> int:
+        return ((self.fiscal_date.month - 1) % 3) + 1
+
+    @property
+    def fiscal_month_of_year(self) -> int:
+        return self.fiscal_date.month
+
+    @property
+    def fiscal_quarter_of_half_year(self) -> int:
+        return ((self.fiscal_quarter_of_year - 1) % 2) + 1
+
+    @property
+    def fiscal_quarter_of_year(self) -> int:
+        return (self.fiscal_date.month - 1) // 3 + 1
+
+    @property
+    def fiscal_week_of_half_year(self) -> int:
+        month = ((self.half_year_of_year - 1) * 6) + 1
+        return (self.fiscal_date + (self.fiscal_date - datetime.date(self.fiscal_date.year, month, 1))).isocalendar()[1]
+
+    @property
+    def fiscal_week_of_month(self) -> int:
+        return (self.fiscal_date + (self.fiscal_date - datetime.date(self.fiscal_date.year, self.fiscal_date.month, 1))).isocalendar()[1]
+
+    @property
+    def fiscal_week_of_quarter(self) -> int:
+        month = ((self.fiscal_quarter_of_year - 1) * 3) + 1
+        return (self.fiscal_date + (self.fiscal_date - datetime.date(self.fiscal_date.year, month, 1))).isocalendar()[1]
+
+    @property
+    def fiscal_week_of_year(self) -> int:
+        return self.fiscal_date.isocalendar()[1]
+
+    # @property
+    # def day_of_week(self) -> str:
+    #     return _FULL_DAY_NAMES[self.date.isoweekday()]
 
     @property
     def last_day_in_month_indicator(self) -> str:
@@ -94,61 +220,5 @@ class DateDimension(BaseModel):
         return self.date + (datetime.timedelta(days=7 - self.date.isoweekday()))
 
     @property
-    def calendar_week(self) -> int:
-        return self.date.isocalendar()[1] % 4
-
-    @property
-    def calendar_week_number_in_year(self) -> int:
-        return self.date.isocalendar()[1]
-
-    @property
     def calendar_month_name(self) -> str:
         return _FULL_MONTH_NAMES[self.date.month]
-
-    @property
-    def calendar_month_number_in_year(self) -> int:
-        return self.date.month
-
-    @property
-    def calendar_year_month_yyyy_mm(self) -> str:
-        return self.date.isoformat()[:-3]
-
-    @property
-    def calendar_quarter(self) -> str:
-        return f'Q{(self.date.month - 1) // 3 + 1}'
-
-    @property
-    def calendar_year_quarter(self) -> str:
-        return f'{self.date.year}-{self.calendar_quarter}'
-
-    @property
-    def calendar_year(self) -> int:
-        return self.date.year
-
-    @property
-    def fiscal_week(self) -> int:
-        return self.fiscal_date.isocalendar()[1] % 4
-
-    @property
-    def fiscal_week_number_in_year(self) -> int:
-        return self.fiscal_date.isocalendar()[1]
-
-    @property
-    def fiscal_month(self) -> int:
-        return self.fiscal_date.month
-
-    @property
-    def fiscal_year_month(self) -> str:
-        return self.fiscal_date.isoformat()[:-3]
-
-    @property
-    def fiscal_quarter(self) -> str:
-        return f'Q{(self.fiscal_date.month - 1) // 3 + 1}'
-
-    @property
-    def fiscal_year_quarter(self) -> str:
-        return f'{self.fiscal_date.year}-{self.calendar_quarter}'
-
-    @property
-    def fiscal_year(self) -> int:
-        return self.fiscal_date.year
