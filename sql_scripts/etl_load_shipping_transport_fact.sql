@@ -24,7 +24,8 @@ SELECT SVDDDim.[Date Key]                [Scheduled Voyage Departure Date Key],
        [Voyage Fee],
        [Expected Tariffs],
        [Actual Tariffs],
-       SUM(L.[Leg Miles])            [Shipment Miles]
+       SUM(L.[Leg Miles])            [Shipment Miles],
+       [Incoterm]
 FROM FreightShipping.dbo.Shipment S
          JOIN FreightShipping.dbo.Vehicle Ve ON S.[Vehicle Key] = Ve.[Vehicle Key]
          JOIN FreightShipping.dbo.BillOfLading BOL ON S.[Bill-of-Lading Key] = BOL.[Bill-of-Lading Key]
@@ -59,5 +60,5 @@ GROUP BY LB.[Leg Bridge Key], SVDDDim.[Date Key], SVADDim.[Date Key], SSDDDim.[D
          EndLeg.[Destination Port Key], L1.[Origin Port Key], L2.[Destination Port Key], S.[Vehicle Key], [Container Key],
          [Commodity Key], [Consignor Key], [Foreign Transporter Key], [Foreign Consolidator Key], [Courier Key],
          [Domestic Consolidator Key], [Domestic Transporter Key], [Consignee Key], [Bill-of-Lading Number],
-         [Voyage Fee], [Expected Tariffs], [Actual Tariffs], [Shipment Key]
+         [Voyage Fee], [Expected Tariffs], [Actual Tariffs], [Shipment Key], [Incoterm]
 ORDER BY [Shipment Key]

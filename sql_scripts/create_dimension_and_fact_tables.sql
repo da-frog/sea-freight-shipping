@@ -326,7 +326,8 @@ create table ShippingTransportFact
     [Voyage Fee]                            decimal(19, 2),
     [Expected Tariffs]                      decimal(19, 2),
     [Actual Tariffs]                        decimal(19, 2),
-    [Shipment Miles]                        decimal(19, 2)
+    [Shipment Miles]                        decimal(19, 2),
+    [Incoterm]                              nvarchar(3)
 )
 go
 
