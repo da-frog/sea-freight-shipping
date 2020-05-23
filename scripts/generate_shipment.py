@@ -98,7 +98,7 @@ def create_route(bols: List[BillOfLading], n: int = 5) -> (List[Port], List[Bill
 
 def generate_shipment(n: int):
     print('**** main ****')
-    x = BillOfLading._instances.copy()
+    x = [bol for bol in BillOfLading._instances if bol.port_of_loading_key is not None]
     alllen = len(x)
     while len(x) > alllen - n:
         # create route
@@ -128,30 +128,31 @@ def generate_shipment(n: int):
         random.shuffle(all_route_bols)
 
         # split voyage to voyage schedules
-        if len(all_route_bols) > 6:
-            # FIRST PART
-            voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
+        # if len(all_route_bols) > 6:
+        # FIRST PART
+        voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
 
-            for bol in route_bols[:len(route_bols) // 2]:
-                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol.bill_of_lading_key)
+        for bol in all_route_bols[:len(all_route_bols) // 2]:
+            Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol.bill_of_lading_key)
 
-            # SECOND PART
-            voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
+        # SECOND PART
+        voyage_schedule = VoyageSchedule.create_voyage_schedule_from_ports(route_ports)
 
-            for bol in route_bols[len(route_bols) // 2:]:
-                Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol.bill_of_lading_key)
+        for bol in all_route_bols[len(all_route_bols) // 2:]:
+            Shipment(voyage_schedule_key=voyage_schedule.voyage_schedule_key, bill_of_lading_key=bol.bill_of_lading_key)
         # else:
 
 
 def main(n: int):
     load_database()
+    Shipment._instances.clear()
     generate_shipment(int(n))
     dump_database(str(n), 'json')
     dump_database(str(n), 'sql')
 
 
 if __name__ == '__main__':
-    main(1000)
+    main(8000)
     # load_database('500')
     # for model in [
     #     Address,
