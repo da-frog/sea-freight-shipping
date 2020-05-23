@@ -56,4 +56,4 @@ class Shipment(BaseModel):
                 shipments.append(instance)
         if shipments:
             return shipments
-        raise ValueError(f"No shipment with voyage key = '{voyage_schedule_key}' found")
+        raise ValueError(f"No shipment with voyage schedule key = '{voyage_schedule_key}' found")
