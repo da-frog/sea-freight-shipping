@@ -31,7 +31,8 @@ SELECT C.[Container Key],
        [Container Refrigeration Indicator],
        [Container Danger Indicator]
 FROM FreightShipping.dbo.Container C
-         JOIN FreightShipping.dbo.ContainerModel CM ON C.[Container Model Key] = CM.[Container Model Key]
+         JOIN FreightShipping.dbo.ContainerModel CM
+             ON C.[Container Model Key] = CM.[Container Model Key]
     --               ON C.[ISO Size Code] = CM.[ISO Size Code]
 --                   AND C.[ISO Type Code] = CM.[ISO Type Code]
 --                   AND C.[Serial Number] >= CM.[Serial Number Range Start]
